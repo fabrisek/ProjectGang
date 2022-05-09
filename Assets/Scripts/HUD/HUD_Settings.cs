@@ -11,6 +11,7 @@ public class HUD_Settings : MonoBehaviour
 {
     [SerializeField] TMP_Dropdown _resolutionDropDown;
     [SerializeField] TMP_Dropdown _displayTypeDropDown;
+    [SerializeField] TMP_Dropdown _antiAliasingDropDown;
 
     [SerializeField] UIToggle _vSyncToggle;
 
@@ -50,6 +51,11 @@ public class HUD_Settings : MonoBehaviour
         {
             QualitySettings.vSyncCount = 1;
         }
+    }
+
+    public void SetAntiAliasing()
+    {
+        QualitySettings.antiAliasing = (int)MathF.Pow(2f, _antiAliasingDropDown.value);
     }
 
     public void SetResolution()
