@@ -32,6 +32,7 @@ public class KeyBindUi : MonoBehaviour
 
         if (_inputActionReference != null)
         {
+            InputManager.LoadBindingOverride(_actionName);
             GetBindingInfo();
             UpdateUI();
         }
@@ -91,6 +92,7 @@ public class KeyBindUi : MonoBehaviour
 
     private void ResetBinding()
     {
-
+        InputManager.ResetBinding(_actionName, _bindingIndex);
+        UpdateUI();
     }
 }

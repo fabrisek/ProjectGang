@@ -61,7 +61,7 @@ public class InputManager : MonoBehaviour
                 if (nextBindingIndex < actionToRebind.bindings.Count && actionToRebind.bindings[nextBindingIndex].isComposite)
                     DoRebind(actionToRebind, nextBindingIndex, statusText, allCompositeParts, excludeMouse);
             }
-
+            SaveBindingOverride(actionToRebind);
             rebindComplete?.Invoke();
         });
 
@@ -92,5 +92,55 @@ public class InputManager : MonoBehaviour
 
         InputAction action = _input.asset.FindAction(actionName);
         return action.GetBindingDisplayString(bindingIndex);
+    }
+
+    private static void SaveBindingOverride(InputAction action)
+    {
+        for (int i = 0; i < action.bindings.Count; i++)
+        {
+            PlayerPrefs.SetString(action.actionMap + action.name + i, action.bindings[i].overridePath);
+        }
+    }
+
+    public static void LoadBindingOverride(string actionName)
+    {
+        if (_input == null)
+            _input = new Input();
+
+        InputAction action = _input.asset.FindAction(actionName);
+
+        for (int i = 0; i < action.bindings.Count; i++)
+        {
+            if (!string.IsNullOrEmpty(PlayerPrefs.GetString(action.actionMap + action.name + i, action.bindings[i].overridePath)))
+            {
+                action.ApplyBindingOverride(i, PlayerPrefs.GetString(action.actionMap + action.name + i, action.bindings[i].overridePath));
+            }
+        }
+    }
+
+    public static void ResetBinding(string actionName, int bindingIndex)
+    {
+        InputAction action = _input.asset.FindAction(actionName);
+
+        if (action == null || action.bindings.Count <= bindingIndex)
+        {
+            print("Coulnd not find action or binding");
+            return;
+        }
+
+        if (action.bindings[bindingIndex].isComposite)
+        {
+            for (int i = bindingIndex; i < action.bindings.Count && action.bindings[i].isComposite; i++)
+            {
+                action.RemoveBindingOverride(i);
+            }
+        }
+
+        else
+            action.RemoveBindingOverride(bindingIndex);
+
+
+
+        SaveBindingOverride(action);
     }
 }

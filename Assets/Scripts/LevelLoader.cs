@@ -9,9 +9,20 @@ using TMPro;
 
 public class LevelLoader : MonoBehaviour
 {
+    public static LevelLoader Instance;
+
     [SerializeField] GameObject _loadingScreenPanel;
     [SerializeField] Slider _loadingSlider;
     [SerializeField] TextMeshProUGUI _textSlider;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public void LoadLevel(int sceneIndex)
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));
