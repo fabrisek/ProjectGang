@@ -59,11 +59,12 @@ public class Data_Manager : MonoBehaviour
 
 public class MapData
 {
-    [SerializeField] string _mapName { get; }
+    [SerializeField] string _mapName;
+    [SerializeField] int _indexScene;
     public string GetMapName() { return _mapName; }
-    [SerializeField] float _highScore { get; set; }
+    [SerializeField] float _highScore;
     public float GetHighScore() { return _highScore; }
     public void SetHighScore(float highscore) { _highScore = highscore; }
-    [SerializeField] bool _haveUnlockLevel { get; set; }
+    [SerializeField] bool _haveUnlockLevel;
     public bool GetHaveUnlockLevel() { return _haveUnlockLevel; }
 }

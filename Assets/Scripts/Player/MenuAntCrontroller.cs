@@ -20,6 +20,7 @@ public class MenuAntCrontroller : MonoBehaviour
     {
         _input = InputManager._input;
         _input.InMainMenu.Select.performed += SelectMenu;
+        _input.InMainMenu.Back.performed += BackAction;
     }
 
     private void OnEnable()
@@ -48,5 +49,10 @@ public class MenuAntCrontroller : MonoBehaviour
         {
             LevelLoader.Instance.LoadLevel(_levelRef.GetSceneNumber());
         }
+    }
+
+    void BackAction(InputAction.CallbackContext callback)
+    {
+        HUD_MainMenu.Instance.CloseSettings();
     }
 }

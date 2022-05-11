@@ -27,6 +27,7 @@ public class LevelSelectorMenu : MonoBehaviour
             _canvas.SetActive(true);
 
             other.GetComponent<MenuAntCrontroller>().SetLevelRef(this);
+            
         }
     }
 
