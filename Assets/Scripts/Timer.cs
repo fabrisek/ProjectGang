@@ -15,10 +15,12 @@ public class Timer : MonoBehaviour
     {
         Instance = this;
     }
-
-    public void LaunchTimer()
+    private void Start()
     {
-        
+        LaunchTimer();
+    }
+    public void LaunchTimer()
+    {        
         _timerIsLaunch = true;
     }
 
@@ -27,6 +29,7 @@ public class Timer : MonoBehaviour
         if (_timerIsLaunch)
         {
             _timer += Time.deltaTime;
+            HudControllerInGame.Instance.ChangeTimerHud(_timer);
         }
     }
 
