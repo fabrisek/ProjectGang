@@ -46,6 +46,31 @@ public class WallRunningAdvanced : MonoBehaviour
     private PlayerMovementAdvanced pm;
     private Rigidbody rb;
 
+    Input inputActions;
+
+    private void Awake()
+    {
+        inputActions = new Input();
+    }
+    private void OnEnable()
+    {
+        inputActions.Enable();
+    }
+    private void OnDisable()
+    {
+        inputActions.Disable();
+    }
+
+    //get inputs
+    public Vector2 GetPlayerMovement()
+    {
+        return inputActions.InGame.Move.ReadValue<Vector2>();
+    }
+    public float GetPlayerJump()
+    {
+        return inputActions.InGame.Jump.ReadValue<float>();
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -78,10 +103,10 @@ public class WallRunningAdvanced : MonoBehaviour
     private void StateMachine()
     {
         // Getting Inputs
-        /*horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = GetPlayerMovement().x;
+        verticalInput = GetPlayerMovement().y;
 
-        upwardsRunning = Input.GetKey(upwardsRunKey);
+        /*upwardsRunning = Input.GetKey(upwardsRunKey);
         downwardsRunning = Input.GetKey(downwardsRunKey);*/
 
         // State 1 - Wallrunning
@@ -101,7 +126,7 @@ public class WallRunningAdvanced : MonoBehaviour
             }
 
             // wall jump
-            //if (Input.GetKeyDown(jumpKey)) WallJump();
+            if (GetPlayerJump() > 0.1f) WallJump();
         }
 
         // State 2 - Exiting
