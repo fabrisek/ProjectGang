@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
     public static Timer Instance;
 
+    [SerializeField] HudControllerInGame _hud;
     [SerializeField] float _timer;
     bool _timerIsLaunch;
     public float GetTimer() { return _timer; }
@@ -15,10 +16,12 @@ public class Timer : MonoBehaviour
     {
         Instance = this;
     }
-
-    public void LaunchTimer()
+    private void Start()
     {
-        
+        LaunchTimer();
+    }
+    public void LaunchTimer()
+    {        
         _timerIsLaunch = true;
     }
 
@@ -27,6 +30,7 @@ public class Timer : MonoBehaviour
         if (_timerIsLaunch)
         {
             _timer += Time.deltaTime;
+            _hud.ChangeTimerHud(_timer);
         }
     }
 

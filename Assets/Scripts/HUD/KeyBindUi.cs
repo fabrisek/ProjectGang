@@ -27,9 +27,7 @@ public class KeyBindUi : MonoBehaviour
 
     private void OnEnable()
     {
-        _rebindButton.onClick.AddListener(() => DoRebind());
-        _resetButton.onClick.AddListener(() => ResetBinding());
-
+        _actionName = _inputActionReference.action.name;
         if (_inputActionReference != null)
         {
             InputManager.LoadBindingOverride(_actionName);
@@ -52,6 +50,15 @@ public class KeyBindUi : MonoBehaviour
         GetBindingInfo();
         UpdateUI();
     }
+    void Start()
+    {
+        if (_inputActionReference != null)
+        {
+            InputManager.LoadBindingOverride(_actionName);
+        }
+    }
+
+
 
     void GetBindingInfo()
     {
@@ -85,12 +92,12 @@ public class KeyBindUi : MonoBehaviour
         }
     }
 
-    private void DoRebind()
+    public void DoRebind()
     {
         InputManager.StartRebind(_actionName, _bindingIndex, _rebindText, _excludeMouse);
     }
 
-    private void ResetBinding()
+    public void ResetBinding()
     {
         InputManager.ResetBinding(_actionName, _bindingIndex);
         UpdateUI();
