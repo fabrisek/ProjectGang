@@ -124,7 +124,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         verticalInput = GetPlayerMovement().y;
 
         // when to jump
-        /*if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (GetPlayerJump() > 0.1f && readyToJump && grounded)
         {
             readyToJump = false;
 
@@ -134,7 +134,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
 
         // start crouch
-        if (Input.GetKeyDown(crouchKey) && horizontalInput == 0 && verticalInput == 0)
+        /*if (Input.GetKeyDown(crouchKey) && horizontalInput == 0 && verticalInput == 0)
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
@@ -155,6 +155,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public Vector2 GetPlayerMovement()
     {
         return inputActions.InGame.Move.ReadValue<Vector2>();
+    }
+    public float GetPlayerJump()
+    {
+        return inputActions.InGame.Jump.ReadValue<float>();
     }
 
     private void StateHandler()

@@ -49,12 +49,12 @@ public class PlayerCam : MonoBehaviour
         float lookX = looking.x * sensX * Time.deltaTime;
         float lookY = looking.y * sensY * Time.deltaTime;
 
-        yRotation -= lookX;
+        yRotation += lookX;
         xRotation -= lookY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         // rotate cam and orientation
-        camHolder.rotation = Quaternion.Euler(xRotation, -yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, -yRotation, 0);
+        camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
     public Vector2 GetPlayerLook()
     {
