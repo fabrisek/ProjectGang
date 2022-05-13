@@ -258,23 +258,27 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        // on slope
-        if (OnSlope() && !exitingSlope)
-        {
-            rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
-
-            if (rb.velocity.y > 0)
-                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
-        }
 
         // on ground
-        else if (grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
+        if (grounded)
+        {
+            rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
+        }
         // in air
-        else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        else
+        {
+            //slow down player if no inputs
+            if(moveDirection.magnitude == 0f)
+            {
+                rb.velocity= new Vector3(rb.velocity.x / 1.05f, rb.velocity.y, rb.velocity.z/1.05f);
+            }
+            else
+            {
+                rb.AddForce(moveDirection * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            }    
+        }
 
+        
         // turn gravity off while on slope
         if(!wallrunning) rb.useGravity = !OnSlope();
     }
