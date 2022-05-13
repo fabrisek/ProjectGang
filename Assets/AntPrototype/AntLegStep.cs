@@ -37,6 +37,7 @@ public class AntLegStep : MonoBehaviour
     {
         lerp = 1;
         currentPoint = transform.position;
+        speed *= 2;
     }
 
     // Update is called once per frame
@@ -89,7 +90,7 @@ public class AntLegStep : MonoBehaviour
         {
             return hits[0].point;
         }
-        hits = Physics.RaycastAll(nextPoint, Vector3.down, stepheight, groundLayer);
+        hits = Physics.RaycastAll(nextPoint, Vector3.down, 10000, groundLayer);
         if (hits.Length >= 1)
         {
             return hits[0].point;
@@ -119,7 +120,7 @@ public class AntLegStep : MonoBehaviour
 
     public bool IsGrounded ()
     {
-       RaycastHit[] hits = Physics.RaycastAll(new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z),Vector3.down,10, groundLayer);
+       RaycastHit[] hits = Physics.RaycastAll(new Vector3(transform.position.x, transform.position.y, transform.position.z),Vector3.down,0.1f, groundLayer);
        if(hits.Length >=1)
         {
             return true;

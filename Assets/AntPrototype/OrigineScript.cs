@@ -25,7 +25,7 @@ public class OrigineScript : MonoBehaviour
             }
             else
             {
-                hits = Physics.RaycastAll(transform.position, Vector3.down, stepHeight, groundLayer);
+                hits = Physics.RaycastAll(transform.position, Vector3.down, 10000, groundLayer);
                 if (hits.Length >= 1)
                 {
                     gameObject.transform.position = new Vector3(transform.position.x, hits[0].transform.position.y, transform.position.z);

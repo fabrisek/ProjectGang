@@ -21,6 +21,8 @@ public class HudControllerInGame : MonoBehaviour
     public void OpenDeathPanel()
     {
         _deadPanel.SetActive(true);
+        _inGamePanel.SetActive(false);
+        _winPanel.SetActive(false);
     }
 
     public void ChangeTimerHud(float timer)
@@ -35,7 +37,14 @@ public class HudControllerInGame : MonoBehaviour
 
     public void OpenWinPanel(float timer)
     {
+        _deadPanel.SetActive(false);
+        _inGamePanel.SetActive(false);
         _winPanel.SetActive(true);
         _textTimerWin.text = Timer.FormatTime(timer);
+    }
+
+    public void OpenMainMenu()
+    {
+        LevelLoader.Instance.LoadLevel(0);
     }
 }

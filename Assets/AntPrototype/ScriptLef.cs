@@ -18,7 +18,7 @@ public class ScriptLef : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actuelFootMove = -1;
+        actuelFootMove = 0;
         maxFoot = foots.Length;
     }
 
@@ -29,7 +29,7 @@ public class ScriptLef : MonoBehaviour
         {
             if (Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)) > 3)
             {
-                Debug.Log(Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)));
+                //Debug.Log(Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)));
                 MoveToTarget();
                 RotateToTarget();
             }
@@ -85,15 +85,21 @@ public class ScriptLef : MonoBehaviour
 
     void StartStep ()
     {
-        actuelFootMove = CheckDist();
-        if (actuelFootMove != -1)
-        {
+        
+       
             if (!foots[actuelFootMove].Move)
             {
+            int nextFoot = CheckDist();
+            if (nextFoot != -1)
+                {
+                actuelFootMove = nextFoot;
                 foots[actuelFootMove].Move = true;
+                }
+              
             }
+        
            
-        }
+        
     }
 
     int CheckDist ()
@@ -105,7 +111,7 @@ public class ScriptLef : MonoBehaviour
             distFoot[i] = foots[i].DistToOrigine();
         }
 
-        float distRef = 0.8f;
+        float distRef = 0.7f;
         int actuelFootMove = -1;
 
         for (int i = 0; i < maxFoot; i++)
