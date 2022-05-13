@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FInishLine : MonoBehaviour
+public class FinishLine : MonoBehaviour
 {
     [SerializeField] int _levelIndex;
     public void FinishLevel()

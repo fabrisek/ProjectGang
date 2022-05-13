@@ -53,6 +53,8 @@ public class Data_Manager : MonoBehaviour
             return;
         }
     }
+
+    public MapData GetMapData(int index) { return _mapData[index]; }
 }
 
 [System.Serializable]
@@ -61,6 +63,7 @@ public class MapData
 {
     [SerializeField] string _mapName;
     [SerializeField] int _indexScene;
+    public int GetIndexScene() { return _indexScene; }
     public string GetMapName() { return _mapName; }
     [SerializeField] float _highScore;
     public float GetHighScore() { return _highScore; }
