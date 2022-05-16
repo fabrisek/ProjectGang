@@ -11,15 +11,33 @@ public class ScriptLef : MonoBehaviour
     [SerializeField] Vector3 direction;
     [SerializeField] float speed;
     [SerializeField] float speedRotate;
+    [SerializeField] float minTimeToChangeDirection;
+    [SerializeField] float maxTimeToChangeDirection;
 
 
+    bool changeDirection;
+    public Transform Target
+    {
+        set
+        {
+            target = value;
+        }
+    }
 
+    public float Speed
+    {
+        get
+        {
+            return speed;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        actuelFootMove = -1;
+        actuelFootMove = 0;
         maxFoot = foots.Length;
+        changeDirection = true;
     }
 
     // Update is called once per frame
@@ -29,7 +47,7 @@ public class ScriptLef : MonoBehaviour
         {
             if (Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)) > 3)
             {
-                Debug.Log(Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)));
+                
                 MoveToTarget();
                 RotateToTarget();
             }
@@ -66,12 +84,22 @@ public class ScriptLef : MonoBehaviour
 
     void MoveToTarget ()
     {
-        direction = DirectionToTarget();
+        if (changeDirection)
+        {
+            StopCoroutine(CouroutineChangeTime());
+            direction = DirectionToTarget();
+            changeDirection = false;
+            StartCoroutine(CouroutineChangeTime());
+        }
+       // gameObject.GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x + (direction.x * speed*Time.deltaTime), GetComponent<Rigidbody>().velocity.y, GetComponent<Rigidbody>().velocity.z + (direction.z * speed* Time.deltaTime));
         transform.Translate(direction * speed * Time.deltaTime);
     }
 
     Vector3 DirectionToTarget ()
     {
+        float X;
+        X = Random.Range(-0.7f, 0.7f);
+
         /* if (target != null)
          {
              return new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z).normalized;
@@ -80,20 +108,26 @@ public class ScriptLef : MonoBehaviour
          {
              return Vector3.zero;
          }*/
-        return Vector3.forward;
+        return new Vector3(X, 0, 1).normalized ;
     }
 
     void StartStep ()
     {
-        actuelFootMove = CheckDist();
-        if (actuelFootMove != -1)
-        {
+        
+       
             if (!foots[actuelFootMove].Move)
             {
+            int nextFoot = CheckDist();
+            if (nextFoot != -1)
+                {
+                actuelFootMove = nextFoot;
                 foots[actuelFootMove].Move = true;
+                }
+              
             }
+        
            
-        }
+        
     }
 
     int CheckDist ()
@@ -105,7 +139,7 @@ public class ScriptLef : MonoBehaviour
             distFoot[i] = foots[i].DistToOrigine();
         }
 
-        float distRef = 0.8f;
+        float distRef = 0.5f;
         int actuelFootMove = -1;
 
         for (int i = 0; i < maxFoot; i++)
@@ -123,5 +157,12 @@ public class ScriptLef : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, new Vector3((transform.position.x * direction.x)*20, transform.position.y,( transform.position.z * direction.z)*20));
+    }
+
+    IEnumerator CouroutineChangeTime ()
+    {
+        float time = Random.Range(minTimeToChangeDirection, maxTimeToChangeDirection);
+        yield return new WaitForSeconds(time);
+        changeDirection = true;
     }
 }

@@ -11,6 +11,10 @@ public class AntLegStep : MonoBehaviour
     [SerializeField] float stepHeight = 1;
     [SerializeField] GameObject originePoint;
 
+    [SerializeField] ScriptLef scriptLef;
+    
+    float speedAnt;
+
     Vector3 currentPoint;
 
     Vector3 nextPoint;
@@ -35,14 +39,23 @@ public class AntLegStep : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speedAnt = scriptLef.Speed;
         lerp = 1;
         currentPoint = transform.position;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = currentPoint;
+        if (DistToOrigine() > stepDistance && !move)
+        {
+            Debug.Log("yooooooo" + gameObject.name);
+            move = true;
+            lerp = 1;
+        }
+
         if (move)
         {
             if(lerp >=1)
@@ -54,6 +67,10 @@ public class AntLegStep : MonoBehaviour
                 move = MoveStep();
             }
         }
+        
+
+
+        
     }
 
     void InitMoveStep()
@@ -68,7 +85,7 @@ public class AntLegStep : MonoBehaviour
     {
         
         currentPoint = CalculPointStep(oldPoint, nextPoint, arcPoint, lerp);
-        lerp += Time.deltaTime * speed;
+        lerp += Time.deltaTime * (speed * speedAnt);
         if(lerp >=1 || IsGrounded() && lerp >0.2)
         {
             return false;
@@ -89,7 +106,7 @@ public class AntLegStep : MonoBehaviour
         {
             return hits[0].point;
         }
-        hits = Physics.RaycastAll(nextPoint, Vector3.down, stepheight, groundLayer);
+        hits = Physics.RaycastAll(nextPoint, Vector3.down, 10000, groundLayer);
         if (hits.Length >= 1)
         {
             return hits[0].point;
@@ -114,12 +131,12 @@ public class AntLegStep : MonoBehaviour
 
     public float DistToOrigine ()
     {
-        return Vector3.Distance(originePoint.transform.position, currentPoint);
+        return Vector3.Distance(originePoint.transform.position, transform.position);
     }
 
     public bool IsGrounded ()
     {
-       RaycastHit[] hits = Physics.RaycastAll(new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z),Vector3.down,10, groundLayer);
+       RaycastHit[] hits = Physics.RaycastAll(new Vector3(transform.position.x, transform.position.y, transform.position.z),Vector3.down,0.1f, groundLayer);
        if(hits.Length >=1)
         {
             return true;
