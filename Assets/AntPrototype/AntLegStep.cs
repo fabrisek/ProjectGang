@@ -11,6 +11,10 @@ public class AntLegStep : MonoBehaviour
     [SerializeField] float stepHeight = 1;
     [SerializeField] GameObject originePoint;
 
+    [SerializeField] ScriptLef scriptLef;
+    
+    float speedAnt;
+
     Vector3 currentPoint;
 
     Vector3 nextPoint;
@@ -35,15 +39,23 @@ public class AntLegStep : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speedAnt = scriptLef.Speed;
         lerp = 1;
         currentPoint = transform.position;
-        speed *= 2;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = currentPoint;
+        if (DistToOrigine() > stepDistance && !move)
+        {
+            Debug.Log("yooooooo" + gameObject.name);
+            move = true;
+            lerp = 1;
+        }
+
         if (move)
         {
             if(lerp >=1)
@@ -55,6 +67,10 @@ public class AntLegStep : MonoBehaviour
                 move = MoveStep();
             }
         }
+        
+
+
+        
     }
 
     void InitMoveStep()
@@ -69,7 +85,7 @@ public class AntLegStep : MonoBehaviour
     {
         
         currentPoint = CalculPointStep(oldPoint, nextPoint, arcPoint, lerp);
-        lerp += Time.deltaTime * speed;
+        lerp += Time.deltaTime * (speed * speedAnt);
         if(lerp >=1 || IsGrounded() && lerp >0.2)
         {
             return false;
@@ -115,7 +131,7 @@ public class AntLegStep : MonoBehaviour
 
     public float DistToOrigine ()
     {
-        return Vector3.Distance(originePoint.transform.position, currentPoint);
+        return Vector3.Distance(originePoint.transform.position, transform.position);
     }
 
     public bool IsGrounded ()
