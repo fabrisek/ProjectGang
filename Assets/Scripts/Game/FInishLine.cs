@@ -11,8 +11,10 @@ public class FinishLine : MonoBehaviour
         Timer.Instance.StopTimer();
         float timer = Timer.Instance.GetTimer();
         HudControllerInGame.Instance.OpenWinPanel(timer);
-        PlayFabHighScore.instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
+        if (PlayFabHighScore.instance)
+            PlayFabHighScore.instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
         Data_Manager.Instance.SetRecord(timer, _levelIndex);
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,6 +22,7 @@ public class FinishLine : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             FinishLevel();
+            other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
         }
     }
 }
