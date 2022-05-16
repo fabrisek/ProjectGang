@@ -51,7 +51,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
-    Vector3 moveDirection;
+    public static Vector3 moveDirection;
 
     Rigidbody rb;
 
