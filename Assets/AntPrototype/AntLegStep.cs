@@ -24,6 +24,7 @@ public class AntLegStep : MonoBehaviour
     float lerp;
 
     bool move;
+    bool tombe;
 
     public bool Move
     {
@@ -39,6 +40,7 @@ public class AntLegStep : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tombe = true;
         speedAnt = scriptLef.Speed;
         lerp = 1;
         currentPoint = transform.position;
@@ -48,7 +50,24 @@ public class AntLegStep : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = currentPoint;
+        if (!tombe)
+        {
+
+            transform.position = currentPoint;
+            
+        }
+        else
+        {
+            
+            if (IsGrounded())
+            {
+                Debug.Log("Je suis au sol mtn");
+                    tombe = false;
+                lerp = 1;
+                currentPoint = transform.position;
+            }
+        }
+
         if (DistToOrigine() > stepDistance && !move)
         {
             Debug.Log("yooooooo" + gameObject.name);
@@ -75,10 +94,20 @@ public class AntLegStep : MonoBehaviour
 
     void InitMoveStep()
     {
-        lerp = 0;
         nextPoint = CalculNextPoint2(currentPoint, stepDistance, stepHeight, originePoint.transform.position);
-        arcPoint = CalculPointArc(stepDistance, currentPoint, currentPoint, stepHeight, originePoint.transform.position);
-        oldPoint = currentPoint;
+        if (nextPoint != Vector3.zero)
+        {
+            lerp = 0;
+
+            arcPoint = CalculPointArc(stepDistance, currentPoint, currentPoint, stepHeight, originePoint.transform.position);
+            oldPoint = currentPoint;
+        }
+        else
+        {
+            lerp = 1;
+            move = false;
+            
+        }
     }
 
     bool MoveStep ()
@@ -106,13 +135,13 @@ public class AntLegStep : MonoBehaviour
         {
             return hits[0].point;
         }
-        hits = Physics.RaycastAll(nextPoint, Vector3.down, 10000, groundLayer);
+        hits = Physics.RaycastAll(nextPoint, Vector3.down, stepheight, groundLayer);
         if (hits.Length >= 1)
         {
             return hits[0].point;
         }
 
-        return nextPoint;
+        return Vector3.zero;
     }
 
     Vector3 CalculPointArc(float stepDist, Vector3 currentPosition, Vector3 oldPoint, float stepHeight,Vector3 originePos)
@@ -136,7 +165,7 @@ public class AntLegStep : MonoBehaviour
 
     public bool IsGrounded ()
     {
-       RaycastHit[] hits = Physics.RaycastAll(new Vector3(transform.position.x, transform.position.y, transform.position.z),Vector3.down,0.1f, groundLayer);
+       RaycastHit[] hits = Physics.RaycastAll(new Vector3(transform.position.x, transform.position.y + stepHeight, transform.position.z), Vector3.down,stepHeight +0.1f, groundLayer);
        if(hits.Length >=1)
         {
             return true;
