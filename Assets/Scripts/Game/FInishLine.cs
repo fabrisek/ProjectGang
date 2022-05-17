@@ -11,9 +11,9 @@ public class FinishLine : MonoBehaviour
         Timer.Instance.StopTimer();
         float timer = Timer.Instance.GetTimer();
         HudControllerInGame.Instance.OpenWinPanel(timer);
-        if (PlayFabHighScore.instance)
-            PlayFabHighScore.instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
-        Data_Manager.Instance.SetRecord(timer, _levelIndex);
+        //if (PlayFabHighScore.instance)
+           // PlayFabHighScore.instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
+        //Data_Manager.Instance.SetRecord(timer, _levelIndex);
         
     }
 
@@ -22,7 +22,10 @@ public class FinishLine : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             FinishLevel();
-            other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
+            //other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
