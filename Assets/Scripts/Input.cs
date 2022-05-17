@@ -12,7 +12,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
@@ -177,7 +176,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""d11d1d2b-4ff0-4c9a-bc49-0d02452722df"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
@@ -199,7 +198,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""6613b31b-b12b-42f1-916f-67333e67099b"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
@@ -473,11 +472,6 @@ public partial class @Input : IInputActionCollection2, IDisposable
     public int FindBinding(InputBinding bindingMask, out InputAction action)
     {
         return asset.FindBinding(bindingMask, out action);
-    }
-
-    internal static bool GetKey(KeyCode leftArrow)
-    {
-        throw new NotImplementedException();
     }
 
     // InGame
