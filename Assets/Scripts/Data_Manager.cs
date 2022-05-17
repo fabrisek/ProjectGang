@@ -18,9 +18,10 @@ public class Data_Manager : MonoBehaviour
 
     public void SetRecord(float timer, int levelIndex)
     {
-        if (timer < _mapData[levelIndex].GetHighScore() || _mapData[levelIndex].GetHighScore() == 0f)
+        if (_mapData[levelIndex].GetHighScore() <= 0  )
         {
-            _mapData[levelIndex].SetHighScore(timer);
+            if (timer < _mapData[levelIndex].GetHighScore())
+                _mapData[levelIndex].SetHighScore(timer);
         }
         SaveData();
     }

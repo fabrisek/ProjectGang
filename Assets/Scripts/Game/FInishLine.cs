@@ -11,9 +11,9 @@ public class FinishLine : MonoBehaviour
         Timer.Instance.StopTimer();
         float timer = Timer.Instance.GetTimer();
         HudControllerInGame.Instance.OpenWinPanel(timer);
-        //if (PlayFabHighScore.instance)
-           // PlayFabHighScore.instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
-        //Data_Manager.Instance.SetRecord(timer, _levelIndex);
+        if (PlayFabHighScore.instance)
+           PlayFabHighScore.instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
+        Data_Manager.Instance.SetRecord(timer, _levelIndex);
         
     }
 
