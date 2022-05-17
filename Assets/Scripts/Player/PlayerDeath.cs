@@ -10,7 +10,6 @@ public class PlayerDeath : MonoBehaviour
     private void Update()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, 2f * 0.5f + 0.2f, whatIsGround);
-        print(grounded);
         if (grounded)
         {
             Die();
