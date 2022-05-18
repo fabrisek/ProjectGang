@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     void move()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+       /* if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(-Vector3.right * Time.deltaTime * speed);
         }
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(-Vector3.forward * Time.deltaTime * speed);
-        }
+        }*/
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -12,7 +12,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
@@ -473,11 +472,6 @@ public partial class @Input : IInputActionCollection2, IDisposable
     public int FindBinding(InputBinding bindingMask, out InputAction action)
     {
         return asset.FindBinding(bindingMask, out action);
-    }
-
-    internal static bool GetKey(KeyCode leftArrow)
-    {
-        throw new NotImplementedException();
     }
 
     // InGame
