@@ -38,9 +38,7 @@ public class PlayerCam : MonoBehaviour
 
     private void Update()
     {
-        DoLooking();
-
-        
+        DoLooking();    
     }
     private void DoLooking()
     {

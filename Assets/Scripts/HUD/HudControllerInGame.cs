@@ -23,6 +23,9 @@ public class HudControllerInGame : MonoBehaviour
         _deadPanel.SetActive(true);
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ChangeTimerHud(float timer)

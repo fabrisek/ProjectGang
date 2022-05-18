@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ventilateur : MonoBehaviour
+public class Ventilateur : MonoBehaviour
 {
     public float force;
     public float amortissement;

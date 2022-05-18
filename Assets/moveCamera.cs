@@ -1,8 +1,8 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveCamera : MonoBehaviour
+public class MoveCamera : MonoBehaviour
 {
     public Transform cameraPosition;
 
