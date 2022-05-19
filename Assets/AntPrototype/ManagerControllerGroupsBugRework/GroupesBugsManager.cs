@@ -23,6 +23,10 @@ public class GroupesBugsManager : MonoBehaviour
     void Start()
     {
         groupesBugsGo = new List<GroupesBugs>();
+        for(int i =0;i<groupesBugs.Count;i++)
+        {
+            groupesBugs[i].InitGroupesBugs();
+        }
     }
 
     // Update is called once per frame
@@ -46,7 +50,7 @@ public class GroupesBugsManager : MonoBehaviour
             if(i!=index)
             {
                 groupesBugs.Add(groupesBugsTemps[i]);
-                Debug.Log(index);
+               
             }
         }
     }
@@ -71,7 +75,7 @@ public class GroupesBugsManager : MonoBehaviour
         if(index != -1)
         {
             Debug.Log(index);
-            groupesBugs[index].SetTarget();
+            groupesBugs[index].SetTarget(0);
             ChangeToOtherList(index);
            
         }
