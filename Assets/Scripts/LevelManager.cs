@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] GroupesBugsManager groupesBugsManager;
+    [SerializeField] PlayerMovementAdvanced playerMovementScript;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,10 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        LauchTimer();
         SetTimeTOBugsManager();
+
     }
 
     void SetTimeTOBugsManager ()
@@ -22,6 +27,14 @@ public class LevelManager : MonoBehaviour
         if(groupesBugsManager != null)
         {
             groupesBugsManager.Time = Timer.Instance.GetTimer();
+        }
+    }
+
+    void LauchTimer ()
+    {
+        if (!Timer.Instance.TimerIsLaunch() && playerMovementScript.GetInputActivated )
+        {
+            Timer.Instance.LaunchTimer();
         }
     }
 

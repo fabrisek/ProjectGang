@@ -51,8 +51,17 @@ public class PlayerMovementAdvanced : MonoBehaviour
     Rigidbody rb;
 
     private bool inputActivated;
-    public bool getInputActivated()
-    { return inputActivated; }
+    public bool GetInputActivated
+    { 
+        get
+        {
+            return inputActivated;
+        }
+        set
+        {
+            inputActivated = value;
+        }
+    }
 
     [SerializeField] MovementState state;
     public enum MovementState

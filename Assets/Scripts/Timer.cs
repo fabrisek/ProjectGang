@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     [SerializeField] float _timer;
     bool _timerIsLaunch;
     public float GetTimer() { return _timer; }
+    public bool TimerIsLaunch() { return _timerIsLaunch; }
 
     private void Awake()
     {
