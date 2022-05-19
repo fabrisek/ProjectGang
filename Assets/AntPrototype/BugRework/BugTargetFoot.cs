@@ -43,7 +43,7 @@ public class BugTargetFoot
 
     public void MoveTargetTerrin()
     {
-    Debug.Log(CheckIfOrigineIsGrounded());
+    
         if (CheckIfOrigineIsGrounded()|| move)
         {
             targetToMove.position = currentPoint;

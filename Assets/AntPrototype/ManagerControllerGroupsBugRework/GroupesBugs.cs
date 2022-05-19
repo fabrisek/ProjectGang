@@ -7,8 +7,16 @@ public class GroupesBugs
 {
     [SerializeField] List<BugTargetController> groupeBugs;
     [SerializeField] float timeToGo;
+    [SerializeField] Transform target;
    
-    public void SetTarget (Transform target)
+    public float TimeToGo
+    {
+        get
+        {
+            return timeToGo;
+        }
+    }
+    public void SetTarget ()
     {
         for(int i =0; i<groupeBugs.Count;i++)
         {

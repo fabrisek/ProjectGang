@@ -8,16 +8,30 @@ public class GroupesBugsManager : MonoBehaviour
 
     List<GroupesBugs> groupesBugsGo;
 
+    public float time;
+
+    public float Time
+    {
+        set
+        {
+            time = value;
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        groupesBugsGo = new List<GroupesBugs>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(groupesBugs.Count != 0)
+        {
+            SetTargetToGroupeBug();
+        }
         
     }
 
@@ -28,11 +42,40 @@ public class GroupesBugsManager : MonoBehaviour
         groupesBugs = new List<GroupesBugs>();
         for (int i = 0; i< groupesBugsTemps.Count;i++)
         {
+           
             if(i!=index)
             {
                 groupesBugs.Add(groupesBugsTemps[i]);
+                Debug.Log(index);
             }
         }
+    }
+
+    int CheckIfTimeToGo ()
+    {
+
+        for(int i = 0;i<groupesBugs.Count;i++)
+        {
+            if(time >= groupesBugs[i].TimeToGo)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    void SetTargetToGroupeBug ()
+    {
+        int index = CheckIfTimeToGo();
+        if(index != -1)
+        {
+            Debug.Log(index);
+            groupesBugs[index].SetTarget();
+            ChangeToOtherList(index);
+           
+        }
+        
     }
 
 }
