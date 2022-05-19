@@ -303,21 +303,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e2789cf278bff4a92d4fb3dbe80283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 20
+  walkSpeed: 25
   sprintSpeed: 20
   slideSpeed: 20
   wallrunSpeed: 20
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2
-  jumpForce: 35
+  jumpForce: 45
   jumpCooldown: 0.4
   airMultiplier: 0.8
   crouchSpeed: 3.5
   crouchYScale: 0.5
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
@@ -353,9 +350,9 @@ MonoBehaviour:
   wallJumpSideForce: 20
   wallClimbSpeed: 5
   maxWallRunTime: 3
-  jumpKey: 32
-  upwardsRunKey: 304
-  downwardsRunKey: 306
+  tilt: 10
+  fovWall: 90
+  fovNormal: 80
   wallCheckDistance: 1
   minJumpHeight: 1
   exitWallTime: 0.25
@@ -553,13 +550,13 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 80
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 895
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

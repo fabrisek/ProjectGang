@@ -50,6 +50,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     Rigidbody rb;
 
+    private bool inputActivated;
+    public bool getInputActivated()
+    { return inputActivated; }
+
     [SerializeField] MovementState state;
     public enum MovementState
     {
@@ -69,6 +73,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void Awake()
     {
+        inputActivated = false;
         inputActions = new Input();
     }
     private void OnEnable()
@@ -106,6 +111,11 @@ public class PlayerMovementAdvanced : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if(horizontalInput != 0||verticalInput!=0)
+        {
+            inputActivated = true;
+        }
     }
 
     private void FixedUpdate()
