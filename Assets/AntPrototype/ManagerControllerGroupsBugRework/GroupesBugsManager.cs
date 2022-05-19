@@ -8,7 +8,7 @@ public class GroupesBugsManager : MonoBehaviour
 
     List<GroupesBugs> groupesBugsGo;
 
-    public float time;
+    [SerializeField] float time;
 
     public float Time
     {
