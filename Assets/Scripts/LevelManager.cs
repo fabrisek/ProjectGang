@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         LauchTimer();
         SetTimeTOBugsManager();
 
@@ -32,9 +32,13 @@ public class LevelManager : MonoBehaviour
 
     void LauchTimer ()
     {
-        if (!Timer.Instance.TimerIsLaunch() && playerMovementScript.GetInputActivated )
+        if (playerMovementScript != null)
         {
-            Timer.Instance.LaunchTimer();
+            if (!Timer.Instance.TimerIsLaunch() && playerMovementScript.GetInputActivated)
+            {
+                Debug.Log("je me lance");
+                Timer.Instance.LaunchTimer();
+            }
         }
     }
 
