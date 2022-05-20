@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlatformFollow : MonoBehaviour
 {
-    [SerializeField] LayerMask playerLayer;
-    private GameObject player;
+    [SerializeField] GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameManager.gameManager.Player;
+
     }
 
     // Update is called once per frame
@@ -20,18 +19,17 @@ public class PlatformFollow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == playerLayer)
+        if(other.gameObject.layer == 10 || other.gameObject.layer == 3)
         {
-            Debug.Log(other.gameObject);
-            player.transform.parent = transform;
+            player.transform.parent = other.transform;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == playerLayer)
+        if (other.gameObject.layer == 10 || other.gameObject.layer == 3)
         {
-            player.transform.parent = transform;
+            player.transform.parent = null;
         }
     }
 }

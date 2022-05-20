@@ -1002,7 +1002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a2e2f6338c17640b790e8935bdf3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelIndex: 0
 --- !u!1 &157207112
 GameObject:
   m_ObjectHideFlags: 0
@@ -6577,7 +6576,9 @@ PrefabInstance:
       propertyPath: sensY
       value: 30
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5226082535551724658, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+    - {fileID: 6830475254768036419, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
 --- !u!1 &704313134
 GameObject:

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7127624766199904172}
   - component: {fileID: 5005745952287190078}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7127624766357433449}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7127624766541610147}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 7127624766581701859}
   - component: {fileID: 7127624766581701856}
   - component: {fileID: 7127624766581701857}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,10 @@ GameObject:
   - component: {fileID: 7127624766882420791}
   - component: {fileID: 7127624766882420788}
   - component: {fileID: 7127624766882420789}
-  m_Layer: 0
+  - component: {fileID: 559367545116714896}
+  - component: {fileID: 3114977110506154046}
+  - component: {fileID: 7665029378708070359}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +321,7 @@ MonoBehaviour:
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   timeToJump: 0.3
   canJump: 0
   maxSlopeAngle: 40
@@ -352,7 +355,7 @@ MonoBehaviour:
   wallJumpSideForce: 20
   wallClimbSpeed: 5
   maxWallRunTime: 3
-  tilt: 10
+  tilt: 20
   fovWall: 90
   fovNormal: 80
   wallCheckDistance: 1
@@ -362,6 +365,46 @@ MonoBehaviour:
   gravityCounterForce: 20
   orientation: {fileID: 7127624766541610147}
   cam: {fileID: 7127624768034253182}
+--- !u!135 &559367545116714896
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624766882420787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: -0.83, z: 0}
+--- !u!114 &3114977110506154046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624766882420787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2b08e64006d6748b0916f4f5870b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7127624766357433430}
+--- !u!136 &7665029378708070359
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624766882420787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7127624767075465763
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7127624767075465762}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +448,7 @@ GameObject:
   - component: {fileID: 7127624767812687932}
   - component: {fileID: 7127624767812687933}
   - component: {fileID: 7127624767812687930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +548,7 @@ GameObject:
   - component: {fileID: 7127624768034253181}
   - component: {fileID: 7127624768034253169}
   - component: {fileID: 7127624768034253182}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
