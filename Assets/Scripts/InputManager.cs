@@ -8,7 +8,10 @@ using System;
 public class InputManager : MonoBehaviour
 {
     public static Input _input;
-
+    [Range (1,100)]
+    public static float SensibilityMouseY;
+    [Range(1, 100)]
+    public static float SensibilityMouseX;
     public static event Action rebindComplete;
     public static event Action rebindCanceled;
     public static event Action<InputAction, int> rebindStarted;
@@ -18,6 +21,23 @@ public class InputManager : MonoBehaviour
         {
             _input = new Input();
         }
+        SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX", 2); ;
+        SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY", 2); ;
+
+    }
+
+    public void SetSensibilityXMouse(float x)
+    {
+        PlayerPrefs.SetFloat("SensibilityMouseX", x);
+        SensibilityMouseX = x;
+
+    }
+
+    public void SetSensibilityYMouse(float y)
+    {
+        PlayerPrefs.SetFloat("SensibilityMouseY", y);
+        SensibilityMouseY = y;
+
     }
 
     public static void StartRebind(string actionName, int bindingIndex, TextMeshProUGUI statusText, bool excludeMouse)

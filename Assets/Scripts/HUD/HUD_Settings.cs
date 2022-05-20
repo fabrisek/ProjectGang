@@ -9,21 +9,34 @@ using Doozy.Runtime.UIManager.Components;
 
 public class HUD_Settings : MonoBehaviour
 {
+    public static HUD_Settings Instance;
     [SerializeField] TMP_Dropdown _resolutionDropDown;
     [SerializeField] TMP_Dropdown _displayTypeDropDown;
     [SerializeField] TMP_Dropdown _antiAliasingDropDown;
 
     [SerializeField] UIToggle _vSyncToggle;
+    [SerializeField] Slider sliderSensibilityMouseX;
+    [SerializeField] Slider sliderSensibilityMouseY;
 
     FullScreenMode screenMode;
     private Resolution[] storeResolution;
     int countRes;
-
+    private void Awake()
+    {
+        Instance = this;
+        sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 2); ;
+        sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityMouseY", 2); ;
+    }
     private void Start()
     {
         InitializeGraphicsOptions();
     }
 
+    public void ChangeValueMouseSensibilitySlider(float x, float y)
+    {
+        sliderSensibilityMouseX.value = x;
+        sliderSensibilityMouseY.value = y;
+    }
 
 
     void InitializeGraphicsOptions()
