@@ -35,6 +35,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [SerializeField] float playerHeight;
     [SerializeField] LayerMask whatIsGround;
     bool grounded;
+    [SerializeField] float timeToJump;
+    private float resetTimeToJump;
+    public bool canJump;
 
     [Header("Slope Handling")]
     [SerializeField] float maxSlopeAngle;
@@ -49,6 +52,19 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public static Vector3 moveDirection;
 
     Rigidbody rb;
+
+    private bool inputActivated;
+    public bool GetInputActivated
+    { 
+        get
+        {
+            return inputActivated;
+        }
+        set
+        {
+            inputActivated = value;
+        }
+    }
 
     [SerializeField] MovementState state;
     public enum MovementState
@@ -69,6 +85,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void Awake()
     {
+        inputActivated = false;
         inputActions = new Input();
     }
     private void OnEnable()
@@ -88,13 +105,28 @@ public class PlayerMovementAdvanced : MonoBehaviour
         readyToJump = true;
 
         startYScale = transform.localScale.y;
+        resetTimeToJump = timeToJump;
     }
 
     private void Update()
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        
+
+        //time To Jump if not on ground;
+        if (grounded)
+        {
+            timeToJump = resetTimeToJump;
+            canJump = true;
+        }
+        else
+        {
+            timeToJump -= Time.deltaTime;
+            if(timeToJump <= 0)
+            {
+                canJump = false;
+            }
+        }
         
 
         MyInput();
@@ -106,6 +138,11 @@ public class PlayerMovementAdvanced : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if(horizontalInput != 0||verticalInput!=0)
+        {
+            inputActivated = true;
+        }
     }
 
     private void FixedUpdate()
@@ -119,7 +156,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         verticalInput = GetPlayerMovement().y;
 
         // when to jump
-        if (GetPlayerJump() > 0.1f && readyToJump && grounded)
+        if (GetPlayerJump() > 0.1f && readyToJump && (grounded || canJump))
         {
             readyToJump = false;
 
@@ -240,6 +277,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         //JumpForce
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        canJump = false;
     }
     private void ResetJump()
     {

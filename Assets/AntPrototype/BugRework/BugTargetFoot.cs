@@ -43,7 +43,7 @@ public class BugTargetFoot
 
     public void MoveTargetTerrin()
     {
-    Debug.Log(CheckIfOrigineIsGrounded());
+    
         if (CheckIfOrigineIsGrounded()|| move)
         {
             targetToMove.position = currentPoint;
@@ -143,7 +143,7 @@ public class BugTargetFoot
 
     bool CheckIfOrigineIsGrounded ()
     {
-        RaycastHit[] hits = Physics.RaycastAll(new Vector3(originePoint.transform.position.x, originePoint.transform.position.y + stepHeight, originePoint.transform.position.z), Vector3.down,stepHeight+(stepHeight/2), groundLayer);
+        RaycastHit[] hits = Physics.RaycastAll(new Vector3(originePoint.transform.position.x, originePoint.transform.position.y + stepHeight, originePoint.transform.position.z), Vector3.down,stepHeight+(stepHeight), groundLayer);
         if (hits.Length >= 1)
         {
             return true;

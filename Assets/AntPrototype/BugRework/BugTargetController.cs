@@ -19,11 +19,40 @@ public class BugTargetController : MonoBehaviour
 
     Vector3 direction;
     bool changeDirection;
+
+
+    GroupesBugs groupesBugsAssign;
+    int indexTarget;
+    int indexGroupesBug;
     public Transform Target
     {
         set
         {
             target = value;
+        }
+    }
+
+    public GroupesBugs GroupesBugsAssign
+    {
+        set
+        {
+            groupesBugsAssign = value;
+        }
+    }
+
+    public int IndexTarget
+    {
+        set
+        {
+            indexTarget = value;
+        }
+    }
+
+    public int IndexGroupesBug
+    {
+        set
+        {
+            indexGroupesBug = value;
         }
     }
 
@@ -60,9 +89,18 @@ public class BugTargetController : MonoBehaviour
         {
             if (Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)) > latence)
             {
-                Debug.Log("yo");
+                
                 MoveToTarget();
                 RotateToTarget();
+            }
+            else
+            {
+                Debug.Log(groupesBugsAssign != null);
+                if(groupesBugsAssign != null)
+                {
+                    
+                    groupesBugsAssign.ChangeTarget(indexTarget, indexGroupesBug);
+                }
             }
         }
         
