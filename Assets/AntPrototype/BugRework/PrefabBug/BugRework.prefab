@@ -1832,6 +1832,8 @@ GameObject:
   - component: {fileID: 414541960362661205}
   - component: {fileID: 414541960362661207}
   - component: {fileID: 414541960355276591}
+  - component: {fileID: 2695049367952851154}
+  - component: {fileID: 7583517067659391107}
   m_Layer: 3
   m_Name: BugRework
   m_TagString: Untagged
@@ -2008,6 +2010,32 @@ MonoBehaviour:
   speedRotate: 10
   minTimeToChangeDirection: 1
   maxTimeToChangeDirection: 3
+--- !u!65 &2695049367952851154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414541960362661194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.586253, y: 4.4354744, z: 2.9816616}
+  m_Center: {x: -0.17937112, y: 1.7177367, z: -0.12555355}
+--- !u!114 &7583517067659391107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414541960362661194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2efc002621c5245a7e441667efa1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToAutoDestruct: 1.5
 --- !u!1 &414541960362661196
 GameObject:
   m_ObjectHideFlags: 0

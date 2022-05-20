@@ -71,6 +71,15 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SlowTime"",
+                    ""type"": ""Button"",
+                    ""id"": ""271846ed-42e6-4b36-9f12-78de11a101c4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -225,6 +234,17 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": ""ScaleVector2(x=0.5,y=0.5)"",
                     ""groups"": ""KeyBoard"",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""427281c0-a1f2-455c-8169-d1f198e0a12a"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlowTime"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -413,6 +433,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_InGame_Move = m_InGame.FindAction("Move", throwIfNotFound: true);
         m_InGame_Look = m_InGame.FindAction("Look", throwIfNotFound: true);
         m_InGame_Mouse = m_InGame.FindAction("Mouse", throwIfNotFound: true);
+        m_InGame_SlowTime = m_InGame.FindAction("SlowTime", throwIfNotFound: true);
         // InMainMenu
         m_InMainMenu = asset.FindActionMap("InMainMenu", throwIfNotFound: true);
         m_InMainMenu_Back = m_InMainMenu.FindAction("Back", throwIfNotFound: true);
@@ -482,6 +503,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Move;
     private readonly InputAction m_InGame_Look;
     private readonly InputAction m_InGame_Mouse;
+    private readonly InputAction m_InGame_SlowTime;
     public struct InGameActions
     {
         private @Input m_Wrapper;
@@ -491,6 +513,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_InGame_Move;
         public InputAction @Look => m_Wrapper.m_InGame_Look;
         public InputAction @Mouse => m_Wrapper.m_InGame_Mouse;
+        public InputAction @SlowTime => m_Wrapper.m_InGame_SlowTime;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -515,6 +538,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Mouse.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnMouse;
                 @Mouse.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnMouse;
                 @Mouse.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnMouse;
+                @SlowTime.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnSlowTime;
+                @SlowTime.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnSlowTime;
+                @SlowTime.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnSlowTime;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -534,6 +560,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Mouse.started += instance.OnMouse;
                 @Mouse.performed += instance.OnMouse;
                 @Mouse.canceled += instance.OnMouse;
+                @SlowTime.started += instance.OnSlowTime;
+                @SlowTime.performed += instance.OnSlowTime;
+                @SlowTime.canceled += instance.OnSlowTime;
             }
         }
     }
@@ -612,6 +641,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);
+        void OnSlowTime(InputAction.CallbackContext context);
     }
     public interface IInMainMenuActions
     {

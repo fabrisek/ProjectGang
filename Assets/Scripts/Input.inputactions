@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SlowTime",
+                    "type": "Button",
+                    "id": "271846ed-42e6-4b36-9f12-78de11a101c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -203,6 +212,17 @@
                     "processors": "ScaleVector2(x=0.5,y=0.5)",
                     "groups": "KeyBoard",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "427281c0-a1f2-455c-8169-d1f198e0a12a",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SlowTime",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

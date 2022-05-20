@@ -87,7 +87,23 @@ public class PlayerMovementAdvanced : MonoBehaviour
     {
         inputActivated = false;
         inputActions = new Input();
+        inputActions.InGame.SlowTime.performed += ActiveSlowTime;
+        inputActions.InGame.SlowTime.canceled += ActiveSlowTime;
     }
+
+    private void ActiveSlowTime(InputAction.CallbackContext callback)
+    {
+        if (callback.performed)
+        {
+            Time.timeScale = 0.6f;
+        }
+
+        if (callback.canceled)
+        {
+            Time.timeScale = 1f;
+        }
+    }
+
     private void OnEnable()
     {
         inputActions.Enable();
