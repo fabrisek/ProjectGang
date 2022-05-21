@@ -531,7 +531,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 379d81b5fac0930469e1f84c196ca033, type: 2}
+  - {fileID: 2100000, guid: 2d4109183878c2947bd8053460346539, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -627,7 +627,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414541960362661022}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3a7fa48017ce152438bb0d7c14cbdad1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -1833,7 +1833,6 @@ GameObject:
   - component: {fileID: 414541960362661207}
   - component: {fileID: 414541960355276591}
   - component: {fileID: 2695049367952851154}
-  - component: {fileID: 7583517067659391107}
   m_Layer: 3
   m_Name: BugRework
   m_TagString: Untagged
@@ -2017,25 +2016,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414541960362661194}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3a7fa48017ce152438bb0d7c14cbdad1, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.586253, y: 4.4354744, z: 2.9816616}
   m_Center: {x: -0.17937112, y: 1.7177367, z: -0.12555355}
---- !u!114 &7583517067659391107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414541960362661194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef2efc002621c5245a7e441667efa1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeToAutoDestruct: 1.5
 --- !u!1 &414541960362661196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3028,7 +3014,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4419320226935457752}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3041,7 +3027,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a43d7459928f2b54fba30a67d5719306, type: 2}
+  - {fileID: 2100000, guid: 3f2f94f15c2d9a847ba4a22480800ab4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3070,7 +3056,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4419320226935457752}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3a7fa48017ce152438bb0d7c14cbdad1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

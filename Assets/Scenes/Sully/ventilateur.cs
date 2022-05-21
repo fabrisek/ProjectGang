@@ -23,10 +23,8 @@ public class Ventilateur : MonoBehaviour
 
    void OnTriggerStay(Collider other)
    {
-       Debug.Log("collizion");
        if (other.GetComponent<Rigidbody>() != null)
        {
-         Debug.Log("gotRigidBody");
          Rigidbody rb = other.GetComponent<Rigidbody>();
          Vector3 velocity = rb.velocity;
          velocity += dir * force * Time.deltaTime;

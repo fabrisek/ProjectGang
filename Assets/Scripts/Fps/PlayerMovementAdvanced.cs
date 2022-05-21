@@ -118,9 +118,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        readyToJump = true;
-
         startYScale = transform.localScale.y;
+        readyToJump = true;
         resetTimeToJump = timeToJump;
     }
 
