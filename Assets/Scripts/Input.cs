@@ -80,6 +80,15 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grappling"",
+                    ""type"": ""Button"",
+                    ""id"": ""d389e2a9-9d34-4754-ab9f-7a9bb46f6ded"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -131,17 +140,6 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""c4cbb5ad-ddbc-40da-b6ea-87896c5ff86c"",
                     ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8bd7e037-2e26-4104-95e8-63065ffa5880"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -256,6 +254,28 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SlowTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c0c3ab0-30b0-4e01-a103-dba532b8ef0a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grappling"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58968c55-eb6e-4241-b3c4-332423e389d0"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grappling"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -445,6 +465,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_InGame_Look = m_InGame.FindAction("Look", throwIfNotFound: true);
         m_InGame_Mouse = m_InGame.FindAction("Mouse", throwIfNotFound: true);
         m_InGame_SlowTime = m_InGame.FindAction("SlowTime", throwIfNotFound: true);
+        m_InGame_Grappling = m_InGame.FindAction("Grappling", throwIfNotFound: true);
         // InMainMenu
         m_InMainMenu = asset.FindActionMap("InMainMenu", throwIfNotFound: true);
         m_InMainMenu_Back = m_InMainMenu.FindAction("Back", throwIfNotFound: true);
@@ -515,6 +536,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Look;
     private readonly InputAction m_InGame_Mouse;
     private readonly InputAction m_InGame_SlowTime;
+    private readonly InputAction m_InGame_Grappling;
     public struct InGameActions
     {
         private @Input m_Wrapper;
@@ -525,6 +547,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_InGame_Look;
         public InputAction @Mouse => m_Wrapper.m_InGame_Mouse;
         public InputAction @SlowTime => m_Wrapper.m_InGame_SlowTime;
+        public InputAction @Grappling => m_Wrapper.m_InGame_Grappling;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -552,6 +575,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @SlowTime.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnSlowTime;
                 @SlowTime.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnSlowTime;
                 @SlowTime.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnSlowTime;
+                @Grappling.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
+                @Grappling.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
+                @Grappling.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -574,6 +600,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @SlowTime.started += instance.OnSlowTime;
                 @SlowTime.performed += instance.OnSlowTime;
                 @SlowTime.canceled += instance.OnSlowTime;
+                @Grappling.started += instance.OnGrappling;
+                @Grappling.performed += instance.OnGrappling;
+                @Grappling.canceled += instance.OnGrappling;
             }
         }
     }
@@ -653,6 +682,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);
         void OnSlowTime(InputAction.CallbackContext context);
+        void OnGrappling(InputAction.CallbackContext context);
     }
     public interface IInMainMenuActions
     {
