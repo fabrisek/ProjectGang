@@ -11,6 +11,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
     [SerializeField] float walkSpeed;
+    [SerializeField] float acceleration;
+    private float resetWalkSpeed;
     [SerializeField] float sprintSpeed;
     [SerializeField] float slideSpeed;
     [SerializeField] float wallrunSpeed;
@@ -120,7 +122,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
         startYScale = transform.localScale.y;
         readyToJump = true;
+
+        //initializing resets
         resetTimeToJump = timeToJump;
+        resetWalkSpeed = walkSpeed;
     }
 
     private void Update()
@@ -147,6 +152,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         MyInput();
         SpeedControl();
         StateHandler();
+        Accelerate();
 
         // handle drag
         if (grounded)
@@ -165,6 +171,17 @@ public class PlayerMovementAdvanced : MonoBehaviour
         MovePlayer();
     }
 
+    private void Accelerate()
+    {
+        if(verticalInput >= 0.5f)
+        {
+            walkSpeed *= acceleration;
+        }
+        if(verticalInput <= 0.1f)
+        {
+            walkSpeed = resetWalkSpeed;
+        }
+    }
     private void MyInput()
     {
         horizontalInput = GetPlayerMovement().x;
