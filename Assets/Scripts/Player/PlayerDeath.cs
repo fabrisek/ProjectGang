@@ -15,7 +15,7 @@ public class PlayerDeath : MonoBehaviour
             Die();
         }
     }
-    private void Die()
+    public void Die()
     {
         if (!isDead)
         {
@@ -31,7 +31,6 @@ public class PlayerDeath : MonoBehaviour
     {
         if (other.gameObject.layer == 4)
         {
-            Debug.Log(other.gameObject);
             Die();
         }
     }
