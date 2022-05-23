@@ -27,10 +27,7 @@ public class InputManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
 
-        if (_input == null)
-        {
             _input = new Input();
-        }
 
         SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX", 2); ;
         SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY", 2); ;

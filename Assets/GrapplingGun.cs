@@ -35,7 +35,7 @@ public class GrapplingGun : MonoBehaviour
         lr = GetComponent<LineRenderer>();
 
         //Inputs
-        inputActions = InputManager._input;
+        inputActions = new Input();
 
         inputActions.InGame.Grappling.performed += StartGrapple;
         inputActions.InGame.Grappling.canceled += StopGrapple;

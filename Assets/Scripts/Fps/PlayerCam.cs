@@ -20,7 +20,7 @@ public class PlayerCam : MonoBehaviour
 
     private void Awake()
     {
-        inputActions = InputManager._input;
+        inputActions = new Input();
         
     }
     private void OnEnable()
