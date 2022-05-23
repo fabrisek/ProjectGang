@@ -952,6 +952,7 @@ GameObject:
   - component: {fileID: 5564315305835821268}
   - component: {fileID: 6471439406455744494}
   - component: {fileID: 1586341784519901968}
+  - component: {fileID: 7668696465009571618}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1132,6 +1133,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7668696465009571618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624768034253178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70899b8e5372bf84cba3f7d10ffee164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displacementMap: {fileID: 2800000, guid: d3e8c0cad6d49064ba6d4a1253501ed3, type: 3}
+  Shader: {fileID: 4800000, guid: 4f674df045c90684893e8acd30e18b9a, type: 3}
+  intensity: 0.33
+  flipIntensity: 0.33
+  colorIntensity: 0.073
 --- !u!1 &7964774037630606463
 GameObject:
   m_ObjectHideFlags: 0
