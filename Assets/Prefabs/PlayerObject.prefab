@@ -366,8 +366,8 @@ MonoBehaviour:
   camera: {fileID: 7127624768034253183}
   player: {fileID: 7127624766882420786}
   maxDistance: 100
-  spring: 10000
-  damper: 10000
+  spring: 25
+  damper: 25
   massScale: 4.5
   minDistanceMultiplier: 0.25
   maxDistanceMultiplier: 0.8
@@ -687,7 +687,7 @@ MonoBehaviour:
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2
-  jumpForce: 45
+  jumpForce: 55
   jumpCooldown: 0.4
   airMultiplier: 0.8
   crouchSpeed: 3.5
