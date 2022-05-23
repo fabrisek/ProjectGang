@@ -24,7 +24,7 @@ public class PlayerDeath : MonoBehaviour
     }
     public void Die()
     {
-        if (!isDead && !FinishLine.Instance.isWin)
+        if (!isDead && !FinishLine.Instance.isWin) 
         {
             playerCam.enabled = false;
             gameObject.GetComponent<PlayerMovementAdvanced>().enabled = false;
