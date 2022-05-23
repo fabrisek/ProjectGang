@@ -94,7 +94,7 @@ public class GlitchEffect : MonoBehaviour
 		if (Random.value < 0.05 * intensity)
 		{
 			_material.SetFloat("displace", Random.value * intensity);
-			_material.SetFloat("scale", 1 - Random.value * intensity);
+			_material.SetFloat("scale", 1 - Random.value * flipIntensity);
 		}
 		else
 			_material.SetFloat("displace", 0);

@@ -9499,6 +9499,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6165708896400150504, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: joystickValue
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165708896400150504, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: rbVelocityTransition
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7127624766199904173, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -9595,6 +9603,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7127624768034253180, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: field of view
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7127624768034253182, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: sensX
       value: 30
@@ -9602,6 +9614,34 @@ PrefabInstance:
     - target: {fileID: 7127624768034253182, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: sensY
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: intensity
+      value: 0.031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: flipIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: colorIntensity
+      value: 0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: displacementMap
+      value: 
+      objectReference: {fileID: 2800000, guid: 89ee859e47260e840a2610fd36424667, type: 3}
+    - target: {fileID: 7719600731392021129, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: speedSmooth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7719600731392021129, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: rbVelocityTransition
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5226082535551724658, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
@@ -9617,23 +9657,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7127624768034253178, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
   m_PrefabInstance: {fileID: 698122561}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &698122564
-MonoBehaviour:
+--- !u!95 &698122572
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698122563}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70899b8e5372bf84cba3f7d10ffee164, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displacementMap: {fileID: 2800000, guid: 106cb183f21e1bb49af3fc8dee462951, type: 3}
-  Shader: {fileID: 4800000, guid: 4f674df045c90684893e8acd30e18b9a, type: 3}
-  intensity: 0.133
-  flipIntensity: 0.257
-  colorIntensity: 0.073
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc51e0f0a79945548a6e4f4c34e8b0ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &704313134
 GameObject:
   m_ObjectHideFlags: 0

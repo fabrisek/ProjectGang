@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class FovCamera : MonoBehaviour
 {
-    [SerializeField] Camera camera;
-    Rigidbody rb;
-    [SerializeField] [Range(0,10)] float fovEffect;
+    [SerializeField] float joystickValue;
+    Animator camAnimator;
+    public PlayerMovementAdvanced playerMovementAdvanced;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        camAnimator = GetComponent<Animator>();
+        camAnimator.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        camera.fieldOfView = 90 + Mathf.Sqrt(rb.velocity.magnitude)*fovEffect;
+        if( playerMovementAdvanced.VerticalInput > joystickValue)
+        {
+            camAnimator.SetBool("fovUp", true);
+        }
+        else
+        {
+            camAnimator.SetBool("fovUp", false);
+        }
     }
 }
