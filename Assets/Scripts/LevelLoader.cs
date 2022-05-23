@@ -19,8 +19,7 @@ public class LevelLoader : MonoBehaviour
     {
         if (Instance != null && Instance != this)
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
-        Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        Instance = this;     
     }
 
     public void LoadLevel(int sceneIndex)

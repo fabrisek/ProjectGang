@@ -88,7 +88,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private void Awake()
     {
         inputActivated = false;
-        inputActions = new Input();
+        inputActions = InputManager._input;
         inputActions.InGame.SlowTime.performed += ActiveSlowTime;
         inputActions.InGame.SlowTime.canceled += ActiveSlowTime;
     }

@@ -5,16 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
+    public static FinishLine Instance;
+
+    public bool isWin;
+    private void Awake()
+    {
+        Instance = this;
+    }
     [SerializeField] int _levelIndex;
     public void FinishLevel()
     {
-        Timer.Instance.StopTimer();
-        float timer = Timer.Instance.GetTimer();
-        HudControllerInGame.Instance.OpenWinPanel(timer);
-        if (PlayFabHighScore.instance)
-           PlayFabHighScore.instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
-        Data_Manager.Instance.SetRecord(timer, _levelIndex);
-        
+        if (PlayerDeath.Instance.GetIsDead() == false)
+        {
+            isWin = true;
+            Timer.Instance.StopTimer();
+            float timer = Timer.Instance.GetTimer();
+            HudControllerInGame.Instance.OpenWinPanel(timer);
+            if (PlayFabHighScore.Instance)
+                PlayFabHighScore.Instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
+            Data_Manager.Instance.SetRecord(timer, _levelIndex);
+        }    
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,10 +32,7 @@ public class FinishLine : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             FinishLevel();
-            //other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
-
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
         }
     }
 }

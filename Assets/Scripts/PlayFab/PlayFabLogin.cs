@@ -16,6 +16,9 @@ public class PlayFabLogin : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+
         Instance = this;
         DontDestroyOnLoad(this.gameObject);            
     }

@@ -7,7 +7,7 @@ using TMPro;
 
 public class PlayFabHighScore : MonoBehaviour
 {
-    public static PlayFabHighScore instance;
+    public static PlayFabHighScore Instance;
     GameObject prefabScoreTitle;
     Transform scoreboardParent;
 
@@ -19,7 +19,10 @@ public class PlayFabHighScore : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
     public void SendLeaderBord(float score, string nameMap)
     {
