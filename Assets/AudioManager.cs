@@ -12,11 +12,11 @@ public class AudioManager : MonoBehaviour
     
     private void Awake()
     {
-
+        DontDestroyOnLoad(this);
     }
     void Start()
     {
-        
+        PlayMusic(0);
     }
 
     // Update is called once per frame
@@ -36,14 +36,14 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayMusic(int index)
     {
+        Debug.Log("playMusic");
         audioSourceMusic.clip = music[index];
         audioSourceMusic.Play();
     }
     public void playSoundEffect(int index)
     {
-        audioSourceSoundEffect.clip = soundEffects[index];
-        audioSourceSoundEffect.Play();
-
+        audioSourceSoundEffect.PlayOneShot(soundEffects[index]);
     }
+    
     
 }
