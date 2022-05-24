@@ -24,6 +24,12 @@ public class BugTargetController : MonoBehaviour
     GroupesBugs groupesBugsAssign;
     int indexTarget;
     int indexGroupesBug;
+
+    [SerializeField] float speedStepUp;
+    [SerializeField] Transform rayPositionStepUp;
+    float tStepUp;
+    float oldY;
+
     public Transform Target
     {
         set
@@ -64,13 +70,16 @@ public class BugTargetController : MonoBehaviour
     private void Update()
     {
         Movebug();
+        StepUpBug();
 
-        MoveTargetsFeets();
+        MoveTargetsFeets(); 
+       
         StartStep();
     }
 
     void InitBug ()
     {
+        tStepUp = 1;
         changeDirection = true;
         maxFoot = targetFeet.Length;
         actuelFootMove = -1;
@@ -95,7 +104,7 @@ public class BugTargetController : MonoBehaviour
             }
             else
             {
-                Debug.Log(groupesBugsAssign != null);
+                
                 if(groupesBugsAssign != null)
                 {
                     
@@ -186,6 +195,54 @@ public class BugTargetController : MonoBehaviour
             }
         }
         return actuelFootMove;
+    }
+
+    void StepUpBug ()
+    {
+        if(CheckIfStepUp() && tStepUp >= 1)
+        {
+            InitStepUp();
+        }
+        if(tStepUp <1)
+        {
+            transform.position = new Vector3(transform.position.x, CalculNewY(),transform.position.z);
+        }
+    }
+
+    void InitStepUp()
+    {
+        oldY = transform.position.y;
+        tStepUp = 0;
+    }
+
+    float CalculNewY ()
+    {
+        tStepUp += Time.deltaTime * speedStepUp;
+        float newY = Mathf.Lerp(oldY, oldY + 1.2f,tStepUp);
+       
+        return newY;
+    }
+
+    bool CheckIfStepUp()
+    {
+        //LayerMask.NameToLayer(LayerMask.LayerToName(4))
+        RaycastHit[] hits = Physics.RaycastAll(rayPositionStepUp.position, Vector3.forward, 2);
+        if (hits.Length >= 1)
+        {
+            for(int i =0;i<hits.Length;i++)
+            {
+                if(hits[i].transform.gameObject.layer == LayerMask.NameToLayer("Water"))
+                {
+                    Debug.Log(hits[i].transform.name);
+                    return true;
+                }
+              
+            }
+            
+          //  return true;
+        }
+
+        return false;
     }
 
 
