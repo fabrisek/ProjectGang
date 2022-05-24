@@ -40,7 +40,7 @@ public class MenuAntCrontroller : MonoBehaviour
     {
         Vector2 movementInput = _input.InMainMenu.Move.ReadValue<Vector2>();
         Vector3 move = (transform.forward * movementInput.y + transform.right * movementInput.x);
-        Debug.Log(move);
+        
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
         RotatePlayer(movementInput);
