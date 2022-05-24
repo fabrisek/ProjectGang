@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.035565954, g: 0.07924773, b: 0.043681756, a: 1}
+  m_IndirectSpecularColor: {r: 0.035841748, g: 0.07924773, b: 0.043405946, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1779,7 +1779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f7e8ee06fec5b44867a90a93922513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffects: []
+  soundEffects:
+  - {fileID: 8300000, guid: bb6cdd13aeb95f743847b1cd460889bc, type: 3}
   music:
   - {fileID: 8300000, guid: d61840865d1378e429c622004239dbc6, type: 3}
   soundEffectsVolume: 0
@@ -6889,12 +6890,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 704313136}
+    m_SelectOnRight: {fileID: 704313136}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -9141,6 +9142,9 @@ MonoBehaviour:
   _inGamePanel: {fileID: 136836824}
   _textTimerInGame: {fileID: 2070243551}
   _textTimerWin: {fileID: 133429761}
+  eventSystem: {fileID: 1806126578}
+  firstButtonDead: {fileID: 704313134}
+  firstButtunWin: {fileID: 54424272}
 --- !u!1001 &604327752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9738,12 +9742,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 589307231}
+    m_SelectOnRight: {fileID: 589307231}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
+
 
 public class HudControllerInGame : MonoBehaviour
 {
@@ -11,8 +13,15 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] GameObject _winPanel;
     [SerializeField] GameObject _inGamePanel;
 
+    
     [SerializeField] TextMeshProUGUI _textTimerInGame;
     [SerializeField] TextMeshProUGUI _textTimerWin;
+
+    [SerializeField] EventSystem eventSystem;
+
+    [SerializeField] GameObject firstButtonDead;
+    [SerializeField] GameObject firstButtunWin;
+
 
     private void Awake()
     {
@@ -26,6 +35,8 @@ public class HudControllerInGame : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        eventSystem.SetSelectedGameObject(firstButtonDead);
     }
 
     public void ChangeTimerHud(float timer)
@@ -47,6 +58,7 @@ public class HudControllerInGame : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        eventSystem.SetSelectedGameObject(firstButtunWin);
     }
 
     public void OpenMainMenu()
