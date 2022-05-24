@@ -33,7 +33,15 @@ public class BugTargetFoot
         }
     }
 
-    
+    public float StepDistance
+    {
+        get
+        {
+           return stepDistance;
+        }
+    }
+
+
     public void InitBug()
     {
        

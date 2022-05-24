@@ -192,15 +192,15 @@ public class BugTargetController : MonoBehaviour
             distFoot[i] = targetFeet[i].DistToOrigine();
         }
 
-        float distRef = 0.5f;
+        float distRef = 0.4f;
         int actuelFootMove = -1;
 
         for (int i = 0; i < maxFoot; i++)
         {
-            if (distRef < distFoot[i])
+            if (targetFeet[i].StepDistance/2 < distFoot[i] && distRef < targetFeet[i].StepDistance / 2)
             {
                 distRef = distFoot[i];
-                actuelFootMove = i;
+                 actuelFootMove = i;
             }
         }
         return actuelFootMove;
