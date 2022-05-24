@@ -225,7 +225,7 @@ public class BugTargetController : MonoBehaviour
 
     bool CheckIfStepUp()
     {
-        //LayerMask.NameToLayer(LayerMask.LayerToName(4))
+        
         RaycastHit[] hits = Physics.RaycastAll(rayPositionStepUp.position, Vector3.forward, 2);
         if (hits.Length >= 1)
         {
@@ -233,13 +233,10 @@ public class BugTargetController : MonoBehaviour
             {
                 if(hits[i].transform.gameObject.layer == LayerMask.NameToLayer("Water"))
                 {
-                    Debug.Log(hits[i].transform.name);
+                    
                     return true;
                 }
-              
             }
-            
-          //  return true;
         }
 
         return false;
