@@ -47,8 +47,8 @@ public class PlayerCam : MonoBehaviour
     {
         //getMouse Inputs
         Vector2 looking = GetPlayerLook();
-        float lookX = looking.x * InputManager.SensibilityMouseX * Time.deltaTime;
-        float lookY = looking.y * InputManager.SensibilityMouseY * Time.deltaTime;
+        float lookX = looking.x * InputManager.SensibilityMouseX * Time.unscaledDeltaTime;
+        float lookY = looking.y * InputManager.SensibilityMouseY * Time.unscaledDeltaTime;
 
         yRotation += lookX;
         xRotation -= lookY;
