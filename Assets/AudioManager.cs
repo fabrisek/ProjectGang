@@ -29,6 +29,11 @@ public class AudioManager : MonoBehaviour
         ChangeVolumeSoundEFFect(soundEffectsVolume/100);
     }
 
+    public void ChangePitch(float pitch)
+    {
+        audioSourceMusic.pitch = pitch;
+    }
+
     public void ChangeVolumeSoundEFFect(float volume)
     {
         audioSourceSoundEffect.volume = volume;

@@ -45,7 +45,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private RaycastHit slopeHit;
     private bool exitingSlope;
 
-
+    [SerializeField] GlitchEffect glitch;
     [SerializeField] Transform orientation;
     float horizontalInput;
     float verticalInput;
@@ -104,11 +104,15 @@ public class PlayerMovementAdvanced : MonoBehaviour
         if (callback.performed)
         {
             Time.timeScale = 0.6f;
+            AudioManager.instance.ChangePitch(.95f);
+            glitch.enabled = true;
         }
 
         if (callback.canceled)
         {
             Time.timeScale = 1f;
+            glitch.enabled = false;
+            AudioManager.instance.ChangePitch(1f);
         }
     }
 

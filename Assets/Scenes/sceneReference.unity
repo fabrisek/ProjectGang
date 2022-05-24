@@ -9580,6 +9580,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7127624766882420788, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: glitch
+      value: 
+      objectReference: {fileID: 698122574}
+    - target: {fileID: 7127624766882420788, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: acceleration
       value: 1.0005
       objectReference: {fileID: 0}
@@ -9621,7 +9625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: intensity
-      value: 0.031
+      value: 0.357
       objectReference: {fileID: 0}
     - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: m_Enabled
@@ -9629,16 +9633,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: flipIntensity
-      value: 0
+      value: 0.357
       objectReference: {fileID: 0}
     - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: colorIntensity
-      value: 0.035
+      value: 0.368
       objectReference: {fileID: 0}
     - target: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: displacementMap
       value: 
-      objectReference: {fileID: 2800000, guid: 89ee859e47260e840a2610fd36424667, type: 3}
+      objectReference: {fileID: 2800000, guid: e3cda11e20826804bbebaeb0a4ecdff9, type: 3}
     - target: {fileID: 7719600731392021129, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: speedSmooth
       value: 10000
@@ -9681,6 +9685,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &698122574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7668696465009571618, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+  m_PrefabInstance: {fileID: 698122561}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698122563}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70899b8e5372bf84cba3f7d10ffee164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &704313134
 GameObject:
   m_ObjectHideFlags: 0
