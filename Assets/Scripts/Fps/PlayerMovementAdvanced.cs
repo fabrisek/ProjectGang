@@ -101,15 +101,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void ActiveSlowTime(InputAction.CallbackContext callback)
     {
-        if (callback.performed)
-        {
-            Time.timeScale = 0.6f;
-        }
-
-        if (callback.canceled)
-        {
-            Time.timeScale = 1f;
-        }
+        GetComponent<CompetenceRalentie>().ActiveSlowTime(callback);
     }
 
     private void OnEnable()

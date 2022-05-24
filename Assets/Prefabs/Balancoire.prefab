@@ -542,6 +542,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8556704050270495863, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -554,6 +558,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0b2a15efb30b1b64d844a54ee1cf7381, type: 2}
+    - target: {fileID: -6168132367213179198, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5467298716267776313, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: -4365527627252391730, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -570,18 +582,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: HammerTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968872154740741495, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809061481079318842, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3944354609903363865, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 804d5df736b7d0b49b94cca321968eef, type: 2}
+    - target: {fileID: 4576854345964081062, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6514598314032363630, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bc198a851d7d0774a8bc41783e604229, type: 2}
+    - target: {fileID: 6870789105378138323, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7138090116380853109, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 804d5df736b7d0b49b94cca321968eef, type: 2}
+    - target: {fileID: 8476422510553794779, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
 --- !u!1 &3467388392429335199 stripped
@@ -597,11 +633,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3467388392429335199}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6618478, y: 0.9542756, z: 0.6855524}
   m_Center: {x: -0.030923618, y: 1.1726763, z: 0.057223808}
+--- !u!114 &1238327138611614595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467388392429335199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433ec29db84d1ec4ca25ca74a1cd6a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4771097059426196911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}

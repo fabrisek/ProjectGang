@@ -30,6 +30,8 @@ public class BugTargetController : MonoBehaviour
     float tStepUp;
     float oldY;
 
+    [SerializeField] float gravity;
+    Rigidbody rb;
     public Transform Target
     {
         set
@@ -64,6 +66,8 @@ public class BugTargetController : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        
         InitBug();
     }
 
@@ -75,6 +79,11 @@ public class BugTargetController : MonoBehaviour
         MoveTargetsFeets(); 
        
         StartStep();
+
+        if(rb.useGravity)
+        {
+            rb.AddForce(Vector3.down * gravity);
+        }
     }
 
     void InitBug ()

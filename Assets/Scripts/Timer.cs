@@ -30,7 +30,7 @@ public class Timer : MonoBehaviour
     {
         if (_timerIsLaunch)
         {
-            _timer += Time.deltaTime;
+            _timer += Time.unscaledDeltaTime;
             _hud.ChangeTimerHud(_timer);
         }
     }
