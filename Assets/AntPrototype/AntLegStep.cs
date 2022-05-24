@@ -61,7 +61,7 @@ public class AntLegStep : MonoBehaviour
             
             if (IsGrounded())
             {
-                Debug.Log("Je suis au sol mtn");
+               // Debug.Log("Je suis au sol mtn");
                     tombe = false;
                 lerp = 1;
                 currentPoint = transform.position;
@@ -70,7 +70,7 @@ public class AntLegStep : MonoBehaviour
 
         if (DistToOrigine() > stepDistance && !move)
         {
-            Debug.Log("yooooooo" + gameObject.name);
+           // Debug.Log("yooooooo" + gameObject.name);
             move = true;
             lerp = 1;
         }
