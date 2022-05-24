@@ -104,7 +104,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         if (callback.performed)
         {
             Time.timeScale = 0.6f;
-            AudioManager.instance.ChangePitch(.95f);
+            AudioManager.instance.ChangePitch(.98f);
             glitch.enabled = true;
         }
 
