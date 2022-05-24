@@ -36,6 +36,11 @@ public class WallRunningAdvanced : MonoBehaviour
 
     [Header("Exiting")]
     private bool exitingWall;
+    public bool GetExitingWall()
+    {
+        return exitingWall;
+    }
+
     public float exitWallTime;
     private float exitWallTimer;
 
@@ -168,7 +173,6 @@ public class WallRunningAdvanced : MonoBehaviour
     private void StartWallRun()
     {
         pm.wallrunning = true;
-
         wallRunTimer = maxWallRunTime;
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -176,6 +180,7 @@ public class WallRunningAdvanced : MonoBehaviour
         // apply camera effects
         if (wallLeft) cam.DoTilt(-tilt);
         if (wallRight) cam.DoTilt(tilt);
+        
     }
 
     private void WallRunningMovement()
@@ -220,7 +225,7 @@ public class WallRunningAdvanced : MonoBehaviour
         // enter exiting wall state
         exitingWall = true;
         exitWallTimer = exitWallTime;
-
+        
         Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
 
         Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
@@ -228,7 +233,7 @@ public class WallRunningAdvanced : MonoBehaviour
         // reset y velocity and add force
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(forceToApply, ForceMode.Impulse);
-
+        
         //SoundEffect
         AudioManager.instance.playSoundEffect(1);
 

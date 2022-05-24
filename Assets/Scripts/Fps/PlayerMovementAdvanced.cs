@@ -26,6 +26,18 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMultiplier;
     bool readyToJump;
+    bool canDoubleJump = true;
+    public bool CanDoubleJump
+    {
+        get
+        {
+            return canDoubleJump;
+        }
+    }
+    public void SetCanDoubleJump(bool a)
+    {
+        canDoubleJump = a;
+    }
 
     [Header("Crouching")]
     [SerializeField] float crouchSpeed;
@@ -55,6 +67,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
     Rigidbody rb;
 
     private bool inputActivated;
+    WallRunningAdvanced wallRunningAdvanced;
+    bool exitingWall;
+    float timeWallDoubleJump = 0.8f;
+    float resetWallTimeDoubleJump = 0.8f;
+    [SerializeField] Camera playerCam;
+    [SerializeField] float speedAnimDoubleJump;
+    bool activateFlip;
+    Quaternion rotation;
     public bool GetInputActivated
     { 
         get
@@ -115,6 +135,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void Start()
     {
+        wallRunningAdvanced = GetComponent<WallRunningAdvanced>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -145,7 +166,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
                 canJump = false;
             }
         }
-        
 
         MyInput();
         SpeedControl();
@@ -161,6 +181,28 @@ public class PlayerMovementAdvanced : MonoBehaviour
         if(horizontalInput != 0||verticalInput!=0)
         {
             inputActivated = true;
+        }
+
+        //wall run doubleJump
+        if(wallRunningAdvanced.GetExitingWall())
+        {
+            exitingWall = true;
+        }
+        if(exitingWall)
+        {
+            timeWallDoubleJump -= Time.deltaTime;
+            if(timeWallDoubleJump<=0)
+            {
+                canDoubleJump = true;
+                exitingWall = false;
+                timeWallDoubleJump = resetWallTimeDoubleJump;
+            }
+        }
+
+        //double jump Anim 
+        if(activateFlip)
+        {
+            rotation = playerCam.transform.rotation;
         }
     }
 
@@ -193,6 +235,17 @@ public class PlayerMovementAdvanced : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+        else if(GetPlayerJump() > 0.1f && readyToJump && canDoubleJump&& state != MovementState.wallrunning)
+        {
+            Jump();
+            canDoubleJump = false;
+            activateFlip = true;
+        }
+
+        if( grounded)
+        {
+            canDoubleJump = true;
         }
     }
     
@@ -300,7 +353,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
          }
         
     }
-
+    private void DoubleJumpAnim()
+    {
+        playerCam.transform.Rotate(0, 0, speedAnimDoubleJump);
+    }
     private void Jump()
     {
         // reset y velocity
