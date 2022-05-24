@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
+
     [SerializeField] AudioClip[] soundEffects, music;
     [SerializeField] [Range(0, 100)] float soundEffectsVolume, musicVolume;
     [SerializeField] AudioSource audioSourceSoundEffect, audioSourceMusic;
@@ -13,6 +15,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
+        instance = this;
     }
     void Start()
     {
