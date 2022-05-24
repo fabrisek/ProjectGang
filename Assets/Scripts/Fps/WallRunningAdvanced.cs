@@ -215,5 +215,9 @@ public class WallRunningAdvanced : MonoBehaviour
         // reset y velocity and add force
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(forceToApply, ForceMode.Impulse);
+
+        //SoundEffect
+        AudioManager.instance.playSoundEffect(1);
+
     }
 }

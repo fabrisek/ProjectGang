@@ -319,8 +319,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         //JumpForce
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
         canJump = false;
+
+        //SoundEffect
+        AudioManager.instance.playSoundEffect(1);
     }
     private void ResetJump()
     {
