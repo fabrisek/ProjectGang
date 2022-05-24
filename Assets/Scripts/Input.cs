@@ -383,7 +383,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""2c9390ff-50b2-445c-93d3-0face16d4bd3"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
@@ -405,7 +405,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""50da0f76-2bef-45f4-ad62-2415b905d5f5"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
