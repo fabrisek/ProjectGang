@@ -36,7 +36,6 @@ public class LevelManager : MonoBehaviour
         {
             if (!Timer.Instance.TimerIsLaunch() && playerMovementScript.GetInputActivated)
             {
-                Debug.Log("je me lance");
                 Timer.Instance.LaunchTimer();
             }
         }

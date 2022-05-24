@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovementAdvanced : MonoBehaviour
@@ -67,8 +66,15 @@ public class PlayerMovementAdvanced : MonoBehaviour
             inputActivated = value;
         }
     }
+    public float VerticalInput
+    {
+        get
+        {
+            return verticalInput;
+        }
+    }
 
-    [SerializeField] MovementState state;
+        [SerializeField] MovementState state;
     public enum MovementState
     {
         walking,

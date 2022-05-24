@@ -12,6 +12,9 @@ public class Data_Manager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+        DontDestroyOnLoad(this.gameObject);
         Instance = this;
         LoadSavedGames();
     }

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7696495706927401549}
   - component: {fileID: 5169510708172432994}
   - component: {fileID: 4701553937532188089}
+  - component: {fileID: 5390380491593103583}
+  - component: {fileID: 398016540682787290}
   m_Layer: 0
   m_Name: Neon6
   m_TagString: Untagged
@@ -83,6 +85,58 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5390380491593103583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242174846778908171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327c5c2481516944cae3a1c1aedc2594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnabled: 1
+  sourceType: 1
+  audioSource: {fileID: 0}
+  sampleAmount: 256
+  channel: 0
+  attackDamp: 0.369
+  decayDamp: 0.063
+  outputType: 1
+  valueMultiplier: {x: 0, y: 0, z: -20}
+  outputScaleMin: 1
+  outputScaleMax: 1.2
+  prefab: {fileID: 0}
+  scalePrefab: 0
+  useColorGradient: 1
+  MinColor: {r: 0, g: 0, b: 0, a: 1}
+  MaxColor: {r: 0.9056604, g: 0.70110387, b: 0.09825563, a: 1}
+  colorCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  colorAttackDamp: 1
+  colorDecayDamp: 1
+--- !u!114 &398016540682787290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242174846778908171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5680af543db22741b97196374de385c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartColor: {r: 1, g: 0.77376354, b: 0, a: 1}
+  EndColor: {r: 0, g: 0.25275993, b: 1, a: 1}
+  time: 10
+  isCycling: 0
 --- !u!1 &4268356606898512672
 GameObject:
   m_ObjectHideFlags: 0

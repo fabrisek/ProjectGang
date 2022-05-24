@@ -26,8 +26,8 @@ public class MenuAntCrontroller : MonoBehaviour
 
     private void OnEnable()
     {
-        _movement = _input.InMainMenu.Move;
         _input.InMainMenu.Enable();
+        _movement = _input.InMainMenu.Move;   
     }
 
     private void OnDisable()

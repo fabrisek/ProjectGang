@@ -8,7 +8,7 @@ using System;
 public class InputManager : MonoBehaviour
 {
     public static Input _input;
-
+    public static InputManager Instance;
     public static float SensibilityMouseY;
     public static float SensibilityMouseX;   
     public static float SensibilityGamePadY;
@@ -19,10 +19,15 @@ public class InputManager : MonoBehaviour
     public static event Action<InputAction, int> rebindStarted;
     private void Awake()
     {
-        if (_input == null)
-        {
+        
+            if (Instance != null && Instance != this)
+                Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+
+            Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+
+
             _input = new Input();
-        }
 
         SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX", 2); ;
         SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY", 2); ;

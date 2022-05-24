@@ -361,12 +361,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsGrappleable:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2064
   gunTip: {fileID: 6975862396973866449}
   camera: {fileID: 7127624768034253183}
   player: {fileID: 7127624766882420786}
-  spring: 4.5
-  damper: 7
+  maxDistance: 100
+  spring: 25
+  damper: 25
   massScale: 4.5
   minDistanceMultiplier: 0.25
   maxDistanceMultiplier: 0.8
@@ -594,6 +595,8 @@ GameObject:
   - component: {fileID: 559367545116714896}
   - component: {fileID: 3114977110506154046}
   - component: {fileID: 7665029378708070359}
+  - component: {fileID: 5468416196665613191}
+  - component: {fileID: 8131545360638797725}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -684,7 +687,7 @@ MonoBehaviour:
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2
-  jumpForce: 45
+  jumpForce: 55
   jumpCooldown: 0.4
   airMultiplier: 0.8
   crouchSpeed: 3.5
@@ -776,6 +779,34 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5468416196665613191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624766882420787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbc65a9731287542a8ef709c6f7d61b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 7127624768034253182}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 16
+--- !u!114 &8131545360638797725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624766882420787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1333afb6cf321aa468c99a283255ca64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7127624767075465763
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,6 +952,9 @@ GameObject:
   - component: {fileID: 5564315305835821268}
   - component: {fileID: 6471439406455744494}
   - component: {fileID: 1586341784519901968}
+  - component: {fileID: 7668696465009571618}
+  - component: {fileID: 1716052498273197036}
+  - component: {fileID: 6165708896400150504}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1101,6 +1135,57 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7668696465009571618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624768034253178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70899b8e5372bf84cba3f7d10ffee164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displacementMap: {fileID: 2800000, guid: d3e8c0cad6d49064ba6d4a1253501ed3, type: 3}
+  Shader: {fileID: 4800000, guid: 4f674df045c90684893e8acd30e18b9a, type: 3}
+  intensity: 0
+  flipIntensity: 0
+  colorIntensity: 0.06
+--- !u!95 &1716052498273197036
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624768034253178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc51e0f0a79945548a6e4f4c34e8b0ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6165708896400150504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624768034253178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06d1723df780cc4e98a3d4098cb8a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystickValue: 0.75
+  playerMovementAdvanced: {fileID: 7127624766882420788}
 --- !u!1 &7964774037630606463
 GameObject:
   m_ObjectHideFlags: 0

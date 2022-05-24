@@ -22,6 +22,10 @@ public class AutoDestruct : MonoBehaviour
     IEnumerator LaunchEffect()
     {
         yield return new WaitForSeconds(1f);
+        if(GetComponentInChildren<PlayerMovementAdvanced>()!=null)
+        {
+            GameManager.gameManager.Player.transform.parent = null;
+        }
         Destroy(this.gameObject);
     }
 

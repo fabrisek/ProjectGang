@@ -44,6 +44,9 @@ public class HudControllerInGame : MonoBehaviour
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(true);
         _textTimerWin.text = Timer.FormatTime(timer);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void OpenMainMenu()

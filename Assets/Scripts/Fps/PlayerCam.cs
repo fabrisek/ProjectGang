@@ -21,6 +21,7 @@ public class PlayerCam : MonoBehaviour
     private void Awake()
     {
         inputActions = new Input();
+        
     }
     private void OnEnable()
     {
@@ -34,6 +35,8 @@ public class PlayerCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        
     }
 
     private void Update()
