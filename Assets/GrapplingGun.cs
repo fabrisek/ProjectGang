@@ -20,6 +20,7 @@ public class GrapplingGun : MonoBehaviour
 
     public Input inputActions;
 
+    
     private void OnEnable()
     {
         inputActions.Enable();
@@ -79,6 +80,9 @@ public class GrapplingGun : MonoBehaviour
 
                 lr.positionCount = 2;
                 currentGrapplePosition = gunTip.position;
+
+                //SoundEffect
+                AudioManager.instance.playSoundEffect(0);
             }
         }
     }

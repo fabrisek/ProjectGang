@@ -10,6 +10,7 @@ public class MenuAntCrontroller : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Vector3 playerVelocity;
     [SerializeField] private float playerSpeed = 8.0f;
+    [SerializeField] float speedRotation;
 
     LevelSelectorMenu _levelRef;
 
@@ -39,8 +40,22 @@ public class MenuAntCrontroller : MonoBehaviour
     {
         Vector2 movementInput = _input.InMainMenu.Move.ReadValue<Vector2>();
         Vector3 move = (transform.forward * movementInput.y + transform.right * movementInput.x);
+        Debug.Log(move);
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
+        RotatePlayer(movementInput);
+    }
+
+    void RotatePlayer (Vector3 move)
+    {
+        if (move.x != 0)
+        {
+            transform.Rotate(Vector3.up * move.x * speedRotation * Time.deltaTime);
+        }
+        
+        
+
+      
     }
 
     void SelectMenu(InputAction.CallbackContext callback)
