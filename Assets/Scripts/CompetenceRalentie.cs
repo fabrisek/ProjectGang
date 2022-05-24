@@ -13,6 +13,7 @@ public class CompetenceRalentie : MonoBehaviour
             Time.timeScale = 0.6f;
             AudioManager.instance.ChangePitch(.98f);
             glitch.enabled = true;
+            AudioManager.instance.playSoundEffect(2);
         }
 
         if (callback.canceled)
@@ -20,6 +21,7 @@ public class CompetenceRalentie : MonoBehaviour
             Time.timeScale = 1f;
             glitch.enabled = false;
             AudioManager.instance.ChangePitch(1f);
+            AudioManager.instance.playSoundEffect(3);
         }
     }
 }
