@@ -1868,7 +1868,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 100000
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2031,6 +2031,90 @@ Transform:
   m_Father: {fileID: 694324971}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1765508187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1765508188}
+  - component: {fileID: 1765508190}
+  - component: {fileID: 1765508189}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1765508188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765508187}
+  m_LocalRotation: {x: 0.70710677, y: 0.00000005960465, z: 0.00000004470349, w: 0.70710677}
+  m_LocalPosition: {x: 0.13, y: 11.57, z: -0.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1924218290}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1765508189
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765508187}
+  m_Enabled: 1
+--- !u!20 &1765508190
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765508187}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &1924218289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,13 +2144,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924218289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.09, y: 0.32266313, z: 3.470333}
+  m_LocalPosition: {x: 4.09, y: 20, z: 3.470333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 543450651612801922}
   - {fileID: 863636659}
   - {fileID: 711433137}
+  - {fileID: 1765508188}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2079,12 +2164,12 @@ Rigidbody:
   m_GameObject: {fileID: 1924218289}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &1924218292
 BoxCollider:
@@ -2115,52 +2200,12 @@ MonoBehaviour:
   - groundLayer:
       serializedVersion: 2
       m_Bits: 16
-    targetToMove: {fileID: 1555214011}
-    originePoint: {fileID: 1070475886}
-    shoulder: {fileID: 4416035363016055475}
-    speed: 7
-    stepDistance: 1.5
-    stepLength: 3
-    stepHeight: 1.5
-  - groundLayer:
-      serializedVersion: 2
-      m_Bits: 16
-    targetToMove: {fileID: 337882682}
-    originePoint: {fileID: 1406641546}
-    shoulder: {fileID: 6536916078544493581}
-    speed: 7
-    stepDistance: 1.5
-    stepLength: 3
-    stepHeight: 1.5
-  - groundLayer:
-      serializedVersion: 2
-      m_Bits: 16
     targetToMove: {fileID: 1542988407}
     originePoint: {fileID: 1678963599}
     shoulder: {fileID: 7958069140140332947}
-    speed: 7
-    stepDistance: 1.5
-    stepLength: 3
-    stepHeight: 1.5
-  - groundLayer:
-      serializedVersion: 2
-      m_Bits: 16
-    targetToMove: {fileID: 839402294}
-    originePoint: {fileID: 1439225411}
-    shoulder: {fileID: 4620515254698354445}
-    speed: 7
-    stepDistance: 1.5
-    stepLength: 3
-    stepHeight: 1.5
-  - groundLayer:
-      serializedVersion: 2
-      m_Bits: 16
-    targetToMove: {fileID: 102512356}
-    originePoint: {fileID: 1364178749}
-    shoulder: {fileID: 5429700296934205300}
-    speed: 7
-    stepDistance: 1.5
-    stepLength: 3
+    speed: 20
+    stepDistance: 1.8
+    stepLength: 2.5
     stepHeight: 1.5
   - groundLayer:
       serializedVersion: 2
@@ -2168,13 +2213,53 @@ MonoBehaviour:
     targetToMove: {fileID: 1675659511}
     originePoint: {fileID: 704597766}
     shoulder: {fileID: 3074363217991367599}
-    speed: 7
-    stepDistance: 1.5
-    stepLength: 3
+    speed: 20
+    stepDistance: 1.8
+    stepLength: 2.5
     stepHeight: 1.5
-  target: {fileID: 0}
+  - groundLayer:
+      serializedVersion: 2
+      m_Bits: 16
+    targetToMove: {fileID: 337882682}
+    originePoint: {fileID: 1406641546}
+    shoulder: {fileID: 6536916078544493581}
+    speed: 20
+    stepDistance: 1.8
+    stepLength: 2.5
+    stepHeight: 1.5
+  - groundLayer:
+      serializedVersion: 2
+      m_Bits: 16
+    targetToMove: {fileID: 102512356}
+    originePoint: {fileID: 1364178749}
+    shoulder: {fileID: 5429700296934205300}
+    speed: 20
+    stepDistance: 1.8
+    stepLength: 2.5
+    stepHeight: 1.5
+  - groundLayer:
+      serializedVersion: 2
+      m_Bits: 16
+    targetToMove: {fileID: 1555214011}
+    originePoint: {fileID: 1070475886}
+    shoulder: {fileID: 4416035363016055475}
+    speed: 20
+    stepDistance: 1.5
+    stepLength: 2.5
+    stepHeight: 1.5
+  - groundLayer:
+      serializedVersion: 2
+      m_Bits: 16
+    targetToMove: {fileID: 839402294}
+    originePoint: {fileID: 1439225411}
+    shoulder: {fileID: 4620515254698354445}
+    speed: 20
+    stepDistance: 1.5
+    stepLength: 2.5
+    stepHeight: 1.5
+  target: {fileID: 692581624}
   latence: 3
-  speed: 1
+  speed: 4
   speedRotate: 10
   minTimeToChangeDirection: 1
   maxTimeToChangeDirection: 3
