@@ -45,7 +45,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private RaycastHit slopeHit;
     private bool exitingSlope;
 
-    [SerializeField] GlitchEffect glitch;
+
     [SerializeField] Transform orientation;
     float horizontalInput;
     float verticalInput;
@@ -101,19 +101,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void ActiveSlowTime(InputAction.CallbackContext callback)
     {
-        if (callback.performed)
-        {
-            Time.timeScale = 0.6f;
-            AudioManager.instance.ChangePitch(.98f);
-            glitch.enabled = true;
-        }
-
-        if (callback.canceled)
-        {
-            Time.timeScale = 1f;
-            glitch.enabled = false;
-            AudioManager.instance.ChangePitch(1f);
-        }
+        GetComponent<CompetenceRalentie>().ActiveSlowTime(callback);
     }
 
     private void OnEnable()
