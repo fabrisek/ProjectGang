@@ -13,6 +13,7 @@ public class WallRunningAdvanced : MonoBehaviour
     public float wallClimbSpeed;
     public float maxWallRunTime;
     private float wallRunTimer;
+    private float timerFoostep;
 
     [Header("CameraEffects")]
     [SerializeField] float tilt;
@@ -77,6 +78,7 @@ public class WallRunningAdvanced : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovementAdvanced>();
+        timerFoostep = 0f;
     }
 
     private void Update()
@@ -119,8 +121,10 @@ public class WallRunningAdvanced : MonoBehaviour
 
             // wallrun timer
             if (wallRunTimer > 0)
+            {
                 wallRunTimer -= Time.deltaTime;
-
+            }
+            
             if(wallRunTimer <= 0 && pm.wallrunning)
             {
                 exitingWall = true;
@@ -129,6 +133,14 @@ public class WallRunningAdvanced : MonoBehaviour
 
             // wall jump
             if (GetPlayerJump() > 0.1f) WallJump();
+
+            //Sound
+            timerFoostep -= Time.deltaTime;
+            if (timerFoostep <= 0)
+            {
+                AudioManager.instance.playSoundEffect(5);
+                timerFoostep += 0.3f;
+            }
         }
 
         // State 2 - Exiting
@@ -150,6 +162,7 @@ public class WallRunningAdvanced : MonoBehaviour
             if (pm.wallrunning)
                 StopWallRun();
         }
+
     }
 
     private void StartWallRun()
