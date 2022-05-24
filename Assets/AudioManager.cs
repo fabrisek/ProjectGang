@@ -52,6 +52,4 @@ public class AudioManager : MonoBehaviour
     {
         audioSourceSoundEffect.PlayOneShot(soundEffects[index]);
     }
-    
-    
 }
