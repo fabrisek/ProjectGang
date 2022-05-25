@@ -8,7 +8,6 @@ public class BugTargetFoot
     [SerializeField] LayerMask groundLayer = default;
     [SerializeField] Transform targetToMove;
     [SerializeField] Transform originePoint;
-    [SerializeField] Transform shoulder;
     [SerializeField] float speed = 1;
     [SerializeField] float stepDistance = 4;
     [SerializeField] float stepLength = 4;
@@ -68,7 +67,7 @@ public class BugTargetFoot
     public void InitMoveStep()
     {
         move = true;
-        nextPoint = CalculNextPoint2(currentPoint, stepDistance, stepHeight, stepLength, originePoint.position, groundLayer,shoulder);
+        nextPoint = CalculNextPoint2(currentPoint, stepDistance, stepHeight, stepLength, originePoint.position, groundLayer);
        
         arcPoint = CalculPointArc(stepDistance, currentPoint, currentPoint, stepHeight, originePoint.transform.position);
         oldPoint = currentPoint;
@@ -95,7 +94,7 @@ public class BugTargetFoot
         }
     }
 
-    Vector3 CalculNextPoint2(Vector3 currentPosition, float stepDistance, float stepheight,float stepLenght, Vector3 originePos, LayerMask groundLayer, Transform shoulder)
+    Vector3 CalculNextPoint2(Vector3 currentPosition, float stepDistance, float stepheight,float stepLenght, Vector3 originePos, LayerMask groundLayer)
     {
         Vector3 direction = new Vector3(originePos.x - currentPosition.x, currentPosition.y, originePos.z - currentPosition.z);
         Vector3 nextPoint = new Vector3(currentPosition.x + (direction.x * stepDistance), currentPosition.y, currentPosition.z + (direction.z * stepDistance));
