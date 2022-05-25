@@ -71,10 +71,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
     bool exitingWall;
     float timeWallDoubleJump = 0.8f;
     float resetWallTimeDoubleJump = 0.8f;
-    [SerializeField] Camera playerCam;
-    [SerializeField] float speedAnimDoubleJump;
-    bool activateFlip;
-    Quaternion rotation;
     public bool GetInputActivated
     { 
         get
@@ -199,11 +195,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
             }
         }
 
-        //double jump Anim 
-        if(activateFlip)
-        {
-            rotation = playerCam.transform.rotation;
-        }
     }
 
     private void FixedUpdate()
@@ -240,7 +231,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             Jump();
             canDoubleJump = false;
-            activateFlip = true;
         }
 
         if( grounded)
@@ -352,10 +342,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
              rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
          }
         
-    }
-    private void DoubleJumpAnim()
-    {
-        playerCam.transform.Rotate(0, 0, speedAnimDoubleJump);
     }
     private void Jump()
     {
