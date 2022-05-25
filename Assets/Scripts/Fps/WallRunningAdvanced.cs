@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FirstGearGames.SmoothCameraShaker;
 
 public class WallRunningAdvanced : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class WallRunningAdvanced : MonoBehaviour
     [SerializeField] float tilt;
     [SerializeField] float fovWall;
     [SerializeField] float fovNormal;
+    [SerializeField] ShakeData wallRunShake;
 
     [Header("Input")]
     private bool upwardsRunning;
@@ -139,12 +141,13 @@ public class WallRunningAdvanced : MonoBehaviour
             // wall jump
             if (GetPlayerJump() > 0.1f) WallJump();
 
-            //Sound
+            //FeedBack
             timerFoostep -= Time.deltaTime;
             if (timerFoostep <= 0)
             {
                 AudioManager.instance.playSoundEffect(5);
                 timerFoostep += 0.3f;
+                //CameraShakerHandler.Shake(wallRunShake);
             }
         }
 

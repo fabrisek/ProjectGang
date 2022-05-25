@@ -5368,6 +5368,8 @@ MonoBehaviour:
   jumpForce: 55
   jumpCooldown: 0.6
   airMultiplier: 0.8
+  jumpShake: {fileID: 11400000, guid: 7d35e670e3e0092438d60111e2f1c686, type: 2}
+  runShake: {fileID: 11400000, guid: 06576d2dc1847ed49ba311ba7cafbe87, type: 2}
   crouchSpeed: 3.5
   crouchYScale: 0.5
   playerHeight: 2
@@ -5473,6 +5475,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 16
+  deathShake: {fileID: 11400000, guid: 95616048506dc9d4dbd1130ee3aa6e98, type: 2}
 --- !u!114 &8131545360638797725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5646,6 +5649,7 @@ GameObject:
   - component: {fileID: 7668696465009571618}
   - component: {fileID: 1716052498273197036}
   - component: {fileID: 6165708896400150504}
+  - component: {fileID: 277016940352557936}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5877,6 +5881,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystickValue: 0.75
   playerMovementAdvanced: {fileID: 7127624766882420788}
+--- !u!114 &277016940352557936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624768034253178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shakeTechnique: 1
+  _makeDefaultOnEnable: 1
+  _limitMagnitude: 0
+  _positionalMagnitudeLimit: 10
+  _rotationalMagnitudeLimit: 3
 --- !u!1001 &568495076438196463
 PrefabInstance:
   m_ObjectHideFlags: 0
