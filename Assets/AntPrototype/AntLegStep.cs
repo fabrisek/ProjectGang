@@ -7,7 +7,6 @@ public class AntLegStep : MonoBehaviour
     [SerializeField] LayerMask groundLayer = default;
     [SerializeField] float speed = 1;
     [SerializeField] float stepDistance = 4;
-    [SerializeField] float stepLength = 4;
     [SerializeField] float stepHeight = 1;
     [SerializeField] GameObject originePoint;
 
