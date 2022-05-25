@@ -7,6 +7,7 @@ public class FovCamera : MonoBehaviour
     [SerializeField] float joystickValue;
     Animator camAnimator;
     public PlayerMovementAdvanced playerMovementAdvanced;
+    [SerializeField] ParticleSystem speedparticles;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,12 @@ public class FovCamera : MonoBehaviour
         if( playerMovementAdvanced.VerticalInput > joystickValue)
         {
             camAnimator.SetBool("fovUp", true);
+            speedparticles.Play();
         }
         else
         {
             camAnimator.SetBool("fovUp", false);
+            speedparticles.Stop();
         }
     }
 }
