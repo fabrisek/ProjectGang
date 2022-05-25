@@ -230,7 +230,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        else if(GetPlayerJump() > 0.1f && readyToJump && canDoubleJump&& state != MovementState.wallrunning)
+        else if(GetPlayerJump() > 0.1f && readyToJump && canDoubleJump && state != MovementState.wallrunning)
         {
             Jump();
             canDoubleJump = false;
