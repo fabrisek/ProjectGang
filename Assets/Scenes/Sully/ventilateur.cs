@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FirstGearGames.SmoothCameraShaker;
 
 public class Ventilateur : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Ventilateur : MonoBehaviour
     public float amortissement;
 
     Vector3 dir = Vector3.up;
+
+    [SerializeField] ShakeData ventiloShake;
     
 
     void Start()
@@ -34,6 +37,13 @@ public class Ventilateur : MonoBehaviour
          // rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);
          //rb.velocity = (Vector3.Normalize(Vector3.up * force * rb.mass));
        }
-   }   
+   }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            CameraShakerHandler.Shake(ventiloShake);
+        }
+    }
 
 }

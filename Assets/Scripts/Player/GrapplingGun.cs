@@ -1,7 +1,7 @@
 using UnityEngine;
 
 using UnityEngine.InputSystem;
-
+using FirstGearGames.SmoothCameraShaker;
 public class GrapplingGun : MonoBehaviour
 {
 
@@ -19,7 +19,7 @@ public class GrapplingGun : MonoBehaviour
 
 
     public Input inputActions;
-
+    [SerializeField] ShakeData grapplinShake;
     
     private void OnEnable()
     {
@@ -83,6 +83,7 @@ public class GrapplingGun : MonoBehaviour
 
                 //SoundEffect
                 AudioManager.instance.playSoundEffect(0);
+                CameraShakerHandler.Shake(grapplinShake);
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FirstGearGames.SmoothCameraShaker;
 
 public class PlayerDeath : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerDeath : MonoBehaviour
     bool grounded;
     [SerializeField]LayerMask whatIsGround;
     bool isDead;
+    [SerializeField] ShakeData deathShake;
     private void Awake()
     {
         Instance = this;
@@ -31,6 +33,10 @@ public class PlayerDeath : MonoBehaviour
             //Desactive les controles
             HudControllerInGame.Instance.OpenDeathPanel();
             isDead = true;
+
+            //FeedBack
+            CameraShakerHandler.Shake(deathShake);
+
         }        
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FirstGearGames.SmoothCameraShaker;
 
 public class PlayerMovementAdvanced : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [SerializeField] float airMultiplier;
     bool readyToJump;
     bool canDoubleJump = true;
+    [SerializeField] ShakeData jumpShake;
+    [SerializeField] ShakeData runShake;
     public bool CanDoubleJump
     {
         get
@@ -315,6 +318,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
         if (grounded)
         {
             rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
+            if(rb.velocity.magnitude>10f)
+            {
+                CameraShakerHandler.Shake(runShake);
+            }
         }
         // in air
         else
@@ -351,8 +358,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         canJump = false;
 
-        //SoundEffect
+        //feedBack
         AudioManager.instance.playSoundEffect(1);
+        CameraShakerHandler.Shake(jumpShake);
+
     }
     private void ResetJump()
     {
