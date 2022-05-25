@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 public class HudControllerInGame : MonoBehaviour
@@ -21,7 +22,8 @@ public class HudControllerInGame : MonoBehaviour
 
     [SerializeField] GameObject firstButtonDead;
     [SerializeField] GameObject firstButtunWin;
-
+    [SerializeField] Slider slideTime;
+    [SerializeField] GameObject sliderGo;
 
     private void Awake()
     {
@@ -64,5 +66,13 @@ public class HudControllerInGame : MonoBehaviour
     public void OpenMainMenu()
     {
         LevelLoader.Instance.LoadLevel(0);
+    }
+
+    public void ChangeSliderTimeValue(float value , float maxValue, bool doActive)
+    {
+        sliderGo.SetActive(doActive);
+        slideTime.value = value;
+        slideTime.maxValue = maxValue;
+
     }
 }
