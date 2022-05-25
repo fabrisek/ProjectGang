@@ -64,7 +64,7 @@ public class CompetenceRalentie : MonoBehaviour
         {
             if (_timeRestant < _timeMax)
             {
-                _timeRestant += Time.unscaledDeltaTime / 2;
+                _timeRestant += Time.unscaledDeltaTime / 3;
                 HudControllerInGame.Instance.ChangeSliderTimeValue(_timeRestant, _timeMax, true);
             }
 

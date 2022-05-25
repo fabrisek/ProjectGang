@@ -22,9 +22,12 @@ public class HudControllerInGame : MonoBehaviour
 
     [SerializeField] GameObject firstButtonDead;
     [SerializeField] GameObject firstButtunWin;
+
     [SerializeField] Slider slideTime;
     [SerializeField] GameObject sliderGo;
 
+    [SerializeField] GameObject DoubleJumpIcon;
+    
     private void Awake()
     {
         Instance = this;
@@ -74,5 +77,10 @@ public class HudControllerInGame : MonoBehaviour
         slideTime.value = value;
         slideTime.maxValue = maxValue;
 
+    }
+
+    public void DoubleJumpShow(bool a )
+    {
+        DoubleJumpIcon.SetActive(a);
     }
 }
