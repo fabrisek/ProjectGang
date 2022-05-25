@@ -26,7 +26,7 @@ public class Ventilateur : MonoBehaviour
 
    void OnTriggerStay(Collider other)
    {
-       if (other.GetComponent<Rigidbody>() != null)
+       if (other.GetComponent<Rigidbody>() != null && other.gameObject.layer == 7)
        {
          Rigidbody rb = other.GetComponent<Rigidbody>();
          Vector3 velocity = rb.velocity;
@@ -38,11 +38,13 @@ public class Ventilateur : MonoBehaviour
          //rb.velocity = (Vector3.Normalize(Vector3.up * force * rb.mass));
        }
    }
+    //FeedBack
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 7)
         {
             CameraShakerHandler.Shake(ventiloShake);
+            AudioManager.instance.playSoundEffect(6);
         }
     }
 

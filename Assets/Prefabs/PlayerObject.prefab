@@ -5359,10 +5359,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 25
-  acceleration: 1.01
+  acceleration: 1.0005
   sprintSpeed: 20
   slideSpeed: 20
-  wallrunSpeed: 25
+  wallrunSpeed: 30
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2
@@ -5376,7 +5376,7 @@ MonoBehaviour:
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 1792
   timeToJump: 0.3
   canJump: 0
   maxSlopeAngle: 40
@@ -5490,7 +5490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1333afb6cf321aa468c99a283255ca64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeMax: 2
+  _timeRestant: 2
   glitch: {fileID: 7668696465009571618}
+  competenceIsActive: 0
 --- !u!114 &8411010928126319835
 MonoBehaviour:
   m_ObjectHideFlags: 0
