@@ -5221,12 +5221,12 @@ GameObject:
   - component: {fileID: 7127624766882420791}
   - component: {fileID: 7127624766882420788}
   - component: {fileID: 7127624766882420789}
-  - component: {fileID: 559367545116714896}
   - component: {fileID: 3114977110506154046}
   - component: {fileID: 7665029378708070359}
   - component: {fileID: 5468416196665613191}
   - component: {fileID: 8131545360638797725}
   - component: {fileID: 8411010928126319835}
+  - component: {fileID: 2452050022610702564}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -5373,19 +5373,6 @@ MonoBehaviour:
   gravityCounterForce: 20
   orientation: {fileID: 7127624766541610147}
   cam: {fileID: 7127624768034253182}
---- !u!135 &559367545116714896
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7127624766882420787}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: -1.19, z: 0}
 --- !u!114 &3114977110506154046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5458,6 +5445,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc65b2a46f883c94f98c99e61d3e69a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &2452050022610702564
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624766882420787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.75
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.6, z: 0}
 --- !u!1 &7127624767075465763
 GameObject:
   m_ObjectHideFlags: 0
@@ -6087,7 +6088,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.131
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4215645428408873425, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
 --- !u!4 &6438082568754425784 stripped
 Transform:

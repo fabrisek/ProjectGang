@@ -79,6 +79,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     float timeWallDoubleJump = 0.8f;
     float resetWallTimeDoubleJump = 0.8f;
     bool grappling;
+    float playerJump;
     public void setGrapplin(bool g)
     {
         grappling = g;
@@ -125,6 +126,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         inputActions = new Input();
         inputActions.InGame.SlowTime.performed += ActiveSlowTime;
         inputActions.InGame.SlowTime.canceled += ActiveSlowTime;
+        inputActions.InGame.Jump.started += context => GetPlayerJump();
+        playerJump = 0;
     }
 
     private void ActiveSlowTime(InputAction.CallbackContext callback)
@@ -249,25 +252,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         horizontalInput = GetPlayerMovement().x;
         verticalInput = GetPlayerMovement().y;
 
-        // when to jump
-        if (GetPlayerJump() > 0.1f && readyToJump && (grounded || canJump))
-        {
-            readyToJump = false;
-
-            Jump();
-
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
-        else if(GetPlayerJump() > 0.1f && readyToJump && canDoubleJump && !wallrunning)
-        {
-            DoubleJump();
-            canDoubleJump = false;
-        }
-
-        if( grounded)
-        {
-            canDoubleJump = true;
-        }
+       
     }
     
     //get inputs
@@ -275,9 +260,27 @@ public class PlayerMovementAdvanced : MonoBehaviour
     {
         return inputActions.InGame.Move.ReadValue<Vector2>();
     }
-    public float GetPlayerJump()
+    public void GetPlayerJump()
     {
-        return inputActions.InGame.Jump.ReadValue<float>();
+        // when to jump
+        if (readyToJump && (grounded || canJump))
+        {
+            readyToJump = false;
+
+            Jump();
+
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
+        else if ( readyToJump && canDoubleJump && !wallrunning)
+        {
+            DoubleJump();
+            canDoubleJump = false;
+        }
+
+        if (grounded)
+        {
+            canDoubleJump = true;
+        }
     }
 
     private void StateHandler()

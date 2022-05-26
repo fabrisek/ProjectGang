@@ -140,7 +140,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""c4cbb5ad-ddbc-40da-b6ea-87896c5ff86c"",
                     ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
