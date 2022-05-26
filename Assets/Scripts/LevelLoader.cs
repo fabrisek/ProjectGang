@@ -24,7 +24,8 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(int sceneIndex)
     {
-        AudioManager.instance.PlayMusic(sceneIndex);
+        AudioManager.instance.StopMusic();
+        
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 

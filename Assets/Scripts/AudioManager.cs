@@ -69,12 +69,17 @@ public class AudioManager : MonoBehaviour
     }
     public void ChangeVolumeMusic(float volume)
     {
-        audioSourceMusic.volume = volume;
+        audioSourceMusic.volume = volume/1.5f;
     }
     public void PlayMusic(int index)
     {
+        StopMusic();
         audioSourceMusic.clip = music[index];
         audioSourceMusic.Play();
+    }
+    public void StopMusic()
+    {
+        audioSourceMusic.Stop();
     }
     public void playSoundEffect(int index)
     {
