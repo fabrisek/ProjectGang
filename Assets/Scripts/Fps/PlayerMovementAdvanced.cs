@@ -12,6 +12,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private float lastDesiredMoveSpeed;
     [SerializeField] float walkSpeed;
     [SerializeField] float acceleration;
+    [SerializeField] float accelerationTimer;
+    float accelerationTimeReset;
+
     private float resetWalkSpeed;
     [SerializeField] float sprintSpeed;
     [SerializeField] float slideSpeed;
@@ -21,6 +24,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [SerializeField] float slopeIncreaseMultiplier;
 
     [SerializeField] float groundDrag;
+
 
     [Header("Jumping")]
     [SerializeField] float jumpForce;
@@ -74,6 +78,11 @@ public class PlayerMovementAdvanced : MonoBehaviour
     bool exitingWall;
     float timeWallDoubleJump = 0.8f;
     float resetWallTimeDoubleJump = 0.8f;
+    bool grappling;
+    public void setGrapplin(bool g)
+    {
+        grappling = g;
+    }
     public bool GetInputActivated
     { 
         get
@@ -144,6 +153,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         //initializing resets
         resetTimeToJump = timeToJump;
         resetWalkSpeed = walkSpeed;
+        accelerationTimeReset = accelerationTimer;
+        grappling = false;
     }
 
     private void Update()
@@ -213,15 +224,24 @@ public class PlayerMovementAdvanced : MonoBehaviour
         MovePlayer();
     }
 
+    //Acceleration+Momentum
     private void Accelerate()
     {
         if(verticalInput >= 0.5f)
         {
-            walkSpeed *= acceleration;
+            accelerationTimer -= Time.deltaTime;
+            if(accelerationTimer<0)
+            {
+                walkSpeed *= acceleration;
+
+                accelerationTimer = accelerationTimeReset;
+            }
+            
         }
         if(verticalInput <= 0.1f)
         {
             walkSpeed = resetWalkSpeed;
+            accelerationTimer = accelerationTimeReset;
         }
     }
     private void MyInput()
@@ -353,8 +373,16 @@ public class PlayerMovementAdvanced : MonoBehaviour
          // limit velocity if needed
          if (flatVel.magnitude > moveSpeed)
          {
-             Vector3 limitedVel = flatVel.normalized * moveSpeed;
-             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            if (!grappling)
+            {
+                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
+            else
+            {
+                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                rb.velocity = new Vector3(limitedVel.x*1.5f, rb.velocity.y, limitedVel.z*1.5f);
+            }
          }
         
     }

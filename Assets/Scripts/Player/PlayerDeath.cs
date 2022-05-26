@@ -46,7 +46,7 @@ public class PlayerDeath : MonoBehaviour
         {
             Die();
             AudioManager.instance.playSoundEffect(7);
-            Rumbler.instance.RumbleConstant(2f, 2f, 1.5f);
+            Rumbler.instance.RumbleConstant(2f, 2f, 0.3f);
         }
         if (other.gameObject.layer == 12)
         {
@@ -54,7 +54,7 @@ public class PlayerDeath : MonoBehaviour
             {
                 Die();
                 AudioManager.instance.playSoundEffect(8);
-                Rumbler.instance.RumbleConstant(2f, 2f, 1);
+                Rumbler.instance.RumbleConstant(2f, 2f, 0.3f);
             }
         }
     }

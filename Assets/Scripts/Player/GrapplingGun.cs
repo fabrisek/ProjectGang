@@ -13,13 +13,15 @@ public class GrapplingGun : MonoBehaviour
     public float spring = 4.5f;
     public float damper = 7f;
     public float massScale = 4.5f;
+    public float forcePull = 1000f;
     public float minDistanceMultiplier;
     public float maxDistanceMultiplier;
     private SpringJoint joint;
-
+    bool startGrapple;
 
     public Input inputActions;
     [SerializeField] ShakeData grapplinShake;
+    [SerializeField] PlayerMovementAdvanced playerMovementAdvanced;
     
     private void OnEnable()
     {
@@ -45,7 +47,10 @@ public class GrapplingGun : MonoBehaviour
 
     void Update()
     {
-
+        if(startGrapple)
+        {
+            playerMovementAdvanced.GetComponent<Rigidbody>().AddForce((grapplePoint - transform.position) * forcePull);
+        }
     }
 
     //Called after Update
@@ -84,6 +89,10 @@ public class GrapplingGun : MonoBehaviour
                 //SoundEffect
                 AudioManager.instance.playSoundEffect(0);
                 CameraShakerHandler.Shake(grapplinShake);
+
+                playerMovementAdvanced.SetCanDoubleJump(true);
+                startGrapple = true;
+                playerMovementAdvanced.setGrapplin(true);
             }
         }
     }
@@ -96,6 +105,8 @@ public class GrapplingGun : MonoBehaviour
         {
             lr.positionCount = 0;
             Destroy(joint);
+            startGrapple = false;
+            playerMovementAdvanced.setGrapplin(false);
         }
     }
 
