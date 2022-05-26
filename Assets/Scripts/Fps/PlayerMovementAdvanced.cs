@@ -260,7 +260,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
         else if(GetPlayerJump() > 0.1f && readyToJump && canDoubleJump && state != MovementState.wallrunning)
         {
-            Jump();
+            DoubleJump();
             canDoubleJump = false;
         }
 
@@ -400,6 +400,20 @@ public class PlayerMovementAdvanced : MonoBehaviour
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
 
+    }
+    private void DoubleJump()
+    {
+        // reset y velocity
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        //JumpForce
+        rb.AddForce(transform.up * jumpForce*0.8f, ForceMode.Impulse);
+        canJump = false;
+
+        //feedBack
+        AudioManager.instance.playSoundEffect(1);
+        CameraShakerHandler.Shake(jumpShake);
+        Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
+        Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
     }
     private void ResetJump()
     {

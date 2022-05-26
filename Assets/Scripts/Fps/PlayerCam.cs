@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerCam : MonoBehaviour
 {
-    public float sensX = 1;
-    public float sensY = 1;
+    public float sensX ;
+    public float sensY ;
 
     public Transform orientation;
     public Transform camHolder;
@@ -46,9 +46,20 @@ public class PlayerCam : MonoBehaviour
     private void DoLooking()
     {
         //getMouse Inputs
+        float lookX;
+        float lookY;
         Vector2 looking = GetPlayerLook();
-        float lookX = looking.x * InputManager.SensibilityMouseX * Time.unscaledDeltaTime;
-        float lookY = looking.y * InputManager.SensibilityMouseY * Time.unscaledDeltaTime;
+        if(Joystick.all.Count == 0)
+        {
+            lookX = looking.x * InputManager.SensibilityMouseX * Time.unscaledDeltaTime;
+            lookY = looking.y * InputManager.SensibilityMouseY * Time.unscaledDeltaTime;
+        }
+        else
+        {
+            lookX = looking.x * InputManager.SensibilityGamePadX * Time.unscaledDeltaTime;
+            lookY = looking.y * InputManager.SensibilityGamePadY * Time.unscaledDeltaTime;
+        }
+
 
         yRotation += lookX;
         xRotation -= lookY;

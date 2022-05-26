@@ -90,7 +90,7 @@ public class GrapplingGun : MonoBehaviour
                 AudioManager.instance.playSoundEffect(0);
                 CameraShakerHandler.Shake(grapplinShake);
 
-                playerMovementAdvanced.SetCanDoubleJump(true);
+                
                 startGrapple = true;
                 playerMovementAdvanced.setGrapplin(true);
             }
@@ -105,8 +105,11 @@ public class GrapplingGun : MonoBehaviour
         {
             lr.positionCount = 0;
             Destroy(joint);
+            if(startGrapple)
+            { playerMovementAdvanced.SetCanDoubleJump(true); }
             startGrapple = false;
             playerMovementAdvanced.setGrapplin(false);
+            
         }
     }
 

@@ -18,26 +18,38 @@ public class HUD_Settings : MonoBehaviour
     [SerializeField] Slider sliderSensibilityMouseX;
     [SerializeField] Slider sliderSensibilityMouseY;
 
+    [SerializeField] Slider sliderVolumeSoundEffect;
+    [SerializeField] Slider sliderVolumeMusic;
     FullScreenMode screenMode;
     private Resolution[] storeResolution;
     int countRes;
     private void Awake()
     {
         Instance = this;
-        sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 2); ;
-        sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityMouseY", 2); ;
+        sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 200); 
+        sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityMouseY", 200); 
+        PlayerPrefs.SetFloat("SensibilityMouseX", 200); 
+        PlayerPrefs.SetFloat("SensibilityMouseY", 200);
+        PlayerPrefs.SetFloat("SensibilityGamePadX", 200);
+        PlayerPrefs.SetFloat("SensibilityGamePadY", 200);
     }
     private void Start()
     {
         InitializeGraphicsOptions();
     }
 
+    private void Update()
+    {
+        AudioManager.instance.ChangeVolumeMusic(sliderVolumeMusic.value);
+        AudioManager.instance.ChangeVolumeSoundEFFect(sliderVolumeSoundEffect.value);
+    }
     public void ChangeValueMouseSensibilitySlider(float x, float y)
     {
         sliderSensibilityMouseX.value = x;
         sliderSensibilityMouseY.value = y;
+        PlayerPrefs.SetFloat("SensibilityMouseX", x); ;
+        PlayerPrefs.SetFloat("SensibilityMouseY", y); ;
     }
-
 
     void InitializeGraphicsOptions()
     {
