@@ -139,7 +139,7 @@ public class WallRunningAdvanced : MonoBehaviour
             }
 
             // wall jump
-            if (GetPlayerJump() > 0.1f) WallJump();
+            if (GetPlayerJump() > 0.5f) WallJump();
 
             //FeedBack
             timerFoostep -= Time.deltaTime;
@@ -229,6 +229,7 @@ public class WallRunningAdvanced : MonoBehaviour
 
     private void WallJump()
     {
+        pm.SetCanDoubleJump(false);
         // enter exiting wall state
         exitingWall = true;
         exitWallTimer = exitWallTime;

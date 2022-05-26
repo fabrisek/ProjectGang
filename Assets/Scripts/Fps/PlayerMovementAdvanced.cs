@@ -258,7 +258,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        else if(GetPlayerJump() > 0.1f && readyToJump && canDoubleJump && state != MovementState.wallrunning)
+        else if(GetPlayerJump() > 0.1f && readyToJump && canDoubleJump && !wallrunning)
         {
             DoubleJump();
             canDoubleJump = false;
@@ -406,7 +406,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         //JumpForce
-        rb.AddForce(transform.up * jumpForce*0.8f, ForceMode.Impulse);
+        rb.AddForce(transform.up * jumpForce * 0.8f, ForceMode.Impulse);
         canJump = false;
 
         //feedBack
