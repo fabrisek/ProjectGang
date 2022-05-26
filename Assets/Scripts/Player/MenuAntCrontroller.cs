@@ -11,6 +11,7 @@ public class MenuAntCrontroller : MonoBehaviour
     [SerializeField] private Vector3 playerVelocity;
     [SerializeField] private float playerSpeed = 8.0f;
     [SerializeField] float speedRotation;
+    [SerializeField] GameObject view;
 
     LevelSelectorMenu _levelRef;
 
@@ -43,18 +44,17 @@ public class MenuAntCrontroller : MonoBehaviour
         
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
-        RotatePlayer(movementInput);
+        RotatePlayer(move);
     }
 
     void RotatePlayer (Vector3 move)
     {
-        if (move.x != 0)
+        if (move != Vector3.zero)
         {
-            transform.Rotate(Vector3.up * move.x * speedRotation * Time.deltaTime);
+           
+            Quaternion rotationRef = Quaternion.LookRotation(move.normalized);
+            view.transform.rotation = Quaternion.RotateTowards(view.transform.rotation, rotationRef, speedRotation * Time.deltaTime);
         }
-        
-        
-
       
     }
 

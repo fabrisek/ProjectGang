@@ -10690,6 +10690,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579205223}
   m_CullTransparentMesh: 1
+--- !u!1 &582872988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3753202813041745025, guid: 60d26c5cb4d9dd641a6583895df67daa, type: 3}
+  m_PrefabInstance: {fileID: 392773262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &582872989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3753202813041745026, guid: 60d26c5cb4d9dd641a6583895df67daa, type: 3}
@@ -31193,7 +31198,8 @@ MonoBehaviour:
   controller: {fileID: 1976143031}
   playerVelocity: {x: 0, y: 0, z: 0}
   playerSpeed: 5
-  speedRotation: 100
+  speedRotation: 150
+  view: {fileID: 582872988}
 --- !u!114 &1976143030
 MonoBehaviour:
   m_ObjectHideFlags: 0
