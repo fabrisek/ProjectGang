@@ -146,9 +146,12 @@ public class WallRunningAdvanced : MonoBehaviour
             if (timerFoostep <= 0)
             {
                 AudioManager.instance.playSoundEffect(5);
+                Rumbler.instance.RumbleConstant(1f, 1f, 0.1f);
                 timerFoostep += 0.3f;
+                
                 //CameraShakerHandler.Shake(wallRunShake);
             }
+            
         }
 
         // State 2 - Exiting
@@ -175,6 +178,7 @@ public class WallRunningAdvanced : MonoBehaviour
 
     private void StartWallRun()
     {
+        //Rumbler.instance.RumblePulse(0.5f, 1.5f, 0.1f, 1f);
         pm.wallrunning = true;
         wallRunTimer = maxWallRunTime;
 

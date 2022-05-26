@@ -12,6 +12,7 @@ public enum RumblePattern
 
 public class Rumbler : MonoBehaviour
 {
+    public static Rumbler instance;
     private PlayerInput _playerInput;
     private RumblePattern activeRumbePattern;
     private float rumbleDurration;
@@ -68,12 +69,13 @@ public class Rumbler : MonoBehaviour
     // Unity MonoBehaviors
     private void Awake()
     {
+        instance = this;
         _playerInput = GetComponent<PlayerInput>();
     }
 
     void Start()
     {
-        RumblePulse(1f, 1f, 1f, 10f);
+
     }
 
     private void Update()

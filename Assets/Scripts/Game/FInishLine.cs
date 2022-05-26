@@ -31,8 +31,9 @@ public class FinishLine : MonoBehaviour
     {
         if (other.gameObject.layer == 7)
         {
+            AudioManager.instance.playSoundEffect(9);
             FinishLevel();
-            other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
-        }
+            //other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
+            }
     }
 }

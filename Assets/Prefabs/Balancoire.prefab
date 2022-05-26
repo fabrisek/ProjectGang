@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 359576075212184253}
   - component: {fileID: 2209625360960672266}
   - component: {fileID: 7572621817375416646}
-  m_Layer: 4
+  m_Layer: 11
   m_Name: Particle System
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4825,9 +4825,9 @@ GameObject:
   - component: {fileID: 8477161781170346523}
   - component: {fileID: 9120452488427957820}
   - component: {fileID: 1839874182641592122}
-  m_Layer: 4
+  m_Layer: 11
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4841,7 +4841,7 @@ Transform:
   m_GameObject: {fileID: 8480309859331908445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: -1.02}
-  m_LocalScale: {x: 50.2, y: 3.86, z: 3.4}
+  m_LocalScale: {x: 50.2, y: 3.86, z: 8.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8937634980484773062}
@@ -4909,7 +4909,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.0048755147, y: 0, z: 0.19240253}
 --- !u!1 &8937634979420450897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4922,9 +4922,9 @@ GameObject:
   - component: {fileID: 8937634979420450909}
   - component: {fileID: 8937634979420450908}
   - component: {fileID: 8937634979420450911}
-  m_Layer: 4
+  m_Layer: 11
   m_Name: Cylinder (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4938,7 +4938,7 @@ Transform:
   m_GameObject: {fileID: 8937634979420450897}
   m_LocalRotation: {x: 0, y: 0, z: 0.18986662, w: 0.98181}
   m_LocalPosition: {x: 39.4, y: -35.8, z: 0}
-  m_LocalScale: {x: 3, y: 40, z: 3}
+  m_LocalScale: {x: 3, y: 40, z: 8.79}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8937634980484773062}
@@ -5018,9 +5018,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8937634980081562415}
   - component: {fileID: 2579220546614063189}
-  m_Layer: 4
+  - component: {fileID: 2253834974662940470}
+  - component: {fileID: 1362131407143472671}
+  m_Layer: 11
   m_Name: balance
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5062,6 +5064,115 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &2253834974662940470
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937634980081562414}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c0284a67ca7d4284581670ed6f79ed7c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 0
+  MaxDistance: 150
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1362131407143472671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937634980081562414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fc01cb54a7cb6498fdf852b3ee71b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swooshSound: {fileID: 8300000, guid: c0284a67ca7d4284581670ed6f79ed7c, type: 3}
 --- !u!1 &8937634980096544510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5074,9 +5185,9 @@ GameObject:
   - component: {fileID: 8937634980096544506}
   - component: {fileID: 8937634980096544509}
   - component: {fileID: 8937634980096544508}
-  m_Layer: 4
+  m_Layer: 11
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5090,7 +5201,7 @@ Transform:
   m_GameObject: {fileID: 8937634980096544510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 52.87, y: 5, z: 5}
+  m_LocalScale: {x: 52.87, y: 5, z: 8.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8937634980484773062}
@@ -5158,7 +5269,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.00249082, y: 0, z: -0.0263419}
 --- !u!1 &8937634980484773080
 GameObject:
   m_ObjectHideFlags: 0
@@ -5168,9 +5279,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8937634980484773062}
-  m_Layer: 4
+  m_Layer: 11
   m_Name: Balancoire
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5207,9 +5318,9 @@ GameObject:
   - component: {fileID: 8937634981020063958}
   - component: {fileID: 8937634981020063977}
   - component: {fileID: 8937634981020063976}
-  m_Layer: 4
+  m_Layer: 11
   m_Name: Cylinder (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5223,7 +5334,7 @@ Transform:
   m_GameObject: {fileID: 8937634981020063978}
   m_LocalRotation: {x: 0, y: 0, z: -0.18986662, w: 0.98181}
   m_LocalPosition: {x: -39.4, y: -35.8, z: 0}
-  m_LocalScale: {x: 3, y: 40, z: 3}
+  m_LocalScale: {x: 3, y: 40, z: 8.79}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8937634980484773062}
@@ -5304,9 +5415,9 @@ GameObject:
   - component: {fileID: 1955873373015775169}
   - component: {fileID: 2754075364015301478}
   - component: {fileID: 1337703160125753955}
-  m_Layer: 4
+  m_Layer: 12
   m_Name: Particle System
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5334,7 +5445,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9065863495754353838}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -5409,7 +5520,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5901,7 +6012,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6160,7 +6271,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 40
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -6598,7 +6709,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 0.48235294}
+        key0: {r: 1, g: 1, b: 1, a: 0.27450982}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -10171,7 +10282,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8556704050270495863, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8556704050270495863, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10187,11 +10302,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0b2a15efb30b1b64d844a54ee1cf7381, type: 2}
     - target: {fileID: -6168132367213179198, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -6168132367213179198, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: -5467298716267776313, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -5467298716267776313, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: -4365527627252391730, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10211,15 +10334,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 1968872154740741495, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968872154740741495, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2809061481079318842, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809061481079318842, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 3944354609903363865, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10227,7 +10362,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 804d5df736b7d0b49b94cca321968eef, type: 2}
     - target: {fileID: 4576854345964081062, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576854345964081062, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 6514598314032363630, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10235,7 +10374,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: bc198a851d7d0774a8bc41783e604229, type: 2}
     - target: {fileID: 6870789105378138323, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870789105378138323, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 7138090116380853109, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10243,7 +10386,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 804d5df736b7d0b49b94cca321968eef, type: 2}
     - target: {fileID: 8476422510553794779, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476422510553794779, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
@@ -10269,6 +10416,19 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6618478, y: 0.9542756, z: 0.6855524}
+  m_Center: {x: -0.030923618, y: 1.1726763, z: 0.057223808}
+--- !u!65 &6773209820132914000
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467388392429335199}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 0.8, z: 0.5}
   m_Center: {x: -0.030923618, y: 1.1726763, z: 0.057223808}
 --- !u!114 &1238327138611614595
 MonoBehaviour:

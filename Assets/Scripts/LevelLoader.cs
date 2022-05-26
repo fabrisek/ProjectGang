@@ -24,14 +24,17 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(int sceneIndex)
     {
+        AudioManager.instance.PlayMusic(sceneIndex);
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
         _loadingScreenPanel.SetActive(true);
+        
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-        while(!operation.isDone)
+        
+        while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / .9f);
             _loadingSlider.value = progress;

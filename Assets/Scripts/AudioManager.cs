@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -19,7 +20,35 @@ public class AudioManager : MonoBehaviour
     }
     void Start()
     {
-        PlayMusic(0);
+        switch(SceneManager.GetActiveScene().buildIndex)
+        {
+            case 0:
+                PlayMusic(0);
+                audioSourceMusic.pitch = 2;
+                break;
+            case 1:
+                audioSourceMusic.pitch = 1;
+                PlayMusic(1);
+                break;
+            case 2:
+                PlayMusic(2);
+                audioSourceMusic.pitch = 1;
+                break;
+            case 3:
+                PlayMusic(3);
+                break;
+                audioSourceMusic.pitch = 1;
+            case 4:
+                PlayMusic(4);
+                audioSourceMusic.pitch = 1;
+                break;
+            case 5:
+                PlayMusic(5);
+                audioSourceMusic.pitch = 1;
+                break;
+
+
+        }
     }
 
     // Update is called once per frame
@@ -44,7 +73,6 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayMusic(int index)
     {
-        Debug.Log("playMusic");
         audioSourceMusic.clip = music[index];
         audioSourceMusic.Play();
     }

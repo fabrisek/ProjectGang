@@ -69,6 +69,7 @@ public class HudControllerInGame : MonoBehaviour
     public void OpenMainMenu()
     {
         LevelLoader.Instance.LoadLevel(0);
+        AudioManager.instance.PlayMusic(0);
     }
 
     public void ChangeSliderTimeValue(float value , float maxValue, bool doActive)
