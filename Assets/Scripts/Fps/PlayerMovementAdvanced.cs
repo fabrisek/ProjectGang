@@ -170,9 +170,13 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             timeToJump = resetTimeToJump;
             canJump = true;
+            rb.useGravity = false;
+            rb.drag *= 10;
         }
         else
         {
+            rb.useGravity = true ;
+            rb.drag *= 1/10;
             timeToJump -= Time.deltaTime;
             if(timeToJump <= 0)
             {
@@ -270,6 +274,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+
+            canDoubleJump = true;
         }
         else if ( readyToJump && canDoubleJump && !wallrunning)
         {
