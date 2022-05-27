@@ -11,7 +11,10 @@ public class MenuAntCrontroller : MonoBehaviour
     [SerializeField] private Vector3 playerVelocity;
     [SerializeField] private float playerSpeed = 8.0f;
     [SerializeField] float speedRotation;
+    [SerializeField] float speedRotationHead;
     [SerializeField] GameObject view;
+    [SerializeField] GameObject head;
+    [SerializeField] GameObject ass;
 
     LevelSelectorMenu _levelRef;
 
@@ -44,7 +47,19 @@ public class MenuAntCrontroller : MonoBehaviour
         
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
-        RotatePlayer(move);
+        if (view != null)
+        {
+            RotatePlayer(move);
+            if(head != null)
+            {
+                RotateHead(move);
+            }
+
+            if (ass != null)
+            {
+                RotateAss(move);
+            }
+        }
     }
 
     void RotatePlayer (Vector3 move)
@@ -57,6 +72,31 @@ public class MenuAntCrontroller : MonoBehaviour
             view.transform.rotation = Quaternion.RotateTowards(view.transform.rotation, rotationRef, speedRotation * Time.deltaTime);
         }
       
+    }
+
+    void RotateHead(Vector3 move)
+    {
+
+        if (move != Vector3.zero)
+        {
+            Quaternion rotationRef = Quaternion.LookRotation(move.normalized);
+
+            head.transform.rotation = Quaternion.RotateTowards(head.transform.rotation, rotationRef, speedRotationHead * Time.deltaTime);
+        }
+
+    }
+
+    void RotateAss(Vector3 move)
+    {
+      
+        if (move != Vector3.zero)
+        {
+           
+            Quaternion rotationRef = Quaternion.LookRotation(move.normalized);
+
+            ass.transform.rotation = Quaternion.RotateTowards(ass.transform.rotation, rotationRef, speedRotationHead * Time.deltaTime);
+        }
+
     }
 
     void SelectMenu(InputAction.CallbackContext callback)
