@@ -26,11 +26,19 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] Slider slideTime;
     [SerializeField] GameObject sliderGo;
 
-    [SerializeField] GameObject DoubleJumpIcon;
+    [SerializeField] GameObject doubleJumpIcon;
+    [SerializeField] TextMeshProUGUI playerSpeed;
+    [SerializeField] Rigidbody playerRB;
     
     private void Awake()
     {
         Instance = this;
+        playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude * 3)).ToString() + " KM/H";
+    }
+
+    private void Update()
+    {
+        playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
     }
     public void OpenDeathPanel()
     {
@@ -82,6 +90,6 @@ public class HudControllerInGame : MonoBehaviour
 
     public void DoubleJumpShow(bool a )
     {
-        DoubleJumpIcon.SetActive(a);
+        doubleJumpIcon.SetActive(a);
     }
 }
