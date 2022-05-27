@@ -79,15 +79,12 @@ public class MenuAntCrontroller : MonoBehaviour
 
         if (move != Vector3.zero)
         {
-          
-            if (head.transform.eulerAngles.y - view.transform.eulerAngles.y <= 45 && head.transform.eulerAngles.y - view.transform.eulerAngles.y >= -45)
-            {
-               
                 Quaternion rotationRef = Quaternion.LookRotation(move.normalized);
-
-                head.transform.rotation = Quaternion.RotateTowards(head.transform.rotation, rotationRef, speedRotationHead * Time.deltaTime);
+                Quaternion temp = Quaternion.RotateTowards(head.transform.rotation, rotationRef, speedRotationHead * Time.deltaTime);
+            if (temp.eulerAngles.y - view.transform.eulerAngles.y <= 45 && temp.eulerAngles.y - view.transform.eulerAngles.y >= -45)
+            {
+                head.transform.rotation = temp;
             }
-            
         }
         else
         {
@@ -100,12 +97,12 @@ public class MenuAntCrontroller : MonoBehaviour
     {
       
         if (move != Vector3.zero)
-        {
-            if (ass.transform.eulerAngles.y - view.transform.eulerAngles.y <= 45 && ass.transform.eulerAngles.y - view.transform.eulerAngles.y >= -45)
-            {
+        {   
                 Quaternion rotationRef = Quaternion.LookRotation(move.normalized);
-
-                ass.transform.rotation = Quaternion.RotateTowards(ass.transform.rotation, rotationRef, speedRotationHead * Time.deltaTime);
+                Quaternion temp = Quaternion.RotateTowards(ass.transform.rotation, rotationRef, speedRotationHead * Time.deltaTime);
+            if (temp.eulerAngles.y - view.transform.eulerAngles.y <= 25 && temp.eulerAngles.y - view.transform.eulerAngles.y >= -20)
+            {
+                ass.transform.rotation = temp;
             }
         }
         else
