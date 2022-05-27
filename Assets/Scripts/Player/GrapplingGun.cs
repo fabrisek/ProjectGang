@@ -2,6 +2,8 @@ using UnityEngine;
 
 using UnityEngine.InputSystem;
 using FirstGearGames.SmoothCameraShaker;
+using TMPro;
+using UnityEngine.UI;
 public class GrapplingGun : MonoBehaviour
 {
 
@@ -18,6 +20,11 @@ public class GrapplingGun : MonoBehaviour
     public float maxDistanceMultiplier;
     private SpringJoint joint;
     bool startGrapple;
+    RaycastHit justHit;
+    float timerHit;
+    public Image crossHair;
+    public Image crossHairNormal;
+    public Image crossHairLocked;
 
     public Input inputActions;
     [SerializeField] ShakeData grapplinShake;
@@ -43,6 +50,8 @@ public class GrapplingGun : MonoBehaviour
         inputActions.InGame.Grappling.performed += StartGrapple;
         inputActions.InGame.Grappling.canceled += StopGrapple;
 
+        timerHit = 0.5f;
+
     }
 
     void Update()
@@ -51,6 +60,22 @@ public class GrapplingGun : MonoBehaviour
         {
             playerMovementAdvanced.GetComponent<Rigidbody>().AddForce((grapplePoint - transform.position) * forcePull);
         }
+        RaycastHit hit;
+        if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, whatIsGrappleable))
+        {
+            if(justHit.collider != hit.collider && !IsGrappling() && timerHit <= 0)
+            {
+                AudioManager.instance.playSoundEffect(14, 1f);
+                justHit = hit;
+                timerHit = 0.5f;
+            }
+            crossHair.sprite = crossHairLocked.sprite;
+        }
+        else
+        {
+            crossHair.sprite = crossHairNormal.sprite;
+        }
+        timerHit -= Time.unscaledDeltaTime;
     }
 
     //Called after Update
@@ -109,7 +134,7 @@ public class GrapplingGun : MonoBehaviour
             { playerMovementAdvanced.SetCanDoubleJump(true); }
             startGrapple = false;
             playerMovementAdvanced.setGrapplin(false);
-            
+            crossHair.sprite = crossHairNormal.sprite;
         }
     }
 
