@@ -53,6 +53,7 @@ public class MenuAntCrontroller : MonoBehaviour
         {
            
             Quaternion rotationRef = Quaternion.LookRotation(move.normalized);
+           
             view.transform.rotation = Quaternion.RotateTowards(view.transform.rotation, rotationRef, speedRotation * Time.deltaTime);
         }
       

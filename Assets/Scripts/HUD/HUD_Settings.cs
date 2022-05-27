@@ -40,6 +40,7 @@ public class HUD_Settings : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(AudioManager.instance);
         AudioManager.instance.ChangeVolumeMusic(sliderVolumeMusic.value);
         AudioManager.instance.ChangeVolumeSoundEFFect(sliderVolumeSoundEffect.value);
     }
