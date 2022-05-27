@@ -89,6 +89,15 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""4db8fe25-a37c-4dd6-b8d5-73fe6787bf07"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -276,6 +285,28 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": ""AxisDeadzone(min=0.05,max=0.9)"",
                     ""groups"": """",
                     ""action"": ""Grappling"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd384357-6c2b-4198-92d3-fe42d0a68a78"",
+                    ""path"": ""<Keyboard>/delete"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe6028f2-c8be-4e9f-adb8-14a8bdf19e88"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -466,6 +497,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_InGame_Mouse = m_InGame.FindAction("Mouse", throwIfNotFound: true);
         m_InGame_SlowTime = m_InGame.FindAction("SlowTime", throwIfNotFound: true);
         m_InGame_Grappling = m_InGame.FindAction("Grappling", throwIfNotFound: true);
+        m_InGame_Restart = m_InGame.FindAction("Restart", throwIfNotFound: true);
         // InMainMenu
         m_InMainMenu = asset.FindActionMap("InMainMenu", throwIfNotFound: true);
         m_InMainMenu_Back = m_InMainMenu.FindAction("Back", throwIfNotFound: true);
@@ -537,6 +569,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Mouse;
     private readonly InputAction m_InGame_SlowTime;
     private readonly InputAction m_InGame_Grappling;
+    private readonly InputAction m_InGame_Restart;
     public struct InGameActions
     {
         private @Input m_Wrapper;
@@ -548,6 +581,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         public InputAction @Mouse => m_Wrapper.m_InGame_Mouse;
         public InputAction @SlowTime => m_Wrapper.m_InGame_SlowTime;
         public InputAction @Grappling => m_Wrapper.m_InGame_Grappling;
+        public InputAction @Restart => m_Wrapper.m_InGame_Restart;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -578,6 +612,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Grappling.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
                 @Grappling.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
                 @Grappling.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
+                @Restart.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -603,6 +640,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Grappling.started += instance.OnGrappling;
                 @Grappling.performed += instance.OnGrappling;
                 @Grappling.canceled += instance.OnGrappling;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
             }
         }
     }
@@ -683,6 +723,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnMouse(InputAction.CallbackContext context);
         void OnSlowTime(InputAction.CallbackContext context);
         void OnGrappling(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
     public interface IInMainMenuActions
     {

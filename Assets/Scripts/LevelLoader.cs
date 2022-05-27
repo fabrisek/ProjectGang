@@ -21,6 +21,7 @@ public class LevelLoader : MonoBehaviour
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
         Instance = this;     
     }
+    
 
     public void LoadLevel(int sceneIndex)
     {
