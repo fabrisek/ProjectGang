@@ -87,7 +87,7 @@ public class GrapplingGun : MonoBehaviour
                 currentGrapplePosition = gunTip.position;
 
                 //SoundEffect
-                AudioManager.instance.playSoundEffect(0);
+                AudioManager.instance.playSoundEffect(0, 1f);
                 CameraShakerHandler.Shake(grapplinShake);
 
                 

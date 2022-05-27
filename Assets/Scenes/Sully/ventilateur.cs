@@ -44,7 +44,7 @@ public class Ventilateur : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             CameraShakerHandler.Shake(ventiloShake);
-            AudioManager.instance.playSoundEffect(6);
+            AudioManager.instance.playSoundEffect(6, 0.8f);
             Rumbler.instance.RumbleConstant(0.5f, 1.5f, 2f);
         }
     }

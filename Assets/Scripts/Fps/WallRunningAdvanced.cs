@@ -145,7 +145,7 @@ public class WallRunningAdvanced : MonoBehaviour
             timerFoostep -= Time.deltaTime;
             if (timerFoostep <= 0)
             {
-                AudioManager.instance.playSoundEffect(5);
+                AudioManager.instance.playSoundEffect(5, 1f);
                 Rumbler.instance.RumbleConstant(1f, 1f, 0.1f);
                 timerFoostep += 0.3f;
                 
@@ -243,7 +243,7 @@ public class WallRunningAdvanced : MonoBehaviour
         rb.AddForce(forceToApply, ForceMode.Impulse);
         
         //SoundEffect
-        AudioManager.instance.playSoundEffect(1);
+        AudioManager.instance.playSoundEffect(1, 1f);
 
     }
 }

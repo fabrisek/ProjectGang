@@ -404,7 +404,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         canJump = false;
 
         //feedBack
-        AudioManager.instance.playSoundEffect(1);
+        AudioManager.instance.playSoundEffect(1, 1f);
         CameraShakerHandler.Shake(jumpShake);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
@@ -419,7 +419,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         canJump = false;
 
         //feedBack
-        AudioManager.instance.playSoundEffect(1);
+        AudioManager.instance.playSoundEffect(1, 1f);
         CameraShakerHandler.Shake(jumpShake);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
