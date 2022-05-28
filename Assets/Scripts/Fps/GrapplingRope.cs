@@ -26,21 +26,23 @@ public class GrapplingRope : MonoBehaviour
     void DrawRope()
     {
         //If not grappling, don't draw rope
-        if (!grapplingGun.startGrapple)
+        if (!grapplingGun.IsGrappling())
         {
             currentGrapplePosition = grapplingGun.gunTip.position;
             spring.Reset();
-            if(lr.positionCount>0)
+            if(lr.positionCount > 0)
             {
                 lr.positionCount = 0;
             }
             return;
         }
+
         if (lr.positionCount == 0)
         {
             spring.SetVelocity(velocity);
             lr.positionCount = quality + 1;
         }
+
         spring.SetDamper(damper);
         spring.SetStrength(strength);
         spring.Update(Time.deltaTime);
@@ -50,7 +52,7 @@ public class GrapplingRope : MonoBehaviour
         var up = Quaternion.LookRotation((grapplePoint - gunTipPosition).normalized) * Vector3.up;
 
         currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 12f);
-        for (int i = 0; i < quality; i++)
+        for (int i = 0; i < quality + 1; i++)
         {
             var delta = i / (float)quality;
             var offset = up * waveHeight * Mathf.Sin(delta * waveCount * Mathf.PI * spring.Value * affectCurve.Evaluate(delta));

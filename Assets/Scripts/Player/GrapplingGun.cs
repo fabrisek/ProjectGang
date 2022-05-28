@@ -23,11 +23,14 @@ public class GrapplingGun : MonoBehaviour
     public Image crossHair;
     public Image crossHairNormal;
     public Image crossHairLocked;
+    
 
     public Input inputActions;
     [SerializeField] ShakeData grapplinShake;
     [SerializeField] PlayerMovementAdvanced playerMovementAdvanced;
-    
+    [SerializeField] GameObject particuleHit;
+    [SerializeField] GameObject particuleGunTip;
+
     private void OnEnable()
     {
         inputActions.Enable();
@@ -40,7 +43,9 @@ public class GrapplingGun : MonoBehaviour
 
     void Awake()
     {
-
+        particuleHit.SetActive(false);
+        particuleGunTip.SetActive(false);
+        particuleHit.transform.parent = null;
         //Inputs
         inputActions = new Input();
 
@@ -53,6 +58,7 @@ public class GrapplingGun : MonoBehaviour
 
     void Update()
     {
+        
         if(startGrapple)
         {
             playerMovementAdvanced.GetComponent<Rigidbody>().AddForce((grapplePoint - transform.position) * forcePull);
@@ -106,9 +112,16 @@ public class GrapplingGun : MonoBehaviour
                 AudioManager.instance.playSoundEffect(0, 1f);
                 CameraShakerHandler.Shake(grapplinShake);
 
+                //particule
+                particuleHit.transform.position = grapplePoint;
+                
+                particuleHit.SetActive(true);
+                particuleGunTip.SetActive(true);
                 
                 startGrapple = true;
                 playerMovementAdvanced.setGrapplin(true);
+
+
             }
         }
     }
@@ -117,15 +130,14 @@ public class GrapplingGun : MonoBehaviour
     // Call whenever we want to stop a grapple
  
 
-    private Vector3 currentGrapplePosition;
 
     private void StopGrapple(InputAction.CallbackContext callback)
     {
         if (callback.canceled)
         {
             Destroy(joint);
-
-
+            particuleHit.SetActive(false);
+            particuleGunTip.SetActive(false);
             if (startGrapple)
             { playerMovementAdvanced.SetCanDoubleJump(true); }
 
