@@ -5,21 +5,14 @@ using UnityEngine;
 public class teleport : MonoBehaviour
 {
     // Start is called before the first frame update
-    Vector3 destination;
+    [SerializeField] Transform destination;
 
     // Update is called once per frame
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
-        if(this.name=="portail1")
+        if(col.gameObject.GetComponent<Rigidbody>()!= null)
         {
-            destination = GameObject.Find("portail2").transform.position;
+            col.transform.position = destination.position;
         }
-        else
-        {
-            destination = GameObject.Find("portail1").transform.position;
-        }
-
-        col.transform.position = destination;
-
     }
 }
