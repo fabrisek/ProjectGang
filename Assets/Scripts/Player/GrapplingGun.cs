@@ -6,8 +6,6 @@ using TMPro;
 using UnityEngine.UI;
 public class GrapplingGun : MonoBehaviour
 {
-
-    private LineRenderer lr;
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
     public Transform gunTip, camera, player;
@@ -19,7 +17,7 @@ public class GrapplingGun : MonoBehaviour
     public float minDistanceMultiplier;
     public float maxDistanceMultiplier;
     private SpringJoint joint;
-    bool startGrapple;
+    public bool startGrapple;
     RaycastHit justHit;
     float timerHit;
     public Image crossHair;
@@ -42,7 +40,6 @@ public class GrapplingGun : MonoBehaviour
 
     void Awake()
     {
-        lr = GetComponent<LineRenderer>();
 
         //Inputs
         inputActions = new Input();
@@ -79,10 +76,7 @@ public class GrapplingGun : MonoBehaviour
     }
 
     //Called after Update
-    void LateUpdate()
-    {
-        DrawRope();
-    }
+    
 
     // Call whenever we want to start a grapple
     private void StartGrapple(InputAction.CallbackContext callback)
@@ -108,9 +102,6 @@ public class GrapplingGun : MonoBehaviour
                 joint.damper = damper;
                 joint.massScale = massScale;
 
-                lr.positionCount = 2;
-                currentGrapplePosition = gunTip.position;
-
                 //SoundEffect
                 AudioManager.instance.playSoundEffect(0, 1f);
                 CameraShakerHandler.Shake(grapplinShake);
@@ -124,32 +115,27 @@ public class GrapplingGun : MonoBehaviour
 
 
     // Call whenever we want to stop a grapple
+ 
+
+    private Vector3 currentGrapplePosition;
+
     private void StopGrapple(InputAction.CallbackContext callback)
     {
-        if(callback.canceled)
+        if (callback.canceled)
         {
-            lr.positionCount = 0;
             Destroy(joint);
-            if(startGrapple)
+
+
+            if (startGrapple)
             { playerMovementAdvanced.SetCanDoubleJump(true); }
+
             startGrapple = false;
+
             playerMovementAdvanced.setGrapplin(false);
             crossHair.sprite = crossHairNormal.sprite;
         }
     }
-
-    private Vector3 currentGrapplePosition;
-
-    void DrawRope()
-    {
-        //If not grappling, don't draw rope
-        if (!joint) return;
-
-        currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 8f);
-
-        lr.SetPosition(0, gunTip.position);
-        lr.SetPosition(1, currentGrapplePosition);
-    }
+    
 
     public bool IsGrappling()
     {

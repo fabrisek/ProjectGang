@@ -7757,6 +7757,34 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 2406105752097548309, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406105752097548309, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: quality
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406105752097548309, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: waveCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406105752097548309, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: waveHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406105752097548309, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: affectCurve.m_Curve.Array.data[1].inSlope
+      value: 0.001200157
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406105752097548309, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: affectCurve.m_Curve.Array.data[1].inWeight
+      value: 0.058033526
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406105752097548309, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: affectCurve.m_Curve.Array.data[1].outSlope
+      value: 0.001200157
+      objectReference: {fileID: 0}
     - target: {fileID: 2673869577496479659, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: prewarm
       value: 1
@@ -7771,7 +7799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3491924120187752468, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: m_Parameters.widthMultiplier
-      value: 0.4
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4702377663951262583, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: InitialModule.size3D
@@ -7834,8 +7862,16 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6975862396973866449, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0021
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975862396973866449, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18
+      value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975862396973866449, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.317
       objectReference: {fileID: 0}
     - target: {fileID: 7071383606311449096, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: crossHair
