@@ -73,7 +73,15 @@ public class AudioManager : MonoBehaviour
     public void PlayMusic(int index)
     {
         StopMusic();
-        audioSourceMusic.clip = music[index];
+        if(index < music.Length)
+        {
+            audioSourceMusic.clip = music[index];
+        }
+        else
+        {
+            audioSourceMusic.clip = music[2];
+        }
+        
         audioSourceMusic.Play();
     }
     public void StopMusic()
