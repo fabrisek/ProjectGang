@@ -117,7 +117,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public bool wallrunning;
 
     public TextMeshProUGUI text_speed;
-    public TextMeshProUGUI text_mode;
     private Input inputActions;
 
     private void Awake()
