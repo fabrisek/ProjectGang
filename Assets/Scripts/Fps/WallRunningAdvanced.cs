@@ -222,7 +222,7 @@ public class WallRunningAdvanced : MonoBehaviour
     private void StopWallRun()
     {
         pm.wallrunning = false;
-
+        pm.SetCanDoubleJump(true);
         // reset camera effects
         cam.DoTilt(0f);
     }
