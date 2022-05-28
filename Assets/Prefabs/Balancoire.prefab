@@ -390,7 +390,6 @@ GameObject:
   - component: {fileID: 2293579763794493994}
   - component: {fileID: 4840670924328134552}
   - component: {fileID: 6773209820132914000}
-  - component: {fileID: 1238327138611614595}
   m_Layer: 12
   m_Name: HammerHead
   m_TagString: Obstacle
@@ -496,18 +495,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 0.8, z: 0.5}
   m_Center: {x: -0.030923618, y: 1.1726763, z: 0.057223808}
---- !u!114 &1238327138611614595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3467388392429335199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 433ec29db84d1ec4ca25ca74a1cd6a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4274006814590556453
 GameObject:
   m_ObjectHideFlags: 0
@@ -6273,7 +6260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d4109183878c2947bd8053460346539, type: 2}
+  - {fileID: 2100000, guid: 9b8d905f1e9cacc4891779ae884f9921, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6551,7 +6538,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d4109183878c2947bd8053460346539, type: 2}
+  - {fileID: 2100000, guid: 9b8d905f1e9cacc4891779ae884f9921, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6854,7 +6841,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d4109183878c2947bd8053460346539, type: 2}
+  - {fileID: 2100000, guid: 9b8d905f1e9cacc4891779ae884f9921, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11879,7 +11866,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bc198a851d7d0774a8bc41783e604229, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b8d905f1e9cacc4891779ae884f9921, type: 2}
     - target: {fileID: -6930108521163718531, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -11935,13 +11922,43 @@ PrefabInstance:
     - target: {fileID: 6514598314032363630, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bc198a851d7d0774a8bc41783e604229, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b8d905f1e9cacc4891779ae884f9921, type: 2}
     - target: {fileID: 7138090116380853109, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 804d5df736b7d0b49b94cca321968eef, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+--- !u!1 &3722491799199263881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+  m_PrefabInstance: {fileID: 4569353998248612312}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8563248889008604770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722491799199263881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433ec29db84d1ec4ca25ca74a1cd6a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &3964583902886189304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722491799199263881}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9290576, y: 0.39257818, z: 0.86339074}
+  m_Center: {x: -0.01140721, y: 0.000014649834, z: 2.360398}
 --- !u!4 &4099157731227989555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
