@@ -5314,7 +5314,7 @@ MonoBehaviour:
   accelerationTimer: 0.3
   sprintSpeed: 20
   slideSpeed: 20
-  wallrunSpeed: 30
+  wallrunSpeed: 45
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2
@@ -5338,7 +5338,6 @@ MonoBehaviour:
   crouching: 0
   wallrunning: 0
   text_speed: {fileID: 0}
-  text_mode: {fileID: 0}
 --- !u!114 &7127624766882420789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6152,6 +6151,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6062419881444767079, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062419881444767079, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062419881444767079, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062419881444767079, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062419881444767079, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.005
+      objectReference: {fileID: 0}
     - target: {fileID: 6409442100086696750, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -6163,6 +6182,18 @@ PrefabInstance:
     - target: {fileID: 6409442100086696750, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
       value: 0.99063903
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077930249320745131, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077930249320745131, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077930249320745131, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7561031273882590270, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
       propertyPath: m_LocalScale.x
@@ -6238,6 +6269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4215645428408873425, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+    - {fileID: 7170484310327374777, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
 --- !u!1 &6284613793728063522 stripped
 GameObject:

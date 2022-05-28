@@ -20,6 +20,8 @@ public class GrapplingGun : MonoBehaviour
     public bool startGrapple;
     RaycastHit justHit;
     float timerHit;
+
+
     public Image crossHair;
     public Image crossHairNormal;
     public Image crossHairLocked;
@@ -30,6 +32,7 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] PlayerMovementAdvanced playerMovementAdvanced;
     [SerializeField] GameObject particuleHit;
     [SerializeField] GameObject particuleGunTip;
+    [SerializeField] GameObject particuleGunTipLock;
 
     private void OnEnable()
     {
@@ -72,11 +75,15 @@ public class GrapplingGun : MonoBehaviour
                 justHit = hit;
                 timerHit = 0.5f;
             }
+            particuleGunTipLock.SetActive(true);
+            particuleGunTip.SetActive(true);
             crossHair.sprite = crossHairLocked.sprite;
         }
         else
         {
             crossHair.sprite = crossHairNormal.sprite;
+            if(!IsGrappling())
+            particuleGunTipLock.SetActive(false);
         }
         timerHit -= Time.unscaledDeltaTime;
     }
@@ -116,7 +123,7 @@ public class GrapplingGun : MonoBehaviour
                 particuleHit.transform.position = grapplePoint;
                 
                 particuleHit.SetActive(true);
-                particuleGunTip.SetActive(true);
+                
                 
                 startGrapple = true;
                 playerMovementAdvanced.setGrapplin(true);
