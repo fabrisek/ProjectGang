@@ -268,7 +268,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             rb.AddForce(Vector3.down * jumpForceDown);
         }
-        Debug.Log(jumpDown);
     }
 
     private void FixedUpdate()
