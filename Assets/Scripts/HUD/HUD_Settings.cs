@@ -10,6 +10,12 @@ using Doozy.Runtime.UIManager.Components;
 public class HUD_Settings : MonoBehaviour
 {
     public static HUD_Settings Instance;
+
+    [SerializeField] GameObject _panelAudio;
+    [SerializeField] GameObject _panelControl;
+    [SerializeField] GameObject _panelGraphics;
+    [SerializeField] GameObject _panelButton;
+
     [SerializeField] TMP_Dropdown _resolutionDropDown;
     [SerializeField] TMP_Dropdown _displayTypeDropDown;
     [SerializeField] TMP_Dropdown _antiAliasingDropDown;
@@ -38,6 +44,31 @@ public class HUD_Settings : MonoBehaviour
     {
         
 
+    }
+
+    public void OpenButtonPanel()
+    {
+        _panelButton.SetActive(true);
+        _panelAudio.SetActive(false);
+        _panelControl.SetActive(false);
+        _panelGraphics.SetActive(false);
+    }
+
+    public void OpenPanelAudio()
+    {
+        _panelAudio.SetActive(true);
+        _panelButton.SetActive(false);
+    }
+
+    public void OpenGraphicsPanel()
+    {
+        _panelGraphics.SetActive(true);
+        _panelButton.SetActive(false);
+    }
+    public void OpenControlPanel()
+    {
+        _panelControl.SetActive(true);
+        _panelButton.SetActive(false);
     }
 
     private void InitializeSensibility()
