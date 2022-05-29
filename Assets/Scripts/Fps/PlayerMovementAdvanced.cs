@@ -73,7 +73,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public static Vector3 moveDirection;
 
     Rigidbody rb;
-
+    public Rigidbody GetRB()
+    {
+        return rb;
+    }
     private bool inputActivated;
     WallRunningAdvanced wallRunningAdvanced;
     bool exitingWall;
@@ -122,10 +125,11 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public TextMeshProUGUI text_speed;
     private Input inputActions;
     bool jumpDown;
-
+    public bool hasDoubleJumped;
 
     private void Awake()
     {
+        hasDoubleJumped = false;
         inputActivated = false;
         inputActions = new Input();
         inputActions.InGame.SlowTime.performed += ActiveSlowTime;
@@ -477,6 +481,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
     private void DoubleJump()
     {
+        hasDoubleJumped = true;
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         //JumpForce
