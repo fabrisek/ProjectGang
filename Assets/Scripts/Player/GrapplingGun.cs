@@ -9,7 +9,7 @@ public class GrapplingGun : MonoBehaviour
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
     public Transform gunTip, camera, player;
-    public float maxDistance = 100f;
+    float maxDistance = 75f;
     public float spring = 4.5f;
     public float damper = 7f;
     public float massScale = 4.5f;
@@ -33,6 +33,8 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] GameObject particuleHit;
     [SerializeField] GameObject particuleGunTip;
     [SerializeField] GameObject particuleGunTipLock;
+
+    [SerializeField] CompetenceRalentie competenceRalentie;
 
     private void OnEnable()
     {
@@ -67,6 +69,14 @@ public class GrapplingGun : MonoBehaviour
             playerMovementAdvanced.GetComponent<Rigidbody>().AddForce((grapplePoint - transform.position) * forcePull);
         }
         RaycastHit hit;
+        if(competenceRalentie.IsRalentie())
+        {
+            maxDistance = 125f;
+        }
+        else
+        {
+            maxDistance = 75f;
+        }
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, whatIsGrappleable))
         {
             if(justHit.collider != hit.collider && !IsGrappling() && timerHit <= 0)
