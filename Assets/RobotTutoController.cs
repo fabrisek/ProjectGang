@@ -5,7 +5,7 @@ using DialogueEditor;
 using UnityEngine.InputSystem;
 public class RobotTutoController : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] PlayerMovementAdvanced player;
     [SerializeField] NPCConversation[] myConversation;
     [SerializeField] Input inputActions;
 
@@ -54,13 +54,32 @@ public class RobotTutoController : MonoBehaviour
     void Update()
     {
         LookAtPlayer();
+
+        if(ConversationManager.Instance.IsConversationActive)
+        {
+            DesactivePlayerMovement();
+        }
+        else
+        {
+            ActivePlayerMovement();
+        }
     }
     void LookAtPlayer()
     {
         transform.forward = (player.transform.position - transform.position);
     }
+
+    void DesactivePlayerMovement()
+    {
+        player.enabled = false;
+    }
+    void ActivePlayerMovement()
+    {
+        player.enabled = true;
+    }
     public void LaunchTuto(int checkPointId)
     {
         ConversationManager.Instance.StartConversation(myConversation[checkPointId]);
+        
     }
 }

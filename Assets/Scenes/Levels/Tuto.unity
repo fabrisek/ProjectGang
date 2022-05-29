@@ -224,6 +224,37 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 847853123f1cc26499488cbe53631478, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
+--- !u!1 &47123007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 47123008}
+  m_Layer: 0
+  m_Name: ConversationEventInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &47123008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47123007}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -129.3, y: -2.4, z: 19.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 595293624}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &47356707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
@@ -330,10 +361,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 847853123f1cc26499488cbe53631478, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
---- !u!1 &86762880 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5548767364443247677, guid: 7a623a924c45357498a23daf9287326e, type: 3}
-  m_PrefabInstance: {fileID: 1704321250}
+--- !u!4 &68790182 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4051794059207385405, guid: daff91d32541ee24db180cf87344c972, type: 3}
+  m_PrefabInstance: {fileID: 776331806151245093}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &96223680
 GameObject:
@@ -829,14 +860,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 9
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":205.2,"yPos":395.8},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Lets
-    Go !","parentUIDs":[4],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":206.4,"yPos":69},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hello
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":201.2,"yPos":348.8},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Lets
+    Go !","parentUIDs":[4],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hello
     there ! \nI have been waiting for you.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
-    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":200.200012,"yPos":185.8},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"My
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":196.200012,"yPos":138.8},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"My
     name is Mr Robot,\nI am here to help you through the NANO FIELD Experience.","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
-    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":209.200012,"yPos":286.8},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Should
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":205.200012,"yPos":239.799988},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Should
     we start your training ?","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
-    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":201.200012,"yPos":479.8},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok,
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":197.200012,"yPos":432.8},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok,
     first of all, try to jump with A","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
     Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5}]}'
   saveVersion: 110
@@ -864,6 +895,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
   m_PrefabInstance: {fileID: 30473383}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &595293623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595293624}
+  - component: {fileID: 595293625}
+  m_Layer: 0
+  m_Name: Conv1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &595293624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595293623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 47123008}
+  m_Father: {fileID: 68790182}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &595293625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595293623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentIDCounter: 9
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":201.2,"yPos":348.8},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Lets
+    Go !","parentUIDs":[4],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hello
+    there ! \nI have been waiting for you.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":196.200012,"yPos":138.8},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"My
+    name is Mr Robot,\nI am here to help you through the NANO FIELD Experience.","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":205.200012,"yPos":239.799988},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Should
+    we start your training ?","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":197.200012,"yPos":432.8},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok,
+    first of all, try to jump with A","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.5}]}'
+  saveVersion: 110
+  DefaultName: Mr Robot
+  DefaultSprite: {fileID: 21300000, guid: 7a99d2d20cc6b2c4193ae5aa5d053a86, type: 3}
+  DefaultFont: {fileID: 0}
+  NodeSerializedDataList:
+  - {fileID: 1890171708}
+  - {fileID: 1890171707}
+  - {fileID: 1890171706}
+  - {fileID: 1890171704}
+  - {fileID: 1890171709}
+  ContinueFont: {fileID: 0}
+  EndConversationFont: {fileID: 0}
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &619819070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2223,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
   m_PrefabInstance: {fileID: 1129387754}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1521134508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5548767363426624883, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+  m_PrefabInstance: {fileID: 1704321250}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e2789cf278bff4a92d4fb3dbe80283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1529995419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
@@ -3556,7 +3669,7 @@ PrefabInstance:
     - target: {fileID: 776331806971955641, guid: daff91d32541ee24db180cf87344c972, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 86762880}
+      objectReference: {fileID: 1521134508}
     - target: {fileID: 776331806971955641, guid: daff91d32541ee24db180cf87344c972, type: 3}
       propertyPath: myConversation.Array.size
       value: 1
