@@ -98,6 +98,15 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""61fbf334-b214-4c0c-ba04-221cf7a7ba92"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -309,6 +318,28 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3ba3c68-be8a-474c-a414-df548bb322f8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a4022ef-8bd4-480a-8c49-2763c334756a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -498,6 +529,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_InGame_SlowTime = m_InGame.FindAction("SlowTime", throwIfNotFound: true);
         m_InGame_Grappling = m_InGame.FindAction("Grappling", throwIfNotFound: true);
         m_InGame_Restart = m_InGame.FindAction("Restart", throwIfNotFound: true);
+        m_InGame_Pause = m_InGame.FindAction("Pause", throwIfNotFound: true);
         // InMainMenu
         m_InMainMenu = asset.FindActionMap("InMainMenu", throwIfNotFound: true);
         m_InMainMenu_Back = m_InMainMenu.FindAction("Back", throwIfNotFound: true);
@@ -570,6 +602,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_SlowTime;
     private readonly InputAction m_InGame_Grappling;
     private readonly InputAction m_InGame_Restart;
+    private readonly InputAction m_InGame_Pause;
     public struct InGameActions
     {
         private @Input m_Wrapper;
@@ -582,6 +615,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         public InputAction @SlowTime => m_Wrapper.m_InGame_SlowTime;
         public InputAction @Grappling => m_Wrapper.m_InGame_Grappling;
         public InputAction @Restart => m_Wrapper.m_InGame_Restart;
+        public InputAction @Pause => m_Wrapper.m_InGame_Pause;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -615,6 +649,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Restart.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
                 @Restart.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
                 @Restart.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @Pause.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -643,6 +680,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Restart.started += instance.OnRestart;
                 @Restart.performed += instance.OnRestart;
                 @Restart.canceled += instance.OnRestart;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -724,6 +764,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnSlowTime(InputAction.CallbackContext context);
         void OnGrappling(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IInMainMenuActions
     {

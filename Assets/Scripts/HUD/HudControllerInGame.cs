@@ -13,6 +13,7 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] GameObject _deadPanel;
     [SerializeField] GameObject _winPanel;
     [SerializeField] GameObject _inGamePanel;
+    [SerializeField] GameObject _pausePanel;
 
     
     [SerializeField] TextMeshProUGUI _textTimerInGame;
@@ -55,6 +56,22 @@ public class HudControllerInGame : MonoBehaviour
     public void ChangeTimerHud(float timer)
     {
         _textTimerInGame.text = Timer.FormatTime(timer);
+    }
+
+    public void OpenPauseMenu()
+    {
+        _deadPanel.SetActive(false);
+        _inGamePanel.SetActive(false);
+        _winPanel.SetActive(false);
+        _pausePanel.SetActive(true);
+    }
+
+    public void ClosePauseMenu()
+    {
+        _deadPanel.SetActive(false);
+        _inGamePanel.SetActive(true);
+        _winPanel.SetActive(false);
+        _pausePanel.SetActive(false);
     }
 
     public void RestartLevel()

@@ -80,6 +80,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
     float resetWallTimeDoubleJump = 0.8f;
     bool grappling;
     float playerJump;
+
+    [SerializeField] PlayerCam playerCam;
     public void setGrapplin(bool g)
     {
         grappling = g;
@@ -125,6 +127,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         inputActions = new Input();
         inputActions.InGame.SlowTime.performed += ActiveSlowTime;
         inputActions.InGame.SlowTime.canceled += ActiveSlowTime;
+        inputActions.InGame.Pause.performed += Pause;
         inputActions.InGame.Jump.started += context => GetPlayerJump();
         playerJump = 0;
     }
@@ -132,6 +135,27 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private void ActiveSlowTime(InputAction.CallbackContext callback)
     {
         GetComponent<CompetenceRalentie>().ActiveSlowTime(callback);
+    }
+
+    private void Pause(InputAction.CallbackContext callback)
+    {
+        if (Time.timeScale > 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Timer.Instance.StopTimer();
+            playerCam.enabled = false;
+            Rumbler.instance.StopRumble();
+            Time.timeScale = 0;
+            HudControllerInGame.Instance.OpenPauseMenu();
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Timer.Instance.LaunchTimer();
+            playerCam.enabled = true;
+            Time.timeScale = 1;
+            HudControllerInGame.Instance.ClosePauseMenu();
+        }
     }
 
     private void OnEnable()
