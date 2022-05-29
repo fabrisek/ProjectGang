@@ -147,6 +147,27 @@ public class PlayerMovementAdvanced : MonoBehaviour
         GetComponent<CompetenceRalentie>().ActiveSlowTime(callback);
     }
 
+    public void Pause()
+    {
+        if (Time.timeScale > 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Timer.Instance.StopTimer();
+            playerCam.enabled = false;
+            Rumbler.instance.StopRumble();
+            Time.timeScale = 0;
+            HudControllerInGame.Instance.OpenPauseMenu();
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Timer.Instance.LaunchTimer();
+            playerCam.enabled = true;
+            Time.timeScale = 1;
+            HudControllerInGame.Instance.ClosePauseMenu();
+        }
+    }
+
     private void Pause(InputAction.CallbackContext callback)
     {
         if (Time.timeScale > 0)
