@@ -9,6 +9,10 @@ public class CompetenceRalentie : MonoBehaviour
     [SerializeField] float _timeRestant;
     [SerializeField] GlitchEffect glitch;
     [SerializeField] bool competenceIsActive;
+    public bool IsRalentie()
+    {
+        return competenceIsActive;
+    }
 
 
     public void ActiveSlowTime(InputAction.CallbackContext callback)
