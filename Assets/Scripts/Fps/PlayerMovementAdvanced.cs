@@ -28,6 +28,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     [Header("Jumping")]
     [SerializeField] float jumpForce;
+    [SerializeField] float jumpForceDown;
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMultiplier;
     bool readyToJump;
@@ -120,6 +121,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     public TextMeshProUGUI text_speed;
     private Input inputActions;
+    bool jumpDown;
+
 
     private void Awake()
     {
@@ -129,8 +132,15 @@ public class PlayerMovementAdvanced : MonoBehaviour
         inputActions.InGame.SlowTime.canceled += ActiveSlowTime;
         inputActions.InGame.Pause.performed += Pause;
         inputActions.InGame.Jump.started += context => GetPlayerJump();
+        inputActions.InGame.Jump.canceled += context => PlayerJumpDown(true);
         playerJump = 0;
     }
+
+    public void PlayerJumpDown(bool a)
+    {
+        jumpDown = a;
+    }
+
 
     private void ActiveSlowTime(InputAction.CallbackContext callback)
     {
@@ -186,7 +196,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround) || Physics.Raycast(transform.position, Vector3.forward, playerHeight * 0.5f + 0.2f, whatIsGround) ;
 
         //time To Jump if not on ground;
         if (grounded)
@@ -247,6 +257,18 @@ public class PlayerMovementAdvanced : MonoBehaviour
             HudControllerInGame.Instance.DoubleJumpShow(false);
         }
 
+
+        //DownForce if button stop press
+
+        if (grounded || wallrunning || grappling)
+        {
+            jumpDown = false;
+        }
+        if (jumpDown)
+        {
+            rb.AddForce(Vector3.down * jumpForceDown);
+        }
+        Debug.Log(jumpDown);
     }
 
     private void FixedUpdate()
@@ -440,6 +462,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         //JumpForce
         rb.AddForce(transform.up * jumpForce * 0.8f, ForceMode.Impulse);
         canJump = false;
+        jumpDown = false;
 
         //feedBack
         AudioManager.instance.playSoundEffect(1, 1f);

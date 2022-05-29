@@ -5319,6 +5319,7 @@ MonoBehaviour:
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2
   jumpForce: 55
+  jumpForceDown: 0
   jumpCooldown: 0.6
   airMultiplier: 0.8
   jumpShake: {fileID: 11400000, guid: 7d35e670e3e0092438d60111e2f1c686, type: 2}
@@ -5358,10 +5359,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   wallRunForce: 450
-  wallJumpUpForce: 45
-  wallJumpSideForce: 20
-  wallClimbSpeed: 20
-  maxWallRunTime: 4
+  wallJumpUpForce: 80
+  wallJumpSideForce: 30
+  wallClimbSpeed: 40
+  maxWallRunTime: 10
   tilt: 20
   fovWall: 90
   fovNormal: 80

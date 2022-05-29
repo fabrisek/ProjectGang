@@ -230,6 +230,7 @@ public class WallRunningAdvanced : MonoBehaviour
 
     private void WallJump()
     {
+        pm.PlayerJumpDown(false);
         pm.SetCanDoubleJump(false);
         // enter exiting wall state
         exitingWall = true;
