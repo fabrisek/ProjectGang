@@ -487,6 +487,118 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""09f0ec83-7563-4d51-b5a0-514a2d112b42"",
+            ""actions"": [
+                {
+                    ""name"": ""Press"",
+                    ""type"": ""Button"",
+                    ""id"": ""e11623f1-776c-432c-b3af-7ca462171675"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""ade548ec-c8dc-4750-a535-8140c8a538e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c1125e9-5e24-499f-be88-750050e4bc59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3fc349b1-bcb0-45ce-b47f-92901586430c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7081f3c4-7e96-4e74-81e1-15119993ec05"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bed14ef3-ae0c-4ab4-8edf-d0ac3ed21c4e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c18de84-7ecf-4806-abce-91f152cefb34"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73a433a8-4731-432b-8256-8a6ab0621ce7"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68b4fafd-5724-4f3d-ac94-7f252a5282a4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf543bff-a52c-47c6-939d-3ce59175ae39"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -535,6 +647,11 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_InMainMenu_Back = m_InMainMenu.FindAction("Back", throwIfNotFound: true);
         m_InMainMenu_Select = m_InMainMenu.FindAction("Select", throwIfNotFound: true);
         m_InMainMenu_Move = m_InMainMenu.FindAction("Move", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_Press = m_Dialogue.FindAction("Press", throwIfNotFound: true);
+        m_Dialogue_PreviousButton = m_Dialogue.FindAction("PreviousButton", throwIfNotFound: true);
+        m_Dialogue_NextButton = m_Dialogue.FindAction("NextButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -736,6 +853,55 @@ public partial class @Input : IInputActionCollection2, IDisposable
         }
     }
     public InMainMenuActions @InMainMenu => new InMainMenuActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private IDialogueActions m_DialogueActionsCallbackInterface;
+    private readonly InputAction m_Dialogue_Press;
+    private readonly InputAction m_Dialogue_PreviousButton;
+    private readonly InputAction m_Dialogue_NextButton;
+    public struct DialogueActions
+    {
+        private @Input m_Wrapper;
+        public DialogueActions(@Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Press => m_Wrapper.m_Dialogue_Press;
+        public InputAction @PreviousButton => m_Wrapper.m_Dialogue_PreviousButton;
+        public InputAction @NextButton => m_Wrapper.m_Dialogue_NextButton;
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterface != null)
+            {
+                @Press.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPress;
+                @Press.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPress;
+                @Press.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPress;
+                @PreviousButton.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPreviousButton;
+                @PreviousButton.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPreviousButton;
+                @PreviousButton.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPreviousButton;
+                @NextButton.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnNextButton;
+                @NextButton.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnNextButton;
+                @NextButton.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnNextButton;
+            }
+            m_Wrapper.m_DialogueActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Press.started += instance.OnPress;
+                @Press.performed += instance.OnPress;
+                @Press.canceled += instance.OnPress;
+                @PreviousButton.started += instance.OnPreviousButton;
+                @PreviousButton.performed += instance.OnPreviousButton;
+                @PreviousButton.canceled += instance.OnPreviousButton;
+                @NextButton.started += instance.OnNextButton;
+                @NextButton.performed += instance.OnNextButton;
+                @NextButton.canceled += instance.OnNextButton;
+            }
+        }
+    }
+    public DialogueActions @Dialogue => new DialogueActions(this);
     private int m_KeyBoardSchemeIndex = -1;
     public InputControlScheme KeyBoardScheme
     {
@@ -771,5 +937,11 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnBack(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IDialogueActions
+    {
+        void OnPress(InputAction.CallbackContext context);
+        void OnPreviousButton(InputAction.CallbackContext context);
+        void OnNextButton(InputAction.CallbackContext context);
     }
 }
