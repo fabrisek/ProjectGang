@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 11743242}
   - component: {fileID: 11743241}
   - component: {fileID: 11743240}
+  - component: {fileID: 11743243}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -311,6 +312,25 @@ MonoBehaviour:
   TMPFont: {fileID: 0}
   Icon: {fileID: 21300000, guid: 071b8023cb5fc434a9ff9663737a9f16, type: 3}
   Audio: {fileID: 8300000, guid: 318c1294e233d4b4aa8ca67d93880371, type: 3}
+--- !u!114 &11743243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11743238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 3
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
 --- !u!1001 &30473383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1060,7 +1080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6601370854451843913, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
       propertyPath: m_Name
-      value: CheckPoint2 (1)
+      value: CheckPoint3
       objectReference: {fileID: 0}
     - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
       propertyPath: m_RootOrder
@@ -1177,8 +1197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 1
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok,
+  CurrentIDCounter: 2
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":197.200012,"yPos":153.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Great,
+    I try now.","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok,
     let''s check if your double jump is OP.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
     Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1}]}'
   saveVersion: 110
@@ -1187,6 +1208,7 @@ MonoBehaviour:
   DefaultFont: {fileID: 0}
   NodeSerializedDataList:
   - {fileID: 1518546990}
+  - {fileID: 1518546991}
   ContinueFont: {fileID: 0}
   EndConversationFont: {fileID: 0}
   Event:
@@ -1264,7 +1286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 361.68945
+      value: 381.5
       objectReference: {fileID: 0}
     - target: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1350,6 +1372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687682016}
   - component: {fileID: 687682017}
+  - component: {fileID: 687682018}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -1391,11 +1414,97 @@ MonoBehaviour:
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
   Audio: {fileID: 8300000, guid: 318c1294e233d4b4aa8ca67d93880371, type: 3}
+--- !u!114 &687682018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687682015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 1
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
 --- !u!4 &691639531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
   m_PrefabInstance: {fileID: 1391007082}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &709858781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 709858783}
+  - component: {fileID: 709858782}
+  m_Layer: 0
+  m_Name: Conv6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &709858782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709858781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentIDCounter: 4
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":false,"xPos":225.200012,"yPos":246.799988},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":237.200012,"yPos":436.8},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok","parentUIDs":[1],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":true,"xPos":220.4,"yPos":148.999985},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Oh,
+    I nearly forgot...\nYou can Slow Down Time with LT\/LeftMAJ\npsss... speedrunners
+    don''t use it, or do they ?...","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":217.200012,"yPos":326.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"You
+    see The big green thing at the end ?\nthis is the finishLine, go ahead and enjoy
+    !","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1}]}'
+  saveVersion: 110
+  DefaultName: Mr Robot
+  DefaultSprite: {fileID: 21300000, guid: 071b8023cb5fc434a9ff9663737a9f16, type: 3}
+  DefaultFont: {fileID: 0}
+  NodeSerializedDataList:
+  - {fileID: 1280299031}
+  - {fileID: 1280299033}
+  - {fileID: 1280299035}
+  - {fileID: 1280299034}
+  ContinueFont: {fileID: 0}
+  EndConversationFont: {fileID: 0}
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &709858783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709858781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1280299032}
+  m_Father: {fileID: 3674031920576158744}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &738027622 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
@@ -1511,6 +1620,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1075706709785852829, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
   m_PrefabInstance: {fileID: 1972624130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &808828727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1075706709785852829, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+  m_PrefabInstance: {fileID: 2066746844}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &859533708 stripped
 Transform:
@@ -2029,8 +2143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 1
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Wow,
+  CurrentIDCounter: 2
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":220.200012,"yPos":237.799988},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"ABSOLUTELY.","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":214.4,"yPos":141.999985},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Wow,
     I can already feel your potential !\n\nThe training is not quite finish, would
     you like to learn WALLRUNS ? ","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
     Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1}]}'
@@ -2040,6 +2154,7 @@ MonoBehaviour:
   DefaultFont: {fileID: 0}
   NodeSerializedDataList:
   - {fileID: 1440257870}
+  - {fileID: 1440257872}
   ContinueFont: {fileID: 0}
   EndConversationFont: {fileID: 0}
   Event:
@@ -2106,10 +2221,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 3
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":220.200012,"yPos":136.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Thanks!","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok,
+  CurrentIDCounter: 4
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":220.200012,"yPos":136.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Thanks!","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":230.200012,"yPos":329.8},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"I''ll
+    Try.\n","parentUIDs":[2],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok,
     her is a grapplin hook, I think you might want it.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
-    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":222.200012,"yPos":215.8},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Press
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":222.200012,"yPos":215.8},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Press
     RT \/ LEFT MOUSE CLICK on BLUE surface to hook yourself!","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
     Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
@@ -2120,6 +2236,7 @@ MonoBehaviour:
   - {fileID: 11743242}
   - {fileID: 11743241}
   - {fileID: 11743240}
+  - {fileID: 11743243}
   ContinueFont: {fileID: 0}
   EndConversationFont: {fileID: 0}
   Event:
@@ -2170,8 +2287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 1
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Perfect,
+  CurrentIDCounter: 2
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":195.200012,"yPos":150.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"hum..
+    OK!\n","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Perfect,
     Follow me !","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
     Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1}]}'
   saveVersion: 110
@@ -2180,6 +2298,7 @@ MonoBehaviour:
   DefaultFont: {fileID: 0}
   NodeSerializedDataList:
   - {fileID: 687682017}
+  - {fileID: 687682018}
   ContinueFont: {fileID: 0}
   EndConversationFont: {fileID: 0}
   Event:
@@ -2492,6 +2611,9 @@ GameObject:
   - component: {fileID: 1209209187}
   - component: {fileID: 1209209185}
   - component: {fileID: 1209209188}
+  - component: {fileID: 1209209190}
+  - component: {fileID: 1209209189}
+  - component: {fileID: 1209209191}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -2571,6 +2693,63 @@ MonoBehaviour:
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
   Audio: {fileID: 8300000, guid: 318c1294e233d4b4aa8ca67d93880371, type: 3}
+--- !u!114 &1209209189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209209184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 5
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1209209190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209209184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 4
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1209209191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209209184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 7
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
 --- !u!1001 &1240525114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2633,6 +2812,117 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
   m_PrefabInstance: {fileID: 1154320968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1280299030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280299032}
+  - component: {fileID: 1280299031}
+  - component: {fileID: 1280299033}
+  - component: {fileID: 1280299035}
+  - component: {fileID: 1280299034}
+  m_Layer: 0
+  m_Name: ConversationEventInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1280299031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280299030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 0
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 318c1294e233d4b4aa8ca67d93880371, type: 3}
+--- !u!4 &1280299032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280299030}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -129.3, y: -2.4, z: 19.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 709858783}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1280299033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280299030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 1
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 071b8023cb5fc434a9ff9663737a9f16, type: 3}
+  Audio: {fileID: 8300000, guid: 318c1294e233d4b4aa8ca67d93880371, type: 3}
+--- !u!114 &1280299034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280299030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 3
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1280299035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280299030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 2
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
 --- !u!4 &1310136468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1075706709785852829, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
@@ -2803,7 +3093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 209.18947
+      value: 229
       objectReference: {fileID: 0}
     - target: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2926,7 +3216,7 @@ Transform:
   m_GameObject: {fileID: 1394472089}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -129.3, y: 2.4, z: 19.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1933301099}
@@ -2954,10 +3244,12 @@ MonoBehaviour:
   - {fileID: 1164920798}
   - {fileID: 1158702812}
   - {fileID: 1155322512}
+  - {fileID: 709858782}
   checkPointRobotPoints:
   - {fileID: 1900804084}
   - {fileID: 805217840}
   - {fileID: 1310136468}
+  - {fileID: 808828727}
 --- !u!1 &1406345216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +3281,7 @@ Transform:
   - {fileID: 435307248}
   - {fileID: 2050209683}
   - {fileID: 1341075240}
+  - {fileID: 2066746845}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3104,6 +3397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1440257871}
   - component: {fileID: 1440257870}
+  - component: {fileID: 1440257872}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -3145,6 +3439,25 @@ Transform:
   m_Father: {fileID: 1155322513}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1440257872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440257869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 1
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
 --- !u!4 &1456532519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
@@ -3160,6 +3473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1518546989}
   - component: {fileID: 1518546990}
+  - component: {fileID: 1518546991}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -3201,6 +3515,25 @@ MonoBehaviour:
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
   Audio: {fileID: 8300000, guid: 1e0a0f4336dddf94e82a570e7e8c6fdc, type: 3}
+--- !u!114 &1518546991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518546988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 1
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
 --- !u!114 &1521134508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5548767363426624883, guid: 7a623a924c45357498a23daf9287326e, type: 3}
@@ -3474,12 +3807,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 3
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":197.200012,"yPos":157.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Lets
-    go","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hello,
-    Welcome to the NANO FIELDS,\nAre you ready ?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"MrRobot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":201.200012,"yPos":266.8},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Let''s
-    start, press A \/ SPACE to JUMP","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
-    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1}]}'
+  CurrentIDCounter: 8
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":233.200012,"yPos":289.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Lets
+    go","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":224.200012,"yPos":504.8},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"OK!","parentUIDs":[4],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":232.200012,"yPos":712.8},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"ok
+    !\n","parentUIDs":[2],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":242.4,"yPos":147},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hello,
+    Welcome to the NANO FIELDS,\nAre you ready ?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"MrRobot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":221.200012,"yPos":581.8},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Let''s
+    start, press A \/ SPACE to JUMP","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":225.200012,"yPos":376.8},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"The
+    Ground is your Ennemie, Use the ROBOT ANTS as platforms.","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
@@ -3488,6 +3824,9 @@ MonoBehaviour:
   - {fileID: 1209209187}
   - {fileID: 1209209185}
   - {fileID: 1209209188}
+  - {fileID: 1209209190}
+  - {fileID: 1209209189}
+  - {fileID: 1209209191}
   ContinueFont: {fileID: 0}
   EndConversationFont: {fileID: 0}
   Event:
@@ -3631,11 +3970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3452930997602967213, guid: 7a623a924c45357498a23daf9287326e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 450.24
+      value: 498.07
       objectReference: {fileID: 0}
     - target: {fileID: 3452930997602967213, guid: 7a623a924c45357498a23daf9287326e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.54
+      value: 9.8
       objectReference: {fileID: 0}
     - target: {fileID: 3452930997816780284, guid: 7a623a924c45357498a23daf9287326e, type: 3}
       propertyPath: groupesBugs.Array.data[0].timeToGo
@@ -4169,7 +4508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 664.93945
+      value: 684.75
       objectReference: {fileID: 0}
     - target: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4262,7 +4601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 513.43945
+      value: 533.25
       objectReference: {fileID: 0}
     - target: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4636,7 +4975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -215.55449
+      value: -222.6
       objectReference: {fileID: 0}
     - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4801,6 +5140,108 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 847853123f1cc26499488cbe53631478, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
+--- !u!1001 &2066746844
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1406345217}
+    m_Modifications:
+    - target: {fileID: 1075706709785852829, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075706709785852829, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526927610669687305, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: robot
+      value: 
+      objectReference: {fileID: 1394472092}
+    - target: {fileID: 2526927610669687305, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: checkPointIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843913, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_Name
+      value: CheckPoint3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.7738953
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.1698713
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843919, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_Size.y
+      value: 3.410399
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843919, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_Center.y
+      value: -0.79480183
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854451843919, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601370854616543539, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+--- !u!4 &2066746845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6601370854451843918, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+  m_PrefabInstance: {fileID: 2066746844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2098746398
 GameObject:
   m_ObjectHideFlags: 0
@@ -9882,6 +10323,7 @@ Transform:
   - {fileID: 1164920797}
   - {fileID: 1158702811}
   - {fileID: 1155322513}
+  - {fileID: 709858783}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

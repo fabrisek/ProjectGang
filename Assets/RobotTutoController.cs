@@ -85,7 +85,7 @@ public class RobotTutoController : MonoBehaviour
                 MoveNextCheckPoint(checkPointRobotPoints[2].position);
                 return;
             case 4:
-                //MoveNextCheckPoint(checkPointRobotPoints[3].position);
+                MoveNextCheckPoint(checkPointRobotPoints[3].position);
                 return;
 
         }
