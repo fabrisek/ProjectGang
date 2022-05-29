@@ -6,9 +6,11 @@ using UnityEngine.InputSystem;
 public class RobotTutoController : MonoBehaviour
 {
     [SerializeField] PlayerMovementAdvanced player;
+    [SerializeField] GameObject grappin;
     [SerializeField] NPCConversation[] myConversation;
     [SerializeField] Input inputActions;
     ConversationManager conversationManager;
+    [SerializeField] Transform[] checkPointRobotPoints;
     int currentTutoId;
 
     private void OnEnable()
@@ -62,7 +64,7 @@ public class RobotTutoController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        grappin.SetActive(false);
     }
 
     // Update is called once per frame
@@ -75,16 +77,29 @@ public class RobotTutoController : MonoBehaviour
             case 1:
                 CheckDoubleJump();
                 return;
+            case 2:
+                MoveNextCheckPoint(checkPointRobotPoints[1].position);
+                return;
+            case 3:
+                grappin.SetActive(true);
+                MoveNextCheckPoint(checkPointRobotPoints[2].position);
+                return;
+            case 4:
+                //MoveNextCheckPoint(checkPointRobotPoints[3].position);
+                return;
+
         }
-        //dont want player to move while in dialogue
-        if (ConversationManager.Instance.IsConversationActive)
+        
+        /*if (conversationManager.IsConversationActive)
         {
             DesactivePlayerMovement();
         }
         else
         {
             ActivePlayerMovement();
-        }
+            //dont want player to move while in dialogue
+            Debug.Log(conversationManager.IsConversationActive);
+        }*/
     }
 
     public void CheckJump(InputAction.CallbackContext callback)
@@ -122,5 +137,10 @@ public class RobotTutoController : MonoBehaviour
     {
         conversationManager.StartConversation(myConversation[checkPointId]);
         currentTutoId = checkPointId;
+    }
+
+    public void MoveNextCheckPoint(Vector3 position)
+    {
+        transform.position = position;
     }
 }
