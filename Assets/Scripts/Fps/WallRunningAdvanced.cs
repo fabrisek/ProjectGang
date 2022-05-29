@@ -225,6 +225,7 @@ public class WallRunningAdvanced : MonoBehaviour
         pm.SetCanDoubleJump(true);
         // reset camera effects
         cam.DoTilt(0f);
+        timerFoostep = 0.01f;
     }
 
     private void WallJump()

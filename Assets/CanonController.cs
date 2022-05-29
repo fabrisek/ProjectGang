@@ -29,9 +29,11 @@ public class CanonController : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject fourmis1 = Instantiate(fourmis,ShootDirection, false);
-        fourmis1.GetComponent<Rigidbody>().AddForce(Random.Range(explosionForce/1.5f,explosionForce*1.5f) * ShootDirection.forward, ForceMode.Impulse);
+        GameObject fourmis1 = Instantiate(fourmis,ShootDirection.position, Quaternion.identity);
+        fourmis.transform.position = ShootDirection.transform.position;
+        fourmis1.GetComponent<Rigidbody>().AddForce(Random.Range(explosionForce/2f,explosionForce*2f) * ShootDirection.forward, ForceMode.Impulse);
 
+        fourmis1.GetComponent<Rigidbody>().freezeRotation = false;
         Debug.Log(fourmis1.transform.position);
         fourmis1.GetComponent<BugTargetController>().gravity = 20;
 

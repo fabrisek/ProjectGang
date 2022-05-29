@@ -78,11 +78,13 @@ public class GrapplingGun : MonoBehaviour
             particuleGunTipLock.SetActive(true);
             particuleGunTip.SetActive(true);
             crossHair.sprite = crossHairLocked.sprite;
+            crossHair.color = Color.red;
         }
         else
         {
             crossHair.sprite = crossHairNormal.sprite;
-            if(!IsGrappling())
+            crossHair.color = Color.white;
+            if (!IsGrappling())
             particuleGunTipLock.SetActive(false);
         }
         timerHit -= Time.unscaledDeltaTime;
@@ -152,6 +154,7 @@ public class GrapplingGun : MonoBehaviour
 
             playerMovementAdvanced.setGrapplin(false);
             crossHair.sprite = crossHairNormal.sprite;
+            crossHair.color = Color.white;
         }
     }
     

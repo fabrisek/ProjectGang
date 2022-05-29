@@ -148,6 +148,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -161,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9961947
+      value: 0.9848078
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -173,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.08715578
+      value: -0.17364825
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -185,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -10
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: -8131718735818715379, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -210,7 +214,7 @@ PrefabInstance:
     - target: {fileID: -3157484803453496534, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d3755b3e472419489130c06da0da10d, type: 2}
+      objectReference: {fileID: 2100000, guid: fc0a876a63ba6ee40a4d9b2270ea423f, type: 2}
     - target: {fileID: -224531840447728730, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -218,11 +222,11 @@ PrefabInstance:
     - target: {fileID: 480067690928789895, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d8e0abd2556abaf43afc40f245295edd, type: 2}
+      objectReference: {fileID: 2100000, guid: d36adcdb5dc4a1844a128d0a2232f650, type: 2}
     - target: {fileID: 904221311249296819, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d8e0abd2556abaf43afc40f245295edd, type: 2}
+      objectReference: {fileID: 2100000, guid: d36adcdb5dc4a1844a128d0a2232f650, type: 2}
     - target: {fileID: 919132149155446097, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_Name
       value: Wall_ride
@@ -238,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 5664802950191456762, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d8e0abd2556abaf43afc40f245295edd, type: 2}
+      objectReference: {fileID: 2100000, guid: d36adcdb5dc4a1844a128d0a2232f650, type: 2}
     - target: {fileID: 7053717733681499950, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -246,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 7124697002620911560, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d8e0abd2556abaf43afc40f245295edd, type: 2}
+      objectReference: {fileID: 2100000, guid: d36adcdb5dc4a1844a128d0a2232f650, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c643649e7a9dac43a624b800dc7495c, type: 3}
 --- !u!1 &4862247950951865632 stripped
@@ -265,8 +269,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2791187, y: 16.40414, z: 38.525787}
-  m_Center: {x: 5.0747094, y: 7.2719994, z: -2.2819672}
+  m_Size: {x: 1.2791187, y: 12.710974, z: 34.311935}
+  m_Center: {x: 5.074859, y: 6.7343254, z: -2.3699424}
 --- !u!95 &3396537184680984167
 Animator:
   serializedVersion: 4
