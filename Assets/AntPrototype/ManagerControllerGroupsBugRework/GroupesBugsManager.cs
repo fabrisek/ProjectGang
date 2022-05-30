@@ -74,8 +74,11 @@ public class GroupesBugsManager : MonoBehaviour
         int index = CheckIfTimeToGo();
         if(index != -1)
         {
+            groupesBugs[index].InstanceBug();
             groupesBugs[index].SetTarget(0);
             ChangeToOtherList(index);
         }
     }
+
+    
 }
