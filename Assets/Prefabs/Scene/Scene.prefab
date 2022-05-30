@@ -1626,74 +1626,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].EventName
-      value: PointerClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Selectable
-      value: 
-      objectReference: {fileID: 8441184021606503608}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].BehaviourName
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Receiver.StreamId.Name
-      value: None
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Receiver.ConnectionMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Receiver.StreamId.Category
-      value: None
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Receiver.SignalProviderId.Name
-      value: Click
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Receiver.SignalProviderId.Category
-      value: Pointer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5696755859855734993}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenPauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HudControllerInGame, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7746477878177353770, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
       propertyPath: m_Type
       value: 0
@@ -2273,17 +2205,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25aaf5059f1a79445b57b48eae43e7d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8441184021606503608 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7067050128070651069, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
-  m_PrefabInstance: {fileID: 1672568854687561733}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c6d918500348269ab48ea9646e337b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8710145926137726763 stripped
