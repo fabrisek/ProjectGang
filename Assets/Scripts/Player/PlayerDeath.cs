@@ -21,10 +21,10 @@ public class PlayerDeath : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, 2f * 0.5f + 0.2f, whatIsGround);
         if (grounded)
         {
-            Die();
+            //Die();
         }
     }
-    public void Die()
+   /* public void Die()
     {
         if (!isDead && !FinishLine.Instance.isWin) 
         {
@@ -38,13 +38,13 @@ public class PlayerDeath : MonoBehaviour
             CameraShakerHandler.Shake(deathShake);
 
         }        
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 4)
         {
-            Die();
+            //Die();
             AudioManager.instance.playSoundEffect(7, 1f);
             Rumbler.instance.RumbleConstant(2f, 2f, 0.3f);
         }
@@ -52,7 +52,7 @@ public class PlayerDeath : MonoBehaviour
         {
             if(other.gameObject.tag == "Laser")
             {
-                Die();
+               // Die();
                 AudioManager.instance.playSoundEffect(8, 0.5f);
                 Rumbler.instance.RumbleConstant(2f, 2f, 0.3f);
             }

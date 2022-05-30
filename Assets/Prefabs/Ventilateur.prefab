@@ -9636,7 +9636,7 @@ GameObject:
   - component: {fileID: 5297632125877429906}
   - component: {fileID: 5297632125877429904}
   - component: {fileID: 5297632125877429911}
-  - component: {fileID: 5297632125877429910}
+  - component: {fileID: 3991785689272739821}
   m_Layer: 0
   m_Name: Ventilateur
   m_TagString: Untagged
@@ -9702,7 +9702,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9999999, y: 32.534397, z: 1}
   m_Center: {x: 0, y: 15.742201, z: -0}
---- !u!114 &5297632125877429910
+--- !u!114 &3991785689272739821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9711,12 +9711,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5297632125877429909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f198a947c6e27d04b9969ec35c12837f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ee8a35a7e7dd9a409bb52f488d3d5a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 100
-  amortissement: 1.05
-  ventiloShake: {fileID: 11400000, guid: 397f9b8518861414c922b7478d50a82b, type: 2}
 --- !u!1 &5425921486751182313
 GameObject:
   m_ObjectHideFlags: 0
