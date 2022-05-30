@@ -26,6 +26,10 @@ public class Data_Manager : MonoBehaviour
             if (timer < _mapData[levelIndex].GetHighScore())
                 _mapData[levelIndex].SetHighScore(timer);
         }
+
+        if (_mapData[levelIndex + 1] != null)
+            _mapData[levelIndex + 1].SetHaveUnlockLevel(true);
+
         SaveData();
     }
 
@@ -74,4 +78,5 @@ public class MapData
     public void SetHighScore(float highscore) { _highScore = highscore; }
     [SerializeField] bool _haveUnlockLevel;
     public bool GetHaveUnlockLevel() { return _haveUnlockLevel; }
+    public void SetHaveUnlockLevel(bool unlock) { _haveUnlockLevel = unlock; }
 }
