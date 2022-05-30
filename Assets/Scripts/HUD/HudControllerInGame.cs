@@ -32,10 +32,10 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] TextMeshProUGUI fpsText;
     [SerializeField] Rigidbody playerRB;
     public float deltaTime;
+
     private void Awake()
     {
         Instance = this;
-        fpsText.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude * 3)).ToString() + " KM/H";
     }
 
     private void Update()
