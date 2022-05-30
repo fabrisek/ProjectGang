@@ -37,6 +37,10 @@ public class GroupesBugs
                 groupeBugs[i].IndexTarget = index;
             }
         }
+      
+      
+
+
     }
 
     public void ChangeTarget (int actualIndex, int indexGroupes)
@@ -56,6 +60,8 @@ public class GroupesBugs
             else
             {
                 groupeBugs[indexGroupes].Target = null;
+                groupeBugs[indexGroupes].gameObject.SetActive(false);
+
             }
         }
 
