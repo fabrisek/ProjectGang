@@ -93,7 +93,7 @@ public class RobotTutoController : MonoBehaviour
 
             case 1:
                 CheckDoubleJump();
-                taskText.text = "Press A/Space to jump";
+                taskText.text = "Do a double jump";
                 break;
 
             case 2:
@@ -109,7 +109,7 @@ public class RobotTutoController : MonoBehaviour
             case 3:
                 if (!conversationManager.IsConversationActive)
                 {
-                    taskText.text = "Press RB/LeftShift to Grapple";
+                    taskText.text = "RB/RightMouseButton to Grapple";
                     haveMoved = false;
                     grappin.SetActive(true);
                     MoveNextCheckPoint(checkPointRobotPoints[2].position);
@@ -124,6 +124,16 @@ public class RobotTutoController : MonoBehaviour
                     MoveNextCheckPoint(checkPointRobotPoints[3].position);
                 }
                 break;
+
+            case 5:
+                if (!conversationManager.IsConversationActive)
+                {
+                    taskText.text = "Go to the FinishLine";
+                    haveMoved = false;
+                    MoveNextCheckPoint(checkPointRobotPoints[4].position);
+                }
+                break;
+
 
         }
         
@@ -183,8 +193,8 @@ public class RobotTutoController : MonoBehaviour
         if(!haveMoved)
         {
             transform.position = position;
-            MovementExplosion.Play();
-            AudioManager.instance.playSoundEffect(17, 1f);
+            //MovementExplosion.Play();
+            //AudioManager.instance.playSoundEffect(17, 1f);
             haveMoved = true;
         }
     }

@@ -432,6 +432,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 847853123f1cc26499488cbe53631478, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
+--- !u!4 &31645783 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3019711222706127497, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+  m_PrefabInstance: {fileID: 1704321250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &47356707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
@@ -6045,6 +6050,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72d877bd0d9d4dc4092117bdb2a89998, type: 3}
+--- !u!1 &547200045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547200046}
+  m_Layer: 0
+  m_Name: RobotPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &547200046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547200045}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.4, y: 1.349, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 31645783}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &592747013
 GameObject:
   m_ObjectHideFlags: 0
@@ -6634,7 +6670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &822925266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6664,8 +6700,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278223871
-  m_fontColor: {r: 1, g: 0.51507294, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6682,8 +6718,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6749,8 +6785,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 319}
-  m_SizeDelta: {x: 950, y: 100}
+  m_AnchoredPosition: {x: 0, y: -485.05}
+  m_SizeDelta: {x: 1500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &859533708 stripped
 Transform:
@@ -7275,11 +7311,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 6
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":208.200012,"yPos":117.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Thanks!","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":242.200012,"yPos":309.8},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"ABSOLUTELY","parentUIDs":[2],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":243.200012,"yPos":485.8},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok","parentUIDs":[4],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Wow,
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":208.200012,"yPos":116.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Thanks!","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":242.200012,"yPos":308.8},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"ABSOLUTELY","parentUIDs":[2],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":243.200012,"yPos":484.8},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok","parentUIDs":[4],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":21},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Wow,
     I can already feel your potential !\n","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
-    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":233.200012,"yPos":202.8},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"The
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":233.200012,"yPos":201.8},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"The
     training is not quite finish, would you like to learn WALLRUNS ? ","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
-    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":243.200012,"yPos":385.8},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Wall
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":243.200012,"yPos":384.8},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Wall
     Runs can be done on Green surfaces, you see them ?","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
     Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
@@ -8424,6 +8460,7 @@ MonoBehaviour:
   - {fileID: 805217840}
   - {fileID: 1310136468}
   - {fileID: 808828727}
+  - {fileID: 547200046}
   MovementExplosion: {fileID: 346320603}
   respawnPositions:
   - {fileID: 1467448826}
@@ -8718,7 +8755,7 @@ MonoBehaviour:
   NodeID: 2
   TMPFont: {fileID: 0}
   Icon: {fileID: 21300000, guid: 071b8023cb5fc434a9ff9663737a9f16, type: 3}
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 318c1294e233d4b4aa8ca67d93880371, type: 3}
 --- !u!4 &1456532519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 245861262638612594, guid: bcc0144a7753e0844ba3c8ac6c78bef0, type: 3}
@@ -9094,12 +9131,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 8
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":193.200012,"yPos":164.799988},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Lets
-    go","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":184.200012,"yPos":379.8},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"OK!","parentUIDs":[4],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":192.200012,"yPos":587.8},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"ok
-    !\n","parentUIDs":[2],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":202.4,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hello,
-    Welcome to the NANO FIELDS,\nAre you ready ?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"MrRobot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":180.200012,"yPos":456.8},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Let''s
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":202.200012,"yPos":22.8000031},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Lets
+    go","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":193.200012,"yPos":237.799988},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"OK!","parentUIDs":[4],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":201.200012,"yPos":445.8},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"ok
+    !\n","parentUIDs":[2],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":211.4,"yPos":-119.999985},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hello,
+    Welcome to the NANO FIELDS,\nAre you ready ?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"MrRobot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":189.200012,"yPos":314.8},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Let''s
     start, press A \/ SPACE to JUMP","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
-    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":185.200012,"yPos":251.799988},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"The
+    Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":1},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":193.200012,"yPos":109.8},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"The
     Ground is your Ennemie, Use the ROBOT ANTS as platforms.","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Mr
     Robot","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
