@@ -143,8 +143,6 @@ public class HUD_Settings : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("VSync", (_vSyncToggle.isOn ? 1 : 0));
-        _vSyncToggle.isOn = (PlayerPrefs.GetInt("VSync") != 0);
-
     }
 
     public void SetAntiAliasing()

@@ -22,7 +22,7 @@ public class ObstacleCollision : MonoBehaviour
         {
             if(other.gameObject.GetComponent<PlayerDeath>()!= null)
             {
-                //other.gameObject.GetComponent<PlayerDeath>().Die();
+                other.gameObject.GetComponent<PlayerDeath>().Die();
             }
         }
     }
