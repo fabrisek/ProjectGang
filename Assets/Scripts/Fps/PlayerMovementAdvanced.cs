@@ -392,8 +392,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
-
-            print("Lerp Started!");
         }
         else
         {

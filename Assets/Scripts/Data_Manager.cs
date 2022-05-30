@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
-
+[System.Serializable]
+public class DATA
+{
+    public List<MapData> _mapData;
+}
 public class Data_Manager : MonoBehaviour
 {
     public static Data_Manager Instance;
-    [SerializeField] List<MapData> _mapData;
+    [SerializeField] DATA Data;
 
 
     private void Awake()
@@ -21,48 +25,43 @@ public class Data_Manager : MonoBehaviour
 
     public void SetRecord(float timer, int levelIndex)
     {
-        if (_mapData[levelIndex].GetHighScore() <= 0  )
+        if (Data._mapData[levelIndex].GetHighScore() == 0)
         {
-            if (timer < _mapData[levelIndex].GetHighScore())
-                _mapData[levelIndex].SetHighScore(timer);
+            Data._mapData[levelIndex].SetHighScore(timer);
+            print(timer);
         }
+        if (timer < Data._mapData[levelIndex].GetHighScore())
+            Data._mapData[levelIndex].SetHighScore(timer);
 
-        if (_mapData[levelIndex + 1] != null)
-            _mapData[levelIndex + 1].SetHaveUnlockLevel(true);
+        if (Data._mapData[levelIndex + 1] != null)
+            Data._mapData[levelIndex + 1].SetHaveUnlockLevel(true);
 
         SaveData();
     }
 
     public void SaveData()
     {
-        string data = JsonUtility.ToJson(_mapData);
+        string data = JsonUtility.ToJson(Data);
         string filepath = Application.persistentDataPath + "Save.json";
         File.WriteAllText(filepath, data);
+
+        print(data);
     }
 
     //Charge tous les record dans toutes les maps et les charges dans les Datas;
     public void LoadSavedGames()
     {
-
-        if (Directory.Exists(Application.persistentDataPath))
+        
+        string worldsFolder = Application.persistentDataPath + "Save.json";
+        if (File.Exists(worldsFolder))
         {
-            string worldsFolder = Application.persistentDataPath;
-            DirectoryInfo d = new DirectoryInfo(worldsFolder);
+            string fileContents = File.ReadAllText(worldsFolder);
+            Data = JsonUtility.FromJson<DATA>(fileContents);
+        }
 
-            foreach (var file in d.GetFiles("*.json"))
-            {
-                string data = File.ReadAllText(file.ToString());
-                _mapData = JsonUtility.FromJson<List<MapData>>(data);
-            }
-        }
-        else
-        {
-            Directory.CreateDirectory(Application.persistentDataPath);
-            return;
-        }
     }
 
-    public MapData GetMapData(int index) { return _mapData[index]; }
+    public MapData GetMapData(int index) { return Data._mapData[index]; }
 }
 
 [System.Serializable]

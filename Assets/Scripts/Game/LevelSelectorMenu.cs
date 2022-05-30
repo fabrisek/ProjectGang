@@ -36,10 +36,13 @@ public class LevelSelectorMenu : MonoBehaviour
     {
         if (other.gameObject.layer == 7)
         {
-            _canvas.SetActive(true);
-            ChangeInformation();
-            other.GetComponent<MenuAntCrontroller>().SetLevelRef(this);
-            
+            MapData data = Data_Manager.Instance.GetMapData(_indexData);
+            if (data.GetHaveUnlockLevel())
+            {
+                _canvas.SetActive(true);
+                ChangeInformation();
+                other.GetComponent<MenuAntCrontroller>().SetLevelRef(this);
+            }            
         }
     }
 
@@ -48,6 +51,7 @@ public class LevelSelectorMenu : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             _canvas.SetActive(false);
+            other.GetComponent<MenuAntCrontroller>().SetLevelRef(null);
         }
     }
 }
