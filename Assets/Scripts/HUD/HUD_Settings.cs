@@ -40,12 +40,6 @@ public class HUD_Settings : MonoBehaviour
         InitializeSensibility();
     }
 
-    private void Update()
-    {
-        
-
-    }
-
     public void OpenButtonPanel()
     {
         _panelButton.SetActive(true);
