@@ -110,11 +110,25 @@ public class HUD_Settings : MonoBehaviour
         ScreenInitialize();
         AddResolution(resolution);
         ResolutionInitialize(storeResolution);
+
+
+        //Initialize Data Save
+        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("QualityLevel"));
+        _displayTypeDropDown.value = PlayerPrefs.GetInt("ScreenMode");
+        SetScreenMode();
+        _vSyncToggle.isOn = (PlayerPrefs.GetInt("VSync") != 0);
+        SetVSync();
+        _antiAliasingDropDown.value = PlayerPrefs.GetInt("AntiAliasing");
+        SetAntiAliasing();
+        _resolutionDropDown.value = PlayerPrefs.GetInt("Resolution");
+        SetResolution();
     }
 
     public void SetScreenMode()
     {
         ScreenOptions(_displayTypeDropDown.value);
+
+        PlayerPrefs.SetInt("ScreenMode", _displayTypeDropDown.value); 
     }
 
     public void SetVSync()
@@ -127,16 +141,22 @@ public class HUD_Settings : MonoBehaviour
         {
             QualitySettings.vSyncCount = 1;
         }
+
+        PlayerPrefs.SetInt("VSync", (_vSyncToggle.isOn ? 1 : 0));
+        _vSyncToggle.isOn = (PlayerPrefs.GetInt("VSync") != 0);
+
     }
 
     public void SetAntiAliasing()
     {
         QualitySettings.antiAliasing = (int)MathF.Pow(2f, _antiAliasingDropDown.value);
+        PlayerPrefs.SetInt("AntiAliasing", _antiAliasingDropDown.value);
     }
 
     public void SetResolution()
     {
         Screen.SetResolution(storeResolution[_resolutionDropDown.value].width, storeResolution[_resolutionDropDown.value].height, FullScreenMode.FullScreenWindow);
+        PlayerPrefs.SetInt("Resolution", _resolutionDropDown.value);
     }
 
 
@@ -232,6 +252,7 @@ public class HUD_Settings : MonoBehaviour
     public void SetQuality(int quality)
     {
         QualitySettings.SetQualityLevel(quality);
+        PlayerPrefs.SetInt("QualityLevel", quality); ;
     }
 
 }
