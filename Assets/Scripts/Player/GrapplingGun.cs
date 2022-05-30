@@ -96,6 +96,7 @@ public class GrapplingGun : MonoBehaviour
             crossHair.color = Color.white;
             if (!IsGrappling())
             particuleGunTipLock.SetActive(false);
+            particuleGunTip.SetActive(false);
         }
         timerHit -= Time.unscaledDeltaTime;
     }

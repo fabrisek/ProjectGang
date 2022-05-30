@@ -11,9 +11,17 @@ public class RobotTutoController : MonoBehaviour
     [SerializeField] Input inputActions;
     ConversationManager conversationManager;
     [SerializeField] Transform[] checkPointRobotPoints;
+    [SerializeField] ParticleSystem MovementExplosion;
+    [SerializeField] Transform[] respawnPositions;
+    public Transform RespawnPosition(int position)
+    {
+        Debug.Log(respawnPositions[position].position);
+        return respawnPositions[position];
+    }
     int currentTutoId;
-    
+    bool haveMoved;
 
+    
     private void OnEnable()
     {
         inputActions.Enable();
@@ -37,6 +45,9 @@ public class RobotTutoController : MonoBehaviour
         inputActions.Dialogue.PreviousButton.performed += PreviousOption;
 
         inputActions.InGame.Jump.performed += CheckJump;
+
+
+        haveMoved = false;
 
     }
 
@@ -77,21 +88,36 @@ public class RobotTutoController : MonoBehaviour
         {
             case 1:
                 CheckDoubleJump();
-                return;
+                break;
+
             case 2:
-                MoveNextCheckPoint(checkPointRobotPoints[1].position);
-                return;
+                if(!conversationManager.IsConversationActive)
+                {
+                    haveMoved = false;
+                    MoveNextCheckPoint(checkPointRobotPoints[1].position);
+                }
+                break;
+
             case 3:
-                grappin.SetActive(true);
-                MoveNextCheckPoint(checkPointRobotPoints[2].position);
-                return;
+                if (!conversationManager.IsConversationActive)
+                {
+                    haveMoved = false;
+                    grappin.SetActive(true);
+                    MoveNextCheckPoint(checkPointRobotPoints[2].position);
+                }
+                break;
+
             case 4:
-                MoveNextCheckPoint(checkPointRobotPoints[3].position);
-                return;
+                if (!conversationManager.IsConversationActive)
+                {
+                    haveMoved = false;
+                    MoveNextCheckPoint(checkPointRobotPoints[3].position);
+                }
+                break;
 
         }
         
-        /*if (conversationManager.IsConversationActive)
+        if (conversationManager.IsConversationActive)
         {
             DesactivePlayerMovement();
         }
@@ -99,8 +125,8 @@ public class RobotTutoController : MonoBehaviour
         {
             ActivePlayerMovement();
             //dont want player to move while in dialogue
-            Debug.Log(conversationManager.IsConversationActive);
-        }*/
+            
+        }
     }
 
     public void CheckJump(InputAction.CallbackContext callback)
@@ -128,11 +154,13 @@ public class RobotTutoController : MonoBehaviour
     void DesactivePlayerMovement()
     {
         player.enabled = false;
+        player.GetRB().isKinematic = true;
         player.GetRB().useGravity = true;
     }
     void ActivePlayerMovement()
     {
         player.enabled = true;
+        player.GetRB().isKinematic = false;
     }
     public void LaunchTuto(int checkPointId)
     {
@@ -142,6 +170,12 @@ public class RobotTutoController : MonoBehaviour
 
     public void MoveNextCheckPoint(Vector3 position)
     {
-        transform.position = position;
+        if(!haveMoved)
+        {
+            transform.position = position;
+            MovementExplosion.Play();
+            AudioManager.instance.playSoundEffect(17, 1f);
+            haveMoved = true;
+        }
     }
 }

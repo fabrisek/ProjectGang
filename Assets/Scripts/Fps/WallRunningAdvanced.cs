@@ -61,7 +61,7 @@ public class WallRunningAdvanced : MonoBehaviour
     private void Awake()
     {
         inputActions = new Input();
-        
+        inputActions.InGame.Jump.started += context => WallJump();
     }
     private void OnEnable()
     {
@@ -76,10 +76,6 @@ public class WallRunningAdvanced : MonoBehaviour
     public Vector2 GetPlayerMovement()
     {
         return inputActions.InGame.Move.ReadValue<Vector2>();
-    }
-    public float GetPlayerJump()
-    {
-        return inputActions.InGame.Jump.ReadValue<float>();
     }
 
     private void Start()
@@ -139,8 +135,6 @@ public class WallRunningAdvanced : MonoBehaviour
                 exitWallTimer = exitWallTime;
             }
 
-            // wall jump
-            if (GetPlayerJump() > 0.5f) WallJump();
 
             //FeedBack
             timerFoostep -= Time.deltaTime;

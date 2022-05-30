@@ -7,6 +7,7 @@ public class CheckPointTuto : MonoBehaviour
     [SerializeField] int checkPointIndex;
     [SerializeField] RobotTutoController robot;
     bool tutoHasLaunched;
+    [SerializeField] DeathTuto deathTuto;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class CheckPointTuto : MonoBehaviour
         {
             robot.LaunchTuto(checkPointIndex);
             tutoHasLaunched = true;
+            deathTuto.startIndex = checkPointIndex;
         }
     }
 }
