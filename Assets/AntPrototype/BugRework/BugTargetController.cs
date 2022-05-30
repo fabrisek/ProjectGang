@@ -122,7 +122,7 @@ public class BugTargetController : MonoBehaviour
         {
             if (Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)) > latence)
             {
-                SetSpeedFeet(speed);
+              //  SetSpeedFeet(speed);
                 MoveToTarget();
                 RotateToTarget();
             }
@@ -136,7 +136,7 @@ public class BugTargetController : MonoBehaviour
                 }
                 else
                 {
-                    SetSpeedFeet(1);
+                   // SetSpeedFeet(1);
                 }
             }
         }
@@ -292,7 +292,7 @@ public class BugTargetController : MonoBehaviour
 
 
 
-    // ========== Pour Ce lever ==========
+  
 
     void SetSpeedFeet (float speed)
     {
@@ -306,6 +306,8 @@ public class BugTargetController : MonoBehaviour
             targetFeet1[i].SpeedBug = speed;
         }
     }
+
+    // ========== Pour Ce lever ==========
 
     void StepUpBug ()
     {
@@ -353,5 +355,11 @@ public class BugTargetController : MonoBehaviour
     }
 
 
+
+
+    public void DestroyMe ()
+    {
+        Destroy(gameObject);
+    }
 
 }

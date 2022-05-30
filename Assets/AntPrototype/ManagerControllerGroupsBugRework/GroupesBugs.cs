@@ -76,6 +76,14 @@ public class GroupesBugs
         }
     }
 
+    public void DestroyAllBug ()
+    {
+        for(int i= 0; i< groupeBugs.Count;i++)
+        {
+            groupeBugs[i].DestroyMe();
+        }
+    }
+
 
 
 }
