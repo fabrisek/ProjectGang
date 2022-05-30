@@ -18370,8 +18370,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 600, y: -950}
-  m_SizeDelta: {x: -1200, y: 50}
+  m_AnchoredPosition: {x: -750, y: 0}
+  m_SizeDelta: {x: 1500, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2627050412979987885
 CanvasRenderer:
@@ -18401,7 +18401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 150 KM/H
+  m_text: 150 fps
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7da75288952cdea44b46016001b9b584, type: 2}
   m_sharedMaterial: {fileID: -5247382322019713194, guid: 7da75288952cdea44b46016001b9b584, type: 2}
@@ -18428,8 +18428,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -29750,8 +29750,9 @@ MonoBehaviour:
   slideTime: {fileID: 6357070323204427799}
   sliderGo: {fileID: 6357070323204427792}
   doubleJumpIcon: {fileID: 6862936011097525480}
-  playerSpeed: {fileID: 6591340672987057159}
+  fpsText: {fileID: 6591340672987057159}
   playerRB: {fileID: 0}
+  deltaTime: 0
 --- !u!1 &6357070324809037609
 GameObject:
   m_ObjectHideFlags: 0
