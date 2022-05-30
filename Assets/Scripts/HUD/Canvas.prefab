@@ -4415,7 +4415,7 @@ GameObject:
   - component: {fileID: 1601142849724118893}
   - component: {fileID: 8473037203328579089}
   m_Layer: 5
-  m_Name: Resume (2)
+  m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4435,7 +4435,7 @@ RectTransform:
   m_Children:
   - {fileID: 2891277489637845922}
   m_Father: {fileID: 7050119046287364284}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4467,10 +4467,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 7067050128070651069}
+    m_SelectOnDown: {fileID: 6098792690364632195}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
@@ -12424,7 +12424,7 @@ RectTransform:
   m_Children:
   - {fileID: 5048294654776464804}
   m_Father: {fileID: 7050119046287364284}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12456,10 +12456,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 6098792690364632195}
+    m_SelectOnDown: {fileID: 7067050128070651069}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
@@ -14523,7 +14523,7 @@ GameObject:
   - component: {fileID: 3505386819874298322}
   - component: {fileID: 6766624442694321586}
   m_Layer: 5
-  m_Name: Resume (1)
+  m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14543,7 +14543,7 @@ RectTransform:
   m_Children:
   - {fileID: 3337217787050956104}
   m_Father: {fileID: 7050119046287364284}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14575,10 +14575,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 8752123821911480988}
+    m_SelectOnDown: {fileID: 2588221457021430917}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
@@ -29747,6 +29747,7 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   firstButtonDead: {fileID: 6357070324410798045}
   firstButtunWin: {fileID: 6357070323970099747}
+  firstButtunPause: {fileID: 0}
   slideTime: {fileID: 6357070323204427799}
   sliderGo: {fileID: 6357070323204427792}
   doubleJumpIcon: {fileID: 6862936011097525480}
@@ -30905,10 +30906,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 2588221457021430917}
+    m_SelectOnDown: {fileID: 8752123821911480988}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
@@ -33170,7 +33171,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7050119046287364284}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -34535,10 +34536,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4258552878983466918}
+  - {fileID: 1687468348471860304}
+  - {fileID: 14502271471558579}
   - {fileID: 3674186405901566529}
   - {fileID: 6422342921337956076}
-  - {fileID: 14502271471558579}
-  - {fileID: 1687468348471860304}
   m_Father: {fileID: 6357070324514406613}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

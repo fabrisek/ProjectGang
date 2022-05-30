@@ -24,6 +24,7 @@ public class HudControllerInGame : MonoBehaviour
 
     [SerializeField] GameObject firstButtonDead;
     [SerializeField] GameObject firstButtunWin;
+    [SerializeField] GameObject firstButtunPause;
 
     [SerializeField] Slider slideTime;
     [SerializeField] GameObject sliderGo;
@@ -76,6 +77,7 @@ public class HudControllerInGame : MonoBehaviour
         _winPanel.SetActive(false);
         _pausePanel.SetActive(true);
         _optionsPanel.SetActive(false);
+        eventSystem.SetSelectedGameObject(firstButtunPause);
     }
 
     public void ClosePauseMenu()
