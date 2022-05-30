@@ -85,6 +85,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
     bool grappling;
 
     [SerializeField] PlayerCam playerCam;
+
+    
+
     public void setGrapplin(bool g)
     {
         grappling = g;

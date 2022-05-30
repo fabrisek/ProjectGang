@@ -9,6 +9,14 @@ public class InputManager : MonoBehaviour
 {
     public static Input _input;
     public static InputManager Instance;
+
+    [SerializeField] PlayerInput playerInput;
+    public static ControlDeviceType currentControlDevice;
+    public enum ControlDeviceType
+    {
+        KeyboardAndMouse,
+        Gamepad,
+    }
     public static float SensibilityMouseY;
     public static float SensibilityMouseX;   
     public static float SensibilityGamePadY;
@@ -21,10 +29,41 @@ public class InputManager : MonoBehaviour
     {
         _input = new Input();
 
-        SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX"); ;
-        SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY"); ;
-        SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX"); ;
-        SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY"); ;
+        SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX"); 
+        SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY"); 
+        SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX"); 
+        SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY");
+
+        
+    }
+    public void OnEnable()
+    {
+        playerInput.onControlsChanged += OnControlsChanged;
+    }
+
+
+    private void OnControlsChanged(UnityEngine.InputSystem.PlayerInput obj)
+    {
+        if (obj.currentControlScheme == "Gamepad")
+        {
+            if (currentControlDevice != ControlDeviceType.Gamepad)
+            {
+                currentControlDevice = ControlDeviceType.Gamepad;
+                // Send Event
+                // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
+                PlayerCam.Instance.IsGamePad = true;
+            }
+        }
+        else
+        {
+            if (currentControlDevice != ControlDeviceType.KeyboardAndMouse)
+            {
+                currentControlDevice = ControlDeviceType.KeyboardAndMouse;
+                PlayerCam.Instance.IsGamePad = false;
+                // Send Event
+                // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
+            }
+        }
     }
 
     public void SetSensibilityXMouse(float x)
