@@ -34,8 +34,8 @@ public class AudioManager : MonoBehaviour
                 break;
             case 3:
                 PlayMusic(3);
-                break;
                 audioSourceMusic.pitch = 1;
+                break;
             case 4:
                 PlayMusic(4);
                 audioSourceMusic.pitch = 1;
