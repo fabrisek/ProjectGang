@@ -43,6 +43,7 @@ public class LevelLoader : MonoBehaviour
             _textSlider.text = progress * 100f + "%";
             yield return null;
             _loadingScreenPanel.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }

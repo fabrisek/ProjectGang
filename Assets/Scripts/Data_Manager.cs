@@ -42,7 +42,7 @@ public class Data_Manager : MonoBehaviour
     public void SaveData()
     {
         string data = JsonUtility.ToJson(Data);
-        string filepath = Application.persistentDataPath + "Save.json";
+        string filepath = Application.persistentDataPath + "/Save.json";
         File.WriteAllText(filepath, data);
 
         print(data);
@@ -52,7 +52,7 @@ public class Data_Manager : MonoBehaviour
     public void LoadSavedGames()
     {
         
-        string worldsFolder = Application.persistentDataPath + "Save.json";
+        string worldsFolder = Application.persistentDataPath + "/Save.json";
         if (File.Exists(worldsFolder))
         {
             string fileContents = File.ReadAllText(worldsFolder);
