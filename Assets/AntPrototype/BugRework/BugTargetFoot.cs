@@ -94,6 +94,8 @@ public class BugTargetFoot
         }
     }
 
+
+
     Vector3 CalculNextPoint2(Vector3 currentPosition, float stepDistance, float stepheight,float stepLenght, Vector3 originePos, LayerMask groundLayer)
     {
         Vector3 direction = new Vector3(originePos.x - currentPosition.x, currentPosition.y, originePos.z - currentPosition.z);

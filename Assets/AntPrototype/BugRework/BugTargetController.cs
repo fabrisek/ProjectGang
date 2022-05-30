@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class BugTargetController : MonoBehaviour
 {
-    [SerializeField] public BugTargetFoot[] targetFeet;
-    int actuelFootMove;
-    bool moveFoot;
-    int maxFoot;
+    [SerializeField] public BugTargetFoot[] targetFeet1;
+    [SerializeField] public BugTargetFoot[] targetFeet2;
+    int actuelFootMove1;
+    int ancienFootMove1;
+    bool moveFoot1;
+    int maxFoot1;
+    int actuelFootMove2;
+    int ancienFootMove2;
+    bool moveFoot2;
+    int maxFoot2;
 
     [SerializeField] Transform target;
     [SerializeField] float latence;
@@ -18,7 +24,8 @@ public class BugTargetController : MonoBehaviour
     [SerializeField] float maxTimeToChangeDirection;
 
     Vector3 direction;
-    bool changeDirection;
+    bool changeDirection1;
+   
 
 
     GroupesBugs groupesBugsAssign;
@@ -89,15 +96,23 @@ public class BugTargetController : MonoBehaviour
     void InitBug ()
     {
         tStepUp = 1;
-        changeDirection = true;
-        maxFoot = targetFeet.Length;
-        actuelFootMove = -1;
+        changeDirection1 = true;
+        maxFoot1 = targetFeet1.Length;
+        actuelFootMove1 = -1;
+        actuelFootMove2 = -1;
 
-        for (int i = 0; i< maxFoot; i++)
+        for (int i = 0; i< targetFeet1.Length; i++)
         {
-            targetFeet[i].InitBug();
-            targetFeet[i].SpeedBug = speed;
+            targetFeet1[i].InitBug();
+            targetFeet1[i].SpeedBug = speed;
             
+        }
+
+        for (int i = 0; i < targetFeet2.Length; i++)
+        {
+            targetFeet2[i].InitBug();
+            targetFeet2[i].SpeedBug = speed;
+
         }
     }
 
@@ -107,7 +122,7 @@ public class BugTargetController : MonoBehaviour
         {
             if (Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)) > latence)
             {
-                
+                SetSpeedFeet(speed);
                 MoveToTarget();
                 RotateToTarget();
             }
@@ -118,6 +133,10 @@ public class BugTargetController : MonoBehaviour
                 {
                     
                     groupesBugsAssign.ChangeTarget(indexTarget, indexGroupesBug);
+                }
+                else
+                {
+                    SetSpeedFeet(1);
                 }
             }
         }
@@ -132,11 +151,11 @@ public class BugTargetController : MonoBehaviour
 
     void MoveToTarget()
     {
-        if (changeDirection)
+        if (changeDirection1)
         {
             StopCoroutine(CouroutineChangeTime());
             direction = DirectionToTarget();
-            changeDirection = false;
+            changeDirection1 = false;
             StartCoroutine(CouroutineChangeTime());
         }
        
@@ -154,39 +173,71 @@ public class BugTargetController : MonoBehaviour
     {
         float time = Random.Range(minTimeToChangeDirection, maxTimeToChangeDirection);
         yield return new WaitForSeconds(time);
-        changeDirection = true;
+        changeDirection1 = true;
     }
 
     void MoveTargetsFeets ()
     {
-        for(int i = 0; i< maxFoot;i++)
+        for(int i = 0; i< targetFeet1.Length; i++)
         {
-            targetFeet[i].MoveTargetTerrin();
+            targetFeet1[i].MoveTargetTerrin();
+        }
+
+        for (int i = 0; i < targetFeet2.Length; i++)
+        {
+            targetFeet2[i].MoveTargetTerrin();
         }
     }
 
     void StartStep()
     {
-        if (!moveFoot)
+        if (!moveFoot1)
         {
-            int nextFoot = CheckDist();
+            int nextFoot = CheckDist(targetFeet1, actuelFootMove2, ancienFootMove2);
             if (nextFoot != -1)
             {
-                actuelFootMove = nextFoot;
-                targetFeet[actuelFootMove].InitMoveStep();
-                moveFoot = true;
+                ancienFootMove1 = actuelFootMove1;
+                actuelFootMove1 = nextFoot;
+                targetFeet1[actuelFootMove1].InitMoveStep();
+                targetFeet1 = ChangePriorityFeet(actuelFootMove1, targetFeet1);
+                moveFoot1 = true;
+            }
+            else
+            {
+               
             }
         }
         else
         {
-            moveFoot = targetFeet[actuelFootMove].MoveStep();
+            moveFoot1 = targetFeet1[actuelFootMove1].MoveStep();
+        }
+
+        if (!moveFoot2)
+        {
+            int nextFoot = CheckDist(targetFeet2,actuelFootMove1,ancienFootMove2);
+            if (nextFoot != -1)
+            {
+                ancienFootMove2 = actuelFootMove2;
+                actuelFootMove2 = nextFoot;
+                targetFeet2[actuelFootMove2].InitMoveStep();
+                targetFeet2 = ChangePriorityFeet(actuelFootMove2, targetFeet2);
+                moveFoot2 = true;
+            }
+            else
+            {
+               
+            }
+        }
+        else
+        {
+            moveFoot2 = targetFeet2[actuelFootMove2].MoveStep();
         }
     }
 
-    int CheckDist()
+    int CheckDist(BugTargetFoot[] targetFeet, int actu, int ancien)
     {
-        float[] distFoot = new float[maxFoot];
-        for (int i = 0; i < maxFoot; i++)
+        float[] distFoot = new float[targetFeet.Length];
+        for (int i = 0; i < targetFeet.Length; i++)
         {
 
             distFoot[i] = targetFeet[i].DistToOrigine();
@@ -195,15 +246,65 @@ public class BugTargetController : MonoBehaviour
         float distRef = 0.4f;
         int actuelFootMove = -1;
 
-        for (int i = 0; i < maxFoot; i++)
+        for (int i = 0; i < targetFeet.Length; i++)
         {
-            if (targetFeet[i].StepDistance/2 < distFoot[i] && distRef < targetFeet[i].StepDistance / 2)
+            if ((targetFeet[i].StepDistance/1.5f < distFoot[i] && distRef < targetFeet[i].StepDistance / 1.5f))
             {
-                distRef = distFoot[i];
-                 actuelFootMove = i;
+               
+                    distRef = distFoot[i];
+                    actuelFootMove = i;
+                
+                
             }
         }
         return actuelFootMove;
+    }
+
+
+    BugTargetFoot[] ChangePriorityFeet (int index, BugTargetFoot[] targetFeet)
+    {
+        BugTargetFoot[] targetFeetTemp = targetFeet;
+        targetFeet = new BugTargetFoot[targetFeetTemp.Length];
+        int t = 0;
+        for(int i = 0;i< targetFeetTemp.Length;i++)
+        {
+            if(i != index)
+            {
+                targetFeet[t] = targetFeetTemp[i];
+                t++;
+            }
+
+        }
+
+        targetFeet[targetFeet.Length - 1] = targetFeetTemp[index];
+
+        return targetFeet;
+    }
+
+    
+    
+
+
+
+
+
+
+
+
+
+    // ========== Pour Ce lever ==========
+
+    void SetSpeedFeet (float speed)
+    {
+        for (int i = 0; i < targetFeet1.Length; i++)
+        {
+            targetFeet1[i].SpeedBug = speed;
+        }
+
+        for (int i = 0; i < targetFeet2.Length; i++)
+        {
+            targetFeet1[i].SpeedBug = speed;
+        }
     }
 
     void StepUpBug ()

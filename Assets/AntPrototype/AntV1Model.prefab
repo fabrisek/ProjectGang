@@ -376,22 +376,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c717be1ddbcb7a49bc5db74eb1d819f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFeet:
+  targetFeet1:
   - groundLayer:
       serializedVersion: 2
       m_Bits: 16
     targetToMove: {fileID: 3753202812349088583}
     originePoint: {fileID: 3753202812884505279}
-    speed: 20
-    stepDistance: 1.8
-    stepLength: 2.5
-    stepHeight: 1.5
-  - groundLayer:
-      serializedVersion: 2
-      m_Bits: 16
-    targetToMove: {fileID: 3753202812751194567}
-    originePoint: {fileID: 3753202813725306422}
-    speed: 20
+    speed: 10
     stepDistance: 1.8
     stepLength: 2.5
     stepHeight: 1.5
@@ -400,16 +391,7 @@ MonoBehaviour:
       m_Bits: 16
     targetToMove: {fileID: 3753202813686714122}
     originePoint: {fileID: 3753202812486354106}
-    speed: 20
-    stepDistance: 1.8
-    stepLength: 2.5
-    stepHeight: 1.5
-  - groundLayer:
-      serializedVersion: 2
-      m_Bits: 16
-    targetToMove: {fileID: 3753202813387446228}
-    originePoint: {fileID: 3753202812526728717}
-    speed: 20
+    speed: 10
     stepDistance: 1.8
     stepLength: 2.5
     stepHeight: 1.5
@@ -418,7 +400,26 @@ MonoBehaviour:
       m_Bits: 16
     targetToMove: {fileID: 3753202812471349131}
     originePoint: {fileID: 3753202814028254046}
-    speed: 20
+    speed: 10
+    stepDistance: 1.8
+    stepLength: 2.5
+    stepHeight: 1.5
+  targetFeet2:
+  - groundLayer:
+      serializedVersion: 2
+      m_Bits: 16
+    targetToMove: {fileID: 3753202812751194567}
+    originePoint: {fileID: 3753202813725306422}
+    speed: 10
+    stepDistance: 1.8
+    stepLength: 2.5
+    stepHeight: 1.5
+  - groundLayer:
+      serializedVersion: 2
+      m_Bits: 16
+    targetToMove: {fileID: 3753202813387446228}
+    originePoint: {fileID: 3753202812526728717}
+    speed: 10
     stepDistance: 1.8
     stepLength: 2.5
     stepHeight: 1.5
@@ -427,13 +428,13 @@ MonoBehaviour:
       m_Bits: 16
     targetToMove: {fileID: 3753202814124352006}
     originePoint: {fileID: 3753202812585015155}
-    speed: 20
+    speed: 10
     stepDistance: 1.8
     stepLength: 2.5
     stepHeight: 1.5
   target: {fileID: 0}
   latence: 3
-  speed: 4
+  speed: 6
   speedRotate: 10
   minTimeToChangeDirection: 1
   maxTimeToChangeDirection: 3
@@ -819,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3753202814124352005}
   m_LocalRotation: {x: -0.00000013411044, y: -0.00000013411044, z: -0.00000004470348, w: 1}
-  m_LocalPosition: {x: -1.8978324, y: 0.117879234, z: -1.049583}
+  m_LocalPosition: {x: -1.8978324, y: 0.117879234, z: -1.416}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -870,7 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5389071287558969741, guid: f120877b42544c848a355663455a8a03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.24
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5389071287558969741, guid: f120877b42544c848a355663455a8a03, type: 3}
       propertyPath: m_LocalPosition.z
