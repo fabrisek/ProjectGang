@@ -27,6 +27,19 @@ public class GroupesBugsManager : MonoBehaviour
         {
             groupesBugs[i].InitGroupesBugs();
         }
+
+        StartCoroutine(CoroutineSetBug());
+    }
+
+    IEnumerator CoroutineSetBug ()
+    {
+
+        yield return new WaitForSeconds(1.5f);
+
+        for (int i = 0; i < groupesBugs.Count; i++)
+        {
+            groupesBugs[i].ResetAllTargetSet();
+        }
     }
 
     // Update is called once per frame

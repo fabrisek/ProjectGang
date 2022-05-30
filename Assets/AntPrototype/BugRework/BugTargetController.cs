@@ -76,6 +76,8 @@ public class BugTargetController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         
         InitBug();
+
+      
     }
 
     private void Update()
@@ -93,7 +95,7 @@ public class BugTargetController : MonoBehaviour
         }
     }
 
-    void InitBug ()
+    public void InitBug ()
     {
         tStepUp = 1;
         changeDirection1 = true;
@@ -105,15 +107,14 @@ public class BugTargetController : MonoBehaviour
         {
             targetFeet1[i].InitBug();
             targetFeet1[i].SpeedBug = speed;
-            
         }
 
         for (int i = 0; i < targetFeet2.Length; i++)
         {
             targetFeet2[i].InitBug();
             targetFeet2[i].SpeedBug = speed;
-
         }
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
     private void Movebug()
@@ -122,21 +123,15 @@ public class BugTargetController : MonoBehaviour
         {
             if (Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)) > latence)
             {
-              //  SetSpeedFeet(speed);
                 MoveToTarget();
                 RotateToTarget();
             }
             else
             {
-                
                 if(groupesBugsAssign != null)
                 {
                     
                     groupesBugsAssign.ChangeTarget(indexTarget, indexGroupesBug);
-                }
-                else
-                {
-                   // SetSpeedFeet(1);
                 }
             }
         }

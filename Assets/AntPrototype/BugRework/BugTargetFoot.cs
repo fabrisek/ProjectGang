@@ -82,7 +82,6 @@ public class BugTargetFoot
         {
             speedBug = 1;
         }
-       
         if (lerp >= 1 || IsGrounded(targetToMove, groundLayer,stepHeight) && lerp > 0.2)
         {
             move = false;

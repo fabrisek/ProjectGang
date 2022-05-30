@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] PlayerMovementAdvanced playerMovementScript;
 
     public Input inputActions;
+    bool startTimer;
     // Start is called before the first frame update
     void Awake()
     {
@@ -16,10 +17,23 @@ public class LevelManager : MonoBehaviour
         inputActions = new Input();
         inputActions.InGame.Restart.performed += RestartLevel;
         inputActions.InGame.Restart.canceled -= RestartLevel;
+        CutMovePlayer();
     }
+
+    void CutMovePlayer()
+    {
+        playerMovementScript.enabled = false;
+    }
+
+    void ResetMovePlayer()
+    {
+        playerMovementScript.enabled = true;
+    }
+
     private void OnEnable()
     {
         inputActions.Enable();
+        StartCoroutine(CoroutineTroisDeuxUn());
     }
     private void OnDisable()
     {
@@ -28,7 +42,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(inputActions.InGame.Move.enabled);
         LauchTimer();
         SetTimeTOBugsManager();
 
@@ -46,7 +60,7 @@ public class LevelManager : MonoBehaviour
     {
         if (playerMovementScript != null)
         {
-            if (!Timer.Instance.TimerIsLaunch() && playerMovementScript.GetInputActivated)
+            if (!Timer.Instance.TimerIsLaunch() && startTimer)
             {
                 Timer.Instance.LaunchTimer();
             }
@@ -58,6 +72,15 @@ public class LevelManager : MonoBehaviour
         {
             LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    IEnumerator CoroutineTroisDeuxUn ()
+    {
+        yield return new WaitForSeconds(3);
+        ResetMovePlayer();
+        startTimer = true;
+
+
     }
 
 

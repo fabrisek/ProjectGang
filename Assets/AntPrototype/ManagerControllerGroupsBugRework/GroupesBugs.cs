@@ -15,9 +15,15 @@ public class GroupesBugs
     {
         for (int i = 0; i < groupeBugs.Count; i++)
         {
+            groupeBugs[i].enabled = true;
+          //  Debug.Log(groupeBugs[i].isActiveAndEnabled);
             groupeBugs[i].IndexGroupesBug = i;
             groupeBugs[i].GroupesBugsAssign = this;
+            
         }
+
+        SetTarget(0);
+        
     }
 
     public float TimeToGo
@@ -39,10 +45,21 @@ public class GroupesBugs
              
             }
         }
-      
-      
 
+    }
 
+    public void ResetAllTargetSet ()
+    {
+        for (int i = 0; i < groupeBugs.Count; i++)
+        {
+            
+            groupeBugs[i].Target = null;
+            groupeBugs[i].IndexTarget = 0;
+
+            groupeBugs[i].enabled = false;
+        }
+
+      
     }
 
     public void ChangeTarget (int actualIndex, int indexGroupes)
