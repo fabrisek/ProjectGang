@@ -33,8 +33,10 @@ public class GroupesBugs
         {
             for (int i = 0; i < groupeBugs.Count; i++)
             {
+                groupeBugs[i].enabled = true;
                 groupeBugs[i].Target = target[index];
                 groupeBugs[i].IndexTarget = index;
+             
             }
         }
       
@@ -60,7 +62,7 @@ public class GroupesBugs
             else
             {
                 groupeBugs[indexGroupes].Target = null;
-                groupeBugs[indexGroupes].gameObject.SetActive(false);
+                groupeBugs[indexGroupes].enabled = false;
 
             }
         }
