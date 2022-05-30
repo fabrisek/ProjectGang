@@ -23,7 +23,8 @@ public class FinishLine : MonoBehaviour
             HudControllerInGame.Instance.OpenWinPanel(timer);
             if (PlayFabHighScore.Instance)
                 PlayFabHighScore.Instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
-            Data_Manager.Instance.SetRecord(timer, _levelIndex);
+            if (Data_Manager.Instance)
+                Data_Manager.Instance.SetRecord(timer, _levelIndex);
         }    
     }
 
