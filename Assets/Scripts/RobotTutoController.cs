@@ -15,7 +15,6 @@ public class RobotTutoController : MonoBehaviour
     [SerializeField] Transform[] respawnPositions;
     public Transform RespawnPosition(int position)
     {
-        Debug.Log(respawnPositions[position].position);
         return respawnPositions[position];
     }
     int currentTutoId;
@@ -154,13 +153,11 @@ public class RobotTutoController : MonoBehaviour
     void DesactivePlayerMovement()
     {
         player.enabled = false;
-        player.GetRB().isKinematic = true;
         player.GetRB().useGravity = true;
     }
     void ActivePlayerMovement()
     {
         player.enabled = true;
-        player.GetRB().isKinematic = false;
     }
     public void LaunchTuto(int checkPointId)
     {

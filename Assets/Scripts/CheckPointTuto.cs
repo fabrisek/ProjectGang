@@ -8,6 +8,7 @@ public class CheckPointTuto : MonoBehaviour
     [SerializeField] RobotTutoController robot;
     bool tutoHasLaunched;
     [SerializeField] DeathTuto deathTuto;
+    [SerializeField] GameObject ArrowEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,8 @@ public class CheckPointTuto : MonoBehaviour
             robot.LaunchTuto(checkPointIndex);
             tutoHasLaunched = true;
             deathTuto.startIndex = checkPointIndex;
+            ArrowEffect.SetActive(false);
+            AudioManager.instance.playSoundEffect(9, 0.3f);
         }
     }
 }

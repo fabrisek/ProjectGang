@@ -32,7 +32,7 @@ public class FinishLine : MonoBehaviour
     {
         if (other.gameObject.layer == 7)
         {
-            AudioManager.instance.playSoundEffect(9, 0.5f);
+            AudioManager.instance.playSoundEffect(9, 0.3f);
             FinishLevel();
             //other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
             }
