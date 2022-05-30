@@ -7,6 +7,7 @@ using FirstGearGames.SmoothCameraShaker;
 
 public class PlayerCam : MonoBehaviour
 {
+    public static PlayerCam Instance;
     public float sensX ;
     public float sensY ;
 
@@ -21,8 +22,11 @@ public class PlayerCam : MonoBehaviour
 
      Input inputActions;
 
+    public bool IsGamePad { get; set; }
+
     private void Awake()
     {
+        Instance = this;
         inputActions = new Input();
         
     }
@@ -52,7 +56,7 @@ public class PlayerCam : MonoBehaviour
         float lookX;
         float lookY;
         Vector2 looking = GetPlayerLook();
-        if(Joystick.all.Count == 0)
+        if(IsGamePad == false)
         {
             lookX = looking.x * InputManager.SensibilityMouseX * Time.unscaledDeltaTime;
             lookY = looking.y * InputManager.SensibilityMouseY * Time.unscaledDeltaTime;
