@@ -12,6 +12,7 @@ public class RobotTutoController : MonoBehaviour
     ConversationManager conversationManager;
     [SerializeField] Transform[] checkPointRobotPoints;
     int currentTutoId;
+    
 
     private void OnEnable()
     {

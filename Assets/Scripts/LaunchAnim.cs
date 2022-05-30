@@ -22,7 +22,6 @@ public class LaunchAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(animLaunched);
         if (Mathf.Abs((player.transform.position - position.position).magnitude) < distanceToLaunch && !animLaunched)
         {
             LaunchAnimation();
