@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
+using FirstGearGames.SmoothCameraShaker;
 
 public class PlayerCam : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerCam : MonoBehaviour
     float xRotation;
     float yRotation;
     private Vector2 mousePosition;
+
+    public ShakeData constantShake; 
 
      Input inputActions;
 
@@ -36,7 +39,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        
+        CameraShakerHandler.Shake(constantShake);
     }
 
     private void Update()

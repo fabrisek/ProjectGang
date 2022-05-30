@@ -10,6 +10,7 @@ public class CanonController : MonoBehaviour
     [SerializeField] Transform ShootDirection;
     [SerializeField] float explosionForce;
     [SerializeField] ParticleSystem explosionEffect;
+    [SerializeField] float gravityAdd = 20f;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class CanonController : MonoBehaviour
 
         fourmis1.GetComponent<Rigidbody>().freezeRotation = false;
         Debug.Log(fourmis1.transform.position);
-        fourmis1.GetComponent<BugTargetController>().gravity = 20;
+        fourmis1.GetComponent<BugTargetController>().gravity = gravityAdd;
 
         //feedBack
         AudioManager.instance.playSoundEffect3D(16,ShootDirection.position , 10f);

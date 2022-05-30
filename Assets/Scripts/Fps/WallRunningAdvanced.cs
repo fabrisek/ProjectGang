@@ -61,6 +61,7 @@ public class WallRunningAdvanced : MonoBehaviour
     private void Awake()
     {
         inputActions = new Input();
+        
     }
     private void OnEnable()
     {
@@ -230,22 +231,24 @@ public class WallRunningAdvanced : MonoBehaviour
 
     private void WallJump()
     {
-        pm.PlayerJumpDown(false);
-        pm.SetCanDoubleJump(false);
-        // enter exiting wall state
-        exitingWall = true;
-        exitWallTimer = exitWallTime;
-        
-        Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
+        if(pm.wallrunning)
+        {
+            pm.PlayerJumpDown(false);
+            pm.SetCanDoubleJump(false);
+            // enter exiting wall state
+            exitingWall = true;
+            exitWallTimer = exitWallTime;
 
-        Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
+            Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
 
-        // reset y velocity and add force
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        rb.AddForce(forceToApply, ForceMode.Impulse);
-        
-        //SoundEffect
-        AudioManager.instance.playSoundEffect(1, 1f);
+            Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
 
+            // reset y velocity and add force
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            rb.AddForce(forceToApply, ForceMode.Impulse);
+
+            //SoundEffect
+            AudioManager.instance.playSoundEffect(1, 1f);
+        }
     }
 }

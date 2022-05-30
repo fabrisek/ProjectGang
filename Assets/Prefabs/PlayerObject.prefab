@@ -5318,8 +5318,8 @@ MonoBehaviour:
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2
-  jumpForce: 55
-  jumpForceDown: 0
+  jumpForce: 45
+  jumpForceDown: 15
   jumpCooldown: 0.6
   airMultiplier: 0.8
   jumpShake: {fileID: 11400000, guid: 7d35e670e3e0092438d60111e2f1c686, type: 2}
@@ -5339,8 +5339,9 @@ MonoBehaviour:
   sliding: 0
   crouching: 0
   wallrunning: 0
-  text_speed: {fileID: 0}
   hasDoubleJumped: 0
+  deltaTime: 0
+  timeToPress: 0
 --- !u!114 &7127624766882420789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5355,12 +5356,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 256
   wallRunForce: 450
-  wallJumpUpForce: 80
+  wallJumpUpForce: 20
   wallJumpSideForce: 30
   wallClimbSpeed: 40
   maxWallRunTime: 10
@@ -5368,7 +5369,7 @@ MonoBehaviour:
   fovWall: 90
   fovNormal: 80
   wallRunShake: {fileID: 0}
-  wallCheckDistance: 1.5
+  wallCheckDistance: 1
   minJumpHeight: 1
   exitWallTime: 0.25
   useGravity: 1
@@ -5701,6 +5702,7 @@ MonoBehaviour:
   sensY: 250
   orientation: {fileID: 7127624766541610147}
   camHolder: {fileID: 7127624766199904172}
+  constantShake: {fileID: 0}
 --- !u!114 &5564315305835821268
 MonoBehaviour:
   m_ObjectHideFlags: 0

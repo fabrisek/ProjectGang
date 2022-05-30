@@ -125,6 +125,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     bool jumpDown;
     public bool hasDoubleJumped;
     public float deltaTime;
+    public float timeToPress;
 
 
     private void Awake()
@@ -288,9 +289,13 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             jumpDown = false;
         }
-        if (jumpDown)
+        else if (jumpDown || timeToPress < 0)
         {
             rb.AddForce(Vector3.down * jumpForceDown);
+        }
+        else
+        {
+            timeToPress -= Time.deltaTime;
         }
     }
 
@@ -335,7 +340,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public void GetPlayerJump()
     {
         // when to jump
-        if (readyToJump && (grounded || canJump))
+        if (readyToJump && (grounded || canJump) && !wallrunning)
         {
             readyToJump = false;
 
@@ -465,6 +470,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
     private void Jump()
     {
+        //DownForceAfterInput
+        timeToPress = 1f;
+
+
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         //JumpForce
@@ -480,6 +489,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
     private void DoubleJump()
     {
+        //DownForceAfterInput
+        timeToPress = 1f;
+
+
         hasDoubleJumped = true;
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
