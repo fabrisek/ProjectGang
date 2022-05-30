@@ -33,7 +33,7 @@ public class Ventilateur : MonoBehaviour
          velocity += dir * force * Time.deltaTime;
          velocity -= velocity *  amortissement * Time.deltaTime;
          rb.velocity = velocity;
-        Rumbler.instance.RumbleLinear(0.1f, 0.2f, 0.2f, 0.4f, 0.3f);
+         Rumbler.instance.RumbleLinear(0.1f, 0.2f, 0.2f, 0.4f, 0.3f);
          // rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);
          //rb.velocity = (Vector3.Normalize(Vector3.up * force * rb.mass));
        }
@@ -44,7 +44,7 @@ public class Ventilateur : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             CameraShakerHandler.Shake(ventiloShake);
-            AudioManager.instance.playSoundEffect(6);
+            AudioManager.instance.playSoundEffect(6, 0.8f);
             Rumbler.instance.RumbleConstant(0.5f, 1.5f, 2f);
         }
     }

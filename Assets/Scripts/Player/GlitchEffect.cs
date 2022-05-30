@@ -34,12 +34,16 @@ public class GlitchEffect : MonoBehaviour
 	private float flicker;
 	private float _glitchupTime = 0.05f;
 	private float _glitchdownTime = 0.05f;
-	private float _flickerTime = 0.5f;
+	private float _flickerTime = 0.1f;
 	private Material _material;
 
 	void Start()
 	{
 		_material = new Material(Shader);
+		_material.SetFloat("filterRadius", Random.Range(-3f, 3f) * colorIntensity);
+		_material.SetVector("direction", Quaternion.AngleAxis(Random.Range(0, 360) * colorIntensity, Vector3.forward) * Vector4.one);
+		flicker = 0;
+		_flickerTime = Random.value;
 	}
 
 	// Called by camera to apply image effect

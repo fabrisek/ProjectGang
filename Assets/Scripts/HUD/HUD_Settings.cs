@@ -10,6 +10,12 @@ using Doozy.Runtime.UIManager.Components;
 public class HUD_Settings : MonoBehaviour
 {
     public static HUD_Settings Instance;
+
+    [SerializeField] GameObject _panelAudio;
+    [SerializeField] GameObject _panelControl;
+    [SerializeField] GameObject _panelGraphics;
+    [SerializeField] GameObject _panelButton;
+
     [SerializeField] TMP_Dropdown _resolutionDropDown;
     [SerializeField] TMP_Dropdown _displayTypeDropDown;
     [SerializeField] TMP_Dropdown _antiAliasingDropDown;
@@ -26,21 +32,59 @@ public class HUD_Settings : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 200); 
-        sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityMouseY", 200); 
-        PlayerPrefs.SetFloat("SensibilityMouseX", 200); 
-        PlayerPrefs.SetFloat("SensibilityMouseY", 200);
-        PlayerPrefs.SetFloat("SensibilityGamePadX", 200);
-        PlayerPrefs.SetFloat("SensibilityGamePadY", 200);
     }
     private void Start()
     {
         InitializeGraphicsOptions();
+        InitializeAudioOption();
+        InitializeSensibility();
     }
 
     private void Update()
     {
-        Debug.Log(AudioManager.instance);
+        
+
+    }
+
+    public void OpenButtonPanel()
+    {
+        _panelButton.SetActive(true);
+        _panelAudio.SetActive(false);
+        _panelControl.SetActive(false);
+        _panelGraphics.SetActive(false);
+    }
+
+    public void OpenPanelAudio()
+    {
+        _panelAudio.SetActive(true);
+        _panelButton.SetActive(false);
+    }
+
+    public void OpenGraphicsPanel()
+    {
+        _panelGraphics.SetActive(true);
+        _panelButton.SetActive(false);
+    }
+    public void OpenControlPanel()
+    {
+        _panelControl.SetActive(true);
+        _panelButton.SetActive(false);
+    }
+
+    private void InitializeSensibility()
+    {
+        sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 200);
+        sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityMouseY", 200);
+        PlayerPrefs.SetFloat("SensibilityMouseX", 200);
+        PlayerPrefs.SetFloat("SensibilityMouseY", 200);
+        PlayerPrefs.SetFloat("SensibilityGamePadX", 200);
+        PlayerPrefs.SetFloat("SensibilityGamePadY", 200);
+    }
+
+    public void ChangeValueSliderAudio()
+    {
+        PlayerPrefs.SetFloat("VolumeMusic", sliderVolumeMusic.value);
+        PlayerPrefs.SetFloat("VolumeSFX", sliderVolumeSoundEffect.value);
         AudioManager.instance.ChangeVolumeMusic(sliderVolumeMusic.value);
         AudioManager.instance.ChangeVolumeSoundEFFect(sliderVolumeSoundEffect.value);
     }
@@ -51,7 +95,13 @@ public class HUD_Settings : MonoBehaviour
         PlayerPrefs.SetFloat("SensibilityMouseX", x); ;
         PlayerPrefs.SetFloat("SensibilityMouseY", y); ;
     }
-
+    void InitializeAudioOption()
+    {
+        sliderVolumeMusic.value = PlayerPrefs.GetFloat("VolumeMusic", 0.5f);
+        sliderVolumeSoundEffect.value = PlayerPrefs.GetFloat("VolumeSFX", 0.5f);
+        AudioManager.instance.ChangeVolumeMusic(PlayerPrefs.GetFloat("VolumeMusic", 0.5f));
+        AudioManager.instance.ChangeVolumeSoundEFFect(PlayerPrefs.GetFloat("VolumeSFX", 0.5f));
+    }
     void InitializeGraphicsOptions()
     {
         Resolution[] resolution = Screen.resolutions;

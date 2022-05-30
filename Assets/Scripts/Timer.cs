@@ -35,6 +35,8 @@ public class Timer : MonoBehaviour
         }
     }
 
+
+
     public void StopTimer()
     {
         _timerIsLaunch = false;

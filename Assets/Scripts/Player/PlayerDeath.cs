@@ -45,7 +45,7 @@ public class PlayerDeath : MonoBehaviour
         if (other.gameObject.layer == 4)
         {
             Die();
-            AudioManager.instance.playSoundEffect(7);
+            AudioManager.instance.playSoundEffect(7, 1f);
             Rumbler.instance.RumbleConstant(2f, 2f, 0.3f);
         }
         if (other.gameObject.layer == 12)
@@ -53,7 +53,7 @@ public class PlayerDeath : MonoBehaviour
             if(other.gameObject.tag == "Laser")
             {
                 Die();
-                AudioManager.instance.playSoundEffect(8);
+                AudioManager.instance.playSoundEffect(8, 0.5f);
                 Rumbler.instance.RumbleConstant(2f, 2f, 0.3f);
             }
         }

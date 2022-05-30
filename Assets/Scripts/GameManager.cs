@@ -5,7 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
+    
     public GameObject Player;
+    public GameObject camera;
+    public GameObject GetPlayer()
+    {
+        return Player;
+    }
+    public GameObject GetCamera()
+    {
+        return camera;
+    }
     void Awake()
     {
         if (gameManager != null && gameManager != this)

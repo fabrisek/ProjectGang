@@ -28,6 +28,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     [Header("Jumping")]
     [SerializeField] float jumpForce;
+    [SerializeField] float jumpForceDown;
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMultiplier;
     bool readyToJump;
@@ -72,7 +73,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public static Vector3 moveDirection;
 
     Rigidbody rb;
-
+    public Rigidbody GetRB()
+    {
+        return rb;
+    }
     private bool inputActivated;
     WallRunningAdvanced wallRunningAdvanced;
     bool exitingWall;
@@ -80,6 +84,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
     float resetWallTimeDoubleJump = 0.8f;
     bool grappling;
     float playerJump;
+
+    [SerializeField] PlayerCam playerCam;
     public void setGrapplin(bool g)
     {
         grappling = g;
@@ -117,22 +123,74 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public bool wallrunning;
 
     public TextMeshProUGUI text_speed;
-    public TextMeshProUGUI text_mode;
     private Input inputActions;
+    bool jumpDown;
+    public bool hasDoubleJumped;
 
     private void Awake()
     {
+        hasDoubleJumped = false;
         inputActivated = false;
         inputActions = new Input();
         inputActions.InGame.SlowTime.performed += ActiveSlowTime;
         inputActions.InGame.SlowTime.canceled += ActiveSlowTime;
+        inputActions.InGame.Pause.performed += Pause;
         inputActions.InGame.Jump.started += context => GetPlayerJump();
+        inputActions.InGame.Jump.canceled += context => PlayerJumpDown(true);
         playerJump = 0;
     }
+
+    public void PlayerJumpDown(bool a)
+    {
+        jumpDown = a;
+    }
+
 
     private void ActiveSlowTime(InputAction.CallbackContext callback)
     {
         GetComponent<CompetenceRalentie>().ActiveSlowTime(callback);
+    }
+
+    public void Pause()
+    {
+        if (Time.timeScale > 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Timer.Instance.StopTimer();
+            playerCam.enabled = false;
+            Rumbler.instance.StopRumble();
+            Time.timeScale = 0;
+            HudControllerInGame.Instance.OpenPauseMenu();
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Timer.Instance.LaunchTimer();
+            playerCam.enabled = true;
+            Time.timeScale = 1;
+            HudControllerInGame.Instance.ClosePauseMenu();
+        }
+    }
+
+    private void Pause(InputAction.CallbackContext callback)
+    {
+        if (Time.timeScale > 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Timer.Instance.StopTimer();
+            playerCam.enabled = false;
+            Rumbler.instance.StopRumble();
+            Time.timeScale = 0;
+            HudControllerInGame.Instance.OpenPauseMenu();
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Timer.Instance.LaunchTimer();
+            playerCam.enabled = true;
+            Time.timeScale = 1;
+            HudControllerInGame.Instance.ClosePauseMenu();
+        }
     }
 
     private void OnEnable()
@@ -163,16 +221,20 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround) || Physics.Raycast(transform.position, Vector3.forward, playerHeight * 0.5f + 0.2f, whatIsGround) ;
 
         //time To Jump if not on ground;
         if (grounded)
         {
             timeToJump = resetTimeToJump;
             canJump = true;
+            rb.useGravity = false;
+            rb.drag *= 10;
         }
         else
         {
+            rb.useGravity = true ;
+            rb.drag *= 1/10;
             timeToJump -= Time.deltaTime;
             if(timeToJump <= 0)
             {
@@ -220,6 +282,17 @@ public class PlayerMovementAdvanced : MonoBehaviour
             HudControllerInGame.Instance.DoubleJumpShow(false);
         }
 
+
+        //DownForce if button stop press
+
+        if (grounded || wallrunning || grappling)
+        {
+            jumpDown = false;
+        }
+        if (jumpDown)
+        {
+            rb.AddForce(Vector3.down * jumpForceDown);
+        }
     }
 
     private void FixedUpdate()
@@ -270,6 +343,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+
+            canDoubleJump = true;
         }
         else if ( readyToJump && canDoubleJump && !wallrunning)
         {
@@ -398,7 +473,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         canJump = false;
 
         //feedBack
-        AudioManager.instance.playSoundEffect(1);
+        AudioManager.instance.playSoundEffect(1, 1f);
         CameraShakerHandler.Shake(jumpShake);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
@@ -406,14 +481,16 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
     private void DoubleJump()
     {
+        hasDoubleJumped = true;
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         //JumpForce
         rb.AddForce(transform.up * jumpForce * 0.8f, ForceMode.Impulse);
         canJump = false;
+        jumpDown = false;
 
         //feedBack
-        AudioManager.instance.playSoundEffect(1);
+        AudioManager.instance.playSoundEffect(1, 1f);
         CameraShakerHandler.Shake(jumpShake);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);

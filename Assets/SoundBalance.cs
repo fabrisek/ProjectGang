@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class SoundBalance : MonoBehaviour
 {
-    AudioSource audioSource;
-    [SerializeField] AudioClip swooshSound;
+    [SerializeField] Transform soundPosition;
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public void PlaySwoosh()
+    public void PlaySwoosh(int soundId)
     {
-        audioSource.PlayOneShot(swooshSound);
+        
+        AudioManager.instance.playSoundEffect3D(soundId, soundPosition.position, 5f);
     }
 }

@@ -13,6 +13,8 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] GameObject _deadPanel;
     [SerializeField] GameObject _winPanel;
     [SerializeField] GameObject _inGamePanel;
+    [SerializeField] GameObject _pausePanel;
+    [SerializeField] GameObject _optionsPanel;
 
     
     [SerializeField] TextMeshProUGUI _textTimerInGame;
@@ -26,11 +28,19 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] Slider slideTime;
     [SerializeField] GameObject sliderGo;
 
-    [SerializeField] GameObject DoubleJumpIcon;
+    [SerializeField] GameObject doubleJumpIcon;
+    [SerializeField] TextMeshProUGUI playerSpeed;
+    [SerializeField] Rigidbody playerRB;
     
     private void Awake()
     {
         Instance = this;
+        playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude * 3)).ToString() + " KM/H";
+    }
+
+    private void Update()
+    {
+        playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
     }
     public void OpenDeathPanel()
     {
@@ -44,9 +54,33 @@ public class HudControllerInGame : MonoBehaviour
         eventSystem.SetSelectedGameObject(firstButtonDead);
     }
 
+    public void OpenOptionsPanel()
+    {
+        _optionsPanel.SetActive(true);
+        _pausePanel.SetActive(false);
+        HUD_Settings.Instance.OpenButtonPanel();
+    }
+
     public void ChangeTimerHud(float timer)
     {
         _textTimerInGame.text = Timer.FormatTime(timer);
+    }
+
+    public void OpenPauseMenu()
+    {
+        _deadPanel.SetActive(false);
+        _inGamePanel.SetActive(false);
+        _winPanel.SetActive(false);
+        _pausePanel.SetActive(true);
+    }
+
+    public void ClosePauseMenu()
+    {
+        _optionsPanel.SetActive(false);
+        _deadPanel.SetActive(false);
+        _inGamePanel.SetActive(true);
+        _winPanel.SetActive(false);
+        _pausePanel.SetActive(false);
     }
 
     public void RestartLevel()
@@ -82,6 +116,6 @@ public class HudControllerInGame : MonoBehaviour
 
     public void DoubleJumpShow(bool a )
     {
-        DoubleJumpIcon.SetActive(a);
+        doubleJumpIcon.SetActive(a);
     }
 }

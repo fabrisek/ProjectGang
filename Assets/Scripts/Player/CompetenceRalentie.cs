@@ -9,6 +9,10 @@ public class CompetenceRalentie : MonoBehaviour
     [SerializeField] float _timeRestant;
     [SerializeField] GlitchEffect glitch;
     [SerializeField] bool competenceIsActive;
+    public bool IsRalentie()
+    {
+        return competenceIsActive;
+    }
 
 
     public void ActiveSlowTime(InputAction.CallbackContext callback)
@@ -29,7 +33,7 @@ public class CompetenceRalentie : MonoBehaviour
         Time.timeScale = 1f;
         glitch.enabled = false;
         AudioManager.instance.ChangePitch(1f);
-        AudioManager.instance.playSoundEffect(3);
+        AudioManager.instance.playSoundEffect(3, 1f);
         competenceIsActive = false;
     }
 
@@ -39,7 +43,7 @@ public class CompetenceRalentie : MonoBehaviour
         Time.timeScale = 0.6f;
         AudioManager.instance.ChangePitch(.98f);
         glitch.enabled = true;
-        AudioManager.instance.playSoundEffect(2);
+        AudioManager.instance.playSoundEffect(2, 1f);
     }
 
     private void Update()

@@ -89,6 +89,24 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""4db8fe25-a37c-4dd6-b8d5-73fe6787bf07"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""61fbf334-b214-4c0c-ba04-221cf7a7ba92"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -262,7 +280,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""id"": ""0c0c3ab0-30b0-4e01-a103-dba532b8ef0a"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone"",
                     ""groups"": """",
                     ""action"": ""Grappling"",
                     ""isComposite"": false,
@@ -273,9 +291,53 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""id"": ""58968c55-eb6e-4241-b3c4-332423e389d0"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.05,max=0.9)"",
                     ""groups"": """",
                     ""action"": ""Grappling"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd384357-6c2b-4198-92d3-fe42d0a68a78"",
+                    ""path"": ""<Keyboard>/delete"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe6028f2-c8be-4e9f-adb8-14a8bdf19e88"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3ba3c68-be8a-474c-a414-df548bb322f8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a4022ef-8bd4-480a-8c49-2763c334756a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -425,6 +487,118 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""09f0ec83-7563-4d51-b5a0-514a2d112b42"",
+            ""actions"": [
+                {
+                    ""name"": ""Press"",
+                    ""type"": ""Button"",
+                    ""id"": ""e11623f1-776c-432c-b3af-7ca462171675"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""ade548ec-c8dc-4750-a535-8140c8a538e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c1125e9-5e24-499f-be88-750050e4bc59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3fc349b1-bcb0-45ce-b47f-92901586430c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7081f3c4-7e96-4e74-81e1-15119993ec05"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bed14ef3-ae0c-4ab4-8edf-d0ac3ed21c4e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c18de84-7ecf-4806-abce-91f152cefb34"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73a433a8-4731-432b-8256-8a6ab0621ce7"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68b4fafd-5724-4f3d-ac94-7f252a5282a4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf543bff-a52c-47c6-939d-3ce59175ae39"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -466,11 +640,18 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_InGame_Mouse = m_InGame.FindAction("Mouse", throwIfNotFound: true);
         m_InGame_SlowTime = m_InGame.FindAction("SlowTime", throwIfNotFound: true);
         m_InGame_Grappling = m_InGame.FindAction("Grappling", throwIfNotFound: true);
+        m_InGame_Restart = m_InGame.FindAction("Restart", throwIfNotFound: true);
+        m_InGame_Pause = m_InGame.FindAction("Pause", throwIfNotFound: true);
         // InMainMenu
         m_InMainMenu = asset.FindActionMap("InMainMenu", throwIfNotFound: true);
         m_InMainMenu_Back = m_InMainMenu.FindAction("Back", throwIfNotFound: true);
         m_InMainMenu_Select = m_InMainMenu.FindAction("Select", throwIfNotFound: true);
         m_InMainMenu_Move = m_InMainMenu.FindAction("Move", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_Press = m_Dialogue.FindAction("Press", throwIfNotFound: true);
+        m_Dialogue_PreviousButton = m_Dialogue.FindAction("PreviousButton", throwIfNotFound: true);
+        m_Dialogue_NextButton = m_Dialogue.FindAction("NextButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -537,6 +718,8 @@ public partial class @Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Mouse;
     private readonly InputAction m_InGame_SlowTime;
     private readonly InputAction m_InGame_Grappling;
+    private readonly InputAction m_InGame_Restart;
+    private readonly InputAction m_InGame_Pause;
     public struct InGameActions
     {
         private @Input m_Wrapper;
@@ -548,6 +731,8 @@ public partial class @Input : IInputActionCollection2, IDisposable
         public InputAction @Mouse => m_Wrapper.m_InGame_Mouse;
         public InputAction @SlowTime => m_Wrapper.m_InGame_SlowTime;
         public InputAction @Grappling => m_Wrapper.m_InGame_Grappling;
+        public InputAction @Restart => m_Wrapper.m_InGame_Restart;
+        public InputAction @Pause => m_Wrapper.m_InGame_Pause;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -578,6 +763,12 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Grappling.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
                 @Grappling.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
                 @Grappling.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
+                @Restart.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @Pause.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -603,6 +794,12 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Grappling.started += instance.OnGrappling;
                 @Grappling.performed += instance.OnGrappling;
                 @Grappling.canceled += instance.OnGrappling;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -656,6 +853,55 @@ public partial class @Input : IInputActionCollection2, IDisposable
         }
     }
     public InMainMenuActions @InMainMenu => new InMainMenuActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private IDialogueActions m_DialogueActionsCallbackInterface;
+    private readonly InputAction m_Dialogue_Press;
+    private readonly InputAction m_Dialogue_PreviousButton;
+    private readonly InputAction m_Dialogue_NextButton;
+    public struct DialogueActions
+    {
+        private @Input m_Wrapper;
+        public DialogueActions(@Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Press => m_Wrapper.m_Dialogue_Press;
+        public InputAction @PreviousButton => m_Wrapper.m_Dialogue_PreviousButton;
+        public InputAction @NextButton => m_Wrapper.m_Dialogue_NextButton;
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterface != null)
+            {
+                @Press.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPress;
+                @Press.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPress;
+                @Press.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPress;
+                @PreviousButton.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPreviousButton;
+                @PreviousButton.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPreviousButton;
+                @PreviousButton.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPreviousButton;
+                @NextButton.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnNextButton;
+                @NextButton.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnNextButton;
+                @NextButton.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnNextButton;
+            }
+            m_Wrapper.m_DialogueActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Press.started += instance.OnPress;
+                @Press.performed += instance.OnPress;
+                @Press.canceled += instance.OnPress;
+                @PreviousButton.started += instance.OnPreviousButton;
+                @PreviousButton.performed += instance.OnPreviousButton;
+                @PreviousButton.canceled += instance.OnPreviousButton;
+                @NextButton.started += instance.OnNextButton;
+                @NextButton.performed += instance.OnNextButton;
+                @NextButton.canceled += instance.OnNextButton;
+            }
+        }
+    }
+    public DialogueActions @Dialogue => new DialogueActions(this);
     private int m_KeyBoardSchemeIndex = -1;
     public InputControlScheme KeyBoardScheme
     {
@@ -683,11 +929,19 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnMouse(InputAction.CallbackContext context);
         void OnSlowTime(InputAction.CallbackContext context);
         void OnGrappling(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IInMainMenuActions
     {
         void OnBack(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IDialogueActions
+    {
+        void OnPress(InputAction.CallbackContext context);
+        void OnPreviousButton(InputAction.CallbackContext context);
+        void OnNextButton(InputAction.CallbackContext context);
     }
 }

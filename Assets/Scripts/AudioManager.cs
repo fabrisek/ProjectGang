@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField] AudioClip[] soundEffects, music;
-    [SerializeField] AudioSource audioSourceSoundEffect, audioSourceMusic;
+    [SerializeField] AudioSource audioSourceSoundEffect, audioSourceMusic, audioSourceSfx3D;
 
     // Start is called before the first frame update
     
@@ -64,6 +64,7 @@ public class AudioManager : MonoBehaviour
     public void ChangeVolumeSoundEFFect(float volume)
     {
         audioSourceSoundEffect.volume = volume;
+        audioSourceSfx3D.volume = volume;
     }
     public void ChangeVolumeMusic(float volume)
     {
@@ -72,15 +73,28 @@ public class AudioManager : MonoBehaviour
     public void PlayMusic(int index)
     {
         StopMusic();
-        audioSourceMusic.clip = music[index];
+        if(index < music.Length)
+        {
+            audioSourceMusic.clip = music[index];
+        }
+        else
+        {
+            audioSourceMusic.clip = music[2];
+        }
+        
         audioSourceMusic.Play();
     }
     public void StopMusic()
     {
         audioSourceMusic.Stop();
     }
-    public void playSoundEffect(int index)
+    public void playSoundEffect(int index, float volumeScale)
     {
-        audioSourceSoundEffect.PlayOneShot(soundEffects[index]);
+        audioSourceSoundEffect.PlayOneShot(soundEffects[index], volumeScale);
+    }
+    public void playSoundEffect3D(int index, Vector3 position, float volumeScale)
+    {
+        audioSourceSfx3D.gameObject.transform.position = position;
+        audioSourceSfx3D.PlayOneShot(soundEffects[index], volumeScale);
     }
 }

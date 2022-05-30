@@ -37,7 +37,7 @@ public class BugTargetController : MonoBehaviour
     float tStepUp;
     float oldY;
 
-    [SerializeField] float gravity;
+    public float gravity;
     Rigidbody rb;
     public Transform Target
     {
