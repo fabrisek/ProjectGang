@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DialogueEditor;
 using UnityEngine.InputSystem;
+using TMPro;
 public class RobotTutoController : MonoBehaviour
 {
     [SerializeField] PlayerMovementAdvanced player;
@@ -13,6 +14,7 @@ public class RobotTutoController : MonoBehaviour
     [SerializeField] Transform[] checkPointRobotPoints;
     [SerializeField] ParticleSystem MovementExplosion;
     [SerializeField] Transform[] respawnPositions;
+    [SerializeField] TextMeshProUGUI taskText;
     public Transform RespawnPosition(int position)
     {
         return respawnPositions[position];
@@ -85,21 +87,29 @@ public class RobotTutoController : MonoBehaviour
 
         switch(currentTutoId)
         {
+            case 0:
+                taskText.text = "Press A/Space to jump";
+                break;
+
             case 1:
                 CheckDoubleJump();
+                taskText.text = "Press A/Space to jump";
                 break;
 
             case 2:
                 if(!conversationManager.IsConversationActive)
                 {
+                    taskText.text = "Follow Mr Robot";
                     haveMoved = false;
                     MoveNextCheckPoint(checkPointRobotPoints[1].position);
+                    
                 }
                 break;
 
             case 3:
                 if (!conversationManager.IsConversationActive)
                 {
+                    taskText.text = "Press RB/LeftShift to Grapple";
                     haveMoved = false;
                     grappin.SetActive(true);
                     MoveNextCheckPoint(checkPointRobotPoints[2].position);
@@ -109,6 +119,7 @@ public class RobotTutoController : MonoBehaviour
             case 4:
                 if (!conversationManager.IsConversationActive)
                 {
+                    taskText.text = "Follow Mr Robot";
                     haveMoved = false;
                     MoveNextCheckPoint(checkPointRobotPoints[3].position);
                 }
@@ -119,12 +130,14 @@ public class RobotTutoController : MonoBehaviour
         if (conversationManager.IsConversationActive)
         {
             DesactivePlayerMovement();
+            taskText.gameObject.SetActive(false);
         }
         else
         {
             ActivePlayerMovement();
+            taskText.gameObject.SetActive(true);
             //dont want player to move while in dialogue
-            
+
         }
     }
 
