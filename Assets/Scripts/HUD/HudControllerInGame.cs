@@ -29,18 +29,21 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] GameObject sliderGo;
 
     [SerializeField] GameObject doubleJumpIcon;
-    [SerializeField] TextMeshProUGUI playerSpeed;
+    [SerializeField] TextMeshProUGUI fpsText;
     [SerializeField] Rigidbody playerRB;
-    
+    public float deltaTime;
     private void Awake()
     {
         Instance = this;
-        playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude * 3)).ToString() + " KM/H";
+        fpsText.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude * 3)).ToString() + " KM/H";
     }
 
     private void Update()
     {
-        playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
+        //playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
+        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+        float fps = 1.0f / deltaTime;
+        fpsText.text = Mathf.Ceil(fps).ToString() + "fps";
     }
     public void OpenDeathPanel()
     {

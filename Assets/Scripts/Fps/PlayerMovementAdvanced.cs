@@ -121,10 +121,11 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public bool crouching;
     public bool wallrunning;
 
-    public TextMeshProUGUI text_speed;
     private Input inputActions;
     bool jumpDown;
     public bool hasDoubleJumped;
+    public float deltaTime;
+
 
     private void Awake()
     {
