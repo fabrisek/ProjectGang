@@ -83,7 +83,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
     float timeWallDoubleJump = 0.8f;
     float resetWallTimeDoubleJump = 0.8f;
     bool grappling;
-    float playerJump;
 
     [SerializeField] PlayerCam playerCam;
     public void setGrapplin(bool g)
@@ -137,7 +136,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
         inputActions.InGame.Pause.performed += Pause;
         inputActions.InGame.Jump.started += context => GetPlayerJump();
         inputActions.InGame.Jump.canceled += context => PlayerJumpDown(true);
-        playerJump = 0;
     }
 
     public void PlayerJumpDown(bool a)
