@@ -19,15 +19,7 @@ public class InputManager : MonoBehaviour
     public static event Action<InputAction, int> rebindStarted;
     private void Awake()
     {
-        
-            if (Instance != null && Instance != this)
-                Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
-
-            Instance = this;
-        DontDestroyOnLoad(this.gameObject);
-
-
-            _input = new Input();
+        _input = new Input();
 
         SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX"); ;
         SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY"); ;

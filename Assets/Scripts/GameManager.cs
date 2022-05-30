@@ -7,19 +7,19 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager;
     
     public GameObject Player;
-    public GameObject camera;
+    public GameObject cam;
     public GameObject GetPlayer()
     {
         return Player;
     }
     public GameObject GetCamera()
     {
-        return camera;
+        return cam;
     }
     void Awake()
     {
         if (gameManager != null && gameManager != this)
-            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+            Destroy(gameObject);    // Suppression d'une instance prÃ©cÃ©dente (sÃ©curitÃ©...sÃ©curitÃ©...)
 
         gameManager = this;
     }
