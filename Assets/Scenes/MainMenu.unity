@@ -7365,6 +7365,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4a496b1a1d3a249af411b7bebf980a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panelAudio: {fileID: 0}
+  _panelControl: {fileID: 0}
+  _panelGraphics: {fileID: 0}
+  _panelButton: {fileID: 0}
   _resolutionDropDown: {fileID: 820353404}
   _displayTypeDropDown: {fileID: 1558442793}
   _antiAliasingDropDown: {fileID: 417620865}
@@ -7570,6 +7574,10 @@ PrefabInstance:
     - target: {fileID: 3753202813041745029, guid: 60d26c5cb4d9dd641a6583895df67daa, type: 3}
       propertyPath: speed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753202813041745029, guid: 60d26c5cb4d9dd641a6583895df67daa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60d26c5cb4d9dd641a6583895df67daa, type: 3}
