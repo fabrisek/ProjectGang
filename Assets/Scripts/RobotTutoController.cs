@@ -36,7 +36,7 @@ public class RobotTutoController : MonoBehaviour
     {
         currentTutoId = -1;
 
-        conversationManager = ConversationManager.Instance;
+        
         //Inputs
         inputActions = new Input();
 
@@ -51,6 +51,7 @@ public class RobotTutoController : MonoBehaviour
         haveMoved = false;
 
     }
+    
 
     public void SelectOption(InputAction.CallbackContext callback)
     {
@@ -78,6 +79,7 @@ public class RobotTutoController : MonoBehaviour
     void Start()
     {
         grappin.SetActive(false);
+        conversationManager = ConversationManager.Instance;
     }
 
     // Update is called once per frame

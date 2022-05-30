@@ -158,20 +158,23 @@ public class PlayerMovementAdvanced : MonoBehaviour
     {
         if (Time.timeScale > 0)
         {
-            Cursor.lockState = CursorLockMode.None;
             Timer.Instance.StopTimer();
             playerCam.enabled = false;
+            Cursor.lockState = CursorLockMode.None;
             Rumbler.instance.StopRumble();
             Time.timeScale = 0;
             HudControllerInGame.Instance.OpenPauseMenu();
+            Cursor.visible = true;
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            
             Timer.Instance.LaunchTimer();
             playerCam.enabled = true;
             Time.timeScale = 1;
             HudControllerInGame.Instance.ClosePauseMenu();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 

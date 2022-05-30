@@ -21,7 +21,7 @@ namespace DialogueEditor
 
         private const float TRANSITION_TIME = 0.2f; // Transition time for fades
 
-        public static ConversationManager Instance { get; private set; }
+        public static ConversationManager Instance;
 
         public delegate void ConversationStartEvent();
         public delegate void ConversationEndEvent();
@@ -88,11 +88,6 @@ namespace DialogueEditor
 
         private void Awake()
         {
-            // Destroy myself if I am not the singleton
-            if (Instance != null && Instance != this)
-            {
-                GameObject.Destroy(this.gameObject);
-            }
             Instance = this;
 
             m_uiOptions = new List<UIConversationButton>();
@@ -101,12 +96,6 @@ namespace DialogueEditor
             DialogueText.text = "";
             TurnOffUI();
         }
-
-        private void OnDestroy()
-        {
-            Instance = null;
-        }
-
         private void Update()
         {
             switch (m_state)

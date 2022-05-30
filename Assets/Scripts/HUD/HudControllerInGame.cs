@@ -75,6 +75,7 @@ public class HudControllerInGame : MonoBehaviour
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(false);
         _pausePanel.SetActive(true);
+        _optionsPanel.SetActive(false);
     }
 
     public void ClosePauseMenu()
