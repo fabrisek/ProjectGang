@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7617349262333458336}
   - component: {fileID: 5769221555109893024}
   - component: {fileID: 2754220617529409184}
-  - component: {fileID: -440216019818257963}
+  - component: {fileID: 874108132902992504}
+  - component: {fileID: 1589147994810541335}
   m_Layer: 0
   m_Name: groupe bat 1
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1828305116756639092}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6561848747794091345}
@@ -85,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-440216019818257963
-MeshCollider:
+--- !u!65 &874108132902992504
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,10 +96,22 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7074149583737932366, guid: 3773b6f6d5d57ed479e264e209c0bb11, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 8.333332, y: 4.2547617, z: 2.7497957}
+  m_Center: {x: -16.666666, y: 18.70596, z: 2.374898}
+--- !u!65 &1589147994810541335
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828305116756639092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.291733, y: 8.333334, z: 2.7497957}
+  m_Center: {x: -18.687466, y: 16.66667, z: 2.374898}
 --- !u!1 &6240571884344133084
 GameObject:
   m_ObjectHideFlags: 0
