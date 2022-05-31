@@ -29,10 +29,10 @@ public class InputManager : MonoBehaviour
     {
         _input = new Input();
 
-        SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX"); 
-        SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY"); 
-        SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX"); 
-        SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY");
+        SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX", 100f); 
+        SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY", 100f); 
+        SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX", 100f); 
+        SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
 
         
     }
