@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2934298982878871564}
   - component: {fileID: 2240368146685235113}
   - component: {fileID: 4103788322153233251}
-  m_Layer: 0
+  - component: {fileID: 6389173512016111235}
+  m_Layer: 12
   m_Name: Green Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6389173512016111235
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590530536669272758}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3175538451201624014, guid: 34fc54e9d303ef24faa048d8f61d45d2, type: 3}
 --- !u!1 &2624327351173664359
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +110,7 @@ GameObject:
   - component: {fileID: 4936312633146330045}
   - component: {fileID: 2750223964438676437}
   - component: {fileID: 8432710687903077810}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Neon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

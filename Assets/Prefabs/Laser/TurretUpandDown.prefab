@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5674527005971117624}
   - component: {fileID: 7417412696046078210}
   - component: {fileID: 2997856857082261902}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "AllN\xE9onSide"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1433964570375304229}
   - component: {fileID: 1431832376880555662}
   - component: {fileID: 7407820116499849129}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "N\xE9onUp"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2658450701005594673}
   - component: {fileID: 6053175189383843080}
   - component: {fileID: 3860861354966861387}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "N\xE9onUp001"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,8 @@ GameObject:
   - component: {fileID: 5653359536504014433}
   - component: {fileID: 240020029000171971}
   - component: {fileID: 746059945399822402}
-  m_Layer: 0
+  - component: {fileID: 17359275418151253}
+  m_Layer: 12
   m_Name: BaseTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,6 +334,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &17359275418151253
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825298303363305607}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4618666360318640193, guid: 666cb7a8367064e47a720e6b540f74b0, type: 3}
 --- !u!1 &4000667503319871989
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5634235637151155980}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AllLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +390,7 @@ GameObject:
   - component: {fileID: 6265617356131947309}
   - component: {fileID: 5775966671075869063}
   - component: {fileID: 1951794639723022116}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "N\xE9onFace"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +473,7 @@ GameObject:
   - component: {fileID: 948320148752932326}
   - component: {fileID: 2384114622192543606}
   - component: {fileID: 591708936836358877}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "N\xE9onSide"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +556,8 @@ GameObject:
   - component: {fileID: 8330894565067209095}
   - component: {fileID: 7520600669203635093}
   - component: {fileID: 8053329557961335993}
-  m_Layer: 0
+  - component: {fileID: 7942446547280169857}
+  m_Layer: 12
   m_Name: TuuretPrincipale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,6 +636,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7942446547280169857
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561940282448218227}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5930608378103439966, guid: 666cb7a8367064e47a720e6b540f74b0, type: 3}
 --- !u!1 &6980708521189234980
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5674966719265417925}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AllLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +698,7 @@ GameObject:
   - component: {fileID: 7455735173035901258}
   - component: {fileID: 4673044724643093651}
   - component: {fileID: 5645097190782983269}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "N\xE9onTopTower"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,14 +882,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4202539287821443745, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: be73ee0626569d544b301e842d4d6c01, type: 2}
+    - target: {fileID: 4795441116129281082, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910911135460000298, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648856038402885974, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
 --- !u!4 &2201874577714313145 stripped
@@ -946,14 +996,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4202539287821443745, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: be73ee0626569d544b301e842d4d6c01, type: 2}
+    - target: {fileID: 4795441116129281082, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910911135460000298, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648856038402885974, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
 --- !u!4 &2104583221799892084 stripped
@@ -1040,14 +1110,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4202539287821443745, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: be73ee0626569d544b301e842d4d6c01, type: 2}
+    - target: {fileID: 4795441116129281082, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910911135460000298, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648856038402885974, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
 --- !u!4 &2903001938799219009 stripped
@@ -1134,14 +1224,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4202539287821443745, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: be73ee0626569d544b301e842d4d6c01, type: 2}
+    - target: {fileID: 4795441116129281082, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910911135460000298, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648856038402885974, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
 --- !u!4 &3473791001351932991 stripped
@@ -1228,14 +1338,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4202539287821443745, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: be73ee0626569d544b301e842d4d6c01, type: 2}
+    - target: {fileID: 4795441116129281082, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910911135460000298, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648856038402885974, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
 --- !u!4 &4682439386887939191 stripped
@@ -1322,14 +1452,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517578871358910672, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4202539287821443745, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: be73ee0626569d544b301e842d4d6c01, type: 2}
+    - target: {fileID: 4795441116129281082, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910911135460000298, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648856038402885974, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5af2b62793314b4198ee36690ec6b8b, type: 3}
 --- !u!4 &5228986430197395229 stripped
