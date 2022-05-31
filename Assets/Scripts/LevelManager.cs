@@ -28,11 +28,13 @@ public class LevelManager : MonoBehaviour
 
     void CutMovePlayer()
     {
+        inputActions.Disable();
         playerMovementScript.enabled = false;
     }
 
     void ResetMovePlayer()
     {
+        inputActions.Enable();
         playerMovementScript.enabled = true;
     }
 
