@@ -7,7 +7,7 @@ public class LevelSelectorMenu : MonoBehaviour
 {
     [SerializeField] GameObject _canvas;
     [SerializeField] int _indexData;
-    [SerializeField] int _indexScene;
+    int _indexScene;
 
     [SerializeField] TextMeshProUGUI _nameLevel;
     [SerializeField] TextMeshProUGUI _highScore;
@@ -39,8 +39,8 @@ public class LevelSelectorMenu : MonoBehaviour
             MapData data = Data_Manager.Instance.GetMapData(_indexData);
             if (data.GetHaveUnlockLevel())
             {
-                _canvas.SetActive(true);
-                ChangeInformation();
+                //_canvas.SetActive(true);
+                //ChangeInformation();
                 other.GetComponent<MenuAntCrontroller>().SetLevelRef(this);
             }            
         }
@@ -50,7 +50,7 @@ public class LevelSelectorMenu : MonoBehaviour
     {
         if (other.gameObject.layer == 7)
         {
-            _canvas.SetActive(false);
+            //_canvas.SetActive(false);
             other.GetComponent<MenuAntCrontroller>().SetLevelRef(null);
         }
     }

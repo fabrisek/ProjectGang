@@ -87,10 +87,8 @@ public class HUD_Settings : MonoBehaviour
 
     private void InitializeSensibility()
     {
-        sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 200f);
-        sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityMouseY", 200f);
-        sliderSensibilityGamePadX.value = PlayerPrefs.GetFloat("SensibilityGamePadX", 200f);
-        sliderSensibilityGamePadY.value = PlayerPrefs.GetFloat("SensibilityGamePadY", 200f);
+        sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 100f);
+        sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
     }
 
     public void ChangeValueSliderAudio()

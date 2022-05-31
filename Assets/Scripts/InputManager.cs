@@ -66,29 +66,21 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public void SetSensibilityXMouse(float x)
-    {
-        PlayerPrefs.SetFloat("SensibilityMouseX", x);
-        SensibilityMouseX = x;
-        
-    }
 
-    public void SetSensibilityXGamePad(float x)
-    {
-        PlayerPrefs.SetFloat("SensibilityGamePadX", x);
-        SensibilityGamePadX = x;
-    }
-
-    public void SetSensibilityYGamePad(float y)
+    public void SetSensibilityGamePad(float y)
     {
         PlayerPrefs.SetFloat("SensibilityGamePadY", y);
         SensibilityGamePadY = y;
+        PlayerPrefs.SetFloat("SensibilityGamePadX", y);
+        SensibilityGamePadX = y;
     }
 
-    public void SetSensibilityYMouse(float y)
+    public void SetSensibilityMouse(float y)
     {
         PlayerPrefs.SetFloat("SensibilityMouseY", y);
         SensibilityMouseY = y;
+        PlayerPrefs.SetFloat("SensibilityMouseX", y);
+        SensibilityMouseX = y;
     }
 
     public static void StartRebind(string actionName, int bindingIndex, TextMeshProUGUI statusText, bool excludeMouse)
