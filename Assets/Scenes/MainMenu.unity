@@ -1625,7 +1625,7 @@ MeshCollider:
   m_GameObject: {fileID: 177036518}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -7388,6 +7388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4a496b1a1d3a249af411b7bebf980a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 0}
   _panelAudio: {fileID: 0}
   _panelControl: {fileID: 0}
   _panelGraphics: {fileID: 0}
@@ -7398,8 +7399,14 @@ MonoBehaviour:
   _vSyncToggle: {fileID: 1805230694}
   sliderSensibilityMouseX: {fileID: 1809169600}
   sliderSensibilityMouseY: {fileID: 337772441}
+  sliderSensibilityGamePadX: {fileID: 0}
+  sliderSensibilityGamePadY: {fileID: 0}
   sliderVolumeSoundEffect: {fileID: 1068743843}
   sliderVolumeMusic: {fileID: 1902840611}
+  _firstButtonOptionMenu: {fileID: 0}
+  _firstBoutonPanelAudio: {fileID: 0}
+  _firstBoutonPanelControl: {fileID: 0}
+  _firstBoutonPanelGraphics: {fileID: 0}
 --- !u!1 &387501761
 GameObject:
   m_ObjectHideFlags: 0
@@ -21974,7 +21981,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405005612}
-  m_LocalRotation: {x: 0.42427084, y: 0.000000015580987, z: -0.0000000073001654, w: 0.90553534}
+  m_LocalRotation: {x: 0.42427084, y: -0.000000015580984, z: 0.0000000073001645, w: 0.90553534}
   m_LocalPosition: {x: -21.32, y: 17.1, z: -24.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29102,7 +29109,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820154976}
-  m_LocalRotation: {x: 0.42427084, y: 0.000000015580987, z: -0.0000000073001654, w: 0.90553534}
+  m_LocalRotation: {x: 0.42427084, y: -0.000000015580984, z: 0.0000000073001645, w: 0.90553534}
   m_LocalPosition: {x: -21.32, y: 17.1, z: -24.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
