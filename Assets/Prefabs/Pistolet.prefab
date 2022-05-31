@@ -184,9 +184,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2576
   gunTip: {fileID: 596755805086213867}
-  camera: {fileID: 0}
+  cam: {fileID: 0}
   player: {fileID: 0}
-  maxDistance: 100
   spring: 25
   damper: 25
   massScale: 4.5
@@ -202,6 +201,7 @@ MonoBehaviour:
   particuleHit: {fileID: 6905283186798288918}
   particuleGunTip: {fileID: 1868893654554464675}
   particuleGunTipLock: {fileID: 735432005555470996}
+  competenceRalentie: {fileID: 0}
 --- !u!1 &6024122243278060827
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +566,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4629591642176189032, guid: 57dacf54d207aad4c9864b2e96652b00, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 57dacf54d207aad4c9864b2e96652b00, type: 3}
 --- !u!1 &1868893654554464675 stripped
 GameObject:
@@ -700,6 +701,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrapinElectric
       objectReference: {fileID: 0}
+    - target: {fileID: 2993196035783918405, guid: 57dacf54d207aad4c9864b2e96652b00, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542399123225158578, guid: 57dacf54d207aad4c9864b2e96652b00, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7202705359633659975, guid: 57dacf54d207aad4c9864b2e96652b00, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.35
@@ -756,7 +765,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4629591642176189032, guid: 57dacf54d207aad4c9864b2e96652b00, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 57dacf54d207aad4c9864b2e96652b00, type: 3}
 --- !u!4 &126860796138837989 stripped
 Transform:
