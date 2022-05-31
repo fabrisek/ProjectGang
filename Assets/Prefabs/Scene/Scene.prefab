@@ -499,6 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hud: {fileID: 5696755859855734993}
   _timer: 0
+  _timerIsLaunch: 0
 --- !u!114 &3452930998029824256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,6 +1263,10 @@ PrefabInstance:
       propertyPath: m_Options.m_Options.Array.data[2].m_Text
       value: Low
       objectReference: {fileID: 0}
+    - target: {fileID: 3298229175346931102, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 3452930998074175988}
     - target: {fileID: 3337217787050956104, guid: e25749bade25ce043af55a2cf49c4363, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

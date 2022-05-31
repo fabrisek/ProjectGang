@@ -130,6 +130,11 @@ public class Rumbler : MonoBehaviour
         StopRumble();
     }
 
+    void OnApplicationQuit()
+    {
+        StopRumble();
+    }
+
     // Private helpers
 
     private Gamepad GetGamepad()

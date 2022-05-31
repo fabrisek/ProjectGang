@@ -9408,9 +9408,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7379365619082126973}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: SetSensibilityXMouse
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33003,6 +33003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4a496b1a1d3a249af411b7bebf980a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 0}
   _panelAudio: {fileID: 5485208836323596827}
   _panelControl: {fileID: 2866637361092207217}
   _panelGraphics: {fileID: 3885236926701193778}
@@ -33013,8 +33014,14 @@ MonoBehaviour:
   _vSyncToggle: {fileID: 3562008262309212323}
   sliderSensibilityMouseX: {fileID: 7025080106654847619}
   sliderSensibilityMouseY: {fileID: 821434792834382330}
+  sliderSensibilityGamePadX: {fileID: 4890571969828054234}
+  sliderSensibilityGamePadY: {fileID: 765390604959170571}
   sliderVolumeSoundEffect: {fileID: 6465267883724914856}
   sliderVolumeMusic: {fileID: 2738661533398741272}
+  _firstButtonOptionMenu: {fileID: 69900379841562742}
+  _firstBoutonPanelAudio: {fileID: 8821442781458758675}
+  _firstBoutonPanelControl: {fileID: 2257363973688842342}
+  _firstBoutonPanelGraphics: {fileID: 4532024861988024000}
 --- !u!1 &7458088248875104462
 GameObject:
   m_ObjectHideFlags: 0
