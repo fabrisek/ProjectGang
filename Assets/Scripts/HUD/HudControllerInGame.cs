@@ -16,7 +16,7 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] GameObject _pausePanel;
     [SerializeField] GameObject _optionsPanel;
 
-    
+
     [SerializeField] TextMeshProUGUI _textTimerInGame;
     [SerializeField] TextMeshProUGUI _textTimerWin;
 
@@ -33,8 +33,8 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] TextMeshProUGUI fpsText;
     [SerializeField] Rigidbody playerRB;
 
-    [SerializeField] Image threeTwoOneSlider;
-    [SerializeField] Sprite[] imagesThreeTwoOne;
+    [SerializeField] TextMeshProUGUI threeTwoOneSlider;
+    [SerializeField] string[] txtThreeTwoOne;
 
 
     public ActualMenu StateMenu { get; set; }
@@ -162,7 +162,8 @@ public class HudControllerInGame : MonoBehaviour
     public void StartThreeTwoOne (float time)
     {
         threeTwoOneSlider.enabled = true;
-        threeTwoOneSlider.sprite = imagesThreeTwoOne[0];
+        threeTwoOneSlider.text = txtThreeTwoOne[0];
+        StopCoroutine(CoroutineAffichageImagesStart(time, 1));
         StartCoroutine( CoroutineAffichageImagesStart(time, 1));
        
     }
@@ -171,16 +172,25 @@ public class HudControllerInGame : MonoBehaviour
     {
         yield return new WaitForSeconds(time/ 3);
         
-        threeTwoOneSlider.sprite = imagesThreeTwoOne[index];
-        if (index + 1 < imagesThreeTwoOne.Length)
+        threeTwoOneSlider.text = txtThreeTwoOne[index];
+        if (index +1  < txtThreeTwoOne.Length)
         {
             StartCoroutine(CoroutineAffichageImagesStart(time, index + 1));
         }
         else
         {
-            threeTwoOneSlider.enabled = false;
-            threeTwoOneSlider.sprite = null;
+            StartCoroutine(CoroutineRemoveTextGo(time));
         }
+    }
+
+    IEnumerator CoroutineRemoveTextGo (float time)
+    {
+        yield return new WaitForSeconds(time / 3);
+
+
+        threeTwoOneSlider.enabled = false;
+        threeTwoOneSlider.text = null;
+
     }
 
    
