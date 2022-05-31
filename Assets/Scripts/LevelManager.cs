@@ -15,8 +15,8 @@ public class LevelManager : MonoBehaviour
     {
         //Inputs
         inputActions = new Input();
-        inputActions.InGame.Restart.performed += RestartLevel;
-        inputActions.InGame.Restart.canceled -= RestartLevel;
+        inputActions.InGame.RestartAndBack.performed += RestartLevel;
+        inputActions.InGame.RestartAndBack.canceled -= RestartLevel;
         CutMovePlayer();
     }
 
@@ -70,7 +70,13 @@ public class LevelManager : MonoBehaviour
     {
         if(callback.performed)
         {
-            LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+            if (HudControllerInGame.Instance.InMenu == false)
+                LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+
+            else
+            {
+                HudControllerInGame.Instance.Back();
+            }
         }
     }
 

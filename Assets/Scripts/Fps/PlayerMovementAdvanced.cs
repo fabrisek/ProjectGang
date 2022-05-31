@@ -6,6 +6,7 @@ using FirstGearGames.SmoothCameraShaker;
 
 public class PlayerMovementAdvanced : MonoBehaviour
 {
+    public static PlayerMovementAdvanced Instance;
     [Header("Movement")]
     private float moveSpeed;
     private float desiredMoveSpeed;
@@ -133,6 +134,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         hasDoubleJumped = false;
         inputActivated = false;
         inputActions = new Input();
@@ -489,9 +491,12 @@ public class PlayerMovementAdvanced : MonoBehaviour
         //feedBack
         AudioManager.instance.playSoundEffect(1, 1f);
         CameraShakerHandler.Shake(jumpShake);
-        Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
-        Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
 
+        if (HudControllerInGame.Instance.InMenu == false)
+        {
+            Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
+            Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
+        }
     }
     private void DoubleJump()
     {

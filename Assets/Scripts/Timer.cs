@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
 
     [SerializeField] HudControllerInGame _hud;
     [SerializeField] float _timer;
-    bool _timerIsLaunch;
+    [SerializeField] bool _timerIsLaunch;
     public float GetTimer() { return _timer; }
     public bool TimerIsLaunch() { return _timerIsLaunch; }
 

@@ -50,17 +50,20 @@ public class HUD_Settings : MonoBehaviour
 
     public void OpenPanelAudio()
     {
+        HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
         _panelAudio.SetActive(true);
         _panelButton.SetActive(false);
     }
 
     public void OpenGraphicsPanel()
     {
+        HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
         _panelGraphics.SetActive(true);
         _panelButton.SetActive(false);
     }
     public void OpenControlPanel()
     {
+        HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
         _panelControl.SetActive(true);
         _panelButton.SetActive(false);
     }

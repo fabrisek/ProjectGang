@@ -32,6 +32,10 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] GameObject doubleJumpIcon;
     [SerializeField] TextMeshProUGUI fpsText;
     [SerializeField] Rigidbody playerRB;
+
+
+    public ActualMenu StateMenu { get; set; }
+    public bool InMenu { get; set; }
     public float deltaTime;
 
     private void Awake()
@@ -58,8 +62,25 @@ public class HudControllerInGame : MonoBehaviour
         eventSystem.SetSelectedGameObject(firstButtonDead);
     }
 
+    public void Back()
+    {
+        if (StateMenu == ActualMenu.Pause)
+        {
+            PlayerMovementAdvanced.Instance.Pause();
+        }
+        if (StateMenu == ActualMenu.SettingsMenu)
+        {
+            OpenPauseMenu();
+        }
+        if (StateMenu == ActualMenu.InSettings)
+        {
+            OpenOptionsPanel();
+        }
+    }
+
     public void OpenOptionsPanel()
     {
+        StateMenu = ActualMenu.SettingsMenu;
         _optionsPanel.SetActive(true);
         _pausePanel.SetActive(false);
         HUD_Settings.Instance.OpenButtonPanel();
@@ -72,6 +93,8 @@ public class HudControllerInGame : MonoBehaviour
 
     public void OpenPauseMenu()
     {
+        StateMenu = ActualMenu.Pause;
+        InMenu = true;
         _deadPanel.SetActive(false);
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(false);
@@ -82,6 +105,7 @@ public class HudControllerInGame : MonoBehaviour
 
     public void ClosePauseMenu()
     {
+        InMenu = false;
         _optionsPanel.SetActive(false);
         _deadPanel.SetActive(false);
         _inGamePanel.SetActive(true);
@@ -124,4 +148,13 @@ public class HudControllerInGame : MonoBehaviour
     {
         doubleJumpIcon.SetActive(a);
     }
+
+
 }
+public enum ActualMenu
+{
+    Pause,
+    SettingsMenu,
+    InSettings
+}
+

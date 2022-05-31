@@ -91,7 +91,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Restart"",
+                    ""name"": ""RestartAndBack"",
                     ""type"": ""Button"",
                     ""id"": ""4db8fe25-a37c-4dd6-b8d5-73fe6787bf07"",
                     ""expectedControlType"": ""Button"",
@@ -304,7 +304,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Restart"",
+                    ""action"": ""RestartAndBack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -315,7 +315,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Restart"",
+                    ""action"": ""RestartAndBack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -695,7 +695,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_InGame_Mouse = m_InGame.FindAction("Mouse", throwIfNotFound: true);
         m_InGame_SlowTime = m_InGame.FindAction("SlowTime", throwIfNotFound: true);
         m_InGame_Grappling = m_InGame.FindAction("Grappling", throwIfNotFound: true);
-        m_InGame_Restart = m_InGame.FindAction("Restart", throwIfNotFound: true);
+        m_InGame_RestartAndBack = m_InGame.FindAction("RestartAndBack", throwIfNotFound: true);
         m_InGame_Pause = m_InGame.FindAction("Pause", throwIfNotFound: true);
         // InMainMenu
         m_InMainMenu = asset.FindActionMap("InMainMenu", throwIfNotFound: true);
@@ -773,7 +773,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Mouse;
     private readonly InputAction m_InGame_SlowTime;
     private readonly InputAction m_InGame_Grappling;
-    private readonly InputAction m_InGame_Restart;
+    private readonly InputAction m_InGame_RestartAndBack;
     private readonly InputAction m_InGame_Pause;
     public struct InGameActions
     {
@@ -786,7 +786,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         public InputAction @Mouse => m_Wrapper.m_InGame_Mouse;
         public InputAction @SlowTime => m_Wrapper.m_InGame_SlowTime;
         public InputAction @Grappling => m_Wrapper.m_InGame_Grappling;
-        public InputAction @Restart => m_Wrapper.m_InGame_Restart;
+        public InputAction @RestartAndBack => m_Wrapper.m_InGame_RestartAndBack;
         public InputAction @Pause => m_Wrapper.m_InGame_Pause;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
@@ -818,9 +818,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Grappling.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
                 @Grappling.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
                 @Grappling.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnGrappling;
-                @Restart.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
-                @Restart.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
-                @Restart.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @RestartAndBack.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestartAndBack;
+                @RestartAndBack.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestartAndBack;
+                @RestartAndBack.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestartAndBack;
                 @Pause.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnPause;
@@ -849,9 +849,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Grappling.started += instance.OnGrappling;
                 @Grappling.performed += instance.OnGrappling;
                 @Grappling.canceled += instance.OnGrappling;
-                @Restart.started += instance.OnRestart;
-                @Restart.performed += instance.OnRestart;
-                @Restart.canceled += instance.OnRestart;
+                @RestartAndBack.started += instance.OnRestartAndBack;
+                @RestartAndBack.performed += instance.OnRestartAndBack;
+                @RestartAndBack.canceled += instance.OnRestartAndBack;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -984,7 +984,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnMouse(InputAction.CallbackContext context);
         void OnSlowTime(InputAction.CallbackContext context);
         void OnGrappling(InputAction.CallbackContext context);
-        void OnRestart(InputAction.CallbackContext context);
+        void OnRestartAndBack(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
     public interface IInMainMenuActions
