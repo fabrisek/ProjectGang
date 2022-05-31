@@ -20,6 +20,12 @@ public class LevelManager : MonoBehaviour
         CutMovePlayer();
     }
 
+    private void Start()
+    {
+        StartCoroutine(CoroutineTroisDeuxUn());
+        HudControllerInGame.Instance.StartThreeTwoOne(3);
+    }
+
     void CutMovePlayer()
     {
         playerMovementScript.enabled = false;
@@ -33,7 +39,8 @@ public class LevelManager : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Enable();
-        StartCoroutine(CoroutineTroisDeuxUn());
+        
+       
     }
     private void OnDisable()
     {

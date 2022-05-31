@@ -33,6 +33,9 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] TextMeshProUGUI fpsText;
     [SerializeField] Rigidbody playerRB;
 
+    [SerializeField] Image threeTwoOneSlider;
+    [SerializeField] Sprite[] imagesThreeTwoOne;
+
 
     public ActualMenu StateMenu { get; set; }
     public bool InMenu { get; set; }
@@ -41,6 +44,12 @@ public class HudControllerInGame : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void Update()
@@ -144,12 +153,37 @@ public class HudControllerInGame : MonoBehaviour
 
     }
 
-    public void DoubleJumpShow(bool a )
+    public void DoubleJumpShow(bool a)
     {
         doubleJumpIcon.SetActive(a);
     }
 
 
+    public void StartThreeTwoOne (float time)
+    {
+        threeTwoOneSlider.enabled = true;
+        threeTwoOneSlider.sprite = imagesThreeTwoOne[0];
+        StartCoroutine( CoroutineAffichageImagesStart(time, 1));
+       
+    }
+
+    IEnumerator CoroutineAffichageImagesStart (float time,int index)
+    {
+        yield return new WaitForSeconds(time/ 3);
+        
+        threeTwoOneSlider.sprite = imagesThreeTwoOne[index];
+        if (index + 1 < imagesThreeTwoOne.Length)
+        {
+            StartCoroutine(CoroutineAffichageImagesStart(time, index + 1));
+        }
+        else
+        {
+            threeTwoOneSlider.enabled = false;
+            threeTwoOneSlider.sprite = null;
+        }
+    }
+
+   
 }
 public enum ActualMenu
 {
