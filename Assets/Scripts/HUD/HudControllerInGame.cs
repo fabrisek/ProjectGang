@@ -35,6 +35,12 @@ public class HudControllerInGame : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI threeTwoOneSlider;
     [SerializeField] string[] txtThreeTwoOne;
+    [SerializeField] public AnimationCurve curveChangeLetter;
+    [SerializeField] float maxSizeFont;
+
+    float timeToAnimLetter;
+    float timeToReacToAnimLetterh;
+    bool startTimeToAimLetter;
 
 
     public ActualMenu StateMenu { get; set; }
@@ -49,7 +55,7 @@ public class HudControllerInGame : MonoBehaviour
 
     private void Start()
     {
-        
+        InitLetterAnim();
     }
 
     private void Update()
@@ -58,6 +64,7 @@ public class HudControllerInGame : MonoBehaviour
         deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
         float fps = 1.0f / deltaTime;
         fpsText.text = Mathf.Ceil(fps).ToString() + "fps";
+        UpdateTimerForLetterAnim();
     }
     public void OpenDeathPanel()
     {
@@ -159,22 +166,74 @@ public class HudControllerInGame : MonoBehaviour
     }
 
 
-    public void StartThreeTwoOne (float time)
+    void InitLetterAnim()
     {
-        threeTwoOneSlider.enabled = true;
-        threeTwoOneSlider.text = txtThreeTwoOne[0];
-        StopCoroutine(CoroutineAffichageImagesStart(time, 1));
-        StartCoroutine( CoroutineAffichageImagesStart(time, 1));
-       
+        timeToAnimLetter = 0;
+        startTimeToAimLetter = false;
     }
 
-    IEnumerator CoroutineAffichageImagesStart (float time,int index)
+    void UpdateTimerForLetterAnim()
     {
-        yield return new WaitForSeconds(time/ 3);
-        
-        threeTwoOneSlider.text = txtThreeTwoOne[index];
-        if (index +1  < txtThreeTwoOne.Length)
+        if (startTimeToAimLetter)
         {
+            timeToAnimLetter = TimerLetterChange(timeToReacToAnimLetterh, timeToAnimLetter);
+            ChangeLettersSizeAndAlpha();
+        }
+    }
+
+    public void StartThreeTwoOne(float time)
+    {
+        startTimeToAimLetter = true;
+        timeToReacToAnimLetterh = time / 3;
+        threeTwoOneSlider.enabled = true;
+        threeTwoOneSlider.text = txtThreeTwoOne[0];
+        AudioManager.instance.playSoundEffect(1, 1);
+        StopCoroutine(CoroutineAffichageImagesStart(time, 1));
+        StartCoroutine(CoroutineAffichageImagesStart(time, 1));
+
+    }
+
+    float TimerLetterChange(float timeToReach, float time)
+    {
+        if (time < timeToReach)
+        {
+            time += Time.deltaTime;
+        }
+        else
+        {
+
+            startTimeToAimLetter = false;
+        }
+        return time;
+    }
+
+    void ChangeLettersSizeAndAlpha()
+    {
+        threeTwoOneSlider.color = new Color(threeTwoOneSlider.color.r, threeTwoOneSlider.color.g, threeTwoOneSlider.color.b, curveChangeLetter.Evaluate(timeToAnimLetter / timeToReacToAnimLetterh));
+        threeTwoOneSlider.fontSize = maxSizeFont * curveChangeLetter.Evaluate(timeToAnimLetter / timeToReacToAnimLetterh);
+    }
+
+
+
+    IEnumerator CoroutineAffichageImagesStart(float time, int index)
+    {
+        yield return new WaitForSeconds(time / 3);
+
+        //Reset les lettre au debu de la curve
+        this.timeToAnimLetter = 0;
+        ChangeLettersSizeAndAlpha();
+
+        //Affichage de la nouvelle lettre
+        threeTwoOneSlider.text = txtThreeTwoOne[index];
+        AudioManager.instance.playSoundEffect(1, 1);
+
+        //set timer pour anim la lettre
+        startTimeToAimLetter = true;
+        timeToReacToAnimLetterh = time / 3;
+
+        if (index + 1 < txtThreeTwoOne.Length)
+        {
+
             StartCoroutine(CoroutineAffichageImagesStart(time, index + 1));
         }
         else
@@ -183,17 +242,16 @@ public class HudControllerInGame : MonoBehaviour
         }
     }
 
-    IEnumerator CoroutineRemoveTextGo (float time)
+    IEnumerator CoroutineRemoveTextGo(float time)
     {
         yield return new WaitForSeconds(time / 3);
 
-
         threeTwoOneSlider.enabled = false;
         threeTwoOneSlider.text = null;
-
     }
 
-   
+
+
 }
 public enum ActualMenu
 {
