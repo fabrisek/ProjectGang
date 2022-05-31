@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.55
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 3876d0e183013044aab5adba683217d7, type: 2}
@@ -4020,6 +4020,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbb90ec284edcfb40aa3aa2802b9f85e, type: 3}
+--- !u!4 &572271056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5548767362949546468, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+  m_PrefabInstance: {fileID: 3452930997660826630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &572379517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a6113c1eefd8de64cb61ef1fb2bb2e37, type: 3}
@@ -6424,6 +6429,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25aaf5059f1a79445b57b48eae43e7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &897755052 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5548767364443247673, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+  m_PrefabInstance: {fileID: 3452930997660826630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72764f26c9cca7348a32ba9b048b84ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &899918304 stripped
@@ -16146,6 +16162,18 @@ PrefabInstance:
     - target: {fileID: 5548767362902937902, guid: 7a623a924c45357498a23daf9287326e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548767363426624882, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 897755052}
+    - target: {fileID: 5548767363426624882, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+      propertyPath: orientation
+      value: 
+      objectReference: {fileID: 572271056}
+    - target: {fileID: 5548767363426624882, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+      propertyPath: exitWallTime
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5696755860412909657, guid: 7a623a924c45357498a23daf9287326e, type: 3}
       propertyPath: m_AnchorMax.x

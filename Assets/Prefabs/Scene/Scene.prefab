@@ -2591,12 +2591,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5498628966853047298}
     - target: {fileID: 7127624766882420789, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 5548767364443247673}
+    - target: {fileID: 7127624766882420789, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: orientation
+      value: 
+      objectReference: {fileID: 5548767362949546468}
+    - target: {fileID: 7127624766882420789, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: exitWallTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127624766882420789, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: wallRunShake
       value: 
       objectReference: {fileID: 11400000, guid: 4f6a3e0cdcdcc994eb9c69b7eb4bf9e7, type: 2}
     - target: {fileID: 7127624766882420789, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: minJumpHeight
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127624766882420789, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+      propertyPath: wallClimbSpeed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7127624766882420789, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
       propertyPath: wallJumpUpForce
@@ -2689,6 +2705,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7127624766357433449, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
   m_PrefabInstance: {fileID: 3452930996966440263}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5548767362949546468 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7127624766541610147, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+  m_PrefabInstance: {fileID: 3452930996966440263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5548767363426624880 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7127624766882420791, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
@@ -2721,6 +2742,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7127624768034253183, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
   m_PrefabInstance: {fileID: 3452930996966440263}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5548767364443247673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7127624768034253182, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
+  m_PrefabInstance: {fileID: 3452930996966440263}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548767364443247677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72764f26c9cca7348a32ba9b048b84ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5548767364443247677 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7127624768034253178, guid: 7561ffd0f15dcb5429bf5abd8f1dfb9f, type: 3}
@@ -4648,7 +4680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8222241199720221323, guid: 8ddfa1d16ecdeb341b901d69ee53a7eb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 102.97
       objectReference: {fileID: 0}
     - target: {fileID: 8222241199720221323, guid: 8ddfa1d16ecdeb341b901d69ee53a7eb, type: 3}
       propertyPath: m_LocalPosition.x
