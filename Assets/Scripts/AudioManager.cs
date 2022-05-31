@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] float generalVolume;
     public float GetGeneralVolume()
     {
-        
+        UpdateVolume();
         return generalVolume;
     }
 
@@ -66,6 +66,12 @@ public class AudioManager : MonoBehaviour
         audioSourceMusic.pitch = pitch;
     }
 
+    public void UpdateVolume()
+    {
+        audioSourceSoundEffect.volume *= generalVolume;
+        audioSourceSfx3D.volume *= generalVolume;
+        audioSourceMusic.volume *= generalVolume;
+    }
     public void ChangeVolumeSoundEFFect(float volume)
     {
         audioSourceSoundEffect.volume  = volume * generalVolume;
