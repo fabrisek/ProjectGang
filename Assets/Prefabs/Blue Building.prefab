@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 5746514192152257657}
   - component: {fileID: 7499137862779230637}
   - component: {fileID: 1128511362064378900}
-  - component: {fileID: 5215781570800379794}
-  - component: {fileID: 9220326481818686589}
   m_Layer: 0
   m_Name: Neon3
   m_TagString: Untagged
@@ -85,58 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5215781570800379794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560223601382083747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5680af543db22741b97196374de385c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartColor: {r: 0, g: 0.06488371, b: 1, a: 1}
-  EndColor: {r: 0.59618235, g: 0, b: 1, a: 1}
-  time: 10
-  isCycling: 1
---- !u!114 &9220326481818686589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560223601382083747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327c5c2481516944cae3a1c1aedc2594, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnabled: 1
-  sourceType: 1
-  audioSource: {fileID: 0}
-  sampleAmount: 256
-  channel: 0
-  attackDamp: 0.75
-  decayDamp: 0.25
-  outputType: 3
-  valueMultiplier: {x: 0, y: 0, z: -50}
-  outputScaleMin: 1
-  outputScaleMax: 1.1
-  prefab: {fileID: 1266396586347798, guid: b2c7e66c593b3c8428e3eb7578024738, type: 3}
-  scalePrefab: 1
-  useColorGradient: 0
-  MinColor: {r: 0, g: 0, b: 0, a: 1}
-  MaxColor: {r: 1, g: 1, b: 1, a: 1}
-  colorCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  colorAttackDamp: 1
-  colorDecayDamp: 1
 --- !u!1 &5148070508428089742
 GameObject:
   m_ObjectHideFlags: 0
