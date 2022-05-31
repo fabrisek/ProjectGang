@@ -9,6 +9,12 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioClip[] soundEffects, music;
     [SerializeField] AudioSource audioSourceSoundEffect, audioSourceMusic, audioSourceSfx3D;
+    [SerializeField] float generalVolume;
+    public float GetGeneralVolume()
+    {
+        
+        return generalVolume;
+    }
 
     // Start is called before the first frame update
     
@@ -62,12 +68,12 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeVolumeSoundEFFect(float volume)
     {
-        audioSourceSoundEffect.volume = volume;
-        audioSourceSfx3D.volume = volume;
+        audioSourceSoundEffect.volume  = volume * generalVolume;
+        audioSourceSfx3D.volume = volume * generalVolume;
     }
     public void ChangeVolumeMusic(float volume)
     {
-        audioSourceMusic.volume = volume;
+        audioSourceMusic.volume = volume * generalVolume;
     }
     public void PlayMusic(int index)
     {
