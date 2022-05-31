@@ -299,9 +299,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             jumpDown = false;
         }
-        else if (jumpDown || timeToPress < 0)
+        else if (jumpDown || timeToPress < 0 && !(HudControllerInGame.Instance.InMenu))
         {
-            rb.AddForce(Vector3.down * jumpForceDown);
+            rb.AddForce(Vector3.down * jumpForceDown *100* Time.deltaTime);
         }
         else
         {

@@ -5361,17 +5361,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   wallRunForce: 450
-  wallJumpUpForce: 20
+  wallJumpUpForce: 45
   wallJumpSideForce: 30
-  wallClimbSpeed: 40
+  wallClimbSpeed: 0
   maxWallRunTime: 10
-  tilt: 20
+  tilt: 0
   fovWall: 90
   fovNormal: 80
-  wallRunShake: {fileID: 0}
+  wallRunShake: {fileID: 11400000, guid: 4f6a3e0cdcdcc994eb9c69b7eb4bf9e7, type: 2}
   wallCheckDistance: 1.2
-  minJumpHeight: 1
-  exitWallTime: 0.5
+  minJumpHeight: 3
+  exitWallTime: 0
   useGravity: 1
   gravityCounterForce: 20
   orientation: {fileID: 7127624766541610147}
@@ -10815,7 +10815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 767228430453819698, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
       propertyPath: minDistanceMultiplier
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 767228430453819698, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
       propertyPath: playerMovementAdvanced
@@ -10823,7 +10823,7 @@ PrefabInstance:
       objectReference: {fileID: 7127624766882420788}
     - target: {fileID: 767228430453819698, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
       propertyPath: whatIsGrappleable.m_Bits
-      value: 2560
+      value: 3584
       objectReference: {fileID: 0}
     - target: {fileID: 1970020503953579593, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
       propertyPath: m_LocalScale.x

@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.55
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 3876d0e183013044aab5adba683217d7, type: 2}
@@ -16146,6 +16146,18 @@ PrefabInstance:
     - target: {fileID: 5548767362902937902, guid: 7a623a924c45357498a23daf9287326e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548767363426624882, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548767363426624882, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+      propertyPath: orientation
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548767363426624882, guid: 7a623a924c45357498a23daf9287326e, type: 3}
+      propertyPath: exitWallTime
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5696755860412909657, guid: 7a623a924c45357498a23daf9287326e, type: 3}
       propertyPath: m_AnchorMax.x
