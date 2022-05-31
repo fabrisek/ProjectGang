@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] GroupesBugsManager groupesBugsManager;
     [SerializeField] PlayerMovementAdvanced playerMovementScript;
+    [SerializeField] WallRunningAdvanced wallRunScript;
+    [SerializeField] CompetenceRalentie slowDown;
 
     public Input inputActions;
     bool startTimer;
@@ -17,25 +19,30 @@ public class LevelManager : MonoBehaviour
         inputActions = new Input();
         inputActions.InGame.RestartAndBack.performed += RestartLevel;
         inputActions.InGame.RestartAndBack.canceled -= RestartLevel;
-        CutMovePlayer();
+       
     }
 
     private void Start()
     {
+        CutMovePlayer();
         StartCoroutine(CoroutineTroisDeuxUn());
         HudControllerInGame.Instance.StartThreeTwoOne(3);
     }
 
     void CutMovePlayer()
     {
-        inputActions.Disable();
+        inputActions.InGame.Disable();
         playerMovementScript.enabled = false;
+        wallRunScript.enabled = false;
+        slowDown.enabled = false;
     }
 
     void ResetMovePlayer()
     {
         inputActions.Enable();
         playerMovementScript.enabled = true;
+        wallRunScript.enabled = true;
+        slowDown.enabled = true;
     }
 
     private void OnEnable()
