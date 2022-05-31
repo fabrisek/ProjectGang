@@ -71,11 +71,11 @@ public class GrapplingGun : MonoBehaviour
         RaycastHit hit;
         if(competenceRalentie.IsRalentie())
         {
-            maxDistance = 125f;
+            maxDistance = 160f;
         }
         else
         {
-            maxDistance = 75f;
+            maxDistance = 60f;
         }
         if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, whatIsGrappleable))
         {
