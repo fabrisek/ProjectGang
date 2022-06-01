@@ -214,7 +214,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private void Start()
     {
         //statPlayer
-        stat = Data_Manager.Instance.GetData().statPlayer;
+        //stat = Data_Manager.Instance.GetData().statPlayer;
 
         wallRunningAdvanced = GetComponent<WallRunningAdvanced>();
 
