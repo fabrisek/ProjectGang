@@ -8,19 +8,9 @@ public class GroupesBugsManager : MonoBehaviour
 
     List<GroupesBugs> groupesBugsGo;
 
-    [SerializeField] float time;
-
     [SerializeField] float distToGo;
 
     Transform playerpPos;
-
-    public float Time
-    {
-        set
-        {
-            time = value;
-        }
-    }
 
     public Transform Player
     {
@@ -75,23 +65,8 @@ public class GroupesBugsManager : MonoBehaviour
             if(i!=index)
             {
                 groupesBugs.Add(groupesBugsTemps[i]);
-               
             }
         }
-    }
-
-    int CheckIfTimeToGo ()
-    {
-
-        for(int i = 0;i<groupesBugs.Count;i++)
-        {
-            if(time >= groupesBugs[i].TimeToGo)
-            {
-                return i;
-            }
-        }
-
-        return -1;
     }
 
     void SetTargetToGroupeBug ()
@@ -101,7 +76,6 @@ public class GroupesBugsManager : MonoBehaviour
             int index = checkTheDistancePlayerRef();
             if (index != -1)
             {
-                groupesBugs[index].InstanceBug();
                 groupesBugs[index].SetTarget(0);
                 ChangeToOtherList(index);
             }
