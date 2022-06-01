@@ -44,6 +44,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
 
         CameraShakerHandler.Shake(constantShake);
+        transform.forward = Vector3.forward;
     }
 
     private void Update()
