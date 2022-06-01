@@ -7,6 +7,8 @@ using System.IO;
 public class DATA
 {
     public List<MapData> _mapData;
+    public StatsPlayer statPlayer;
+
 }
 public class Data_Manager : MonoBehaviour
 {
@@ -79,4 +81,11 @@ public class MapData
     [SerializeField] bool _haveUnlockLevel;
     public bool GetHaveUnlockLevel() { return _haveUnlockLevel; }
     public void SetHaveUnlockLevel(bool unlock) { _haveUnlockLevel = unlock; }
+
+
+}
+[System.Serializable]
+public class StatsPlayer
+{
+
 }
