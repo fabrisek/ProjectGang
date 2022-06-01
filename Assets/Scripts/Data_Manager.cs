@@ -21,9 +21,10 @@ public class Data_Manager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+
         DontDestroyOnLoad(this.gameObject);
         Instance = this;
-        //LoadSavedGames();
+        LoadSavedGames();
     }
 
     public void SetRecord(float timer, int levelIndex, int worldIndex)
@@ -95,5 +96,5 @@ public class WorldInfo
 [System.Serializable]
 public class StatsPlayer
 {
-    
+
 }

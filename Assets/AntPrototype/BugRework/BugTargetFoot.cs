@@ -98,6 +98,11 @@ public class BugTargetFoot
     Vector3 CalculNextPoint2(Vector3 currentPosition, float stepDistance, float stepheight,float stepLenght, Vector3 originePos, LayerMask groundLayer)
     {
         Vector3 direction = new Vector3(originePos.x - currentPosition.x, currentPosition.y, originePos.z - currentPosition.z).normalized;
+      /*  Vector3 nextPoint = new Vector3(currentPosition.x + (direction.x * stepDistance), currentPosition.y, currentPosition.z + (direction.z * stepDistance));
+        if(Vector3.Distance(originePos, nextPoint) > stepDistance/1.1f)
+        {
+            nextPoint = originePos +( direction.normalized * stepDistance / 1.1f);
+        }*/
         Vector3 nextPoint = new Vector3(originePos.x + (direction.x * stepDistance), currentPosition.y, originePos.z + (direction.z * stepDistance));
         Vector3 checkNextPoint = new Vector3(nextPoint.x, nextPoint.y + (stepheight - 0.1f), nextPoint.z);
         RaycastHit[] hits = Physics.RaycastAll(checkNextPoint, Vector3.down, stepheight, groundLayer);

@@ -68,7 +68,7 @@ public class LevelManager : MonoBehaviour
     {
         if(groupesBugsManager != null)
         {
-            groupesBugsManager.Player = playerMovementScript.transform;
+            groupesBugsManager.Time = Timer.Instance.GetTimer();
         }
     }
 

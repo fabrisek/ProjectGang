@@ -360,6 +360,25 @@ public class BugTargetController : MonoBehaviour
     }
 
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.transform.name + " " + other.transform.gameObject.layer+ " "+ (other.gameObject.layer == playerLayer));
+        Debug.Log(other.transform.gameObject.layer);
+        if (other.gameObject.layer ==  7)
+        {
+            Debug.Log(other.transform.name + " " + "On me voie");
+            viewBug.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.gameObject.layer == playerLayer)
+        {
+            viewBug.SetActive(false);
+        }
+
+    }
 
 }
