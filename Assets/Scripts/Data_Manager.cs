@@ -6,7 +6,7 @@ using System.IO;
 [System.Serializable]
 public class DATA
 {
-    public List<MapData> _mapData;
+    public List<WorldInfo> _worldData;
     public StatsPlayer statPlayer;
 
 }
@@ -26,18 +26,18 @@ public class Data_Manager : MonoBehaviour
         LoadSavedGames();
     }
 
-    public void SetRecord(float timer, int levelIndex)
+    public void SetRecord(float timer, int levelIndex, int worldIndex)
     {
-        if (Data._mapData[levelIndex].GetHighScore() == 0)
+        if (Data._worldData[worldIndex]._mapData[levelIndex].GetHighScore() == 0)
         {
-            Data._mapData[levelIndex].SetHighScore(timer);
+            Data._worldData[worldIndex]._mapData[levelIndex].SetHighScore(timer);
             print(timer);
         }
-        if (timer < Data._mapData[levelIndex].GetHighScore())
-            Data._mapData[levelIndex].SetHighScore(timer);
+        if (timer < Data._worldData[worldIndex]._mapData[levelIndex].GetHighScore())
+            Data._worldData[worldIndex]._mapData[levelIndex].SetHighScore(timer);
 
-        if (Data._mapData[levelIndex + 1] != null)
-            Data._mapData[levelIndex + 1].SetHaveUnlockLevel(true);
+        if (Data._worldData[worldIndex]._mapData[levelIndex + 1] != null)
+            Data._worldData[worldIndex]._mapData[levelIndex + 1].SetHaveUnlockLevel(true);
 
         SaveData();
     }
@@ -64,7 +64,7 @@ public class Data_Manager : MonoBehaviour
 
     }
 
-    public MapData GetMapData(int index) { return Data._mapData[index]; }
+    public MapData GetMapData(int index, int worldIndex) { return Data._worldData[worldIndex]._mapData[index]; }
 }
 
 [System.Serializable]
@@ -82,8 +82,16 @@ public class MapData
     public bool GetHaveUnlockLevel() { return _haveUnlockLevel; }
     public void SetHaveUnlockLevel(bool unlock) { _haveUnlockLevel = unlock; }
 
-
+    public float[] TimeStar;
 }
+
+[System.Serializable]
+public class WorldInfo
+{
+    public string WorldName;
+    public List<MapData> _mapData;
+}
+
 [System.Serializable]
 public class StatsPlayer
 {

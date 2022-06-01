@@ -10,7 +10,7 @@ public class MainMenuTool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InitializeTeleport();
+        //InitializeTeleport();
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class MainMenuTool : MonoBehaviour
         
     }
 
-    public void InitializeTeleport()
+   /* public void InitializeTeleport()
     {
         DATA data = Data_Manager.Instance.GetData();
 
@@ -34,7 +34,7 @@ public class MainMenuTool : MonoBehaviour
         }
 
         Teleport(data._mapData.Count - 1);
-    }
+    }*/
 
     public void Teleport(int indexTp)
     {
