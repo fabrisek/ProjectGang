@@ -71,11 +71,21 @@ public class BugTargetController : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        /*   Movebug();
+           StepUpBug();
+
+           MoveTargetsFeets();
+
+           StartStep();*/
+        InitBug();
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         
-        InitBug();
+        //InitBug();
 
       
     }
@@ -114,7 +124,7 @@ public class BugTargetController : MonoBehaviour
             targetFeet2[i].InitBug();
             targetFeet2[i].SpeedBug = speed;
         }
-        transform.Translate(direction * speed * Time.deltaTime);
+       // transform.Translate(direction * speed * Time.deltaTime);
     }
 
     private void Movebug()
@@ -243,7 +253,7 @@ public class BugTargetController : MonoBehaviour
 
         for (int i = 0; i < targetFeet.Length; i++)
         {
-            if ((targetFeet[i].StepDistance/1.5f < distFoot[i] && distRef < targetFeet[i].StepDistance / 1.5f))
+            if ((targetFeet[i].StepDistance +0.1f < distFoot[i] && distRef < targetFeet[i].StepDistance + 0.1f))
             {
                
                     distRef = distFoot[i];
