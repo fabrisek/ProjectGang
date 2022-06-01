@@ -208,9 +208,15 @@ public class HudControllerInGame : MonoBehaviour
 
         if (PlayFabHighScore.Instance != null)
         {
-            PlayFabHighScore.Instance.GetPosPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetMapName());
+            StartCoroutine(WaitPosPlayer());
         }
 
+    }
+
+    IEnumerator WaitPosPlayer()
+    {
+        yield return new WaitForSeconds(1);
+        PlayFabHighScore.Instance.GetPosPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetMapName());
     }
 
     public void ChangePosPlayer(int pos)
