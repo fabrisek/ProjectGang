@@ -32,6 +32,7 @@ public class HUD_Settings : MonoBehaviour
 
     [SerializeField] Slider sliderVolumeSoundEffect;
     [SerializeField] Slider sliderVolumeMusic;
+    [SerializeField] Slider sliderVolumeGeneral;
 
     [SerializeField] GameObject _firstButtonOptionMenu;
     [SerializeField]
@@ -57,8 +58,6 @@ public class HUD_Settings : MonoBehaviour
         InitializeGraphicsOptions();
         InitializeAudioOption();
         InitializeSensibility();
-        
-        sliderVolumeSoundEffect.value = PlayerPrefs.GetFloat("VolumeSFX", 0.5f);
     }
 
     public void SetFpsTarget(int i)
@@ -115,26 +114,42 @@ public class HUD_Settings : MonoBehaviour
 
 
 
+
+
+
+
     private void InitializeSensibility()
     {
         sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 100f);
         sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
     }
 
-    public void ChangeValueSliderAudio()
+    public void ChangeAudioGeneral()
+    {
+        PlayerPrefs.SetFloat("VolumeGeneral", sliderVolumeGeneral.value);
+        AudioManager.instance.SetGeneralVolume(sliderVolumeGeneral.value);
+    }
+
+    public void ChangeAudioMusic()
     {
         PlayerPrefs.SetFloat("VolumeMusic", sliderVolumeMusic.value);
-        PlayerPrefs.SetFloat("Sound", sliderVolumeSoundEffect.value);
-        Debug.Log(PlayerPrefs.GetFloat("Sound"));
         AudioManager.instance.ChangeVolumeMusic(sliderVolumeMusic.value);
+    }
+
+    public void ChangeAudioSFX()
+    {
+        PlayerPrefs.SetFloat("SoundEffect", sliderVolumeSoundEffect.value);
         AudioManager.instance.ChangeVolumeSoundEFFect(sliderVolumeSoundEffect.value);
     }
+
     void InitializeAudioOption()
     {
-        sliderVolumeMusic.value = PlayerPrefs.GetFloat("VolumeMusic", 0.5f);
-        sliderVolumeSoundEffect.value = PlayerPrefs.GetFloat("Sound", 0.5f);
-        AudioManager.instance.ChangeVolumeMusic(PlayerPrefs.GetFloat("VolumeMusic", 0.5f));
-        AudioManager.instance.ChangeVolumeSoundEFFect(PlayerPrefs.GetFloat("Sound", 0.5f));
+        sliderVolumeGeneral.value = PlayerPrefs.GetFloat("VolumeGeneral", 0.8f);
+        ChangeAudioGeneral();
+        sliderVolumeMusic.value = PlayerPrefs.GetFloat("VolumeMusic", 0.8f);
+        ChangeAudioMusic();
+        sliderVolumeSoundEffect.value = PlayerPrefs.GetFloat("SoundEffect", 0.8f);
+        ChangeAudioSFX();
     }
     void InitializeGraphicsOptions()
     {
