@@ -36,6 +36,8 @@ public class GrapplingGun : MonoBehaviour
 
     [SerializeField] CompetenceRalentie competenceRalentie;
 
+    [SerializeField] Animator grappinAnimator;
+
     private void OnEnable()
     {
         inputActions.Enable();
@@ -141,6 +143,9 @@ public class GrapplingGun : MonoBehaviour
                 startGrapple = true;
                 playerMovementAdvanced.setGrapplin(true);
 
+                //anim
+                grappinAnimator.SetBool("Grapping", true);
+
 
             }
         }
@@ -166,6 +171,9 @@ public class GrapplingGun : MonoBehaviour
             playerMovementAdvanced.setGrapplin(false);
             crossHair.sprite = crossHairNormal.sprite;
             crossHair.color = Color.white;
+
+            //anim
+            grappinAnimator.SetBool("Grapping", false);
         }
     }
     
