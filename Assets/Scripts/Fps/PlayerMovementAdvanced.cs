@@ -321,7 +321,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     //Acceleration+Momentum
     private void Accelerate()
     {
-        if(verticalInput >= 0.5f)
+        if(new Vector2 (verticalInput, horizontalInput).magnitude >= 0.5f && verticalInput > -0.2f)
         {
             accelerationTimer -= Time.deltaTime;
             if(accelerationTimer<0)
