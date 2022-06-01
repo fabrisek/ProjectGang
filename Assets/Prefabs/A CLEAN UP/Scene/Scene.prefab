@@ -547,6 +547,7 @@ MonoBehaviour:
   wallRunScript: {fileID: 5548767363426624882}
   slowDown: {fileID: 6859627777675975386}
   playercam: {fileID: 5548767364443247673}
+  timeOfThreeTwoOneGo: 0
 --- !u!1 &3452930998074175990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,6 +4078,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3452930997969513852}
     m_Modifications:
+    - target: {fileID: 7894898864996971923, guid: d14d4279de6561345bc2615e683cb178, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7894898865049976489, guid: d14d4279de6561345bc2615e683cb178, type: 3}
       propertyPath: m_Name
       value: LevelLoader
