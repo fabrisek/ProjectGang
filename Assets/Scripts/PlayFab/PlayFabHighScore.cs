@@ -67,6 +67,24 @@ public class PlayFabHighScore : MonoBehaviour
         PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnLeaderboardAroundPlayerGet, OnError);
     }
 
+    public void GetPosPlayer(string mapName)
+    {
+        
+        var request = new GetLeaderboardAroundPlayerRequest
+        {
+            StatisticName = mapName,
+            MaxResultsCount = 1
+        };
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnPosPlayerGet, OnError);
+    }
+
+    void OnPosPlayerGet(GetLeaderboardAroundPlayerResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {            
+                HudControllerInGame.Instance.ChangePosPlayer(item.Position);          
+        }
+    }
     void OnLeaderboardAroundPlayerGet(GetLeaderboardAroundPlayerResult result)
     {
         foreach (Transform item in scoreboardParent)
@@ -77,7 +95,7 @@ public class PlayFabHighScore : MonoBehaviour
         {
             GameObject newGo = Instantiate(prefabScoreTitle, scoreboardParent);
             TextMeshProUGUI[] text = newGo.GetComponentsInChildren<TextMeshProUGUI>();
-            text[0].text = "#" + item.Position.ToString();
+            text[0].text = "#" + (item.Position+1).ToString();
             text[1].text = "User : " + item.DisplayName;
             text[2].text = "Score : " + Timer.FormatTime((float)item.StatValue / 1000);
 
@@ -102,8 +120,8 @@ public class PlayFabHighScore : MonoBehaviour
         {
             GameObject newGo = Instantiate(prefabScoreTitle, scoreboardParent);
             TextMeshProUGUI[] text = newGo.GetComponentsInChildren<TextMeshProUGUI>();
-            text[0].text = "#" + item.Position.ToString();
-            text[1].text = "User : " + item.DisplayName;
+            text[0].text = "#" + (item.Position + 1).ToString();
+            text[1].text = "User : " + item.Profile.PlayerId;
             text[2].text = "Score : " + Timer.FormatTime((float)item.StatValue / 1000);
             //newGo.GetComponentInChildren<HighScoreButton>().SetPlayerTitleId(item.PlayFabId);
             if (item.PlayFabId == PlayFabLogin.Instance.GetPlayFabId())
