@@ -51,7 +51,12 @@ public class GroupesBugsManager : MonoBehaviour
         {
             SetTargetToGroupeBug();
         }
-        
+
+        if (groupesBugsGo.Count != 0)
+        {
+            DestroyToGroupeBug();
+        }
+
     }
 
     void ChangeToOtherList (int index)
@@ -96,5 +101,31 @@ public class GroupesBugsManager : MonoBehaviour
         return -1;
     }
 
-    
+    void DestroyToGroupeBug()
+    {
+        if (playerpPos != null)
+        {
+            int index = checkTheDistancePlayerRefDisable();
+            if (index != -1)
+            {
+                groupesBugsGo[index].DestroyAllBug();
+            }
+        }
+    }
+
+    int checkTheDistancePlayerRefDisable()
+    {
+        for (int i = 0; i < groupesBugsGo.Count; i++)
+        {
+            if (distToGo*2 <= Vector3.Distance(new Vector3(groupesBugsGo[i].RefPositionDistPlayer.position.x, 0, groupesBugsGo[i].RefPositionDistPlayer.position.z), new Vector3(playerpPos.position.x, 0, playerpPos.position.z)))
+            {
+                return i;
+            }
+
+        }
+
+        return -1;
+    }
+
+
 }
