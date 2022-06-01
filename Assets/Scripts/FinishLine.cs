@@ -13,20 +13,40 @@ public class FinishLine : MonoBehaviour
         Instance = this;
     }
     [SerializeField] int _levelIndex;
+    [SerializeField] int _worldIndex;
     public void FinishLevel()
     {
         if (PlayerDeath.Instance.GetIsDead() == false)
         {
-            isWin = true;
+            
             Timer.Instance.StopTimer();
-            float timer = Timer.Instance.GetTimer();
-            HudControllerInGame.Instance.OpenWinPanel(timer);
-            if (PlayFabHighScore.Instance)
-                PlayFabHighScore.Instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
-            if (Data_Manager.Instance)
-                Data_Manager.Instance.SetRecord(timer, _levelIndex);
+            if (!isWin)
+            {
+                isWin = true;
+                float timer = Timer.Instance.GetTimer();
+
+                if (PlayFabHighScore.Instance)
+                    PlayFabHighScore.Instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
+
+                if (Data_Manager.Instance)
+                {                    
+                    Data_Manager.Instance.SetRecord(timer, _levelIndex, _worldIndex);
+                    HudControllerInGame.Instance.OpenWinPanel(timer, Data_Manager.Instance.GetMapData(_levelIndex, _worldIndex).GetHighScore(), _levelIndex, _worldIndex);
+                }
+
+                else if (Data_Manager.Instance == null)
+                {
+                    HudControllerInGame.Instance.OpenWinPanel(timer, timer, _levelIndex, _worldIndex);
+                }
+
+                
+
+            }
         }    
     }
+
+
+
 
     private void OnTriggerEnter(Collider other)
     {

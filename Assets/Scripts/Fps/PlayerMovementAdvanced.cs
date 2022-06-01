@@ -86,8 +86,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     bool grappling;
 
     [SerializeField] PlayerCam playerCam;
-
-    
+    StatsPlayer stat;
 
     public void setGrapplin(bool g)
     {
@@ -214,7 +213,11 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void Start()
     {
+        //statPlayer
+        //stat = Data_Manager.Instance.GetData().statPlayer;
+
         wallRunningAdvanced = GetComponent<WallRunningAdvanced>();
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -226,6 +229,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         resetWalkSpeed = walkSpeed;
         accelerationTimeReset = accelerationTimer;
         grappling = false;
+        
     }
 
     private void Update()
