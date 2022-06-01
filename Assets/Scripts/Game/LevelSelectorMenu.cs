@@ -31,7 +31,22 @@ public class LevelSelectorMenu : MonoBehaviour
     {
         DATA data = Data_Manager.Instance.GetData();
         _nameLevel.text = data._worldData[_indexWorld].WorldName;
-        //_highScore.text = Timer.FormatTime(data.GetHighScore());
+        int totalStar = 0;
+        int starUnlock = 0;
+        for (int i = 0; i < data._worldData[_indexWorld]._mapData.Count; i++)
+        {
+            MapData mapData = data._worldData[_indexWorld]._mapData[i];
+            for (int j = 0; j < mapData.TimeStar.Length; j++)
+            {
+                totalStar++;
+                if (mapData.GetHighScore() <= mapData.TimeStar[j] && mapData.GetHighScore() != 0)
+                {
+                    starUnlock++;
+                }
+            }
+            
+        }
+        _star.text = "STAR : " + starUnlock.ToString() + " / " + totalStar.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,6 +55,7 @@ public class LevelSelectorMenu : MonoBehaviour
         {
             _canvas.SetActive(true);
             other.GetComponent<MenuAntCrontroller>().SetLevelRef(this);
+            ChangeInformation();
             textGoPress.SetActive(true);
         }
     }

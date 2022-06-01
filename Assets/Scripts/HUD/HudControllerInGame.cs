@@ -18,10 +18,14 @@ public class HudControllerInGame : MonoBehaviour
 
 
     [SerializeField] TextMeshProUGUI _textTimerInGame;
+    [SerializeField]
+    TextMeshProUGUI _textTimeDead;
     [SerializeField] TextMeshProUGUI _textTimerWin;
     [SerializeField] TextMeshProUGUI _textBestTime;
     [SerializeField]
     Image[] allStar;
+    [SerializeField] Sprite starUnlock;
+    [SerializeField] Sprite startLock;
     [SerializeField] GameObject buttonNextLevel;
     private int indexNextScene;
     private int indexWorld;
@@ -81,6 +85,7 @@ public class HudControllerInGame : MonoBehaviour
         Cursor.visible = true;
 
         eventSystem.SetSelectedGameObject(firstButtonDead);
+        _textTimeDead.text = "TIMER : " + Timer.FormatTime(Timer.Instance.GetTimer());
     }
 
     public void Back()
@@ -176,13 +181,28 @@ public class HudControllerInGame : MonoBehaviour
                 indexWorld = worldIndex;
                 buttonNextLevel.SetActive(true);
                 indexNextScene = levelIndex + 1;
-            }   
+            }
+
+            for (int i = 0; i < data._worldData[worldIndex]._mapData[levelIndex].TimeStar.Length; i++)
+            {
+                if (data._worldData[worldIndex]._mapData[levelIndex].GetHighScore() <= data._worldData[worldIndex]._mapData[levelIndex].TimeStar[i])
+                {
+                    allStar[i].sprite = starUnlock;
+                }
+                else
+                {
+                    allStar[i].sprite = startLock;
+                }
+            }
         }
         
         if (Data_Manager.Instance == null)
         {
             buttonNextLevel.SetActive(false);
         }
+
+
+
     }
 
     public void OpenNextLevel()
