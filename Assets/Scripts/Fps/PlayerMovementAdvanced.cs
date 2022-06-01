@@ -332,7 +332,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
             }
             
         }
-        if(verticalInput <= 0.1f)
+        if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.3f)
         {
             walkSpeed = resetWalkSpeed;
             accelerationTimer = accelerationTimeReset;
