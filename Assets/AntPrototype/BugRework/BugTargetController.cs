@@ -108,7 +108,7 @@ public class BugTargetController : MonoBehaviour
         }
         if (playerPos != null)
         {
-            Debug.Log("salut");
+            
             CheckDistwithPlayerChangeTheView();
         }
     }
