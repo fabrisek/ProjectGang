@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     {
         CutMovePlayer();
         StartCoroutine(CoroutineTroisDeuxUn());
-        HudControllerInGame.Instance.StartThreeTwoOne(3);
+        HudControllerInGame.Instance.StartThreeTwoOne(2);
         
     }
 
