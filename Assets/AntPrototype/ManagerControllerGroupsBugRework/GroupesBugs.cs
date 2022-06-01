@@ -6,10 +6,10 @@ using UnityEngine;
 public class GroupesBugs
 {
     [SerializeField] List<BugTargetController> groupeBugs;
-    [SerializeField] List<Transform> groupeBugsSpawnPoint;
+   
     
-    [SerializeField] float timeToGo;
     [SerializeField] List<Transform> target;
+    [SerializeField] Transform refPositionDistPlayer;
 
     public void InitGroupesBugs()
     {
@@ -26,13 +26,14 @@ public class GroupesBugs
         
     }
 
-    public float TimeToGo
+    public Transform RefPositionDistPlayer
     {
         get
         {
-            return timeToGo;
+            return refPositionDistPlayer;
         }
     }
+
     public void SetTarget (int index)
     {
         if (index > -1 && index < target.Count)
@@ -84,21 +85,6 @@ public class GroupesBugs
             }
         }
 
-    }
-
-    public void InstanceBug()
-    {
-        for(int i =0;i< groupeBugsSpawnPoint.Count;i++)
-        {
-            if (groupeBugs.Count > i && groupeBugs[i] != null)
-            {
-                groupeBugs[i].transform.position = groupeBugsSpawnPoint[i].position;
-            }
-            else
-            {
-                Debug.Log("peut pas faire spawn");
-            }
-        }
     }
 
     public void DestroyAllBug ()

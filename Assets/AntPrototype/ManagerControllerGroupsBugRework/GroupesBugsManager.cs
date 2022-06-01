@@ -8,13 +8,15 @@ public class GroupesBugsManager : MonoBehaviour
 
     List<GroupesBugs> groupesBugsGo;
 
-    [SerializeField] float time;
+    [SerializeField] float distToGo;
 
-    public float Time
+    Transform playerpPos;
+
+    public Transform Player
     {
         set
         {
-            time = value;
+            playerpPos = value;
         }
     }
 
@@ -63,34 +65,35 @@ public class GroupesBugsManager : MonoBehaviour
             if(i!=index)
             {
                 groupesBugs.Add(groupesBugsTemps[i]);
-               
             }
         }
-    }
-
-    int CheckIfTimeToGo ()
-    {
-
-        for(int i = 0;i<groupesBugs.Count;i++)
-        {
-            if(time >= groupesBugs[i].TimeToGo)
-            {
-                return i;
-            }
-        }
-
-        return -1;
     }
 
     void SetTargetToGroupeBug ()
     {
-        int index = CheckIfTimeToGo();
-        if(index != -1)
+        if (playerpPos != null)
         {
-            groupesBugs[index].InstanceBug();
-            groupesBugs[index].SetTarget(0);
-            ChangeToOtherList(index);
+            int index = checkTheDistancePlayerRef();
+            if (index != -1)
+            {
+                groupesBugs[index].SetTarget(0);
+                ChangeToOtherList(index);
+            }
         }
+    }
+
+    int checkTheDistancePlayerRef ()
+    {
+        for(int i =0; i< groupesBugs.Count;i++)
+        {
+            if(distToGo >= Vector3.Distance(new Vector3(groupesBugs[i].RefPositionDistPlayer.position.x,0, groupesBugs[i].RefPositionDistPlayer.position.z), new Vector3(playerpPos.position.x,0, playerpPos.position.z)))
+            {
+                return i;
+            }
+
+        }
+
+        return -1;
     }
 
     
