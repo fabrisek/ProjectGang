@@ -23,6 +23,7 @@ public class PlayerCam : MonoBehaviour
      Input inputActions;
 
     public bool IsGamePad { get; set; }
+    public Transform camLookAt;
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
 
         CameraShakerHandler.Shake(constantShake);
+        transform.LookAt(camLookAt);
     }
 
     private void Update()
@@ -70,6 +72,7 @@ public class PlayerCam : MonoBehaviour
 
         yRotation += lookX;
         xRotation -= lookY;
+
         //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         // rotate cam and orientation
         camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
