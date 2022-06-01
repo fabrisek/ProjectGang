@@ -35,7 +35,7 @@ public class CanonController : MonoBehaviour
         fourmis1.GetComponent<Rigidbody>().AddForce(Random.Range(explosionForce/2f,explosionForce*2f) * ShootDirection.forward, ForceMode.Impulse);
 
         fourmis1.GetComponent<Rigidbody>().freezeRotation = false;
-        Debug.Log(fourmis1.transform.position);
+       
         fourmis1.GetComponent<BugTargetController>().gravity = gravityAdd;
 
         //feedBack
