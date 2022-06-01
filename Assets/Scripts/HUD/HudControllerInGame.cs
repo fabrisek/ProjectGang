@@ -231,7 +231,7 @@ public class HudControllerInGame : MonoBehaviour
         timeToReacToAnimLetterh = time / 3;
         threeTwoOneSlider.enabled = true;
         threeTwoOneSlider.text = txtThreeTwoOne[0];
-        AudioManager.instance.playSoundEffect(1, 1);
+        AudioManager.instance.playSoundEffect(17, 1);
         StopCoroutine(CoroutineAffichageImagesStart(time, 1));
         StartCoroutine(CoroutineAffichageImagesStart(time, 1));
 
@@ -269,7 +269,15 @@ public class HudControllerInGame : MonoBehaviour
 
         //Affichage de la nouvelle lettre
         threeTwoOneSlider.text = txtThreeTwoOne[index];
-        AudioManager.instance.playSoundEffect(1, 1);
+        if(index == 3)
+        {
+            AudioManager.instance.playSoundEffect(18, 1);
+        }
+        else
+        {
+            AudioManager.instance.playSoundEffect(17, 1);
+        }
+        
 
         //set timer pour anim la lettre
         startTimeToAimLetter = true;
