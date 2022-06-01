@@ -23,7 +23,7 @@ public class Data_Manager : MonoBehaviour
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
         DontDestroyOnLoad(this.gameObject);
         Instance = this;
-        LoadSavedGames();
+        //LoadSavedGames();
     }
 
     public void SetRecord(float timer, int levelIndex, int worldIndex)
@@ -35,8 +35,8 @@ public class Data_Manager : MonoBehaviour
         }
         if (timer < Data._worldData[worldIndex]._mapData[levelIndex].GetHighScore())
             Data._worldData[worldIndex]._mapData[levelIndex].SetHighScore(timer);
-
-        if (Data._worldData[worldIndex]._mapData[levelIndex + 1] != null)
+        
+        if (levelIndex + 1 != Data._worldData[worldIndex]._mapData.Count)
             Data._worldData[worldIndex]._mapData[levelIndex + 1].SetHaveUnlockLevel(true);
 
         SaveData();

@@ -166,7 +166,7 @@ public class HudControllerInGame : MonoBehaviour
         {
             DATA data = Data_Manager.Instance.GetData();
 
-                if (data._worldData.Count - 1 == levelIndex)
+                if (data._worldData[worldIndex]._mapData.Count - 1 == levelIndex)
                 {
                     buttonNextLevel.SetActive(false);
                 }

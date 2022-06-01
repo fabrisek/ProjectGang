@@ -38,9 +38,6 @@ public class FinishLine : MonoBehaviour
                 {
                     HudControllerInGame.Instance.OpenWinPanel(timer, timer, _levelIndex, _worldIndex);
                 }
-
-                
-
             }
         }    
     }
@@ -54,7 +51,9 @@ public class FinishLine : MonoBehaviour
         {
             AudioManager.instance.playSoundEffect(9, 0.3f);
             FinishLevel();
-            //other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
+
+            if (other.gameObject.GetComponentInChildren<PlayerCam>())
+                other.gameObject.GetComponentInChildren<PlayerCam>().enabled = false;
             }
     }
 }
