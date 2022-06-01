@@ -42,11 +42,21 @@ public class BugTargetController : MonoBehaviour
 
     [SerializeField] GameObject viewBug;
     [SerializeField] LayerMask playerLayer;
+
+    Transform playerPos;
     public Transform Target
     {
         set
         {
             target = value;
+        }
+    }
+
+    public Transform Player
+    {
+        set
+        {
+            playerPos = value;
         }
     }
 
@@ -95,6 +105,11 @@ public class BugTargetController : MonoBehaviour
         if(rb.useGravity)
         {
             rb.AddForce(Vector3.down * gravity);
+        }
+        if (playerPos != null)
+        {
+            Debug.Log("salut");
+            CheckDistwithPlayerChangeTheView();
         }
     }
 
@@ -280,7 +295,17 @@ public class BugTargetController : MonoBehaviour
 
     
     
-
+    void CheckDistwithPlayerChangeTheView ()
+    {
+        if(Vector3.Distance(new Vector3(playerPos.position.x,0,playerPos.position.z), new Vector3(transform.position.x,0,transform.position.z)) >= 150 )
+        {
+            viewBug.SetActive(false);
+        }
+        else
+        {
+            viewBug.SetActive(true);
+        }
+    }
 
 
     

@@ -19,7 +19,8 @@ public class LevelManager : MonoBehaviour
         inputActions = new Input();
         inputActions.InGame.RestartAndBack.performed += RestartLevel;
         inputActions.InGame.RestartAndBack.canceled -= RestartLevel;
-       
+        SetTimeTOBugsManager();
+
     }
 
     private void Start()
@@ -27,6 +28,7 @@ public class LevelManager : MonoBehaviour
         CutMovePlayer();
         StartCoroutine(CoroutineTroisDeuxUn());
         HudControllerInGame.Instance.StartThreeTwoOne(3);
+        
     }
 
     void CutMovePlayer()
@@ -60,7 +62,7 @@ public class LevelManager : MonoBehaviour
     {
         //Debug.Log(inputActions.InGame.Move.enabled);
         LauchTimer();
-        SetTimeTOBugsManager();
+       
 
     }
 

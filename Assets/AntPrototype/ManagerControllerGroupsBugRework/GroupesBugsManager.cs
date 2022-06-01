@@ -25,10 +25,13 @@ public class GroupesBugsManager : MonoBehaviour
     void Start()
     {
         groupesBugsGo = new List<GroupesBugs>();
-        for(int i =0;i<groupesBugs.Count;i++)
+        do
         {
-            groupesBugs[i].InitGroupesBugs();
-        }
+            for (int i = 0; i < groupesBugs.Count; i++)
+            {
+                groupesBugs[i].InitGroupesBugs(playerpPos);
+            }
+        } while (playerpPos == null);
 
         StartCoroutine(CoroutineSetBug());
     }

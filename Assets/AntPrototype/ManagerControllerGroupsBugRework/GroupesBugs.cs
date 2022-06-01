@@ -11,7 +11,7 @@ public class GroupesBugs
     [SerializeField] List<Transform> target;
     [SerializeField] Transform refPositionDistPlayer;
 
-    public void InitGroupesBugs()
+    public void InitGroupesBugs(Transform player)
     {
         for (int i = 0; i < groupeBugs.Count; i++)
         {
@@ -19,7 +19,9 @@ public class GroupesBugs
           //  Debug.Log(groupeBugs[i].isActiveAndEnabled);
             groupeBugs[i].IndexGroupesBug = i;
             groupeBugs[i].GroupesBugsAssign = this;
-            
+            groupeBugs[i].Player = player;
+
+
         }
 
         SetTarget(0);
