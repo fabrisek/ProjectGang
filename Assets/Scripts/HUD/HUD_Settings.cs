@@ -22,6 +22,7 @@ public class HUD_Settings : MonoBehaviour
     [SerializeField] TMP_Dropdown _antiAliasingDropDown;
 
     [SerializeField] UIToggle _vSyncToggle;
+    [SerializeField] UIToggle _toggleShowFps;
     [SerializeField] Slider sliderSensibilityMouseX;
     [SerializeField] Slider sliderSensibilityMouseY;
     [SerializeField] Slider sliderSensibilityGamePadX;
@@ -85,6 +86,8 @@ public class HUD_Settings : MonoBehaviour
         eventSystem.SetSelectedGameObject(_firstBoutonPanelControl);
     }
 
+
+
     private void InitializeSensibility()
     {
         sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 100f);
@@ -126,6 +129,8 @@ public class HUD_Settings : MonoBehaviour
         SetAntiAliasing();
         _resolutionDropDown.value = PlayerPrefs.GetInt("Resolution");
         SetResolution();
+        _toggleShowFps.isOn = (PlayerPrefs.GetInt("ShowFps") != 0);
+        ShowFps();
     }
 
     public void SetScreenMode()
@@ -133,6 +138,20 @@ public class HUD_Settings : MonoBehaviour
         ScreenOptions(_displayTypeDropDown.value);
 
         PlayerPrefs.SetInt("ScreenMode", _displayTypeDropDown.value); 
+    }
+
+    public void ShowFps()
+    {
+        if (_toggleShowFps.isOn == false)
+        {
+            HudControllerInGame.Instance.SetShowFps(false);
+        }
+        else
+        {
+            HudControllerInGame.Instance.SetShowFps(true);
+        }
+
+        PlayerPrefs.SetInt("ShowFps", (_vSyncToggle.isOn ? 1 : 0));
     }
 
     public void SetVSync()
