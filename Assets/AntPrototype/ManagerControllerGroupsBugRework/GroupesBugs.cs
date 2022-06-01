@@ -93,6 +93,7 @@ public class GroupesBugs
         {
             groupeBugs[i].DestroyMe();
         }
+        groupeBugs = new List<BugTargetController>();
     }
 
 
