@@ -18,19 +18,18 @@ public class FinishLine : MonoBehaviour
     {
         if (PlayerDeath.Instance.GetIsDead() == false)
         {
-            isWin = true;
+            
             Timer.Instance.StopTimer();
             if (!isWin)
             {
+                isWin = true;
                 float timer = Timer.Instance.GetTimer();
 
                 if (PlayFabHighScore.Instance)
                     PlayFabHighScore.Instance.SendLeaderBord(timer, SceneManager.GetActiveScene().ToString());
 
                 if (Data_Manager.Instance)
-                {
-                    
-
+                {                    
                     Data_Manager.Instance.SetRecord(timer, _levelIndex, _worldIndex);
                     HudControllerInGame.Instance.OpenWinPanel(timer, Data_Manager.Instance.GetMapData(_levelIndex, _worldIndex).GetHighScore(), _levelIndex, _worldIndex);
                 }

@@ -177,7 +177,12 @@ public class HudControllerInGame : MonoBehaviour
                 buttonNextLevel.SetActive(true);
                 indexNextScene = levelIndex + 1;
             }   
-        }            
+        }
+        
+        if (Data_Manager.Instance == null)
+        {
+            buttonNextLevel.SetActive(false);
+        }
     }
 
     public void OpenNextLevel()
