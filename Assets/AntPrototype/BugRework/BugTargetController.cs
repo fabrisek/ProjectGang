@@ -7,11 +7,11 @@ public class BugTargetController : MonoBehaviour
     [SerializeField] public BugTargetFoot[] targetFeet1;
     [SerializeField] public BugTargetFoot[] targetFeet2;
     int actuelFootMove1;
-    int ancienFootMove1;
+    
     bool moveFoot1;
     int maxFoot1;
     int actuelFootMove2;
-    int ancienFootMove2;
+   
     bool moveFoot2;
     int maxFoot2;
 
@@ -39,6 +39,9 @@ public class BugTargetController : MonoBehaviour
 
     public float gravity;
     Rigidbody rb;
+
+    [SerializeField] GameObject viewBug;
+    [SerializeField] LayerMask playerLayer;
     public Transform Target
     {
         set
@@ -73,21 +76,11 @@ public class BugTargetController : MonoBehaviour
 
     private void Awake()
     {
-        /*   Movebug();
-           StepUpBug();
-
-           MoveTargetsFeets();
-
-           StartStep();*/
         InitBug();
     }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
-        //InitBug();
-
-      
     }
 
     private void Update()
@@ -124,7 +117,6 @@ public class BugTargetController : MonoBehaviour
             targetFeet2[i].InitBug();
             targetFeet2[i].SpeedBug = speed;
         }
-       // transform.Translate(direction * speed * Time.deltaTime);
     }
 
     private void Movebug()
@@ -198,10 +190,10 @@ public class BugTargetController : MonoBehaviour
     {
         if (!moveFoot1)
         {
-            int nextFoot = CheckDist(targetFeet1, actuelFootMove2, ancienFootMove2);
+            int nextFoot = CheckDist(targetFeet1);
             if (nextFoot != -1)
             {
-                ancienFootMove1 = actuelFootMove1;
+                
                 actuelFootMove1 = nextFoot;
                 targetFeet1[actuelFootMove1].InitMoveStep();
                 targetFeet1 = ChangePriorityFeet(actuelFootMove1, targetFeet1);
@@ -219,10 +211,10 @@ public class BugTargetController : MonoBehaviour
 
         if (!moveFoot2)
         {
-            int nextFoot = CheckDist(targetFeet2,actuelFootMove1,ancienFootMove2);
+            int nextFoot = CheckDist(targetFeet2);
             if (nextFoot != -1)
             {
-                ancienFootMove2 = actuelFootMove2;
+              
                 actuelFootMove2 = nextFoot;
                 targetFeet2[actuelFootMove2].InitMoveStep();
                 targetFeet2 = ChangePriorityFeet(actuelFootMove2, targetFeet2);
@@ -239,7 +231,7 @@ public class BugTargetController : MonoBehaviour
         }
     }
 
-    int CheckDist(BugTargetFoot[] targetFeet, int actu, int ancien)
+    int CheckDist(BugTargetFoot[] targetFeet)
     {
         float[] distFoot = new float[targetFeet.Length];
         for (int i = 0; i < targetFeet.Length; i++)
@@ -291,7 +283,7 @@ public class BugTargetController : MonoBehaviour
 
 
 
-
+    
 
 
 
@@ -365,6 +357,28 @@ public class BugTargetController : MonoBehaviour
     public void DestroyMe ()
     {
         Destroy(gameObject);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.transform.name + " " + other.transform.gameObject.layer+ " "+ (other.gameObject.layer == playerLayer));
+        Debug.Log(other.transform.gameObject.layer);
+        if (other.gameObject.layer ==  7)
+        {
+            Debug.Log(other.transform.name + " " + "On me voie");
+            viewBug.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.gameObject.layer == playerLayer)
+        {
+            viewBug.SetActive(false);
+        }
+
     }
 
 }
