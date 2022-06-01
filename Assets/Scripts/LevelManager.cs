@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] WallRunningAdvanced wallRunScript;
     [SerializeField] CompetenceRalentie slowDown;
     [SerializeField] PlayerCam playercam;
+    [SerializeField] float timeOfThreeTwoOneGo;
 
     public Input inputActions;
     bool startTimer;
@@ -26,9 +27,13 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        if(timeOfThreeTwoOneGo == 0)
+        {
+            timeOfThreeTwoOneGo = 2;
+        }
         CutMovePlayer();
         StartCoroutine(CoroutineTroisDeuxUn());
-        HudControllerInGame.Instance.StartThreeTwoOne(3);
+        HudControllerInGame.Instance.StartThreeTwoOne(timeOfThreeTwoOneGo);
         
     }
 
@@ -103,7 +108,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator CoroutineTroisDeuxUn ()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(timeOfThreeTwoOneGo);
         ResetMovePlayer();
         startTimer = true;
 
