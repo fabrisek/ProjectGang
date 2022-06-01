@@ -296,11 +296,11 @@ public class BugTargetController : MonoBehaviour
     
     void CheckDistwithPlayerChangeTheView ()
     {
-        if(Vector3.Distance(new Vector3(playerPos.position.x,0,playerPos.position.z), new Vector3(transform.position.x,0,transform.position.z)) >= 150 )
+        if(Vector3.Distance(new Vector3(playerPos.position.x,0,playerPos.position.z), new Vector3(transform.position.x,0,transform.position.z)) >= 150 && viewBug.activeSelf)
         {
             viewBug.SetActive(false);
         }
-        else
+        else if (!viewBug.activeSelf)
         {
             viewBug.SetActive(true);
         }
