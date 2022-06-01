@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] PlayerMovementAdvanced playerMovementScript;
     [SerializeField] WallRunningAdvanced wallRunScript;
     [SerializeField] CompetenceRalentie slowDown;
+    [SerializeField] PlayerCam playercam;
 
     public Input inputActions;
     bool startTimer;
@@ -37,6 +38,7 @@ public class LevelManager : MonoBehaviour
         playerMovementScript.enabled = false;
         wallRunScript.enabled = false;
         slowDown.enabled = false;
+        playercam.enabled = false;
     }
 
     void ResetMovePlayer()
@@ -45,6 +47,7 @@ public class LevelManager : MonoBehaviour
         playerMovementScript.enabled = true;
         wallRunScript.enabled = true;
         slowDown.enabled = true;
+        playercam.enabled = true;
     }
 
     private void OnEnable()
