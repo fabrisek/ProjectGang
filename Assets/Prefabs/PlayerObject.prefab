@@ -4993,6 +4993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916899551242582959}
   - component: {fileID: 830332387013087100}
+  - component: {fileID: 6849224749114743802}
   m_Layer: 0
   m_Name: gunposition
   m_TagString: Untagged
@@ -5029,6 +5030,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappling: {fileID: 7071383606311449096}
+--- !u!95 &6849224749114743802
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6010431578646249417}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ca7fee42dff8c44ca7a80ffca402b71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7127624766199904173
 GameObject:
   m_ObjectHideFlags: 0
@@ -5630,6 +5651,7 @@ GameObject:
   - component: {fileID: 1716052498273197036}
   - component: {fileID: 6165708896400150504}
   - component: {fileID: 277016940352557936}
+  - component: {fileID: 9145321056191591975}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5882,6 +5904,19 @@ MonoBehaviour:
   _limitMagnitude: 0
   _positionalMagnitudeLimit: 10
   _rotationalMagnitudeLimit: 3
+--- !u!114 &9145321056191591975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127624768034253178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741a3b621f6f95b4c8e251f03311927c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 100
 --- !u!1 &8378718853459091379
 GameObject:
   m_ObjectHideFlags: 0
@@ -10836,6 +10871,10 @@ PrefabInstance:
       propertyPath: crossHairNormal
       value: 
       objectReference: {fileID: 4727611984036751915, guid: 99444d44ff64ba947bd650610c565464, type: 3}
+    - target: {fileID: 767228430453819698, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
+      propertyPath: grappinAnimator
+      value: 
+      objectReference: {fileID: 6849224749114743802}
     - target: {fileID: 767228430453819698, guid: 508da3eaf582a82449c45e08ca014d87, type: 3}
       propertyPath: competenceRalentie
       value: 

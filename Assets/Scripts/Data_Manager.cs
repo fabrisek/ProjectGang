@@ -23,7 +23,7 @@ public class Data_Manager : MonoBehaviour
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
         DontDestroyOnLoad(this.gameObject);
         Instance = this;
-        //LoadSavedGames();
+        LoadSavedGames();
     }
 
     public void SetRecord(float timer, int levelIndex, int worldIndex)
@@ -32,10 +32,17 @@ public class Data_Manager : MonoBehaviour
         {
             Data._worldData[worldIndex]._mapData[levelIndex].SetHighScore(timer);
             print(timer);
+            if (PlayFabHighScore.Instance)
+                PlayFabHighScore.Instance.SendLeaderBord(timer, Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData[levelIndex].GetMapName());
         }
+
         if (timer < Data._worldData[worldIndex]._mapData[levelIndex].GetHighScore())
+        {
             Data._worldData[worldIndex]._mapData[levelIndex].SetHighScore(timer);
-        
+            if (PlayFabHighScore.Instance)
+                PlayFabHighScore.Instance.SendLeaderBord(timer, Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData[levelIndex].GetMapName());
+        }
+
         if (levelIndex + 1 != Data._worldData[worldIndex]._mapData.Count)
             Data._worldData[worldIndex]._mapData[levelIndex + 1].SetHaveUnlockLevel(true);
 
@@ -54,12 +61,17 @@ public class Data_Manager : MonoBehaviour
     //Charge tous les record dans toutes les maps et les charges dans les Datas;
     public void LoadSavedGames()
     {
-        
+
         string worldsFolder = Application.persistentDataPath + "/Save.json";
         if (File.Exists(worldsFolder))
         {
             string fileContents = File.ReadAllText(worldsFolder);
-            Data = JsonUtility.FromJson<DATA>(fileContents);
+            DATA data = JsonUtility.FromJson<DATA>(fileContents);
+
+            if (data._worldData.Count == Data._worldData.Count)
+            {
+                Data = data;
+            }
         }
 
     }
@@ -95,5 +107,5 @@ public class WorldInfo
 [System.Serializable]
 public class StatsPlayer
 {
-    
+
 }
