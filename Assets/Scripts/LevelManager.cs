@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance;
     [SerializeField] GroupesBugsManager groupesBugsManager;
     [SerializeField] PlayerMovementAdvanced playerMovementScript;
     [SerializeField] WallRunningAdvanced wallRunScript;
@@ -12,17 +13,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] PlayerCam playercam;
     [SerializeField] float timeOfThreeTwoOneGo;
 
-    public Input inputActions;
     bool startTimer;
     // Start is called before the first frame update
     void Awake()
     {
-        //Inputs
-        inputActions = new Input();
-        inputActions.InGame.RestartAndBack.performed += RestartLevel;
-        inputActions.InGame.RestartAndBack.canceled -= RestartLevel;
         SetTimeTOBugsManager();
-
+        Instance = this;
     }
 
     private void Start()
@@ -39,7 +35,7 @@ public class LevelManager : MonoBehaviour
 
     void CutMovePlayer()
     {
-        inputActions.InGame.Disable();
+        InputManager._input.InGame.Disable();
         playerMovementScript.enabled = false;
         wallRunScript.enabled = false;
         slowDown.enabled = false;
@@ -48,22 +44,11 @@ public class LevelManager : MonoBehaviour
 
     void ResetMovePlayer()
     {
-        inputActions.Enable();
+        InputManager._input.Enable();
         playerMovementScript.enabled = true;
         wallRunScript.enabled = true;
         slowDown.enabled = true;
         playercam.enabled = true;
-    }
-
-    private void OnEnable()
-    {
-        inputActions.Enable();
-        
-       
-    }
-    private void OnDisable()
-    {
-        inputActions.Disable();
     }
     // Update is called once per frame
     void Update()
@@ -92,7 +77,7 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
-    void RestartLevel(InputAction.CallbackContext callback)
+    public void RestartLevel(InputAction.CallbackContext callback)
     {
         if(callback.performed)
         {

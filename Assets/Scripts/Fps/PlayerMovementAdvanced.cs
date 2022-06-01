@@ -125,7 +125,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public bool crouching;
     public bool wallrunning;
 
-    private Input inputActions;
     bool jumpDown;
     public bool hasDoubleJumped;
     public float deltaTime;
@@ -137,12 +136,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
         Instance = this;
         hasDoubleJumped = false;
         inputActivated = false;
-        inputActions = new Input();
-        inputActions.InGame.SlowTime.performed += ActiveSlowTime;
-        inputActions.InGame.SlowTime.canceled += ActiveSlowTime;
-        inputActions.InGame.Pause.performed += Pause;
-        inputActions.InGame.Jump.started += context => GetPlayerJump();
-        inputActions.InGame.Jump.canceled += context => PlayerJumpDown(true);
     }
 
     public void PlayerJumpDown(bool a)
@@ -151,7 +144,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
 
 
-    private void ActiveSlowTime(InputAction.CallbackContext callback)
+    public void ActiveSlowTime(InputAction.CallbackContext callback)
     {
         GetComponent<CompetenceRalentie>().ActiveSlowTime(callback);
     }
@@ -180,7 +173,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
     }
 
-    private void Pause(InputAction.CallbackContext callback)
+    public void Pause(InputAction.CallbackContext callback)
     {
         if (Time.timeScale > 0)
         {
@@ -201,15 +194,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
         }
-    }
-
-    private void OnEnable()
-    {
-        inputActions.Enable();
-    }
-    private void OnDisable()
-    {
-        inputActions.Disable();
     }
 
     private void Start()
@@ -341,17 +325,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
     private void MyInput()
     {
-        horizontalInput = GetPlayerMovement().x;
-        verticalInput = GetPlayerMovement().y;
+        horizontalInput =  InputManager.Instance.GetPlayerMovement().x;
+        verticalInput = InputManager.Instance.GetPlayerMovement().y;
 
        
     }
     
     //get inputs
-    public Vector2 GetPlayerMovement()
-    {
-        return inputActions.InGame.Move.ReadValue<Vector2>();
-    }
+
     public void GetPlayerJump()
     {
         // when to jump
