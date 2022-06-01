@@ -96,11 +96,11 @@ public class PlayFabHighScore : MonoBehaviour
             GameObject newGo = Instantiate(prefabScoreTitle, scoreboardParent);
             TextMeshProUGUI[] text = newGo.GetComponentsInChildren<TextMeshProUGUI>();
             text[0].text = "#" + (item.Position+1).ToString();
-            text[1].text = "User : " + item.DisplayName;
+            text[1].text = "User : " + item.Profile.PlayerId;
             text[2].text = "Score : " + Timer.FormatTime((float)item.StatValue / 1000);
 
             
-            if (item.PlayFabId == PlayFabLogin.Instance.GetEntityId())
+            if (item.PlayFabId == PlayFabLogin.Instance.GetPlayFabId())
             {
                 text[0].color = Color.red;
                 text[1].color = Color.red;

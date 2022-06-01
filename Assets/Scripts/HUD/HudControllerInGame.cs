@@ -230,6 +230,13 @@ public class HudControllerInGame : MonoBehaviour
         PlayFabHighScore.Instance.GetLeaderBord(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetMapName());
     }
 
+    public void ClickButtonAroundPlayer()
+    {
+        panelHighScore.SetActive(true);
+        PlayFabHighScore.Instance.InitializeHighScore(HighScorePrefab, parentHighScore.transform);
+        PlayFabHighScore.Instance.GetLeaderBoardAroundPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetMapName());
+    }
+
     public void OpenNextLevel()
     {
         LevelLoader.Instance.LoadLevel(Data_Manager.Instance.GetMapData(indexNextScene, indexWorld).GetIndexScene());
