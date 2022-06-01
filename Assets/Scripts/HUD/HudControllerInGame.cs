@@ -28,6 +28,7 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] Sprite startLock;
     [SerializeField] GameObject buttonNextLevel;
     private int indexNextScene;
+    private int indexLevel;
     private int indexWorld;
     [SerializeField] EventSystem eventSystem;
 
@@ -51,7 +52,10 @@ public class HudControllerInGame : MonoBehaviour
     float timeToReacToAnimLetterh;
     bool startTimeToAimLetter;
 
-
+    [SerializeField] GameObject parentHighScore;
+    [SerializeField] GameObject panelHighScore;
+    [SerializeField] GameObject HighScorePrefab;
+    [SerializeField] TextMeshProUGUI textPosBouton;
     public ActualMenu StateMenu { get; set; }
     public bool InMenu { get; set; }
     public float deltaTime;
@@ -181,6 +185,7 @@ public class HudControllerInGame : MonoBehaviour
                 indexWorld = worldIndex;
                 buttonNextLevel.SetActive(true);
                 indexNextScene = levelIndex + 1;
+                indexLevel = levelIndex;
             }
 
             for (int i = 0; i < data._worldData[worldIndex]._mapData[levelIndex].TimeStar.Length; i++)
@@ -201,8 +206,28 @@ public class HudControllerInGame : MonoBehaviour
             buttonNextLevel.SetActive(false);
         }
 
+        if (PlayFabHighScore.Instance != null)
+        {
+            PlayFabHighScore.Instance.GetPosPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetMapName());
+        }
 
+    }
 
+    public void ChangePosPlayer(int pos)
+    {
+        textPosBouton.text = "TOP # "+ (pos + 1).ToString();
+    }
+
+    public void CloseHighScore()
+    {
+        panelHighScore.SetActive(false);
+    }
+
+    public void ClickButtonHighScore()
+    {
+        panelHighScore.SetActive(true);
+        PlayFabHighScore.Instance.InitializeHighScore(HighScorePrefab, parentHighScore.transform);
+        PlayFabHighScore.Instance.GetLeaderBord(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetMapName());
     }
 
     public void OpenNextLevel()

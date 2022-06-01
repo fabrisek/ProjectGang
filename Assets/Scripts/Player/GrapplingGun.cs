@@ -81,10 +81,6 @@ public class GrapplingGun : MonoBehaviour
         {
             if(justHit.collider != hit.collider && !IsGrappling() && timerHit <= 0)
             {
-                if(justHit.collider.GetComponent<Rigidbody>() != null)
-                {
-                    justHit.collider.GetComponent<Rigidbody>().isKinematic = true;
-                }
                 AudioManager.instance.playSoundEffect(14, 1f);
                 justHit = hit;
                 timerHit = 0.5f;
