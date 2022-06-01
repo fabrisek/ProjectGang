@@ -27,23 +27,31 @@ public class Rumbler : MonoBehaviour
     // Public Methods
     public void RumbleConstant(float low, float high, float durration)
     {
-        activeRumbePattern = RumblePattern.Constant;
-        lowA = low;
-        highA = high;
-        rumbleDurration = Time.time + durration;
+        if(HUD_Settings.Instance.UseRumbler)
+        {
+            activeRumbePattern = RumblePattern.Constant;
+            lowA = low;
+            highA = high;
+            rumbleDurration = Time.time + durration;
+        }
+        
     }
 
     public void RumblePulse(float low, float high, float burstTime, float durration)
     {
-        activeRumbePattern = RumblePattern.Pulse;
-        lowA = low;
-        highA = high;
-        rumbleStep = burstTime;
-        pulseDurration = Time.time + burstTime;
-        rumbleDurration = Time.time + durration;
-        isMotorActive = true;
-        var g = GetGamepad();
-        g?.SetMotorSpeeds(lowA, highA);
+        if (HUD_Settings.Instance.UseRumbler)
+        {
+            activeRumbePattern = RumblePattern.Pulse;
+            lowA = low;
+            highA = high;
+            rumbleStep = burstTime;
+            pulseDurration = Time.time + burstTime;
+            rumbleDurration = Time.time + durration;
+            isMotorActive = true;
+            var g = GetGamepad();
+            g?.SetMotorSpeeds(lowA, highA);
+        }
+        
     }
 
     public void RumbleLinear(float lowStart, float lowEnd, float highStart, float highEnd, float durration)
