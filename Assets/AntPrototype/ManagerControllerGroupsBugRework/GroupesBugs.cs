@@ -10,6 +10,7 @@ public class GroupesBugs
     
     [SerializeField] float timeToGo;
     [SerializeField] List<Transform> target;
+    [SerializeField] Transform refPositionDistPlayer;
 
     public void InitGroupesBugs()
     {
@@ -33,6 +34,15 @@ public class GroupesBugs
             return timeToGo;
         }
     }
+
+    public Transform RefPositionDistPlayer
+    {
+        get
+        {
+            return refPositionDistPlayer;
+        }
+    }
+
     public void SetTarget (int index)
     {
         if (index > -1 && index < target.Count)
