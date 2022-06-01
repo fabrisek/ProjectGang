@@ -108,7 +108,6 @@ public class BugTargetController : MonoBehaviour
         }
         if (playerPos != null)
         {
-            
             CheckDistwithPlayerChangeTheView();
         }
     }
@@ -306,15 +305,6 @@ public class BugTargetController : MonoBehaviour
             viewBug.SetActive(true);
         }
     }
-
-
-    
-
-
-
-
-
-  
 
     void SetSpeedFeet (float speed)
     {
