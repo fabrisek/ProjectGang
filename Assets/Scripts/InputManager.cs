@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
         SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY", 100f); 
         SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX", 100f); 
         SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
-        Application.targetFrameRate = 300;
+        
     }
     public void OnEnable()
     {

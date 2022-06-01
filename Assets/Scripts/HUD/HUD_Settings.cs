@@ -23,10 +23,12 @@ public class HUD_Settings : MonoBehaviour
 
     [SerializeField] UIToggle _vSyncToggle;
     [SerializeField] UIToggle _toggleShowFps;
+    [SerializeField] UIToggle _toggleCameraShake;
+    [SerializeField] UIToggle _toggleRumbler;
+    [SerializeField] UIToggle _toggleCameraClamp;
     [SerializeField] Slider sliderSensibilityMouseX;
     [SerializeField] Slider sliderSensibilityMouseY;
-    [SerializeField] Slider sliderSensibilityGamePadX;
-    [SerializeField] Slider sliderSensibilityGamePadY;
+    [SerializeField] TMP_Dropdown _dropDownFpsTarget;
 
     [SerializeField] Slider sliderVolumeSoundEffect;
     [SerializeField] Slider sliderVolumeMusic;
@@ -41,6 +43,11 @@ public class HUD_Settings : MonoBehaviour
     FullScreenMode screenMode;
     private Resolution[] storeResolution;
     int countRes;
+
+    public bool UseCameraShake { get; set; }
+    public bool UseRumbler { get; set; }
+    public bool UseClampCamera { get; set; }
+
     private void Awake()
     {
         Instance = this;
@@ -52,6 +59,26 @@ public class HUD_Settings : MonoBehaviour
         InitializeSensibility();
         
         sliderVolumeSoundEffect.value = PlayerPrefs.GetFloat("VolumeSFX", 0.5f);
+    }
+
+    public void SetFpsTarget(int i)
+    {
+        switch(i)
+        {
+            case 0:
+                Application.targetFrameRate = 60;
+                break;
+            case 1:
+                Application.targetFrameRate = 120;
+                break;
+            case 2:
+                Application.targetFrameRate = 150;
+                break;
+            case 3:
+                Application.targetFrameRate = 300;              
+                break;
+        }
+        PlayerPrefs.SetInt("FpsTarget", i);
     }
 
     public void OpenButtonPanel()
@@ -131,6 +158,16 @@ public class HUD_Settings : MonoBehaviour
         SetResolution();
         _toggleShowFps.isOn = (PlayerPrefs.GetInt("ShowFps") != 0);
         ShowFps();
+        _toggleCameraShake.isOn = (PlayerPrefs.GetInt("CameraShake") != 0);
+        SetCameraShake();
+        _toggleRumbler.isOn = (PlayerPrefs.GetInt("Rumbler") != 0);
+        SetRumbler();
+        _toggleCameraClamp.isOn = (PlayerPrefs.GetInt("CameraClamp") != 0);
+        SetCameraClamp();
+
+        SetFpsTarget( PlayerPrefs.GetInt("FpsTarget", 1));
+        _dropDownFpsTarget.value = PlayerPrefs.GetInt("FpsTarget", 1);
+
     }
 
     public void SetScreenMode()
@@ -166,6 +203,48 @@ public class HUD_Settings : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("VSync", (_vSyncToggle.isOn ? 1 : 0));
+    }
+
+    public void SetCameraShake()
+    {
+        if (_toggleCameraShake.isOn == false)
+        {
+            UseCameraShake = false;
+        }
+        else
+        {
+            UseCameraShake = true;
+        }
+
+        PlayerPrefs.SetInt("CameraShake", (_vSyncToggle.isOn ? 1 : 0));
+    }
+
+    public void SetCameraClamp()
+    {
+        if (_toggleCameraClamp.isOn == false)
+        {
+            UseClampCamera = false;
+        }
+        else
+        {
+            UseClampCamera = true;
+        }
+
+        PlayerPrefs.SetInt("CameraClamp", (_vSyncToggle.isOn ? 1 : 0));
+    }
+
+    public void SetRumbler()
+    {
+        if (_toggleRumbler.isOn == false)
+        {
+            UseRumbler = false;
+        }
+        else
+        {
+            UseRumbler = true;
+        }
+
+        PlayerPrefs.SetInt("Rumbler", (_vSyncToggle.isOn ? 1 : 0));
     }
 
     public void SetAntiAliasing()
