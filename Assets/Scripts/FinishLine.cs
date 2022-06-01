@@ -31,8 +31,7 @@ public class FinishLine : MonoBehaviour
                 {                    
                     Data_Manager.Instance.SetRecord(timer, _levelIndex, _worldIndex);
                     HudControllerInGame.Instance.OpenWinPanel(timer, Data_Manager.Instance.GetMapData(_levelIndex, _worldIndex).GetHighScore(), _levelIndex, _worldIndex);
-                    if (PlayFabHighScore.Instance)
-                        PlayFabHighScore.Instance.SendLeaderBord(timer, Data_Manager.Instance.GetData()._worldData[_worldIndex]._mapData[_levelIndex].GetMapName());
+                    
                 }
 
                 else if (Data_Manager.Instance == null)

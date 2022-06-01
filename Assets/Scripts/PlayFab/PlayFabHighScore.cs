@@ -27,6 +27,7 @@ public class PlayFabHighScore : MonoBehaviour
     public void SendLeaderBord(float score, string nameMap)
     {
         score *= 1000;
+        Debug.Log((int)-score);
         var request = new UpdatePlayerStatisticsRequest
         {
             Statistics = new List<StatisticUpdate>
@@ -34,7 +35,7 @@ public class PlayFabHighScore : MonoBehaviour
                 new StatisticUpdate
                 {
                     StatisticName = nameMap,
-                    Value = (int)score
+                    Value = (int)-score
                 }
             }
         };
@@ -97,7 +98,7 @@ public class PlayFabHighScore : MonoBehaviour
             TextMeshProUGUI[] text = newGo.GetComponentsInChildren<TextMeshProUGUI>();
             text[0].text = "#" + (item.Position+1).ToString();
             text[1].text = "User : " + item.Profile.PlayerId;
-            text[2].text = "Score : " + Timer.FormatTime((float)item.StatValue / 1000);
+            text[2].text = "Score : " + Timer.FormatTime(MathF.Abs((float)item.StatValue / 1000));
 
             
             if (item.PlayFabId == PlayFabLogin.Instance.GetPlayFabId())
@@ -122,7 +123,7 @@ public class PlayFabHighScore : MonoBehaviour
             TextMeshProUGUI[] text = newGo.GetComponentsInChildren<TextMeshProUGUI>();
             text[0].text = "#" + (item.Position + 1).ToString();
             text[1].text = "User : " + item.Profile.PlayerId;
-            text[2].text = "Score : " + Timer.FormatTime((float)item.StatValue / 1000);
+            text[2].text = "Score : " + Timer.FormatTime(MathF.Abs((float)item.StatValue / 1000));
             //newGo.GetComponentInChildren<HighScoreButton>().SetPlayerTitleId(item.PlayFabId);
             if (item.PlayFabId == PlayFabLogin.Instance.GetPlayFabId())
             {
