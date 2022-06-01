@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: b2bee25159b79d14e8cfb6f7a9676b28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -193,7 +193,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: b2bee25159b79d14e8cfb6f7a9676b28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -325,6 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 22
+  acceleration: 0
+  accelerationTimer: 0
   sprintSpeed: 30
   slideSpeed: 35
   wallrunSpeed: 25
@@ -332,25 +334,30 @@ MonoBehaviour:
   slopeIncreaseMultiplier: 2.5
   groundDrag: 6
   jumpForce: 15
+  jumpForceDown: 0
   jumpCooldown: 0.4
   airMultiplier: 0.5
+  jumpShake: {fileID: 0}
+  runShake: {fileID: 0}
   crouchSpeed: 3.5
   crouchYScale: 0.5
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  timeToJump: 0
+  canJump: 0
   maxSlopeAngle: 40
   orientation: {fileID: 8082877955108088098}
+  playerCam: {fileID: 0}
+  grappinAnimator: {fileID: 0}
   state: 0
   sliding: 0
   crouching: 0
   wallrunning: 0
-  text_speed: {fileID: 0}
-  text_mode: {fileID: 0}
+  hasDoubleJumped: 0
+  deltaTime: 0
+  timeToPress: 0
 --- !u!114 &8082877955471904180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,9 +381,10 @@ MonoBehaviour:
   wallJumpSideForce: 20
   wallClimbSpeed: 5
   maxWallRunTime: 3
-  jumpKey: 32
-  upwardsRunKey: 304
-  downwardsRunKey: 306
+  tilt: 0
+  fovWall: 0
+  fovNormal: 0
+  wallRunShake: {fileID: 0}
   wallCheckDistance: 1
   minJumpHeight: 1
   exitWallTime: 0.25
@@ -396,6 +404,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cbc65a9731287542a8ef709c6f7d61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCam: {fileID: 0}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  deathShake: {fileID: 0}
 --- !u!1 &8082877955648237474
 GameObject:
   m_ObjectHideFlags: 0

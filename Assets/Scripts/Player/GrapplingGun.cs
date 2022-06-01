@@ -144,7 +144,7 @@ public class GrapplingGun : MonoBehaviour
                 playerMovementAdvanced.setGrapplin(true);
 
                 //anim
-                grappinAnimator.SetBool("Grapping", true);
+                grappinAnimator.SetBool("Grappling", true);
 
 
             }
@@ -173,7 +173,7 @@ public class GrapplingGun : MonoBehaviour
             crossHair.color = Color.white;
 
             //anim
-            grappinAnimator.SetBool("Grapping", false);
+            grappinAnimator.SetBool("Grappling", false);
         }
     }
     

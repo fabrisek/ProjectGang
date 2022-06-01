@@ -87,6 +87,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     [SerializeField] PlayerCam playerCam;
     StatsPlayer stat;
+    [SerializeField] Animator grappinAnimator;
 
     public void setGrapplin(bool g)
     {
@@ -496,6 +497,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         AudioManager.instance.playSoundEffect(1, 1f);
         CameraShakerHandler.Shake(jumpShake);
 
+
         if (HudControllerInGame.Instance.InMenu == false)
         {
             Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
@@ -521,6 +523,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         CameraShakerHandler.Shake(jumpShake);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
+        grappinAnimator.SetTrigger("Flip");
     }
     private void ResetJump()
     {
