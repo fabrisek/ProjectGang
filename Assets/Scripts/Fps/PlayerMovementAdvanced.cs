@@ -523,7 +523,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
         CameraShakerHandler.Shake(jumpShake);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
-        grappinAnimator.SetTrigger("Flip");
+        if(!grappling)
+        {
+            grappinAnimator.SetTrigger("Flip");
+        }
     }
     private void ResetJump()
     {
