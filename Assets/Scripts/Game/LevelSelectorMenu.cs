@@ -9,6 +9,8 @@ public class LevelSelectorMenu : MonoBehaviour
     [SerializeField] int _indexData;
     int _indexScene;
 
+    int _indexWorld;
+
     [SerializeField] TextMeshProUGUI _nameLevel;
     [SerializeField] TextMeshProUGUI _highScore;
     public int GetSceneNumber() { return _indexScene; }
@@ -16,7 +18,7 @@ public class LevelSelectorMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _indexScene = Data_Manager.Instance.GetMapData(_indexData).GetIndexScene();
+        //_indexScene = Data_Manager.Instance.GetMapData(_indexData).GetIndexScene();
     }
 
     // Update is called once per frame
@@ -24,10 +26,10 @@ public class LevelSelectorMenu : MonoBehaviour
     {
         
     }
-
+    /*
     private void ChangeInformation()
     {
-        MapData data = Data_Manager.Instance.GetMapData(_indexData);
+        //MapData data = Data_Manager.Instance.GetMapData(_indexData);
         _nameLevel.text = data.GetMapName();
         _highScore.text = Timer.FormatTime(data.GetHighScore());
     }
@@ -53,5 +55,5 @@ public class LevelSelectorMenu : MonoBehaviour
             //_canvas.SetActive(false);
             other.GetComponent<MenuAntCrontroller>().SetLevelRef(null);
         }
-    }
+    }*/
 }

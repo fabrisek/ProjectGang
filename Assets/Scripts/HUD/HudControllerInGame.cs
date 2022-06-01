@@ -19,7 +19,12 @@ public class HudControllerInGame : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI _textTimerInGame;
     [SerializeField] TextMeshProUGUI _textTimerWin;
-
+    [SerializeField] TextMeshProUGUI _textBestTime;
+    [SerializeField]
+    Image[] allStar;
+    [SerializeField] GameObject buttonNextLevel;
+    private int indexNextScene;
+    private int indexWorld;
     [SerializeField] EventSystem eventSystem;
 
     [SerializeField] GameObject firstButtonDead;
@@ -134,16 +139,50 @@ public class HudControllerInGame : MonoBehaviour
         LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void OpenWinPanel(float timer)
+    public void OpenWinPanel(float timer, float bestTime, int levelIndex,int worldIndex)
     {
         _deadPanel.SetActive(false);
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(true);
-        _textTimerWin.text = Timer.FormatTime(timer);
+        _textTimerWin.text = "TIME : " + Timer.FormatTime(timer);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         eventSystem.SetSelectedGameObject(firstButtunWin);
+
+        _textBestTime.text = "BEST TIME : " + Timer.FormatTime(bestTime);
+
+        if (bestTime == 0)
+        {
+            _textBestTime.text = "BEST TIME : " + Timer.FormatTime(timer);
+        }
+        if (timer == bestTime)
+        {
+            _textBestTime.text = "NEW RECORD : " + Timer.FormatTime(bestTime);
+            _textBestTime.color = Color.red;
+        }
+
+        if (Data_Manager.Instance != null)
+        {
+            DATA data = Data_Manager.Instance.GetData();
+
+                if (data._worldData.Count - 1 == levelIndex)
+                {
+                    buttonNextLevel.SetActive(false);
+                }
+
+            else
+            {
+                indexWorld = worldIndex;
+                buttonNextLevel.SetActive(true);
+                indexNextScene = levelIndex + 1;
+            }   
+        }            
+    }
+
+    public void OpenNextLevel()
+    {
+        LevelLoader.Instance.LoadLevel(Data_Manager.Instance.GetMapData(indexNextScene, indexWorld).GetIndexScene());
     }
 
     public void OpenMainMenu()
