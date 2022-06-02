@@ -41,9 +41,11 @@ public class LevelLoader : MonoBehaviour
             float progress = Mathf.Clamp01(operation.progress / .9f);
             _loadingSlider.value = progress;
             _textSlider.text = progress * 100f + "%";
-            yield return new WaitForSeconds(2);
-            _loadingScreenPanel.SetActive(false);
-            Time.timeScale = 1;
+           
         }
+
+        yield return new WaitForSeconds(2);
+        _loadingScreenPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }
