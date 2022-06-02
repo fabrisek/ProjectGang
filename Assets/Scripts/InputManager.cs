@@ -34,13 +34,7 @@ public class InputManager : MonoBehaviour
         SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY", 100f); 
         SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX", 100f); 
         SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
-    }
-    private void Start()
-    {
 
-    }
-    public void OnEnable()
-    {
         if (PlayerMovementAdvanced.Instance != null)
         {
             Debug.Log("Cebon");
@@ -68,34 +62,21 @@ public class InputManager : MonoBehaviour
         }
 
         if (HUD_MainMenu.Instance != null)
-        {
             _input.InGame.RestartAndBack.performed += context => HUD_MainMenu.Instance.Back();
-        }
+    }
+    private void Start()
+    {
+
+    }
+    public void OnEnable()
+    {
         _input.Enable();
         playerInput.onControlsChanged += OnControlsChanged;
         
     }
     private void OnDisable()
     {
-
-            _input.InGame.SlowTime.performed -= context => PlayerMovementAdvanced.Instance.ActiveSlowTime(true);
-            _input.InGame.SlowTime.canceled -= context => PlayerMovementAdvanced.Instance.ActiveSlowTime(false);
-            _input.InGame.Pause.performed -= context => PlayerMovementAdvanced.Instance.Pause();
-            _input.InGame.Jump.started -= context => PlayerMovementAdvanced.Instance.GetPlayerJump();
-            _input.InGame.Jump.canceled -= context => PlayerMovementAdvanced.Instance.PlayerJumpDown(true);
-
-            _input.InGame.Jump.started -= context => WallRunningAdvanced.Instance.WallJump();
-
-            _input.InGame.Grappling.performed -= context => GrapplingGun.Instance.StartGrapple();
-            _input.InGame.Grappling.canceled -= context => GrapplingGun.Instance.StopGrapple();
-
-            _input.InGame.RestartAndBack.performed -= context => LevelManager.Instance.RestartLevel();
-            _input.InGame.RestartAndBack.canceled -= context => LevelManager.Instance.RestartLevel();
-
-            _input.InGame.RestartAndBack.performed -= context => HUD_MainMenu.Instance.Back();
-        
         _input.Disable();
-
     }
 
         public Vector2 GetPlayerMovement()
