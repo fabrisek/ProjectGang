@@ -35,10 +35,6 @@ public class InputManager : MonoBehaviour
         SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX", 100f); 
         SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
 
-
-    }
-    private void Start()
-    {
         if (PlayerMovementAdvanced.Instance != null)
         {
             Debug.Log("Cebon");
@@ -64,6 +60,13 @@ public class InputManager : MonoBehaviour
             _input.InGame.RestartAndBack.performed += context => LevelManager.Instance.RestartLevel();
             _input.InGame.RestartAndBack.canceled -= context => LevelManager.Instance.RestartLevel();
         }
+
+        if (HUD_MainMenu.Instance != null)
+            _input.InGame.RestartAndBack.performed += context => HUD_MainMenu.Instance.Back();
+    }
+    private void Start()
+    {
+
     }
     public void OnEnable()
     {
