@@ -77,10 +77,9 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
-    public void RestartLevel(InputAction.CallbackContext callback)
+    public void RestartLevel()
     {
-        if(callback.performed)
-        {
+
             if (HudControllerInGame.Instance.InMenu == false)
                 LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
 
@@ -88,7 +87,7 @@ public class LevelManager : MonoBehaviour
             {
                 HudControllerInGame.Instance.Back();
             }
-        }
+        
     }
 
     IEnumerator CoroutineTroisDeuxUn ()
