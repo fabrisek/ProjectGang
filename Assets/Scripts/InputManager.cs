@@ -60,6 +60,9 @@ public class InputManager : MonoBehaviour
             _input.InGame.RestartAndBack.performed += context => LevelManager.Instance.RestartLevel();
             _input.InGame.RestartAndBack.canceled -= context => LevelManager.Instance.RestartLevel();
         }
+
+        if (HUD_MainMenu.Instance != null)
+            _input.InGame.RestartAndBack.performed += context => HUD_MainMenu.Instance.Back();
     }
     private void Start()
     {

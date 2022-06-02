@@ -97,6 +97,9 @@ public class HUD_Settings : MonoBehaviour
     {
         if (HudControllerInGame.Instance != null)
             HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+
+        if (HUD_MainMenu.Instance != null)
+            HUD_MainMenu.Instance.State = StateMainMenu.InPanelSettings;
         _panelAudio.SetActive(true);
         _panelButton.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstBoutonPanelAudio);
@@ -106,6 +109,8 @@ public class HUD_Settings : MonoBehaviour
     {
         if (HudControllerInGame.Instance != null)
             HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+        if (HUD_MainMenu.Instance != null)
+            HUD_MainMenu.Instance.State = StateMainMenu.InPanelSettings;
         _panelGraphics.SetActive(true);
         _panelButton.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstBoutonPanelGraphics);
@@ -114,6 +119,8 @@ public class HUD_Settings : MonoBehaviour
     {
         if (HudControllerInGame.Instance != null)
             HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+        if (HUD_MainMenu.Instance != null)
+            HUD_MainMenu.Instance.State = StateMainMenu.InPanelSettings;
         _panelControl.SetActive(true);
         _panelButton.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstBoutonPanelControl);
@@ -123,6 +130,8 @@ public class HUD_Settings : MonoBehaviour
     {
         if (HudControllerInGame.Instance != null)
             HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+        if (HUD_MainMenu.Instance != null)
+            HUD_MainMenu.Instance.State = StateMainMenu.InPanelSettings;
         _panelGamePad.SetActive(true);
         _panelButton.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstBoutonPanelControl);

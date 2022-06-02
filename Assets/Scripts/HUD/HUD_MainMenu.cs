@@ -4,7 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using TMPro;
-
+public enum StateMainMenu
+{
+    Menu,
+    Settings,
+    InPanelSettings,
+    InGame,
+    InPanelGame
+}
 public class HUD_MainMenu : MonoBehaviour
 {
     public static HUD_MainMenu Instance;
@@ -24,20 +31,24 @@ public class HUD_MainMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI worldName;
     [SerializeField] TextMeshProUGUI starText;
 
+    public StateMainMenu State { get; set; }
+
     private void Awake()
     {
         Instance = this;
     }
     public void OpenLevelSelector()
     {
+        panelSelector.SetActive(false);
         _mainMenuPanel.SetActive(false);
         _levelSelectionPanel.SetActive(true);
-        eventSystem.SetSelectedGameObject(firstButtonInGame);
         antController.enabled = true;
+        State = StateMainMenu.InGame;
     }
 
     public void OpenPanelSelectionLevel(int worldIndex)
     {
+        State = StateMainMenu.InPanelGame;
         panelSelector.SetActive(true);
         worldName.text = Data_Manager.Instance.GetData()._worldData[worldIndex].WorldName;
 
@@ -70,14 +81,37 @@ public class HUD_MainMenu : MonoBehaviour
 
     public void OpenSettings()
     {
+        panelSelector.SetActive(false);
+        State = StateMainMenu.Settings;
         _mainMenuPanel.SetActive(false);
         _settingsPanel.SetActive(true);
         eventSystem.SetSelectedGameObject(firstButtonSettings);
         HUD_Settings.Instance.OpenButtonPanel();
     }
 
+    public void Back()
+    {
+        switch(State)
+        {
+            case StateMainMenu.InPanelGame:
+                OpenLevelSelector();
+                break;
+            case StateMainMenu.InGame:
+                CloseSettings();
+                break;
+            case StateMainMenu.Settings:
+                CloseSettings();
+                break;
+            case StateMainMenu.InPanelSettings:
+                OpenSettings();
+                break;
+        }
+    }
+
     public void CloseSettings()
     {
+        panelSelector.SetActive(false);
+        State = StateMainMenu.Menu;
         eventSystem.SetSelectedGameObject(firstButtonMenu);
         _settingsPanel.SetActive(false);
         _mainMenuPanel.SetActive(true);
@@ -93,5 +127,6 @@ public class HUD_MainMenu : MonoBehaviour
     private void Start()
     {
         CloseSettings();
+
     }
 }
