@@ -17,17 +17,21 @@ public class LevelLoader : MonoBehaviour
 
     private void Awake()
     {
+       
         if (Instance != null && Instance != this)
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
-        Instance = this;     
+        Instance = this;
+        
+
     }
     
 
     public void LoadLevel(int sceneIndex)
     {
         AudioManager.instance.StopMusic();
-        
-        StartCoroutine(LoadAsynchronously(sceneIndex));
+        LoadSave.sceneToLoad = sceneIndex;
+        SceneManager.LoadScene(2);
+      //  StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
     IEnumerator LoadAsynchronously(int sceneIndex)
@@ -36,16 +40,18 @@ public class LevelLoader : MonoBehaviour
         
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         
+        
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / .9f);
             _loadingSlider.value = progress;
             _textSlider.text = progress * 100f + "%";
-           
+            yield return new WaitForSeconds(100);
+            //_loadingScreenPanel.SetActive(false);
+            Time.timeScale = 1;
+
         }
 
-        yield return new WaitForSeconds(2);
-        _loadingScreenPanel.SetActive(false);
-        Time.timeScale = 1;
+      
     }
 }
