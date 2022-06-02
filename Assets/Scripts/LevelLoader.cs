@@ -14,6 +14,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] GameObject _loadingScreenPanel;
     [SerializeField] Slider _loadingSlider;
     [SerializeField] TextMeshProUGUI _textSlider;
+    
 
     private void Awake()
     {
@@ -30,8 +31,18 @@ public class LevelLoader : MonoBehaviour
     {
         AudioManager.instance.StopMusic();
         LoadSave.sceneToLoad = sceneIndex;
-        SceneManager.LoadScene(2);
-      //  StartCoroutine(LoadAsynchronously(sceneIndex));
+        if (LoadSave.sceneToLoad != LoadSave.oldSceneLoad)
+        {
+            LoadSave.oldSceneLoad = LoadSave.sceneToLoad;
+            LoadSave.first = true;
+            SceneManager.LoadScene(2);
+        }
+        else
+        {
+            LoadSave.first = false;
+            StartCoroutine(LoadAsynchronously(sceneIndex));
+        }
+     
     }
 
     IEnumerator LoadAsynchronously(int sceneIndex)

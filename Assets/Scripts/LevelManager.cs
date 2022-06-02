@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
 
     bool startTimer;
     bool canStartScript;
+    public bool firstTime;
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,7 +28,15 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-       
+        
+       if (LoadSave.first)
+        {
+            //lancement De la cinematique
+        }
+       else
+        {
+            InitLevelManager();
+        }
         
     }
 

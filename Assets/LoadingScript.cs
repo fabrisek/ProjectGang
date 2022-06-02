@@ -8,6 +8,7 @@ public class LoadingScript : MonoBehaviour
     [SerializeField] float timeMinLoadScrean;
     [SerializeField] float timeWaitMore;
     [SerializeField] int sceneindex;
+   
     int sceneToLoad;
     bool minTimeDone;
     bool canLoad;
@@ -29,13 +30,18 @@ public class LoadingScript : MonoBehaviour
         {
             if(!start)
             {
+               
                 StartCoroutine(CanLoadTODo());
             }
             
             if (minTimeDone && canLoad)
             {
-                LevelManager.Instance.InitLevelManager();
+                if (LevelManager.Instance != null)
+                {
+                    LevelManager.Instance.InitLevelManager();
+                }
                 SceneManager.UnloadScene(sceneindex);
+
             }
         }
     }
