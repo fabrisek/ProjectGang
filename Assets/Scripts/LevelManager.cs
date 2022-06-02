@@ -12,25 +12,46 @@ public class LevelManager : MonoBehaviour
     [SerializeField] CompetenceRalentie slowDown;
     [SerializeField] PlayerCam playercam;
     [SerializeField] float timeOfThreeTwoOneGo;
+    [SerializeField] GameObject CanvasInGame;
 
     bool startTimer;
+    bool canStartScript;
+    public bool firstTime;
     // Start is called before the first frame update
     void Awake()
     {
         SetTimeTOBugsManager();
         Instance = this;
+        CutMovePlayer();
+        CanvasInGame.SetActive(false);
     }
 
     private void Start()
     {
-        if(timeOfThreeTwoOneGo == 0)
+        
+       if (LoadSave.first)
+        {
+            //lancement De la cinematique
+        }
+       else
+        {
+            InitLevelManager();
+        }
+        
+    }
+
+
+    public void InitLevelManager ()
+    {
+        CanvasInGame.SetActive(true);
+        if (timeOfThreeTwoOneGo == 0)
         {
             timeOfThreeTwoOneGo = 2;
         }
-        CutMovePlayer();
+        
         StartCoroutine(CoroutineTroisDeuxUn());
         HudControllerInGame.Instance.StartThreeTwoOne(timeOfThreeTwoOneGo);
-        
+        canStartScript = true;
     }
 
     void CutMovePlayer()
@@ -54,7 +75,10 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         //Debug.Log(inputActions.InGame.Move.enabled);
-        LauchTimer();
+        if (canStartScript)
+        {
+            LauchTimer();
+        }
        
 
     }
