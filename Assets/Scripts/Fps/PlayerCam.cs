@@ -63,10 +63,10 @@ public class PlayerCam : MonoBehaviour
 
         yRotation += lookX;
         xRotation -= lookY;
-        //if(HUD_Settings.Instance.UseClampCamera)
-        //{
+        if(HUD_Settings.Instance.UseClampCamera)
+        {
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        //}
+        }
 
         // rotate cam and orientation
         camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
