@@ -95,7 +95,8 @@ public class HUD_Settings : MonoBehaviour
 
     public void OpenPanelAudio()
     {
-        HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+        if (HudControllerInGame.Instance != null)
+            HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
         _panelAudio.SetActive(true);
         _panelButton.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstBoutonPanelAudio);
@@ -103,14 +104,16 @@ public class HUD_Settings : MonoBehaviour
 
     public void OpenGraphicsPanel()
     {
-        HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+        if (HudControllerInGame.Instance != null)
+            HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
         _panelGraphics.SetActive(true);
         _panelButton.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstBoutonPanelGraphics);
     }
     public void OpenControlPanel()
     {
-        HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+        if (HudControllerInGame.Instance != null)
+            HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
         _panelControl.SetActive(true);
         _panelButton.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstBoutonPanelControl);
@@ -118,7 +121,8 @@ public class HUD_Settings : MonoBehaviour
 
     public void OpenGamePadPanel()
     {
-        HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+        if (HudControllerInGame.Instance != null)
+            HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
         _panelGamePad.SetActive(true);
         _panelButton.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstBoutonPanelControl);
@@ -183,11 +187,11 @@ public class HUD_Settings : MonoBehaviour
         SetResolution();
         _toggleShowFps.isOn = (PlayerPrefs.GetInt("ShowFps") != 0);
         ShowFps();
-        _toggleCameraShake.isOn = (PlayerPrefs.GetInt("CameraShake") != 0);
+        _toggleCameraShake.isOn = (PlayerPrefs.GetInt("CameraShake") != 1);
         SetCameraShake();
-        _toggleRumbler.isOn = (PlayerPrefs.GetInt("Rumbler") != 0);
+        _toggleRumbler.isOn = (PlayerPrefs.GetInt("Rumbler") != 1);
         SetRumbler();
-        _toggleCameraClamp.isOn = (PlayerPrefs.GetInt("CameraClamp") != 0);
+        _toggleCameraClamp.isOn = (PlayerPrefs.GetInt("CameraClamp") != 1);
         SetCameraClamp();
 
         SetFpsTarget( PlayerPrefs.GetInt("FpsTarget", 1));
@@ -204,13 +208,17 @@ public class HUD_Settings : MonoBehaviour
 
     public void ShowFps()
     {
-        if (_toggleShowFps.isOn == false)
+        if (HudControllerInGame.Instance != null)
+        {
+
+            if (_toggleShowFps.isOn == false)
         {
             HudControllerInGame.Instance.SetShowFps(false);
         }
         else
         {
             HudControllerInGame.Instance.SetShowFps(true);
+        }
         }
 
         PlayerPrefs.SetInt("ShowFps", (_vSyncToggle.isOn ? 1 : 0));

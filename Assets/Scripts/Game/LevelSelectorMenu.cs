@@ -6,19 +6,16 @@ using TMPro;
 public class LevelSelectorMenu : MonoBehaviour
 {
     [SerializeField] GameObject _canvas;
-    [SerializeField] int _indexData;
     [SerializeField] GameObject textGoPress;
-    int _indexScene;
     [SerializeField]int _indexWorld;
 
     [SerializeField] TextMeshProUGUI _nameLevel;
     [SerializeField] TextMeshProUGUI _star;
-    public int GetSceneNumber() { return _indexScene; }
-    public int GetIndexData() { return _indexData; }
+    public int GetIndex() { return _indexWorld; }
     // Start is called before the first frame update
     void Start()
     {
-        _indexScene = Data_Manager.Instance.GetMapData(_indexData, _indexWorld).GetIndexScene();
+
     }
 
     // Update is called once per frame

@@ -23,7 +23,7 @@ public class MenuAntCrontroller : MonoBehaviour
 
     private void Awake()
     {
-        _input = InputManager._input;
+        _input = new Input();
         _input.InMainMenu.Select.performed += SelectMenu;
         _input.InMainMenu.Back.performed += BackAction;
     }
@@ -116,7 +116,7 @@ public class MenuAntCrontroller : MonoBehaviour
     {
         if (_levelRef != null)
         {
-            LevelLoader.Instance.LoadLevel(_levelRef.GetSceneNumber());
+            HUD_MainMenu.Instance.OpenPanelSelectionLevel(_levelRef.GetIndex());
         }
     }
 

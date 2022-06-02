@@ -95,6 +95,8 @@ public class MapData
     public void SetHaveUnlockLevel(bool unlock) { _haveUnlockLevel = unlock; }
 
     public float[] TimeStar;
+
+    public Sprite spriteLevel;
 }
 
 [System.Serializable]

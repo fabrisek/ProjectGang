@@ -25,6 +25,7 @@ public class InputManager : MonoBehaviour
     public static event Action rebindComplete;
     public static event Action rebindCanceled;
     public static event Action<InputAction, int> rebindStarted;
+
     private void Awake()
     {
         _input = new Input();
@@ -34,20 +35,30 @@ public class InputManager : MonoBehaviour
         SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX", 100f); 
         SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
 
+        if (PlayerMovementAdvanced.Instance != null)
+        {
         _input.InGame.SlowTime.performed += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(true);
         _input.InGame.SlowTime.canceled += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(false);        
         _input.InGame.Pause.performed += context => PlayerMovementAdvanced.Instance.Pause();
         _input.InGame.Jump.started += context => PlayerMovementAdvanced.Instance.GetPlayerJump();
         _input.InGame.Jump.canceled += context => PlayerMovementAdvanced.Instance.PlayerJumpDown(true);
 
+        }
 
-        _input.InGame.Jump.started += context => WallRunningAdvanced.Instance.WallJump();
+        if (WallRunningAdvanced.Instance != null)
+            _input.InGame.Jump.started += context => WallRunningAdvanced.Instance.WallJump();
+        if (GrapplingGun.Instance != null)
+        {
 
         _input.InGame.Grappling.performed += context => GrapplingGun.Instance.StartGrapple();
         _input.InGame.Grappling.canceled += context => GrapplingGun.Instance.StopGrapple();
-        
+        }
+        if (LevelManager.Instance != null)
+        {
+
         _input.InGame.RestartAndBack.performed += context => LevelManager.Instance.RestartLevel();
         _input.InGame.RestartAndBack.canceled -= context => LevelManager.Instance.RestartLevel();
+        }
     }
     public void OnEnable()
     {
