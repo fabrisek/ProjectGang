@@ -81,7 +81,10 @@ public class LevelManager : MonoBehaviour
     {
 
             if (HudControllerInGame.Instance.InMenu == false)
+        {
+            Time.timeScale = 1;
                 LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        }
 
             else
             {
