@@ -43,11 +43,11 @@ public class InputManager : MonoBehaviour
 
         _input.InGame.Jump.started += context => WallRunningAdvanced.Instance.WallJump();
 
-        _input.InGame.Grappling.performed += GrapplingGun.Instance.StartGrapple;
-        _input.InGame.Grappling.canceled += GrapplingGun.Instance.StopGrapple;
+        _input.InGame.Grappling.performed += context => GrapplingGun.Instance.StartGrapple();
+        _input.InGame.Grappling.canceled += context => GrapplingGun.Instance.StopGrapple();
         
-        _input.InGame.RestartAndBack.performed += LevelManager.Instance.RestartLevel;
-        _input.InGame.RestartAndBack.canceled -= LevelManager.Instance.RestartLevel;
+        _input.InGame.RestartAndBack.performed += context => LevelManager.Instance.RestartLevel();
+        _input.InGame.RestartAndBack.canceled -= context => LevelManager.Instance.RestartLevel();
     }
     public void OnEnable()
     {

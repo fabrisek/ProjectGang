@@ -220,6 +220,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         resetWalkSpeed = walkSpeed;
         accelerationTimeReset = accelerationTimer;
         grappling = false;
+
+        SetCanDoubleJump(false);
         
     }
 

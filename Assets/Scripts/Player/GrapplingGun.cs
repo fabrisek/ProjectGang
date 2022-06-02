@@ -94,10 +94,9 @@ public class GrapplingGun : MonoBehaviour
     
 
     // Call whenever we want to start a grapple
-    public void StartGrapple(InputAction.CallbackContext callback)
+    public void StartGrapple()
     {
-        if(callback.performed)
-        {
+
             RaycastHit hit;
             if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, whatIsGrappleable))
             {
@@ -134,7 +133,7 @@ public class GrapplingGun : MonoBehaviour
                 grappinAnimator.SetBool("Grappling", true);
 
 
-            }
+            
         }
     }
 
@@ -143,10 +142,9 @@ public class GrapplingGun : MonoBehaviour
  
 
 
-    public void StopGrapple(InputAction.CallbackContext callback)
+    public void StopGrapple()
     {
-        if (callback.canceled)
-        {
+
             Destroy(joint);
             particuleHit.SetActive(false);
             particuleGunTip.SetActive(false);
@@ -161,7 +159,7 @@ public class GrapplingGun : MonoBehaviour
 
             //anim
             grappinAnimator.SetBool("Grappling", false);
-        }
+        
     }
     
 
