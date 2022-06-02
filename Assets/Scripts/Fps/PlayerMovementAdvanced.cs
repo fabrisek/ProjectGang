@@ -9,6 +9,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public static PlayerMovementAdvanced Instance;
     [Header("Movement")]
     private float moveSpeed;
+    [SerializeField] float speedMax;
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
     [SerializeField] float walkSpeed;
@@ -228,7 +229,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround) || Physics.Raycast(transform.position, Vector3.forward, playerHeight * 0.5f + 0.2f, whatIsGround) ;
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight/2, whatIsGround);
 
         //time To Jump if not on ground;
         if (grounded)
@@ -250,37 +251,44 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
 
         MyInput();
-        SpeedControl();
+       
         StateHandler();
-        Accelerate();
 
+        
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+        SpeedControl();
+        Accelerate();
         // handle drag
         if (grounded)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
 
-        if(horizontalInput != 0||verticalInput!=0)
+        if (horizontalInput != 0 || verticalInput != 0)
         {
             inputActivated = true;
         }
 
         //wall run doubleJump
-        if(wallRunningAdvanced.GetExitingWall())
+        if (wallRunningAdvanced.GetExitingWall())
         {
             exitingWall = true;
         }
-        if(exitingWall)
+        if (exitingWall)
         {
             timeWallDoubleJump -= Time.deltaTime;
-            if(timeWallDoubleJump<=0)
+            if (timeWallDoubleJump <= 0)
             {
                 canDoubleJump = true;
                 exitingWall = false;
                 timeWallDoubleJump = resetWallTimeDoubleJump;
             }
         }
-        if(canDoubleJump && state == MovementState.air)
+        if (canDoubleJump && state == MovementState.air)
         {
             HudControllerInGame.Instance.DoubleJumpShow(true);
         }
@@ -298,17 +306,12 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
         else if (jumpDown || timeToPress < 0 && !(HudControllerInGame.Instance.InMenu))
         {
-            rb.AddForce(Vector3.down * jumpForceDown *100* Time.deltaTime);
+            rb.AddForce(Vector3.down * jumpForceDown * 100 * Time.deltaTime);
         }
         else
         {
             timeToPress -= Time.deltaTime;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
     }
 
     //Acceleration+Momentum
@@ -317,7 +320,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         if(new Vector2 (verticalInput, horizontalInput).magnitude >= 0.5f && verticalInput > -0.2f)
         {
             accelerationTimer -= Time.deltaTime;
-            if(accelerationTimer<0)
+            if(accelerationTimer<0 && walkSpeed< speedMax)
             {
                 walkSpeed *= acceleration;
 
@@ -325,9 +328,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
             }
             
         }
-        if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.3f)
+        if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.3f && walkSpeed > resetWalkSpeed)
         {
-            walkSpeed = resetWalkSpeed;
+            walkSpeed -= resetWalkSpeed/5*Time.deltaTime;
             accelerationTimer = accelerationTimeReset;
         }
     }

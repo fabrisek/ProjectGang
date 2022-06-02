@@ -11564,7 +11564,6 @@ GameObject:
   - component: {fileID: 1241805618}
   - component: {fileID: 1241805617}
   - component: {fileID: 1241805616}
-  - component: {fileID: 1241805619}
   - component: {fileID: 1241805620}
   m_Layer: 5
   m_Name: DATA & UTILITIES
@@ -11615,19 +11614,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1241805619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241805614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f45ce794ebd9a4ebd2c020442b1118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInput: {fileID: 1976143030}
 --- !u!114 &1241805620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11643,11 +11629,12 @@ MonoBehaviour:
   Data:
     _worldData:
     - WorldName: World GANG
+      HaveUnlockWorld: 1
       _mapData:
       - _mapName: MapOne
         _indexScene: 1
         _highScore: 0
-        _haveUnlockLevel: 0
+        _haveUnlockLevel: 1
         TimeStar:
         - 0
         - 0
@@ -11728,6 +11715,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0fb0065160767e4daf76403f75c3f2f, type: 3}
+--- !u!1 &1257155150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257155152}
+  - component: {fileID: 1257155151}
+  m_Layer: 0
+  m_Name: Input
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1257155151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257155150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f45ce794ebd9a4ebd2c020442b1118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 1976143030}
+--- !u!4 &1257155152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257155150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -55.056355, y: -15.809601, z: -18.188549}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1328632822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11959,7 +11991,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405005612}
-  m_LocalRotation: {x: 0.3000052, y: -0.6403092, z: 0.30000433, w: 0.6403112}
+  m_LocalRotation: {x: 0.30000517, y: -0.6403093, z: 0.3000043, w: 0.6403111}
   m_LocalPosition: {x: 29.129997, y: 17.73, z: -23.650028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12845,7 +12877,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7773973, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12861,7 +12893,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820154976}
-  m_LocalRotation: {x: 0.3000052, y: -0.6403092, z: 0.30000433, w: 0.6403112}
+  m_LocalRotation: {x: 0.30000517, y: -0.6403093, z: 0.3000043, w: 0.6403111}
   m_LocalPosition: {x: 29.129997, y: 17.73, z: -23.650028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

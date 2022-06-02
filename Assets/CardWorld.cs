@@ -12,9 +12,11 @@ public class CardWorld : MonoBehaviour
     [SerializeField] TextMeshProUGUI posPlayer;
     [SerializeField] TextMeshProUGUI starPlayer;
     int index;
+    bool unlock;
+
     // Start is called before the first frame update
 
-    public void ChangeInformation(Sprite levelImage, float timerSave, string name, string numberLevel, int star,int indexScene)
+    public void ChangeInformation(Sprite levelImage, float timerSave, string name, string numberLevel, int star,int indexScene, bool isUnlock)
     {
         index = indexScene;
         image.sprite = levelImage;
@@ -22,10 +24,16 @@ public class CardWorld : MonoBehaviour
         levelName.text = name;
         levelNumber.text = numberLevel;
         starPlayer.text = star.ToString() + " / 5";
+        unlock = isUnlock;
+        if (!isUnlock)
+        {
+            image.color = Color.black;
+        }
     }
 
     public void ClickButton()
     {
-        LevelLoader.Instance.LoadLevel(index);
+        if (unlock)
+            LevelLoader.Instance.LoadLevel(index);
     }
 }

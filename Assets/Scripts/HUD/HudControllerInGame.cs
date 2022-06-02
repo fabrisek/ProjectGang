@@ -160,6 +160,7 @@ public class HudControllerInGame : MonoBehaviour
 
     public void RestartLevel()
     {
+        Time.timeScale = 1;
         LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
