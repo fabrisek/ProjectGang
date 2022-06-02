@@ -14,6 +14,7 @@ public class HUD_Settings : MonoBehaviour
     [SerializeField] EventSystem eventSystem;
     [SerializeField] GameObject _panelAudio;
     [SerializeField] GameObject _panelControl;
+    [SerializeField] GameObject _panelGamePad;
     [SerializeField] GameObject _panelGraphics;
     [SerializeField] GameObject _panelButton;
 
@@ -41,6 +42,8 @@ public class HUD_Settings : MonoBehaviour
     GameObject _firstBoutonPanelControl;
     [SerializeField]
     GameObject _firstBoutonPanelGraphics;
+    [SerializeField]
+    GameObject _firstBoutonPanelGamePad;
     FullScreenMode screenMode;
     private Resolution[] storeResolution;
     int countRes;
@@ -86,6 +89,7 @@ public class HUD_Settings : MonoBehaviour
         _panelAudio.SetActive(false);
         _panelControl.SetActive(false);
         _panelGraphics.SetActive(false);
+        _panelGamePad.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstButtonOptionMenu);
     }
 
@@ -112,7 +116,13 @@ public class HUD_Settings : MonoBehaviour
         eventSystem.SetSelectedGameObject(_firstBoutonPanelControl);
     }
 
-
+    public void OpenGamePadPanel()
+    {
+        HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+        _panelGamePad.SetActive(true);
+        _panelButton.SetActive(false);
+        eventSystem.SetSelectedGameObject(_firstBoutonPanelControl);
+    }
 
 
 

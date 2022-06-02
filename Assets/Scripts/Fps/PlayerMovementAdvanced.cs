@@ -144,9 +144,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
 
 
-    public void ActiveSlowTime(InputAction.CallbackContext callback)
+    public void ActiveSlowTime(bool b)
     {
-        GetComponent<CompetenceRalentie>().ActiveSlowTime(callback);
+        GetComponent<CompetenceRalentie>().ActiveSlowTime(b);
     }
 
     public void Pause()
@@ -155,11 +155,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             Timer.Instance.StopTimer();
             playerCam.enabled = false;
-            Cursor.lockState = CursorLockMode.None;
             Rumbler.instance.StopRumble();
             Time.timeScale = 0;
             HudControllerInGame.Instance.OpenPauseMenu();
-            Cursor.visible = true;
+            if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
         else
         {
@@ -179,11 +182,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             Timer.Instance.StopTimer();
             playerCam.enabled = false;
-            Cursor.lockState = CursorLockMode.None;
             Rumbler.instance.StopRumble();
             Time.timeScale = 0;
             HudControllerInGame.Instance.OpenPauseMenu();
-            Cursor.visible = true;
+            if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
         else
         {

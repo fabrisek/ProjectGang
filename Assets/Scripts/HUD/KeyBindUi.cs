@@ -70,6 +70,7 @@ public class KeyBindUi : MonoBehaviour
         {
             _inputBinding = _inputActionReference.action.bindings[_selectedBinding];
             _bindingIndex = _selectedBinding;
+            
         }
     }
 
@@ -78,6 +79,9 @@ public class KeyBindUi : MonoBehaviour
         if (_actionText != null)
         {
             _actionText.text = _actionName;
+
+            if (_inputActionReference.action.bindings[_selectedBinding].isPartOfComposite)
+                _actionText.text = _inputActionReference.action.bindings[_selectedBinding].name;
         }
 
         if (_rebindText != null)

@@ -34,9 +34,9 @@ public class InputManager : MonoBehaviour
         SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX", 100f); 
         SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
 
-        _input.InGame.SlowTime.performed += PlayerMovementAdvanced.Instance.ActiveSlowTime;
-        _input.InGame.SlowTime.canceled += PlayerMovementAdvanced.Instance.ActiveSlowTime;
-        _input.InGame.Pause.performed += PlayerMovementAdvanced.Instance.Pause;
+        _input.InGame.SlowTime.performed += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(true);
+        _input.InGame.SlowTime.canceled += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(false);        
+        _input.InGame.Pause.performed += context => PlayerMovementAdvanced.Instance.Pause();
         _input.InGame.Jump.started += context => PlayerMovementAdvanced.Instance.GetPlayerJump();
         _input.InGame.Jump.canceled += context => PlayerMovementAdvanced.Instance.PlayerJumpDown(true);
 
@@ -45,7 +45,7 @@ public class InputManager : MonoBehaviour
 
         _input.InGame.Grappling.performed += GrapplingGun.Instance.StartGrapple;
         _input.InGame.Grappling.canceled += GrapplingGun.Instance.StopGrapple;
-
+        
         _input.InGame.RestartAndBack.performed += LevelManager.Instance.RestartLevel;
         _input.InGame.RestartAndBack.canceled -= LevelManager.Instance.RestartLevel;
     }
@@ -80,6 +80,7 @@ public class InputManager : MonoBehaviour
                 // Send Event
                 // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
                 PlayerCam.Instance.IsGamePad = true;
+                Cursor.visible = false;
             }
         }
         else
@@ -88,6 +89,12 @@ public class InputManager : MonoBehaviour
             {
                 currentControlDevice = ControlDeviceType.KeyboardAndMouse;
                 PlayerCam.Instance.IsGamePad = false;
+
+                if (Time.timeScale == 0)
+                {
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Confined;
+                }
                 // Send Event
                 // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
             }
