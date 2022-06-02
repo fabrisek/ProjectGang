@@ -14,8 +14,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] float timeOfThreeTwoOneGo;
     [SerializeField] GameObject CanvasInGame;
 
-    bool startTimer;
-    bool canStartScript;
     public bool firstTime;
     // Start is called before the first frame update
     void Awake()
@@ -37,7 +35,6 @@ public class LevelManager : MonoBehaviour
         {
             InitLevelManager();
         }
-
     }
 
 
@@ -51,7 +48,7 @@ public class LevelManager : MonoBehaviour
 
         StartCoroutine(CoroutineTroisDeuxUn());
         HudControllerInGame.Instance.StartThreeTwoOne(timeOfThreeTwoOneGo);
-        canStartScript = true;
+        
     }
 
     void CutMovePlayer()
@@ -71,17 +68,6 @@ public class LevelManager : MonoBehaviour
         slowDown.enabled = true;
         playercam.enabled = true;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(inputActions.InGame.Move.enabled);
-        if (canStartScript)
-        {
-            LauchTimer();
-        }
-
-
-    }
 
     void SetTimeTOBugsManager()
     {
@@ -95,7 +81,7 @@ public class LevelManager : MonoBehaviour
     {
         if (playerMovementScript != null)
         {
-            if (!Timer.Instance.TimerIsLaunch() && startTimer)
+            if (!Timer.Instance.TimerIsLaunch())
             {
                 Timer.Instance.LaunchTimer();
             }
@@ -118,12 +104,6 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeOfThreeTwoOneGo);
         ResetMovePlayer();
-        startTimer = true;
-
-
+        LauchTimer();
     }
-
-
-
-
 }
