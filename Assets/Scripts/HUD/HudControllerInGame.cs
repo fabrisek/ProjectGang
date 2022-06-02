@@ -56,6 +56,12 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] GameObject panelHighScore;
     [SerializeField] GameObject HighScorePrefab;
     [SerializeField] TextMeshProUGUI textPosBouton;
+    bool showFps;
+    public void  SetShowFps(bool show) 
+    {
+        showFps = show;
+        fpsText.enabled = show;
+    }
     public ActualMenu StateMenu { get; set; }
     public bool InMenu { get; set; }
     public float deltaTime;
@@ -69,15 +75,20 @@ public class HudControllerInGame : MonoBehaviour
     private void Start()
     {
         InitLetterAnim();
+        _optionsPanel.SetActive(false);
     }
 
     private void Update()
     {
-        //playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
-        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-        float fps = 1.0f / deltaTime;
-        fpsText.text = Mathf.Ceil(fps).ToString() + "fps";
-        UpdateTimerForLetterAnim();
+        if (showFps)
+        {
+            //playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
+            deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+            float fps = 1.0f / deltaTime;
+            fpsText.text = Mathf.Ceil(fps).ToString() + "fps";
+            UpdateTimerForLetterAnim();
+        }
+
     }
     public void OpenDeathPanel()
     {
@@ -85,8 +96,12 @@ public class HudControllerInGame : MonoBehaviour
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
 
         eventSystem.SetSelectedGameObject(firstButtonDead);
         _textTimeDead.text = "TIMER : " + Timer.FormatTime(Timer.Instance.GetTimer());
@@ -155,8 +170,11 @@ public class HudControllerInGame : MonoBehaviour
         _winPanel.SetActive(true);
         _textTimerWin.text = "TIME : " + Timer.FormatTime(timer);
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         eventSystem.SetSelectedGameObject(firstButtunWin);
 
         _textBestTime.text = "BEST TIME : " + Timer.FormatTime(bestTime);

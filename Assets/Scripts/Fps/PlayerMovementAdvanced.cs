@@ -87,6 +87,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     [SerializeField] PlayerCam playerCam;
     StatsPlayer stat;
+    [SerializeField] Animator grappinAnimator;
 
     public void setGrapplin(bool g)
     {
@@ -124,7 +125,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public bool crouching;
     public bool wallrunning;
 
-    private Input inputActions;
     bool jumpDown;
     public bool hasDoubleJumped;
     public float deltaTime;
@@ -136,12 +136,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
         Instance = this;
         hasDoubleJumped = false;
         inputActivated = false;
-        inputActions = new Input();
-        inputActions.InGame.SlowTime.performed += ActiveSlowTime;
-        inputActions.InGame.SlowTime.canceled += ActiveSlowTime;
-        inputActions.InGame.Pause.performed += Pause;
-        inputActions.InGame.Jump.started += context => GetPlayerJump();
-        inputActions.InGame.Jump.canceled += context => PlayerJumpDown(true);
     }
 
     public void PlayerJumpDown(bool a)
@@ -150,9 +144,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
 
 
-    private void ActiveSlowTime(InputAction.CallbackContext callback)
+    public void ActiveSlowTime(bool b)
     {
-        GetComponent<CompetenceRalentie>().ActiveSlowTime(callback);
+        GetComponent<CompetenceRalentie>().ActiveSlowTime(b);
     }
 
     public void Pause()
@@ -161,11 +155,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             Timer.Instance.StopTimer();
             playerCam.enabled = false;
-            Cursor.lockState = CursorLockMode.None;
             Rumbler.instance.StopRumble();
             Time.timeScale = 0;
             HudControllerInGame.Instance.OpenPauseMenu();
-            Cursor.visible = true;
+            if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
         else
         {
@@ -179,17 +176,20 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
     }
 
-    private void Pause(InputAction.CallbackContext callback)
+    public void Pause(InputAction.CallbackContext callback)
     {
         if (Time.timeScale > 0)
         {
             Timer.Instance.StopTimer();
             playerCam.enabled = false;
-            Cursor.lockState = CursorLockMode.None;
             Rumbler.instance.StopRumble();
             Time.timeScale = 0;
             HudControllerInGame.Instance.OpenPauseMenu();
-            Cursor.visible = true;
+            if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
         else
         {
@@ -200,15 +200,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
         }
-    }
-
-    private void OnEnable()
-    {
-        inputActions.Enable();
-    }
-    private void OnDisable()
-    {
-        inputActions.Disable();
     }
 
     private void Start()
@@ -229,6 +220,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         resetWalkSpeed = walkSpeed;
         accelerationTimeReset = accelerationTimer;
         grappling = false;
+
+        SetCanDoubleJump(false);
         
     }
 
@@ -340,17 +333,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
     private void MyInput()
     {
-        horizontalInput = GetPlayerMovement().x;
-        verticalInput = GetPlayerMovement().y;
+        horizontalInput =  InputManager.Instance.GetPlayerMovement().x;
+        verticalInput = InputManager.Instance.GetPlayerMovement().y;
 
        
     }
     
     //get inputs
-    public Vector2 GetPlayerMovement()
-    {
-        return inputActions.InGame.Move.ReadValue<Vector2>();
-    }
+
     public void GetPlayerJump()
     {
         // when to jump
@@ -496,6 +486,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         AudioManager.instance.playSoundEffect(1, 1f);
         CameraShakerHandler.Shake(jumpShake);
 
+
         if (HudControllerInGame.Instance.InMenu == false)
         {
             Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
@@ -521,6 +512,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
         CameraShakerHandler.Shake(jumpShake);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
+        if(!grappling)
+        {
+            grappinAnimator.SetTrigger("Flip");
+        }
     }
     private void ResetJump()
     {

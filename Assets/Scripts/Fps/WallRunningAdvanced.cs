@@ -5,6 +5,7 @@ using FirstGearGames.SmoothCameraShaker;
 
 public class WallRunningAdvanced : MonoBehaviour
 {
+    public static WallRunningAdvanced Instance;
     [Header("Wallrunning")]
     public LayerMask whatIsWall;
     public LayerMask whatIsGround;
@@ -56,27 +57,14 @@ public class WallRunningAdvanced : MonoBehaviour
     private PlayerMovementAdvanced pm;
     private Rigidbody rb;
 
-    Input inputActions;
-
     private void Awake()
     {
-        inputActions = new Input();
-        inputActions.InGame.Jump.started += context => WallJump();
-    }
-    private void OnEnable()
-    {
-        inputActions.Enable();
-    }
-    private void OnDisable()
-    {
-        inputActions.Disable();
+        Instance = this;
+        
     }
 
     //get inputs
-    public Vector2 GetPlayerMovement()
-    {
-        return inputActions.InGame.Move.ReadValue<Vector2>();
-    }
+
 
     private void Start()
     {
@@ -111,8 +99,8 @@ public class WallRunningAdvanced : MonoBehaviour
     private void StateMachine()
     {
         // Getting Inputs
-        horizontalInput = GetPlayerMovement().x;
-        verticalInput = GetPlayerMovement().y;
+        horizontalInput = InputManager.Instance.GetPlayerMovement().x;
+        verticalInput = InputManager.Instance.GetPlayerMovement().y;
 
         /*upwardsRunning = Input.GetKey(upwardsRunKey);
         downwardsRunning = Input.GetKey(downwardsRunKey);*/
@@ -223,7 +211,7 @@ public class WallRunningAdvanced : MonoBehaviour
         timerFoostep = 0.01f;
     }
 
-    private void WallJump()
+    public void WallJump()
     {
         if(pm.wallrunning)
         {

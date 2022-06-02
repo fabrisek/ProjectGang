@@ -8,6 +8,6 @@ public class CameraMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        gameObject.transform.position = cameraPosition.position;
+        gameObject.transform.position = cameraPosition.position + Vector3.up*2;
     }
 }

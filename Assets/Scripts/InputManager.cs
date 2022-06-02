@@ -28,18 +28,47 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         _input = new Input();
-
+        Instance = this;
         SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX", 100f); 
         SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY", 100f); 
         SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX", 100f); 
         SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
-        Application.targetFrameRate = 300;
+
+        _input.InGame.SlowTime.performed += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(true);
+        _input.InGame.SlowTime.canceled += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(false);        
+        _input.InGame.Pause.performed += context => PlayerMovementAdvanced.Instance.Pause();
+        _input.InGame.Jump.started += context => PlayerMovementAdvanced.Instance.GetPlayerJump();
+        _input.InGame.Jump.canceled += context => PlayerMovementAdvanced.Instance.PlayerJumpDown(true);
+
+
+        _input.InGame.Jump.started += context => WallRunningAdvanced.Instance.WallJump();
+
+        _input.InGame.Grappling.performed += context => GrapplingGun.Instance.StartGrapple();
+        _input.InGame.Grappling.canceled += context => GrapplingGun.Instance.StopGrapple();
+        
+        _input.InGame.RestartAndBack.performed += context => LevelManager.Instance.RestartLevel();
+        _input.InGame.RestartAndBack.canceled -= context => LevelManager.Instance.RestartLevel();
     }
     public void OnEnable()
     {
+        _input.Enable();
         playerInput.onControlsChanged += OnControlsChanged;
+        
+    }
+    private void OnDisable()
+    {
+        _input.Disable();
     }
 
+        public Vector2 GetPlayerMovement()
+    {
+        return _input.InGame.Move.ReadValue<Vector2>();
+    }
+
+    public Vector2 GetPlayerLook()
+    {
+        return _input.InGame.Look.ReadValue<Vector2>();
+    }
 
     private void OnControlsChanged(UnityEngine.InputSystem.PlayerInput obj)
     {
@@ -51,6 +80,7 @@ public class InputManager : MonoBehaviour
                 // Send Event
                 // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
                 PlayerCam.Instance.IsGamePad = true;
+                Cursor.visible = false;
             }
         }
         else
@@ -59,6 +89,12 @@ public class InputManager : MonoBehaviour
             {
                 currentControlDevice = ControlDeviceType.KeyboardAndMouse;
                 PlayerCam.Instance.IsGamePad = false;
+
+                if (Time.timeScale == 0)
+                {
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Confined;
+                }
                 // Send Event
                 // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
             }
