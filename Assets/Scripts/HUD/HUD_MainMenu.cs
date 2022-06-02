@@ -54,6 +54,12 @@ public class HUD_MainMenu : MonoBehaviour
 
         int totalStar = 0;
         int starUnlock = 0;
+
+        foreach (var item in panelSelector.GetComponentsInChildren<CardWorld>())
+        {
+            Destroy(item.gameObject);
+        }
+
         for (int i = 0; i < Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData.Count; i++)
         {
             GameObject cardObj = Instantiate(CardWorldPrefab, parentSelector);
@@ -69,7 +75,7 @@ public class HUD_MainMenu : MonoBehaviour
                 }
             }
 
-            cardObj.GetComponent<CardWorld>().ChangeInformation(mapData.spriteLevel, mapData.GetHighScore(), mapData.GetMapName(), (i + 1).ToString(), starLevel, mapData.GetIndexScene());
+            cardObj.GetComponent<CardWorld>().ChangeInformation(mapData.spriteLevel, mapData.GetHighScore(), mapData.GetMapName(), (i + 1).ToString(), starLevel, mapData.GetIndexScene(), mapData.GetHaveUnlockLevel());
         }
         starText.text = "STAR : " + starUnlock.ToString() + " / " + totalStar.ToString();
     }

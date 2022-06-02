@@ -103,6 +103,7 @@ public class MapData
 public class WorldInfo
 {
     public string WorldName;
+    public bool HaveUnlockWorld;
     public List<MapData> _mapData;
 }
 

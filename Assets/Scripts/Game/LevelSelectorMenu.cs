@@ -51,9 +51,12 @@ public class LevelSelectorMenu : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             _canvas.SetActive(true);
-            other.GetComponent<MenuAntCrontroller>().SetLevelRef(this);
             ChangeInformation();
-            textGoPress.SetActive(true);
+            if (Data_Manager.Instance.GetData()._worldData[_indexWorld].HaveUnlockWorld)
+            {
+                textGoPress.SetActive(true);
+                other.GetComponent<MenuAntCrontroller>().SetLevelRef(this);
+            }
         }
     }
 
