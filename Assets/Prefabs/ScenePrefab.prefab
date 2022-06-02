@@ -986,6 +986,8 @@ MonoBehaviour:
   slowDown: {fileID: 731516381880447202}
   playercam: {fileID: 1735499786203708929}
   timeOfThreeTwoOneGo: 0
+  CanvasInGame: {fileID: 1880925870840402668}
+  firstTime: 0
 --- !u!114 &8863034771062332196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1565,11 +1567,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983890875090145427, guid: 7d912c2c5840f864a851762b77d958d2, type: 3}
       propertyPath: m_Size
-      value: 0.8
+      value: 0.80022395
       objectReference: {fileID: 0}
     - target: {fileID: 1983890875090145427, guid: 7d912c2c5840f864a851762b77d958d2, type: 3}
       propertyPath: m_Value
-      value: 0.5
+      value: 0.5000003
       objectReference: {fileID: 0}
     - target: {fileID: 2084355610148567854, guid: 7d912c2c5840f864a851762b77d958d2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1790,6 +1792,10 @@ PrefabInstance:
     - target: {fileID: 2478314047458537642, guid: 7d912c2c5840f864a851762b77d958d2, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508378443663054622, guid: 7d912c2c5840f864a851762b77d958d2, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2648283930562889682, guid: 7d912c2c5840f864a851762b77d958d2, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3143,12 +3149,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2149408882264131474, guid: 7d912c2c5840f864a851762b77d958d2, type: 3}
   m_PrefabInstance: {fileID: 562492421899064699}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1880925870840402668}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25aaf5059f1a79445b57b48eae43e7d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1880925870840402668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2149408882264131479, guid: 7d912c2c5840f864a851762b77d958d2, type: 3}
+  m_PrefabInstance: {fileID: 562492421899064699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3311327473347259667 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3042864526807431272, guid: 7d912c2c5840f864a851762b77d958d2, type: 3}
