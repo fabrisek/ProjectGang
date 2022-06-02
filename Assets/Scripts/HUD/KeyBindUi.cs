@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using Doozy.Runtime.UIManager.Components;
 
 public class KeyBindUi : MonoBehaviour
 {
@@ -21,9 +22,9 @@ public class KeyBindUi : MonoBehaviour
 
     [Header("UI FIELD")]
     [SerializeField] TextMeshProUGUI _actionText;
-    [SerializeField] Button _rebindButton;
+    [SerializeField] UIButton _rebindButton;
     [SerializeField] TextMeshProUGUI _rebindText;
-    [SerializeField] Button _resetButton;
+    [SerializeField] UIButton _resetButton;
 
     private void OnEnable()
     {
@@ -69,6 +70,7 @@ public class KeyBindUi : MonoBehaviour
         {
             _inputBinding = _inputActionReference.action.bindings[_selectedBinding];
             _bindingIndex = _selectedBinding;
+            
         }
     }
 
@@ -77,6 +79,9 @@ public class KeyBindUi : MonoBehaviour
         if (_actionText != null)
         {
             _actionText.text = _actionName;
+
+            if (_inputActionReference.action.bindings[_selectedBinding].isPartOfComposite)
+                _actionText.text = _inputActionReference.action.bindings[_selectedBinding].name;
         }
 
         if (_rebindText != null)

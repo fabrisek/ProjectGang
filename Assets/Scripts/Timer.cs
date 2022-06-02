@@ -17,10 +17,7 @@ public class Timer : MonoBehaviour
     {
         Instance = this;
     }
-    private void Start()
-    {
-        
-    }
+
     public void LaunchTimer()
     {        
         _timerIsLaunch = true;
@@ -34,8 +31,6 @@ public class Timer : MonoBehaviour
             _hud.ChangeTimerHud(_timer);
         }
     }
-
-
 
     public void StopTimer()
     {

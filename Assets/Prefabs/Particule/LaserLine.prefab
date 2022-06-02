@@ -4876,7 +4876,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bb1f70d6252735d46a6a037a6fcb6b00, type: 2}
+  - {fileID: 2100000, guid: 0eae61a8d32a3674f95f7f8a8a81c919, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5062,6 +5062,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6300252925568729450}
     m_Modifications:
+    - target: {fileID: 589244250259305347, guid: 5428b2d653f2a2c4ea2ca95ab2eec372, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0eae61a8d32a3674f95f7f8a8a81c919, type: 2}
     - target: {fileID: 2993196035783918405, guid: 5428b2d653f2a2c4ea2ca95ab2eec372, type: 3}
       propertyPath: m_Name
       value: LaserElectricEffect (1)
@@ -5140,6 +5144,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6300252925568729450}
     m_Modifications:
+    - target: {fileID: 589244250259305347, guid: 5428b2d653f2a2c4ea2ca95ab2eec372, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0eae61a8d32a3674f95f7f8a8a81c919, type: 2}
     - target: {fileID: 2993196035783918405, guid: 5428b2d653f2a2c4ea2ca95ab2eec372, type: 3}
       propertyPath: m_Name
       value: LaserElectricEffect

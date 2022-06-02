@@ -7,16 +7,18 @@ public class LevelSelectorMenu : MonoBehaviour
 {
     [SerializeField] GameObject _canvas;
     [SerializeField] int _indexData;
-    [SerializeField] int _indexScene;
+    [SerializeField] GameObject textGoPress;
+    int _indexScene;
+    [SerializeField]int _indexWorld;
 
     [SerializeField] TextMeshProUGUI _nameLevel;
-    [SerializeField] TextMeshProUGUI _highScore;
+    [SerializeField] TextMeshProUGUI _star;
     public int GetSceneNumber() { return _indexScene; }
     public int GetIndexData() { return _indexData; }
     // Start is called before the first frame update
     void Start()
     {
-        _indexScene = Data_Manager.Instance.GetMapData(_indexData).GetIndexScene();
+        _indexScene = Data_Manager.Instance.GetMapData(_indexData, _indexWorld).GetIndexScene();
     }
 
     // Update is called once per frame
@@ -24,25 +26,37 @@ public class LevelSelectorMenu : MonoBehaviour
     {
         
     }
-
+    
     private void ChangeInformation()
     {
-        MapData data = Data_Manager.Instance.GetMapData(_indexData);
-        _nameLevel.text = data.GetMapName();
-        _highScore.text = Timer.FormatTime(data.GetHighScore());
+        DATA data = Data_Manager.Instance.GetData();
+        _nameLevel.text = data._worldData[_indexWorld].WorldName;
+        int totalStar = 0;
+        int starUnlock = 0;
+        for (int i = 0; i < data._worldData[_indexWorld]._mapData.Count; i++)
+        {
+            MapData mapData = data._worldData[_indexWorld]._mapData[i];
+            for (int j = 0; j < mapData.TimeStar.Length; j++)
+            {
+                totalStar++;
+                if (mapData.GetHighScore() <= mapData.TimeStar[j] && mapData.GetHighScore() != 0)
+                {
+                    starUnlock++;
+                }
+            }
+            
+        }
+        _star.text = "STAR : " + starUnlock.ToString() + " / " + totalStar.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 7)
         {
-            MapData data = Data_Manager.Instance.GetMapData(_indexData);
-            if (data.GetHaveUnlockLevel())
-            {
-                _canvas.SetActive(true);
-                ChangeInformation();
-                other.GetComponent<MenuAntCrontroller>().SetLevelRef(this);
-            }            
+            _canvas.SetActive(true);
+            other.GetComponent<MenuAntCrontroller>().SetLevelRef(this);
+            ChangeInformation();
+            textGoPress.SetActive(true);
         }
     }
 
@@ -50,6 +64,7 @@ public class LevelSelectorMenu : MonoBehaviour
     {
         if (other.gameObject.layer == 7)
         {
+            textGoPress.SetActive(false);
             _canvas.SetActive(false);
             other.GetComponent<MenuAntCrontroller>().SetLevelRef(null);
         }

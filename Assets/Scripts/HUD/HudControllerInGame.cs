@@ -18,8 +18,18 @@ public class HudControllerInGame : MonoBehaviour
 
 
     [SerializeField] TextMeshProUGUI _textTimerInGame;
+    [SerializeField]
+    TextMeshProUGUI _textTimeDead;
     [SerializeField] TextMeshProUGUI _textTimerWin;
-
+    [SerializeField] TextMeshProUGUI _textBestTime;
+    [SerializeField]
+    Image[] allStar;
+    [SerializeField] Sprite starUnlock;
+    [SerializeField] Sprite startLock;
+    [SerializeField] GameObject buttonNextLevel;
+    private int indexNextScene;
+    private int indexLevel;
+    private int indexWorld;
     [SerializeField] EventSystem eventSystem;
 
     [SerializeField] GameObject firstButtonDead;
@@ -42,7 +52,16 @@ public class HudControllerInGame : MonoBehaviour
     float timeToReacToAnimLetterh;
     bool startTimeToAimLetter;
 
-
+    [SerializeField] GameObject parentHighScore;
+    [SerializeField] GameObject panelHighScore;
+    [SerializeField] GameObject HighScorePrefab;
+    [SerializeField] TextMeshProUGUI textPosBouton;
+    bool showFps;
+    public void  SetShowFps(bool show) 
+    {
+        showFps = show;
+        fpsText.enabled = show;
+    }
     public ActualMenu StateMenu { get; set; }
     public bool InMenu { get; set; }
     public float deltaTime;
@@ -56,15 +75,20 @@ public class HudControllerInGame : MonoBehaviour
     private void Start()
     {
         InitLetterAnim();
+        _optionsPanel.SetActive(false);
     }
 
     private void Update()
     {
-        //playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
-        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-        float fps = 1.0f / deltaTime;
-        fpsText.text = Mathf.Ceil(fps).ToString() + "fps";
-        UpdateTimerForLetterAnim();
+        if (showFps)
+        {
+            //playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
+            deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+            float fps = 1.0f / deltaTime;
+            fpsText.text = Mathf.Ceil(fps).ToString() + "fps";
+            UpdateTimerForLetterAnim();
+        }
+
     }
     public void OpenDeathPanel()
     {
@@ -72,10 +96,15 @@ public class HudControllerInGame : MonoBehaviour
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
 
         eventSystem.SetSelectedGameObject(firstButtonDead);
+        _textTimeDead.text = "TIMER : " + Timer.FormatTime(Timer.Instance.GetTimer());
     }
 
     public void Back()
@@ -134,16 +163,107 @@ public class HudControllerInGame : MonoBehaviour
         LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void OpenWinPanel(float timer)
+    public void OpenWinPanel(float timer, float bestTime, int levelIndex,int worldIndex)
     {
         _deadPanel.SetActive(false);
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(true);
-        _textTimerWin.text = Timer.FormatTime(timer);
+        _textTimerWin.text = "TIME : " + Timer.FormatTime(timer);
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         eventSystem.SetSelectedGameObject(firstButtunWin);
+
+        _textBestTime.text = "BEST TIME : " + Timer.FormatTime(bestTime);
+
+        if (bestTime == 0)
+        {
+            _textBestTime.text = "BEST TIME : " + Timer.FormatTime(timer);
+        }
+        if (timer == bestTime)
+        {
+            _textBestTime.text = "NEW RECORD : " + Timer.FormatTime(bestTime);
+            _textBestTime.color = Color.red;
+        }
+
+        if (Data_Manager.Instance != null)
+        {
+            DATA data = Data_Manager.Instance.GetData();
+
+                if (data._worldData[worldIndex]._mapData.Count - 1 == levelIndex)
+                {
+                    buttonNextLevel.SetActive(false);
+                }
+
+            else
+            {
+                indexWorld = worldIndex;
+                buttonNextLevel.SetActive(true);
+                indexNextScene = levelIndex + 1;
+                indexLevel = levelIndex;
+            }
+
+            for (int i = 0; i < data._worldData[worldIndex]._mapData[levelIndex].TimeStar.Length; i++)
+            {
+                if (data._worldData[worldIndex]._mapData[levelIndex].GetHighScore() <= data._worldData[worldIndex]._mapData[levelIndex].TimeStar[i])
+                {
+                    allStar[i].sprite = starUnlock;
+                }
+                else
+                {
+                    allStar[i].sprite = startLock;
+                }
+            }
+        }
+        
+        if (Data_Manager.Instance == null)
+        {
+            buttonNextLevel.SetActive(false);
+        }
+
+        if (PlayFabHighScore.Instance != null)
+        {
+            StartCoroutine(WaitPosPlayer());
+        }
+
+    }
+
+    IEnumerator WaitPosPlayer()
+    {
+        yield return new WaitForSeconds(1);
+        PlayFabHighScore.Instance.GetPosPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetMapName());
+    }
+
+    public void ChangePosPlayer(int pos)
+    {
+        textPosBouton.text = "TOP # "+ (pos + 1).ToString();
+    }
+
+    public void CloseHighScore()
+    {
+        panelHighScore.SetActive(false);
+    }
+
+    public void ClickButtonHighScore()
+    {
+        panelHighScore.SetActive(true);
+        PlayFabHighScore.Instance.InitializeHighScore(HighScorePrefab, parentHighScore.transform);
+        PlayFabHighScore.Instance.GetLeaderBord(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetMapName());
+    }
+
+    public void ClickButtonAroundPlayer()
+    {
+        panelHighScore.SetActive(true);
+        PlayFabHighScore.Instance.InitializeHighScore(HighScorePrefab, parentHighScore.transform);
+        PlayFabHighScore.Instance.GetLeaderBoardAroundPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetMapName());
+    }
+
+    public void OpenNextLevel()
+    {
+        LevelLoader.Instance.LoadLevel(Data_Manager.Instance.GetMapData(indexNextScene, indexWorld).GetIndexScene());
     }
 
     public void OpenMainMenu()
@@ -187,7 +307,7 @@ public class HudControllerInGame : MonoBehaviour
         timeToReacToAnimLetterh = time / 3;
         threeTwoOneSlider.enabled = true;
         threeTwoOneSlider.text = txtThreeTwoOne[0];
-        AudioManager.instance.playSoundEffect(1, 1);
+        AudioManager.instance.playSoundEffect(17, 1);
         StopCoroutine(CoroutineAffichageImagesStart(time, 1));
         StartCoroutine(CoroutineAffichageImagesStart(time, 1));
 
@@ -225,7 +345,15 @@ public class HudControllerInGame : MonoBehaviour
 
         //Affichage de la nouvelle lettre
         threeTwoOneSlider.text = txtThreeTwoOne[index];
-        AudioManager.instance.playSoundEffect(1, 1);
+        if(index == 3)
+        {
+            AudioManager.instance.playSoundEffect(18, 1);
+        }
+        else
+        {
+            AudioManager.instance.playSoundEffect(17, 1);
+        }
+        
 
         //set timer pour anim la lettre
         startTimeToAimLetter = true;

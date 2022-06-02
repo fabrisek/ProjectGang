@@ -14,6 +14,7 @@ public class HUD_Settings : MonoBehaviour
     [SerializeField] EventSystem eventSystem;
     [SerializeField] GameObject _panelAudio;
     [SerializeField] GameObject _panelControl;
+    [SerializeField] GameObject _panelGamePad;
     [SerializeField] GameObject _panelGraphics;
     [SerializeField] GameObject _panelButton;
 
@@ -22,13 +23,17 @@ public class HUD_Settings : MonoBehaviour
     [SerializeField] TMP_Dropdown _antiAliasingDropDown;
 
     [SerializeField] UIToggle _vSyncToggle;
+    [SerializeField] UIToggle _toggleShowFps;
+    [SerializeField] UIToggle _toggleCameraShake;
+    [SerializeField] UIToggle _toggleRumbler;
+    [SerializeField] UIToggle _toggleCameraClamp;
     [SerializeField] Slider sliderSensibilityMouseX;
     [SerializeField] Slider sliderSensibilityMouseY;
-    [SerializeField] Slider sliderSensibilityGamePadX;
-    [SerializeField] Slider sliderSensibilityGamePadY;
+    [SerializeField] TMP_Dropdown _dropDownFpsTarget;
 
     [SerializeField] Slider sliderVolumeSoundEffect;
     [SerializeField] Slider sliderVolumeMusic;
+    [SerializeField] Slider sliderVolumeGeneral;
 
     [SerializeField] GameObject _firstButtonOptionMenu;
     [SerializeField]
@@ -37,9 +42,16 @@ public class HUD_Settings : MonoBehaviour
     GameObject _firstBoutonPanelControl;
     [SerializeField]
     GameObject _firstBoutonPanelGraphics;
+    [SerializeField]
+    GameObject _firstBoutonPanelGamePad;
     FullScreenMode screenMode;
     private Resolution[] storeResolution;
     int countRes;
+
+    public bool UseCameraShake { get; set; }
+    public bool UseRumbler { get; set; }
+    public bool UseClampCamera { get; set; }
+
     private void Awake()
     {
         Instance = this;
@@ -49,8 +61,26 @@ public class HUD_Settings : MonoBehaviour
         InitializeGraphicsOptions();
         InitializeAudioOption();
         InitializeSensibility();
-        
-        sliderVolumeSoundEffect.value = PlayerPrefs.GetFloat("VolumeSFX", 0.5f);
+    }
+
+    public void SetFpsTarget(int i)
+    {
+        switch(i)
+        {
+            case 0:
+                Application.targetFrameRate = 60;
+                break;
+            case 1:
+                Application.targetFrameRate = 120;
+                break;
+            case 2:
+                Application.targetFrameRate = 150;
+                break;
+            case 3:
+                Application.targetFrameRate = 300;              
+                break;
+        }
+        PlayerPrefs.SetInt("FpsTarget", i);
     }
 
     public void OpenButtonPanel()
@@ -59,6 +89,7 @@ public class HUD_Settings : MonoBehaviour
         _panelAudio.SetActive(false);
         _panelControl.SetActive(false);
         _panelGraphics.SetActive(false);
+        _panelGamePad.SetActive(false);
         eventSystem.SetSelectedGameObject(_firstButtonOptionMenu);
     }
 
@@ -85,28 +116,50 @@ public class HUD_Settings : MonoBehaviour
         eventSystem.SetSelectedGameObject(_firstBoutonPanelControl);
     }
 
-    private void InitializeSensibility()
+    public void OpenGamePadPanel()
     {
-        sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 200f);
-        sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityMouseY", 200f);
-        sliderSensibilityGamePadX.value = PlayerPrefs.GetFloat("SensibilityGamePadX", 200f);
-        sliderSensibilityGamePadY.value = PlayerPrefs.GetFloat("SensibilityGamePadY", 200f);
+        HudControllerInGame.Instance.StateMenu = ActualMenu.InSettings;
+        _panelGamePad.SetActive(true);
+        _panelButton.SetActive(false);
+        eventSystem.SetSelectedGameObject(_firstBoutonPanelControl);
     }
 
-    public void ChangeValueSliderAudio()
+
+
+
+
+    private void InitializeSensibility()
+    {
+        sliderSensibilityMouseX.value = PlayerPrefs.GetFloat("SensibilityMouseX", 100f);
+        sliderSensibilityMouseY.value = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
+    }
+
+    public void ChangeAudioGeneral()
+    {
+        PlayerPrefs.SetFloat("VolumeGeneral", sliderVolumeGeneral.value);
+        AudioManager.instance.SetGeneralVolume(sliderVolumeGeneral.value);
+    }
+
+    public void ChangeAudioMusic()
     {
         PlayerPrefs.SetFloat("VolumeMusic", sliderVolumeMusic.value);
-        PlayerPrefs.SetFloat("Sound", sliderVolumeSoundEffect.value);
-        Debug.Log(PlayerPrefs.GetFloat("Sound"));
         AudioManager.instance.ChangeVolumeMusic(sliderVolumeMusic.value);
+    }
+
+    public void ChangeAudioSFX()
+    {
+        PlayerPrefs.SetFloat("SoundEffect", sliderVolumeSoundEffect.value);
         AudioManager.instance.ChangeVolumeSoundEFFect(sliderVolumeSoundEffect.value);
     }
+
     void InitializeAudioOption()
     {
-        sliderVolumeMusic.value = PlayerPrefs.GetFloat("VolumeMusic", 0.5f);
-        sliderVolumeSoundEffect.value = PlayerPrefs.GetFloat("Sound", 0.5f);
-        AudioManager.instance.ChangeVolumeMusic(PlayerPrefs.GetFloat("VolumeMusic", 0.5f));
-        AudioManager.instance.ChangeVolumeSoundEFFect(PlayerPrefs.GetFloat("Sound", 0.5f));
+        sliderVolumeGeneral.value = PlayerPrefs.GetFloat("VolumeGeneral", 0.8f);
+        ChangeAudioGeneral();
+        sliderVolumeMusic.value = PlayerPrefs.GetFloat("VolumeMusic", 0.8f);
+        ChangeAudioMusic();
+        sliderVolumeSoundEffect.value = PlayerPrefs.GetFloat("SoundEffect", 0.8f);
+        ChangeAudioSFX();
     }
     void InitializeGraphicsOptions()
     {
@@ -128,6 +181,18 @@ public class HUD_Settings : MonoBehaviour
         SetAntiAliasing();
         _resolutionDropDown.value = PlayerPrefs.GetInt("Resolution");
         SetResolution();
+        _toggleShowFps.isOn = (PlayerPrefs.GetInt("ShowFps") != 0);
+        ShowFps();
+        _toggleCameraShake.isOn = (PlayerPrefs.GetInt("CameraShake") != 0);
+        SetCameraShake();
+        _toggleRumbler.isOn = (PlayerPrefs.GetInt("Rumbler") != 0);
+        SetRumbler();
+        _toggleCameraClamp.isOn = (PlayerPrefs.GetInt("CameraClamp") != 0);
+        SetCameraClamp();
+
+        SetFpsTarget( PlayerPrefs.GetInt("FpsTarget", 1));
+        _dropDownFpsTarget.value = PlayerPrefs.GetInt("FpsTarget", 1);
+
     }
 
     public void SetScreenMode()
@@ -135,6 +200,20 @@ public class HUD_Settings : MonoBehaviour
         ScreenOptions(_displayTypeDropDown.value);
 
         PlayerPrefs.SetInt("ScreenMode", _displayTypeDropDown.value); 
+    }
+
+    public void ShowFps()
+    {
+        if (_toggleShowFps.isOn == false)
+        {
+            HudControllerInGame.Instance.SetShowFps(false);
+        }
+        else
+        {
+            HudControllerInGame.Instance.SetShowFps(true);
+        }
+
+        PlayerPrefs.SetInt("ShowFps", (_vSyncToggle.isOn ? 1 : 0));
     }
 
     public void SetVSync()
@@ -149,6 +228,48 @@ public class HUD_Settings : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("VSync", (_vSyncToggle.isOn ? 1 : 0));
+    }
+
+    public void SetCameraShake()
+    {
+        if (_toggleCameraShake.isOn == false)
+        {
+            UseCameraShake = false;
+        }
+        else
+        {
+            UseCameraShake = true;
+        }
+
+        PlayerPrefs.SetInt("CameraShake", (_vSyncToggle.isOn ? 1 : 0));
+    }
+
+    public void SetCameraClamp()
+    {
+        if (_toggleCameraClamp.isOn == false)
+        {
+            UseClampCamera = false;
+        }
+        else
+        {
+            UseClampCamera = true;
+        }
+
+        PlayerPrefs.SetInt("CameraClamp", (_vSyncToggle.isOn ? 1 : 0));
+    }
+
+    public void SetRumbler()
+    {
+        if (_toggleRumbler.isOn == false)
+        {
+            UseRumbler = false;
+        }
+        else
+        {
+            UseRumbler = true;
+        }
+
+        PlayerPrefs.SetInt("Rumbler", (_vSyncToggle.isOn ? 1 : 0));
     }
 
     public void SetAntiAliasing()

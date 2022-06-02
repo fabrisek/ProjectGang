@@ -32,7 +32,7 @@ public class PlayFabLogin : MonoBehaviour
     {
         var request = new LoginWithCustomIDRequest
         {
-            CustomId = ((int)Random.Range(0, 999999)).ToString(),
+            CustomId = SystemInfo.deviceUniqueIdentifier,
             CreateAccount = true
         };
         PlayFabClientAPI.LoginWithCustomID(request, OnLogin, OnError);

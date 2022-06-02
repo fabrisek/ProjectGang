@@ -27,6 +27,7 @@ public class PlayFabHighScore : MonoBehaviour
     public void SendLeaderBord(float score, string nameMap)
     {
         score *= 1000;
+        Debug.Log((int)-score);
         var request = new UpdatePlayerStatisticsRequest
         {
             Statistics = new List<StatisticUpdate>
@@ -34,7 +35,7 @@ public class PlayFabHighScore : MonoBehaviour
                 new StatisticUpdate
                 {
                     StatisticName = nameMap,
-                    Value = (int)score
+                    Value = (int)-score
                 }
             }
         };
@@ -67,6 +68,24 @@ public class PlayFabHighScore : MonoBehaviour
         PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnLeaderboardAroundPlayerGet, OnError);
     }
 
+    public void GetPosPlayer(string mapName)
+    {
+        
+        var request = new GetLeaderboardAroundPlayerRequest
+        {
+            StatisticName = mapName,
+            MaxResultsCount = 1
+        };
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnPosPlayerGet, OnError);
+    }
+
+    void OnPosPlayerGet(GetLeaderboardAroundPlayerResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {            
+                HudControllerInGame.Instance.ChangePosPlayer(item.Position);          
+        }
+    }
     void OnLeaderboardAroundPlayerGet(GetLeaderboardAroundPlayerResult result)
     {
         foreach (Transform item in scoreboardParent)
@@ -77,12 +96,12 @@ public class PlayFabHighScore : MonoBehaviour
         {
             GameObject newGo = Instantiate(prefabScoreTitle, scoreboardParent);
             TextMeshProUGUI[] text = newGo.GetComponentsInChildren<TextMeshProUGUI>();
-            text[0].text = "#" + item.Position.ToString();
-            text[1].text = "User : " + item.DisplayName;
-            text[2].text = "Score : " + Timer.FormatTime((float)item.StatValue / 1000);
+            text[0].text = "#" + (item.Position+1).ToString();
+            text[1].text = "User : " + item.Profile.PlayerId;
+            text[2].text = "Score : " + Timer.FormatTime(MathF.Abs((float)item.StatValue / 1000));
 
             
-            if (item.PlayFabId == PlayFabLogin.Instance.GetEntityId())
+            if (item.PlayFabId == PlayFabLogin.Instance.GetPlayFabId())
             {
                 text[0].color = Color.red;
                 text[1].color = Color.red;
@@ -102,9 +121,9 @@ public class PlayFabHighScore : MonoBehaviour
         {
             GameObject newGo = Instantiate(prefabScoreTitle, scoreboardParent);
             TextMeshProUGUI[] text = newGo.GetComponentsInChildren<TextMeshProUGUI>();
-            text[0].text = "#" + item.Position.ToString();
-            text[1].text = "User : " + item.DisplayName;
-            text[2].text = "Score : " + Timer.FormatTime((float)item.StatValue / 1000);
+            text[0].text = "#" + (item.Position + 1).ToString();
+            text[1].text = "User : " + item.Profile.PlayerId;
+            text[2].text = "Score : " + Timer.FormatTime(MathF.Abs((float)item.StatValue / 1000));
             //newGo.GetComponentInChildren<HighScoreButton>().SetPlayerTitleId(item.PlayFabId);
             if (item.PlayFabId == PlayFabLogin.Instance.GetPlayFabId())
             {

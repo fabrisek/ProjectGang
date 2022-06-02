@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 public class GrapplingGun : MonoBehaviour
 {
+    public static GrapplingGun Instance;
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
     public Transform gunTip, cam, player;
@@ -27,7 +28,7 @@ public class GrapplingGun : MonoBehaviour
     public Image crossHairLocked;
     
 
-    public Input inputActions;
+
     [SerializeField] ShakeData grapplinShake;
     [SerializeField] PlayerMovementAdvanced playerMovementAdvanced;
     [SerializeField] GameObject particuleHit;
@@ -36,14 +37,7 @@ public class GrapplingGun : MonoBehaviour
 
     [SerializeField] CompetenceRalentie competenceRalentie;
 
-    private void OnEnable()
-    {
-        inputActions.Enable();
-    }
-    private void OnDisable()
-    {
-        inputActions.Disable();
-    }
+    [SerializeField] Animator grappinAnimator;
 
 
     void Awake()
@@ -52,13 +46,8 @@ public class GrapplingGun : MonoBehaviour
         particuleGunTip.SetActive(false);
         particuleHit.transform.parent = null;
         //Inputs
-        inputActions = new Input();
-
-        inputActions.InGame.Grappling.performed += StartGrapple;
-        inputActions.InGame.Grappling.canceled += StopGrapple;
-
+        Instance = this;
         timerHit = 0.5f;
-
     }
 
     void Update()
@@ -105,7 +94,7 @@ public class GrapplingGun : MonoBehaviour
     
 
     // Call whenever we want to start a grapple
-    private void StartGrapple(InputAction.CallbackContext callback)
+    public void StartGrapple(InputAction.CallbackContext callback)
     {
         if(callback.performed)
         {
@@ -141,6 +130,9 @@ public class GrapplingGun : MonoBehaviour
                 startGrapple = true;
                 playerMovementAdvanced.setGrapplin(true);
 
+                //anim
+                grappinAnimator.SetBool("Grappling", true);
+
 
             }
         }
@@ -151,7 +143,7 @@ public class GrapplingGun : MonoBehaviour
  
 
 
-    private void StopGrapple(InputAction.CallbackContext callback)
+    public void StopGrapple(InputAction.CallbackContext callback)
     {
         if (callback.canceled)
         {
@@ -166,6 +158,9 @@ public class GrapplingGun : MonoBehaviour
             playerMovementAdvanced.setGrapplin(false);
             crossHair.sprite = crossHairNormal.sprite;
             crossHair.color = Color.white;
+
+            //anim
+            grappinAnimator.SetBool("Grappling", false);
         }
     }
     

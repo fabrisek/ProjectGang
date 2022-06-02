@@ -7,11 +7,11 @@ public class BugTargetController : MonoBehaviour
     [SerializeField] public BugTargetFoot[] targetFeet1;
     [SerializeField] public BugTargetFoot[] targetFeet2;
     int actuelFootMove1;
-    int ancienFootMove1;
+    
     bool moveFoot1;
     int maxFoot1;
     int actuelFootMove2;
-    int ancienFootMove2;
+   
     bool moveFoot2;
     int maxFoot2;
 
@@ -39,11 +39,24 @@ public class BugTargetController : MonoBehaviour
 
     public float gravity;
     Rigidbody rb;
+
+    [SerializeField] GameObject viewBug;
+    [SerializeField] LayerMask playerLayer;
+
+    Transform playerPos;
     public Transform Target
     {
         set
         {
             target = value;
+        }
+    }
+
+    public Transform Player
+    {
+        set
+        {
+            playerPos = value;
         }
     }
 
@@ -71,13 +84,13 @@ public class BugTargetController : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        InitBug();
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
-        InitBug();
-
-      
     }
 
     private void Update()
@@ -92,6 +105,10 @@ public class BugTargetController : MonoBehaviour
         if(rb.useGravity)
         {
             rb.AddForce(Vector3.down * gravity);
+        }
+        if (playerPos != null)
+        {
+            CheckDistwithPlayerChangeTheView();
         }
     }
 
@@ -114,7 +131,6 @@ public class BugTargetController : MonoBehaviour
             targetFeet2[i].InitBug();
             targetFeet2[i].SpeedBug = speed;
         }
-        transform.Translate(direction * speed * Time.deltaTime);
     }
 
     private void Movebug()
@@ -188,10 +204,10 @@ public class BugTargetController : MonoBehaviour
     {
         if (!moveFoot1)
         {
-            int nextFoot = CheckDist(targetFeet1, actuelFootMove2, ancienFootMove2);
+            int nextFoot = CheckDist(targetFeet1);
             if (nextFoot != -1)
             {
-                ancienFootMove1 = actuelFootMove1;
+                
                 actuelFootMove1 = nextFoot;
                 targetFeet1[actuelFootMove1].InitMoveStep();
                 targetFeet1 = ChangePriorityFeet(actuelFootMove1, targetFeet1);
@@ -209,10 +225,10 @@ public class BugTargetController : MonoBehaviour
 
         if (!moveFoot2)
         {
-            int nextFoot = CheckDist(targetFeet2,actuelFootMove1,ancienFootMove2);
+            int nextFoot = CheckDist(targetFeet2);
             if (nextFoot != -1)
             {
-                ancienFootMove2 = actuelFootMove2;
+              
                 actuelFootMove2 = nextFoot;
                 targetFeet2[actuelFootMove2].InitMoveStep();
                 targetFeet2 = ChangePriorityFeet(actuelFootMove2, targetFeet2);
@@ -229,7 +245,7 @@ public class BugTargetController : MonoBehaviour
         }
     }
 
-    int CheckDist(BugTargetFoot[] targetFeet, int actu, int ancien)
+    int CheckDist(BugTargetFoot[] targetFeet)
     {
         float[] distFoot = new float[targetFeet.Length];
         for (int i = 0; i < targetFeet.Length; i++)
@@ -243,7 +259,7 @@ public class BugTargetController : MonoBehaviour
 
         for (int i = 0; i < targetFeet.Length; i++)
         {
-            if ((targetFeet[i].StepDistance/1.5f < distFoot[i] && distRef < targetFeet[i].StepDistance / 1.5f))
+            if ((targetFeet[i].StepDistance +0.1f < distFoot[i] && distRef < targetFeet[i].StepDistance + 0.1f))
             {
                
                     distRef = distFoot[i];
@@ -278,16 +294,17 @@ public class BugTargetController : MonoBehaviour
 
     
     
-
-
-
-
-
-
-
-
-
-  
+    void CheckDistwithPlayerChangeTheView ()
+    {
+        if(Vector3.Distance(new Vector3(playerPos.position.x,0,playerPos.position.z), new Vector3(transform.position.x,0,transform.position.z)) >= 150 && viewBug.activeSelf)
+        {
+            viewBug.SetActive(false);
+        }
+        else if (!viewBug.activeSelf)
+        {
+            viewBug.SetActive(true);
+        }
+    }
 
     void SetSpeedFeet (float speed)
     {
@@ -356,5 +373,8 @@ public class BugTargetController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
+    
 
 }

@@ -8,13 +8,15 @@ public class GroupesBugsManager : MonoBehaviour
 
     List<GroupesBugs> groupesBugsGo;
 
-    [SerializeField] float time;
+    [SerializeField] float distToGo;
 
-    public float Time
+    Transform playerpPos;
+
+    public Transform Player
     {
         set
         {
-            time = value;
+            playerpPos = value;
         }
     }
 
@@ -23,10 +25,13 @@ public class GroupesBugsManager : MonoBehaviour
     void Start()
     {
         groupesBugsGo = new List<GroupesBugs>();
-        for(int i =0;i<groupesBugs.Count;i++)
+        do
         {
-            groupesBugs[i].InitGroupesBugs();
-        }
+            for (int i = 0; i < groupesBugs.Count; i++)
+            {
+                groupesBugs[i].InitGroupesBugs(playerpPos);
+            }
+        } while (playerpPos == null);
 
         StartCoroutine(CoroutineSetBug());
     }
@@ -49,7 +54,12 @@ public class GroupesBugsManager : MonoBehaviour
         {
             SetTargetToGroupeBug();
         }
-        
+
+        if (groupesBugsGo.Count != 0)
+        {
+            DestroyToGroupeBug();
+        }
+
     }
 
     void ChangeToOtherList (int index)
@@ -63,35 +73,62 @@ public class GroupesBugsManager : MonoBehaviour
             if(i!=index)
             {
                 groupesBugs.Add(groupesBugsTemps[i]);
-               
             }
         }
     }
 
-    int CheckIfTimeToGo ()
+    void SetTargetToGroupeBug ()
     {
-
-        for(int i = 0;i<groupesBugs.Count;i++)
+        if (playerpPos != null)
         {
-            if(time >= groupesBugs[i].TimeToGo)
+            int index = checkTheDistancePlayerRef();
+            if (index != -1)
+            {
+                groupesBugs[index].SetTarget(0);
+                ChangeToOtherList(index);
+            }
+        }
+    }
+
+    int checkTheDistancePlayerRef ()
+    {
+        for(int i =0; i< groupesBugs.Count;i++)
+        {
+            if(distToGo >= Vector3.Distance(new Vector3(groupesBugs[i].RefPositionDistPlayer.position.x,0, groupesBugs[i].RefPositionDistPlayer.position.z), new Vector3(playerpPos.position.x,0, playerpPos.position.z)))
             {
                 return i;
             }
+
         }
 
         return -1;
     }
 
-    void SetTargetToGroupeBug ()
+    void DestroyToGroupeBug()
     {
-        int index = CheckIfTimeToGo();
-        if(index != -1)
+        if (playerpPos != null)
         {
-            groupesBugs[index].InstanceBug();
-            groupesBugs[index].SetTarget(0);
-            ChangeToOtherList(index);
+            int index = checkTheDistancePlayerRefDisable();
+            if (index != -1)
+            {
+                groupesBugsGo[index].DestroyAllBug();
+            }
         }
     }
 
-    
+    int checkTheDistancePlayerRefDisable()
+    {
+        for (int i = 0; i < groupesBugsGo.Count; i++)
+        {
+            if (distToGo*2 <= Vector3.Distance(new Vector3(groupesBugsGo[i].RefPositionDistPlayer.position.x, 0, groupesBugsGo[i].RefPositionDistPlayer.position.z), new Vector3(playerpPos.position.x, 0, playerpPos.position.z)))
+            {
+                return i;
+            }
+
+        }
+
+        return -1;
+    }
+
+
 }

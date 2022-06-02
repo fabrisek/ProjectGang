@@ -15,14 +15,14 @@ public class CompetenceRalentie : MonoBehaviour
     }
 
 
-    public void ActiveSlowTime(InputAction.CallbackContext callback)
+    public void ActiveSlowTime(bool b)
     {
-        if (callback.performed)
+        if (b)
         {
             ActiveSkill();
         }
 
-        if (callback.canceled)
+        else 
         {
             DesactiveSkill();
         }

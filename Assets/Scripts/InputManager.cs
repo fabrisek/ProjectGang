@@ -28,19 +28,47 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         _input = new Input();
-
+        Instance = this;
         SensibilityMouseX = PlayerPrefs.GetFloat("SensibilityMouseX", 100f); 
         SensibilityMouseY = PlayerPrefs.GetFloat("SensibilityMouseY", 100f); 
         SensibilityGamePadX = PlayerPrefs.GetFloat("SensibilityGamePadX", 100f); 
         SensibilityGamePadY = PlayerPrefs.GetFloat("SensibilityGamePadY", 100f);
 
+        _input.InGame.SlowTime.performed += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(true);
+        _input.InGame.SlowTime.canceled += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(false);        
+        _input.InGame.Pause.performed += context => PlayerMovementAdvanced.Instance.Pause();
+        _input.InGame.Jump.started += context => PlayerMovementAdvanced.Instance.GetPlayerJump();
+        _input.InGame.Jump.canceled += context => PlayerMovementAdvanced.Instance.PlayerJumpDown(true);
+
+
+        _input.InGame.Jump.started += context => WallRunningAdvanced.Instance.WallJump();
+
+        _input.InGame.Grappling.performed += GrapplingGun.Instance.StartGrapple;
+        _input.InGame.Grappling.canceled += GrapplingGun.Instance.StopGrapple;
         
+        _input.InGame.RestartAndBack.performed += LevelManager.Instance.RestartLevel;
+        _input.InGame.RestartAndBack.canceled -= LevelManager.Instance.RestartLevel;
     }
     public void OnEnable()
     {
+        _input.Enable();
         playerInput.onControlsChanged += OnControlsChanged;
+        
+    }
+    private void OnDisable()
+    {
+        _input.Disable();
     }
 
+        public Vector2 GetPlayerMovement()
+    {
+        return _input.InGame.Move.ReadValue<Vector2>();
+    }
+
+    public Vector2 GetPlayerLook()
+    {
+        return _input.InGame.Look.ReadValue<Vector2>();
+    }
 
     private void OnControlsChanged(UnityEngine.InputSystem.PlayerInput obj)
     {
@@ -52,6 +80,7 @@ public class InputManager : MonoBehaviour
                 // Send Event
                 // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
                 PlayerCam.Instance.IsGamePad = true;
+                Cursor.visible = false;
             }
         }
         else
@@ -60,35 +89,33 @@ public class InputManager : MonoBehaviour
             {
                 currentControlDevice = ControlDeviceType.KeyboardAndMouse;
                 PlayerCam.Instance.IsGamePad = false;
+
+                if (Time.timeScale == 0)
+                {
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Confined;
+                }
                 // Send Event
                 // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
             }
         }
     }
 
-    public void SetSensibilityXMouse(float x)
-    {
-        PlayerPrefs.SetFloat("SensibilityMouseX", x);
-        SensibilityMouseX = x;
-        
-    }
 
-    public void SetSensibilityXGamePad(float x)
-    {
-        PlayerPrefs.SetFloat("SensibilityGamePadX", x);
-        SensibilityGamePadX = x;
-    }
-
-    public void SetSensibilityYGamePad(float y)
+    public void SetSensibilityGamePad(float y)
     {
         PlayerPrefs.SetFloat("SensibilityGamePadY", y);
         SensibilityGamePadY = y;
+        PlayerPrefs.SetFloat("SensibilityGamePadX", y);
+        SensibilityGamePadX = y;
     }
 
-    public void SetSensibilityYMouse(float y)
+    public void SetSensibilityMouse(float y)
     {
         PlayerPrefs.SetFloat("SensibilityMouseY", y);
         SensibilityMouseY = y;
+        PlayerPrefs.SetFloat("SensibilityMouseX", y);
+        SensibilityMouseX = y;
     }
 
     public static void StartRebind(string actionName, int bindingIndex, TextMeshProUGUI statusText, bool excludeMouse)

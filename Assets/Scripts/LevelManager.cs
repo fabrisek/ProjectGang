@@ -5,62 +5,57 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance;
     [SerializeField] GroupesBugsManager groupesBugsManager;
     [SerializeField] PlayerMovementAdvanced playerMovementScript;
     [SerializeField] WallRunningAdvanced wallRunScript;
     [SerializeField] CompetenceRalentie slowDown;
+    [SerializeField] PlayerCam playercam;
+    [SerializeField] float timeOfThreeTwoOneGo;
 
-    public Input inputActions;
     bool startTimer;
     // Start is called before the first frame update
     void Awake()
     {
-        //Inputs
-        inputActions = new Input();
-        inputActions.InGame.RestartAndBack.performed += RestartLevel;
-        inputActions.InGame.RestartAndBack.canceled -= RestartLevel;
-       
+        SetTimeTOBugsManager();
+        Instance = this;
     }
 
     private void Start()
     {
+        if(timeOfThreeTwoOneGo == 0)
+        {
+            timeOfThreeTwoOneGo = 2;
+        }
         CutMovePlayer();
         StartCoroutine(CoroutineTroisDeuxUn());
-        HudControllerInGame.Instance.StartThreeTwoOne(3);
+        HudControllerInGame.Instance.StartThreeTwoOne(timeOfThreeTwoOneGo);
+        
     }
 
     void CutMovePlayer()
     {
-        inputActions.InGame.Disable();
+        InputManager._input.InGame.Disable();
         playerMovementScript.enabled = false;
         wallRunScript.enabled = false;
         slowDown.enabled = false;
+        playercam.enabled = false;
     }
 
     void ResetMovePlayer()
     {
-        inputActions.Enable();
+        InputManager._input.Enable();
         playerMovementScript.enabled = true;
         wallRunScript.enabled = true;
         slowDown.enabled = true;
-    }
-
-    private void OnEnable()
-    {
-        inputActions.Enable();
-        
-       
-    }
-    private void OnDisable()
-    {
-        inputActions.Disable();
+        playercam.enabled = true;
     }
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(inputActions.InGame.Move.enabled);
         LauchTimer();
-        SetTimeTOBugsManager();
+       
 
     }
 
@@ -68,7 +63,7 @@ public class LevelManager : MonoBehaviour
     {
         if(groupesBugsManager != null)
         {
-            groupesBugsManager.Time = Timer.Instance.GetTimer();
+            groupesBugsManager.Player = playerMovementScript.transform;
         }
     }
 
@@ -82,7 +77,7 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
-    void RestartLevel(InputAction.CallbackContext callback)
+    public void RestartLevel(InputAction.CallbackContext callback)
     {
         if(callback.performed)
         {
@@ -98,7 +93,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator CoroutineTroisDeuxUn ()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(timeOfThreeTwoOneGo);
         ResetMovePlayer();
         startTimer = true;
 
