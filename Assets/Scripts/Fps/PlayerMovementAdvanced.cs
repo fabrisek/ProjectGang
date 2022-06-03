@@ -229,7 +229,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight/2, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight, whatIsGround);
 
         //time To Jump if not on ground;
         if (grounded)
@@ -312,6 +312,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             timeToPress -= Time.deltaTime;
         }
+        if(new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude > speedMax)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z).normalized * speedMax + Vector3.up * rb.velocity.y;
+        }
     }
 
     //Acceleration+Momentum
@@ -330,7 +334,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
         if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.3f && walkSpeed > resetWalkSpeed)
         {
-            walkSpeed -= resetWalkSpeed/5*Time.deltaTime;
+            walkSpeed -= resetWalkSpeed/10*Time.deltaTime;
             accelerationTimer = accelerationTimeReset;
         }
     }

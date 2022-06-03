@@ -32,9 +32,6 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] ShakeData grapplinShake;
     [SerializeField] PlayerMovementAdvanced playerMovementAdvanced;
     [SerializeField] GameObject particuleHit;
-    [SerializeField] GameObject particuleGunTip;
-    [SerializeField] GameObject particuleGunTipLock;
-
     [SerializeField] CompetenceRalentie competenceRalentie;
 
     [SerializeField] Animator grappinAnimator;
@@ -43,21 +40,21 @@ public class GrapplingGun : MonoBehaviour
     void Awake()
     {
         particuleHit.SetActive(false);
-        particuleGunTip.SetActive(false);
         particuleHit.transform.parent = null;
         //Inputs
         Instance = this;
         timerHit = 0.5f;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        
-        if(startGrapple)
+        if (startGrapple)
         {
             playerMovementAdvanced.GetComponent<Rigidbody>().AddForce((grapplePoint - transform.position) * forcePull);
         }
-        RaycastHit hit;
+    }
+    void Update()
+    {
         if(competenceRalentie.IsRalentie())
         {
             maxDistance = 50f;
@@ -66,6 +63,7 @@ public class GrapplingGun : MonoBehaviour
         {
             maxDistance = 20f;
         }
+        RaycastHit hit;
         if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, whatIsGrappleable))
         {
             if(justHit.collider != hit.collider && !IsGrappling() && timerHit <= 0)
@@ -74,8 +72,7 @@ public class GrapplingGun : MonoBehaviour
                 justHit = hit;
                 timerHit = 0.5f;
             }
-            particuleGunTipLock.SetActive(true);
-            particuleGunTip.SetActive(true);
+            //particuleGunTipLock.SetActive(true);
             crossHair.sprite = crossHairLocked.sprite;
             crossHair.color = Color.red;
         }
@@ -83,9 +80,8 @@ public class GrapplingGun : MonoBehaviour
         {
             crossHair.sprite = crossHairNormal.sprite;
             crossHair.color = Color.white;
-            if (!IsGrappling())
-            particuleGunTipLock.SetActive(false);
-            particuleGunTip.SetActive(false);
+            //if (!IsGrappling())
+            //particuleGunTipLock.SetActive(false);
         }
         timerHit -= Time.unscaledDeltaTime;
     }
@@ -125,29 +121,19 @@ public class GrapplingGun : MonoBehaviour
                 
                 particuleHit.SetActive(true);
                 
-                
                 startGrapple = true;
                 playerMovementAdvanced.setGrapplin(true);
 
                 //anim
                 grappinAnimator.SetBool("Grappling", true);
-
-
-            
-        }
+            }
     }
-
-
     // Call whenever we want to stop a grapple
- 
-
-
     public void StopGrapple()
     {
 
             Destroy(joint);
             particuleHit.SetActive(false);
-            particuleGunTip.SetActive(false);
             if (startGrapple)
             { playerMovementAdvanced.SetCanDoubleJump(true); }
 

@@ -6,8 +6,8 @@ public class CameraMove : MonoBehaviour
 {
     public Transform cameraPosition;
 
-    void FixedUpdate()
+    void LateUpdate()
     {
-        gameObject.transform.position = cameraPosition.position;
+        transform.position = Vector3.Lerp(transform.position, cameraPosition.position, 20*Time.deltaTime);
     }
 }
