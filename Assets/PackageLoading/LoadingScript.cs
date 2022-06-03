@@ -38,7 +38,15 @@ public class LoadingScript : MonoBehaviour
             {
                 if (LevelManager.Instance != null)
                 {
-                    LevelManager.Instance.InitLevelManager();
+                    //  LevelManager.Instance.InitLevelManager();
+                    if (CinematicController.Instance != null)
+                    {
+                        CinematicController.Instance.SetStartCinematci();
+                    }
+                    else
+                    {
+                        LevelManager.Instance.InitLevelManager();
+                    }
                 }
                 SceneManager.UnloadScene(sceneindex);
 

@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject CanvasInGame;
 
     public bool firstTime;
+    //bool startcine;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,6 +31,7 @@ public class LevelManager : MonoBehaviour
         if (LoadSave.first)
         {
             //lancement De la cinematique
+            
         }
         else
         {
@@ -40,6 +42,7 @@ public class LevelManager : MonoBehaviour
 
     public void InitLevelManager()
     {
+        
         CanvasInGame.SetActive(true);
         if (timeOfThreeTwoOneGo == 0)
         {
