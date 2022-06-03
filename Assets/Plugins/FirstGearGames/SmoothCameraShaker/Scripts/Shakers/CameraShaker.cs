@@ -402,6 +402,7 @@ namespace FirstGearGames.SmoothCameraShaker
         /// <param name="instance"></param>
         private void AddShakerInstance(ShakerInstance instance)
         {
+            
             ShakerInstances.Add(instance);
             UpdateShaking(true);
         }

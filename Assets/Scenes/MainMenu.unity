@@ -5967,6 +5967,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4092900182404702262, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
+      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798242739}
+    - target: {fileID: 4092900182404702262, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
+      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSelectedGameObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4379548904866611204, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6038,6 +6046,14 @@ PrefabInstance:
     - target: {fileID: 4423476286521655537, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478371152199685728, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
+      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798242739}
+    - target: {fileID: 4478371152199685728, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
+      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSelectedGameObject
       objectReference: {fileID: 0}
     - target: {fileID: 4629190182333381259, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6113,7 +6129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4837022622477219254, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5369742934064766637, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6234,6 +6250,22 @@ PrefabInstance:
     - target: {fileID: 6957274621692811383, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6977332875405691881, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
+      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798242739}
+    - target: {fileID: 6977332875405691881, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
+      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSelectedGameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026507078750128231, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
+      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798242739}
+    - target: {fileID: 7026507078750128231, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
+      propertyPath: Behaviours.Behaviours.Array.data[0].Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSelectedGameObject
       objectReference: {fileID: 0}
     - target: {fileID: 7166608542784412548, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_AnchorMax.y
@@ -11655,9 +11687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2fff43f13fda148903843fe1854a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultVolumeGeneral: 0
-  DefaultVolumeMusic: 0
-  DefaultVolumeSFX: 0.333
+  DefaultVolumeGeneral: 0.657
+  DefaultVolumeMusic: 0.648
+  DefaultVolumeSFX: 0.686
   DefaultSensibilityMouse: 84
   _defaultSensibilityGamePad: 85.6
   _defaultUseRumbler: 0
@@ -12018,7 +12050,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405005612}
-  m_LocalRotation: {x: 0.3000052, y: -0.6403092, z: 0.30000433, w: 0.6403112}
+  m_LocalRotation: {x: 0.30000517, y: -0.6403093, z: 0.3000043, w: 0.6403111}
   m_LocalPosition: {x: 29.129997, y: 17.73, z: -23.650028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12904,7 +12936,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7773722, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12920,7 +12952,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820154976}
-  m_LocalRotation: {x: 0.3000052, y: -0.6403092, z: 0.30000433, w: 0.6403112}
+  m_LocalRotation: {x: 0.30000517, y: -0.6403093, z: 0.3000043, w: 0.6403111}
   m_LocalPosition: {x: 29.129997, y: 17.73, z: -23.650028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
