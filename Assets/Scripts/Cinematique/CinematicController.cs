@@ -6,7 +6,7 @@ using Cinemachine;
 public class CinematicController : MonoBehaviour
 {
     public static CinematicController Instance;
-    [SerializeField] CinemachineVirtualCamera virtualCameraOnRail;
+    [SerializeField] GameObject brainCamera;
     [SerializeField] List<Transform> pointOfIntrest;
 
     [SerializeField] CinemachineSmoothPath path;
@@ -25,6 +25,7 @@ public class CinematicController : MonoBehaviour
 
     public void SetStartCinematci ()
     {
+        brainCamera.SetActive(true);
         startCine = true;
         atEnd = false;
         InitCine();
@@ -73,7 +74,7 @@ public class CinematicController : MonoBehaviour
 
     void InitCine ()
     {
-        camera.SetActive(true);
+        brainCamera.SetActive(true);
         cart.m_Position = 0;
         if (pointOfIntrest[0] != null)
         {
@@ -112,27 +113,33 @@ public class CinematicController : MonoBehaviour
             startCine = false;
             if(LevelManager.Instance != null)
             {
-                camera.SetActive(false);
-                LevelManager.Instance.InitLevelManager();
-               
+
+                finishCinematic();
 
             }
         }
     }
 
+    void finishCinematic ()
+    {
+        LevelManager.Instance.enableCam();
+        brainCamera.SetActive(false);
+        camera.SetActive(false);
+        LevelManager.Instance.InitLevelManager();
+    }
+
     int CheckTheIntrestToLook ()
     {
-        float dist = Vector3.Distance(virtualCameraOnRail.transform.position, pointOfIntrest[0].position);
+        float dist = Vector3.Distance(camera.transform.position, pointOfIntrest[0].position);
         int t = 0;
         for(int i =0; i< pointOfIntrest.Count;i++)
         {
-            if(Vector3.Distance(virtualCameraOnRail.transform.position, pointOfIntrest[i].position) < dist)
+            if(Vector3.Distance(camera.transform.position, pointOfIntrest[i].position) < dist)
             {
-                dist = Vector3.Distance(virtualCameraOnRail.transform.position, pointOfIntrest[i].position);
+                dist = Vector3.Distance(camera.transform.position, pointOfIntrest[i].position);
                 t = i;
             }
         }
-      //  Debug.Log(t);
         return t;
         
     }
@@ -140,11 +147,6 @@ public class CinematicController : MonoBehaviour
     void SetTargetToCamera()
     {
         int pointToLook = CheckTheIntrestToLook();
-        
-        /*if (pointToLook != -1)
-        {
-            virtualCameraOnRail.LookAt = pointOfIntrest[pointToLook];
-                }*/
 
         target = pointOfIntrest[pointToLook];
     }
