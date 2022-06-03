@@ -321,7 +321,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     //Acceleration+Momentum
     private void Accelerate()
     {
-        if(new Vector2 (verticalInput, horizontalInput).magnitude >= 0.5f && verticalInput > -0.2f)
+        if(new Vector2 (verticalInput, horizontalInput).magnitude >= 0.2f && verticalInput > -0.2f)
         {
             accelerationTimer -= Time.deltaTime;
             if(accelerationTimer<0 && walkSpeed< speedMax)
@@ -334,7 +334,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
         if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.3f && walkSpeed > resetWalkSpeed)
         {
-            walkSpeed -= resetWalkSpeed/10*Time.deltaTime;
+            walkSpeed -= resetWalkSpeed/20*Time.deltaTime;
             accelerationTimer = accelerationTimeReset;
         }
     }
