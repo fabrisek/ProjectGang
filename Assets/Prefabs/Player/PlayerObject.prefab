@@ -248,7 +248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8447355275473925018
 Transform:
   m_ObjectHideFlags: 0
@@ -5406,7 +5406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5425134176820868967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.096, y: 0, z: 0.208}
+  m_LocalPosition: {x: 0.096, y: 0.0057, z: 0.007}
   m_LocalScale: {x: 3.5669844, y: 0.81438, z: 0.81438}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5462,19 +5462,37 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.05
+    widthMultiplier: 0.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.99063903
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.030301794
+        value: 0.99122673
+        inSlope: 2.0384336
+        outSlope: 2.0384336
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 1
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.13154238
+        value: 0.5350857
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -5537,8 +5555,8 @@ MonoBehaviour:
   damper: 5
   massScale: 1
   forcePull: 5
-  minDistanceMultiplier: 0.2
-  maxDistanceMultiplier: 0.7
+  minDistanceMultiplier: 0.1
+  maxDistanceMultiplier: 0.8
   startGrapple: 0
   crossHair: {fileID: 0}
   crossHairNormal: {fileID: 4727611984036751915, guid: 99444d44ff64ba947bd650610c565464, type: 3}
@@ -5561,7 +5579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grapplingGun: {fileID: 9105158956558691661}
-  quality: 500
+  quality: 2000
   damper: 5
   strength: 400
   velocity: 10
@@ -5572,34 +5590,34 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.0030517578
-      inSlope: 1.852955
-      outSlope: 1.852955
+      value: 0.0026855469
+      inSlope: 0.40280432
+      outSlope: 0.40280432
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.21028766
+      outWeight: 0.06008201
     - serializedVersion: 3
-      time: 0.32467014
-      value: 0.2535698
-      inSlope: -0.23852834
-      outSlope: -0.23852834
+      time: 0.36147386
+      value: 0.18180013
+      inSlope: -0.32626027
+      outSlope: -0.32626027
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.1573459
+      outWeight: 0.21537781
     - serializedVersion: 3
-      time: 0.59276724
-      value: 0.12317919
-      inSlope: 0.075443946
-      outSlope: 0.075443946
+      time: 0.6055952
+      value: 0.0421435
+      inSlope: -0.3395087
+      outSlope: -0.3395087
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.17511366
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.80060273
-      value: 0.038716346
+      time: 0.8561447
+      value: 0.07497123
       inSlope: -0.3115423
       outSlope: -0.3115423
       tangentMode: 0
@@ -5644,7 +5662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5699247698271314060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: -0.249, z: 0.35}
+  m_LocalPosition: {x: 0.3, y: -0.249, z: 0.425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15639,7 +15657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6894454601682243630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0021, y: -0.002, z: 0.2018}
+  m_LocalPosition: {x: -0.0021, y: -0.002, z: 0.1492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20976,7 +20994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741a3b621f6f95b4c8e251f03311927c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 100
+  rotateSpeed: 10
 --- !u!95 &2053250248646811464
 Animator:
   serializedVersion: 4
@@ -21121,7 +21139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9121184314226926950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.044, z: 0}
+  m_LocalPosition: {x: 0, y: 0.165, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21229,8 +21247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e2789cf278bff4a92d4fb3dbe80283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMax: 15
-  walkSpeed: 7
+  speedMax: 18
+  walkSpeed: 8
   acceleration: 1.005
   accelerationTimer: 0.2
   sprintSpeed: 0
@@ -21282,18 +21300,18 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  wallRunForce: 300
+  wallRunForce: 250
   wallJumpUpForce: 25
   wallJumpSideForce: 5
   wallClimbSpeed: 250
-  maxWallRunTime: 10
+  maxWallRunTime: 5
   tilt: 0
   fovWall: 90
   fovNormal: 80
   wallRunShake: {fileID: 11400000, guid: 4f6a3e0cdcdcc994eb9c69b7eb4bf9e7, type: 2}
   wallCheckDistance: 1.5
   minJumpHeight: 3
-  exitWallTime: 0
+  exitWallTime: 0.2
   useGravity: 1
   gravityCounterForce: 20
   orientation: {fileID: 9121184314764977126}
@@ -21322,9 +21340,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1.6107235
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.19463825, z: 0}
 --- !u!114 &6313250314127164610
 MonoBehaviour:
   m_ObjectHideFlags: 0

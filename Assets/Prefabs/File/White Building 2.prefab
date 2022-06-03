@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7730872138081448306}
   - component: {fileID: 712165842939853082}
   - component: {fileID: 6543691369697816445}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Neon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,8 @@ GameObject:
   - component: {fileID: 536038790405552835}
   - component: {fileID: 3521744427418449254}
   - component: {fileID: 1674011591075168684}
-  m_Layer: 0
+  - component: {fileID: 8577318694840447453}
+  m_Layer: 4
   m_Name: White Building 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,3 +168,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8577318694840447453
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881497009289404537}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3175538451201624014, guid: e575ab4e5a55b9e44a0001acaf6859ea, type: 3}

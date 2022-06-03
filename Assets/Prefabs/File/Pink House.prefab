@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1888120852735522685}
   - component: {fileID: 3286546342024968408}
   - component: {fileID: 754598360007117842}
-  m_Layer: 0
+  - component: {fileID: 8981613289011602432}
+  m_Layer: 4
   m_Name: Pink House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8981613289011602432
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258794879052328391}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7047048808596014524, guid: 91f5f0d0f0dea1b4a884774046162275, type: 3}
 --- !u!1 &7716312750496423851
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +110,7 @@ GameObject:
   - component: {fileID: 635867845425103254}
   - component: {fileID: 9007788817855961123}
   - component: {fileID: 6693034732786546380}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Neon5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
