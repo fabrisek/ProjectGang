@@ -29,10 +29,16 @@ public class LevelLoader : MonoBehaviour
     {
         AudioManager.instance.StopMusic();
         LoadSave.sceneToLoad = sceneIndex;
+        if (TransitionScript.Instance != null)
+        {
+            // StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
+            TransitionScript.Instance.Fade();
+        }
         if (sceneIndex !=0 &&  LoadSave.sceneToLoad != LoadSave.oldSceneLoad)
         {
             LoadSave.oldSceneLoad = LoadSave.sceneToLoad;
             LoadSave.first = true;
+            
           
             SceneManager.LoadScene(2);
         }

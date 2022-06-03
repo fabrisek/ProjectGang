@@ -28,9 +28,11 @@ public class CinematicController : MonoBehaviour
         brainCamera.SetActive(true);
         startCine = true;
         atEnd = false;
-       
+        brainCamera.SetActive(true);
         InitCine();
-       
+      
+        
+      
 
     }
 
@@ -76,7 +78,7 @@ public class CinematicController : MonoBehaviour
 
     void InitCine ()
     {
-        brainCamera.SetActive(true);
+        
         cart.m_Position = 0;
         if (pointOfIntrest[0] != null)
         {
@@ -127,7 +129,9 @@ public class CinematicController : MonoBehaviour
     {
         if (TransitionScript.Instance != null)
         {
-            TransitionScript.Instance.CoroutineFade(true);
+            // StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
+            TransitionScript.Instance.Fade();
+            Debug.Log("Salut");
         }
         LevelManager.Instance.enableCam();
         brainCamera.SetActive(false);

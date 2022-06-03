@@ -39,7 +39,9 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            enableCam();
             InitLevelManager();
+
         }
     }
 
@@ -54,7 +56,8 @@ public class LevelManager : MonoBehaviour
         {
             enableCam();
         }
-       
+        
+
         CanvasInGame.SetActive(true);
         if (timeOfThreeTwoOneGo == 0)
         {
@@ -121,4 +124,6 @@ public class LevelManager : MonoBehaviour
         ResetMovePlayer();
         LauchTimer();
     }
+
+    
 }

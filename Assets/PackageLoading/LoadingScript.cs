@@ -17,10 +17,7 @@ public class LoadingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (TransitionScript.Instance != null)
-        {
-            TransitionScript.Instance.CoroutineFade(false);
-        }
+       
         sceneToLoad = LoadSave.sceneToLoad;
         StartCoroutine(MinTimeTODo());
         operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
@@ -40,6 +37,11 @@ public class LoadingScript : MonoBehaviour
             
             if (minTimeDone && canLoad)
             {
+                if (TransitionScript.Instance != null)
+                {
+                    //  StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
+                    TransitionScript.Instance.Fade();
+                }
                 if (LevelManager.Instance != null)
                 {
                     //  LevelManager.Instance.InitLevelManager();
@@ -50,10 +52,11 @@ public class LoadingScript : MonoBehaviour
                     }
                     else
                     {
-                        
+                       
                         LevelManager.Instance.InitLevelManager();
                     }
                 }
+               
                 SceneManager.UnloadScene(sceneindex);
 
             }
