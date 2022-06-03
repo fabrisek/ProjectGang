@@ -67,7 +67,7 @@ public class Settings : MonoBehaviour
     public static void ChangeVolumeSFX(float value)
     {
         VolumeSFX = value;
-        PlayerPrefs.SetFloat("SoundEffect", value);
+        PlayerPrefs.SetFloat("VolumeSFX", value);
         Instance.ModifyAudioManager();
     }
     #endregion
@@ -93,13 +93,14 @@ public class Settings : MonoBehaviour
     [Header("GAMEPAD SETTING")]
     [SerializeField]
     [Range(0, 200f)] float _defaultSensibilityGamePad;
-    [SerializeField] bool _defaultUseRumbler;
+    [SerializeField] int _defaultUseRumbler;
     public static float SensibilityGamePad { get; set; }
     public static bool UseRumbler { get; set; }
     void LoadGamePadSettings()
     {
         SensibilityGamePad = PlayerPrefs.GetFloat("SensibilityGamePad", _defaultSensibilityGamePad);
-        UseRumbler = (PlayerPrefs.GetInt("UseRumbler") != 1);
+        UseRumbler = (PlayerPrefs.GetInt("UseRumbler", _defaultUseRumbler) == 1);
+        print(UseRumbler);
     }
     public static void ChangeValueSensibilityGamePad(float value)
     {
@@ -110,7 +111,8 @@ public class Settings : MonoBehaviour
     public static void ChangeUseRumbler(bool value)
     {
         UseRumbler = value;
-        PlayerPrefs.SetInt("UseRumbler", (value ? 1 : 0));
+        PlayerPrefs.SetInt("UseRumbler", UseRumbler ? 1 : 0);
+        print(UseRumbler);
     }
 
     #endregion
@@ -140,21 +142,20 @@ public class Settings : MonoBehaviour
     public static FullScreenMode ScreenModeType { get; set; }
     void LoadGraphicsSettings()
     {
-        ChangeUseCameraShake(PlayerPrefs.GetInt("UseCameraShake", _defaultUseCameraShake) != 1);
-        ChangeUseCameraClamp(PlayerPrefs.GetInt("UseCameraClamp", _defaultUseCameraClamp) != 1);
-        ChangeShowFps(PlayerPrefs.GetInt("ShowFps", _defaultShowFps) != 1);
-        ChangeVSync(PlayerPrefs.GetInt("UseVsync", _defaultUseVsync) != 1);
+        ChangeUseCameraShake(PlayerPrefs.GetInt("UseCameraShake", _defaultUseCameraShake) == 1);
+        ChangeUseCameraClamp(PlayerPrefs.GetInt("UseCameraClamp", _defaultUseCameraClamp) == 1);
+        ChangeShowFps(PlayerPrefs.GetInt("ShowFps", _defaultShowFps) == 1);
+        ChangeVSync(PlayerPrefs.GetInt("UseVsync", _defaultUseVsync) == 1);
         ChangeFpsTarget(PlayerPrefs.GetInt("FpsTarget", _defaultFpsTarget));
         ChangeQuality(PlayerPrefs.GetInt("Quality", _defaultQuality));
         ChangeAntiAliasing(PlayerPrefs.GetInt("AntiAliasing", _defaultAntiAliasing));
-        ChangeScreenMode(PlayerPrefs.GetInt("SreenMode", _defaultScreenMode));
+        ChangeScreenMode(PlayerPrefs.GetInt("ScreenMode", _defaultScreenMode));
         InitializeResolution();
-        ChangeResolution(PlayerPrefs.GetInt("Resolution"));
+
     }
 
     public static void ChangeScreenMode(int value)
     {
-        ScreenModeType = FullScreenMode.FullScreenWindow;
         ScreenMode = value;
         switch (ScreenMode)
         {
@@ -177,24 +178,24 @@ public class Settings : MonoBehaviour
     {
         Quality = quality;
         QualitySettings.SetQualityLevel(Quality);
-        PlayerPrefs.SetInt("QualityLevel", Quality);
+        PlayerPrefs.SetInt("Quality", Quality);
     }
 
     public static void ChangeUseCameraShake(bool value)
     {
         UseCameraShake = value;
-        PlayerPrefs.SetInt("UseCameraShake", (value ? 1 : 0));
+        PlayerPrefs.SetInt("UseCameraShake", value ? 1 : 0);
     }
 
     public static void ChangeUseCameraClamp(bool value)
     {
         UseCameraClamp = value;
-        PlayerPrefs.SetInt("UseCameraClamp", (value ? 1 : 0));
+        PlayerPrefs.SetInt("UseCameraClamp", value ? 1 : 0);
     }
     public static void ChangeShowFps(bool value)
     {
         ShowFps = value;
-        PlayerPrefs.SetInt("ShowFps", (value ? 1 : 0));
+        PlayerPrefs.SetInt("ShowFps", value ? 1 : 0);
 
         if (HudControllerInGame.Instance != null)
         {
@@ -212,7 +213,7 @@ public class Settings : MonoBehaviour
     public static void ChangeVSync(bool value)
     {
         UseVsync = value;
-        PlayerPrefs.SetInt("UseVsync", (value ? 1 : 0));
+        PlayerPrefs.SetInt("UseVsync", value ? 1 : 0);
 
         if (UseVsync == false)
         {
@@ -224,9 +225,10 @@ public class Settings : MonoBehaviour
         }
     }
 
-    public static void ChangeFpsTarget(int i)
+    public static void ChangeFpsTarget(int value)
     {
-        switch (i)
+        FpsTarget = value;
+        switch (value)
         {
             case 0:
                 Application.targetFrameRate = 60;
@@ -241,7 +243,7 @@ public class Settings : MonoBehaviour
                 Application.targetFrameRate = 300;
                 break;
         }
-        PlayerPrefs.SetInt("FpsTarget", i);
+        PlayerPrefs.SetInt("FpsTarget", value);
     }
 
     public static void ChangeAntiAliasing(int value)

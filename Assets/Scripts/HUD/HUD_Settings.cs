@@ -69,9 +69,11 @@ public class HUD_Settings : MonoBehaviour
         _toggleShowFps.isOn = Settings.ShowFps;
         _toggleVSync.isOn = Settings.UseVsync;
         _dropDownFpsTarget.value = Settings.FpsTarget;
+        _dropDownFpsTarget.RefreshShownValue();
         _dropDownQuality.value = Settings.Quality;
         _antiAliasingDropDown.value = Settings.AntiAliasing;
         _dropDownScreenMode.value = Settings.ScreenMode;
+        _dropDownScreenMode.RefreshShownValue();
         AddResolution(Settings.StoreResolution);
         ResolutionInitialize(Settings.StoreResolution);
     }
@@ -93,7 +95,7 @@ public class HUD_Settings : MonoBehaviour
 
     public void SetVSync()
     {
-        Settings.ChangeVSync(_toggleVSync);
+        Settings.ChangeVSync(_toggleVSync.isOn);
     }
 
     public void SetFpsTarget()
@@ -148,7 +150,6 @@ public class HUD_Settings : MonoBehaviour
                 _resolutionDropDown.value = i;
             }
         }
-
         _resolutionDropDown.RefreshShownValue();
     }
 
@@ -195,19 +196,19 @@ public class HUD_Settings : MonoBehaviour
         _sliderVolumeSoundEffect.value = Settings.VolumeSFX;
     }
     //Slider Audio General
-    public void ChangeAudioGeneral()
+    public void ChangeAudioGeneral(float value)
     {
-        Settings.ChangeVolumeGeneral(_sliderVolumeMusic.value);
+        Settings.ChangeVolumeGeneral(value);
     }
     //Slider Volume Music
-    public void ChangeAudioMusic()
+    public void ChangeAudioMusic(float value)
     {
-        Settings.ChangeVolumeMusic(_sliderVolumeMusic.value);
+        Settings.ChangeVolumeMusic(value);
     }
 
-    public void ChangeAudioSFX()
+    public void ChangeAudioSFX(float value)
     {
-        Settings.ChangeVolumeSFX(_sliderVolumeSoundEffect.value);
+        Settings.ChangeVolumeSFX(value);
     }
     #endregion
 
