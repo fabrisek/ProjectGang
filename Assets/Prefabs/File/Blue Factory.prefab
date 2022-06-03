@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1656875601017177722}
   - component: {fileID: 2400906792699365855}
   - component: {fileID: 483375307885903125}
-  m_Layer: 0
+  - component: {fileID: 4801158037926681622}
+  m_Layer: 4
   m_Name: Blue Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4801158037926681622
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140818649988226240}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6419649493258500078, guid: 9d2831f305345a74fbffcf7d3f183174, type: 3}
 --- !u!1 &5397620600025763079
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +110,7 @@ GameObject:
   - component: {fileID: 6538871706883222360}
   - component: {fileID: 6732015153027490564}
   - component: {fileID: 2587926334442858923}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Neon7
   m_TagString: Untagged
   m_Icon: {fileID: 0}

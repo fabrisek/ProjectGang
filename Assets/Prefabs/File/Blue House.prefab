@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3059940532129412509}
   - component: {fileID: 2150693289499277880}
   - component: {fileID: 4196294300989607666}
-  m_Layer: 0
+  - component: {fileID: 2187899278244810346}
+  m_Layer: 4
   m_Name: Blue House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2187899278244810346
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395008038782431015}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8600625864129977982, guid: 04b9ea18d0944db4b9ed1adf5567a0a9, type: 3}
 --- !u!1 &9068974119598845660
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +110,7 @@ GameObject:
   - component: {fileID: 3348371811569850873}
   - component: {fileID: 1278723110378243474}
   - component: {fileID: 6958889099038748432}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Neon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

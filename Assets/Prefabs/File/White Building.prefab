@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5646926371519305286}
   - component: {fileID: 8787140837076015587}
   - component: {fileID: 6779823172338216233}
-  m_Layer: 0
+  - component: {fileID: 4353301040031565157}
+  m_Layer: 4
   m_Name: White Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4353301040031565157
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978229321350106364}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3720359718763674766, guid: 91d003d540b329f40863471203050b1a, type: 3}
 --- !u!1 &9040525677508162007
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +110,7 @@ GameObject:
   - component: {fileID: 1505737848083146129}
   - component: {fileID: 4150009953057458622}
   - component: {fileID: 4545610783262808677}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Neon6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

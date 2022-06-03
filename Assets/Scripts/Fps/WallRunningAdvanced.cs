@@ -130,7 +130,7 @@ public class WallRunningAdvanced : MonoBehaviour
             {
                 AudioManager.instance.playSoundEffect(5, 1f);
                 Rumbler.instance.RumbleConstant(1f, 1f, 0.1f);
-                timerFoostep += 0.3f;
+                timerFoostep += 0.25f;
                 
                 //CameraShakerHandler.Shake(wallRunShake);
             }
@@ -152,15 +152,16 @@ public class WallRunningAdvanced : MonoBehaviour
 
         // State 3 - None
        else
-        {
+       {
             if (pm.wallrunning)
                 StopWallRun();
-        }
+       }
        
     }
 
     private void StartWallRun()
     {
+        Debug.Log("wallRunStart");
         //Rumbler.instance.RumblePulse(0.5f, 1.5f, 0.1f, 1f);
         pm.wallrunning = true;
         wallRunTimer = maxWallRunTime;
@@ -209,12 +210,15 @@ public class WallRunningAdvanced : MonoBehaviour
         // reset camera effects
         cam.DoTilt(0f);
         timerFoostep = 0.01f;
+
+        Debug.Log("wallRunStop");
     }
 
     public void WallJump()
     {
         if(pm.wallrunning)
         {
+            Debug.Log("wallRunJump");
             pm.PlayerJumpDown(false);
             pm.SetCanDoubleJump(false);
             // enter exiting wall state
