@@ -27,7 +27,7 @@ public class Rumbler : MonoBehaviour
     // Public Methods
     public void RumbleConstant(float low, float high, float durration)
     {
-        if(HUD_Settings.Instance.UseRumbler)
+        if(Settings.UseRumbler)
         {
             activeRumbePattern = RumblePattern.Constant;
             lowA = low;
@@ -39,7 +39,7 @@ public class Rumbler : MonoBehaviour
 
     public void RumblePulse(float low, float high, float burstTime, float durration)
     {
-        if (HUD_Settings.Instance.UseRumbler)
+        if (Settings.UseRumbler)
         {
             activeRumbePattern = RumblePattern.Pulse;
             lowA = low;
