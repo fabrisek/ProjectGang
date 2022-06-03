@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour
         {
             enableCam();
         }
+       
         CanvasInGame.SetActive(true);
         if (timeOfThreeTwoOneGo == 0)
         {

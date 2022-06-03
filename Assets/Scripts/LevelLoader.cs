@@ -22,6 +22,8 @@ public class LevelLoader : MonoBehaviour
         Instance = this;     
     }
 
+   
+
 
     public void LoadLevel(int sceneIndex)
     {
@@ -31,6 +33,7 @@ public class LevelLoader : MonoBehaviour
         {
             LoadSave.oldSceneLoad = LoadSave.sceneToLoad;
             LoadSave.first = true;
+          
             SceneManager.LoadScene(2);
         }
         else
@@ -41,10 +44,12 @@ public class LevelLoader : MonoBehaviour
 
     }
 
+    
+
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
         _loadingScreenPanel.SetActive(true);
-
+       
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
 

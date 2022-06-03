@@ -28,7 +28,9 @@ public class CinematicController : MonoBehaviour
         brainCamera.SetActive(true);
         startCine = true;
         atEnd = false;
+       
         InitCine();
+       
 
     }
 
@@ -89,6 +91,7 @@ public class CinematicController : MonoBehaviour
 
     void StartCinematique ()
     {
+      
         if (!atEnd)
         {
 
@@ -122,6 +125,10 @@ public class CinematicController : MonoBehaviour
 
     void finishCinematic ()
     {
+        if (TransitionScript.Instance != null)
+        {
+            TransitionScript.Instance.CoroutineFade(true);
+        }
         LevelManager.Instance.enableCam();
         brainCamera.SetActive(false);
         camera.SetActive(false);
