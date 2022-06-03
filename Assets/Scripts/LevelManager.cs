@@ -12,22 +12,43 @@ public class LevelManager : MonoBehaviour
     [SerializeField] CompetenceRalentie slowDown;
     [SerializeField] PlayerCam playercam;
     [SerializeField] float timeOfThreeTwoOneGo;
+    [SerializeField] GameObject CanvasInGame;
 
-    bool startTimer;
+    public bool firstTime;
+    //bool startcine;
     // Start is called before the first frame update
     void Awake()
     {
         SetTimeTOBugsManager();
         Instance = this;
+        CutMovePlayer();
+        CanvasInGame.SetActive(false);
     }
 
     private void Start()
     {
-        if(timeOfThreeTwoOneGo == 0)
+
+        if (LoadSave.first)
+        {
+            //lancement De la cinematique
+            
+        }
+        else
+        {
+            InitLevelManager();
+        }
+    }
+
+
+    public void InitLevelManager()
+    {
+        
+        CanvasInGame.SetActive(true);
+        if (timeOfThreeTwoOneGo == 0)
         {
             timeOfThreeTwoOneGo = 2;
         }
-        CutMovePlayer();
+
         StartCoroutine(CoroutineTroisDeuxUn());
         HudControllerInGame.Instance.StartThreeTwoOne(timeOfThreeTwoOneGo);
         
@@ -50,28 +71,20 @@ public class LevelManager : MonoBehaviour
         slowDown.enabled = true;
         playercam.enabled = true;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(inputActions.InGame.Move.enabled);
-        LauchTimer();
-       
 
-    }
-
-    void SetTimeTOBugsManager ()
+    void SetTimeTOBugsManager()
     {
-        if(groupesBugsManager != null)
+        if (groupesBugsManager != null)
         {
             groupesBugsManager.Player = playerMovementScript.transform;
         }
     }
 
-    void LauchTimer ()
+    void LauchTimer()
     {
         if (playerMovementScript != null)
         {
-            if (!Timer.Instance.TimerIsLaunch() && startTimer)
+            if (!Timer.Instance.TimerIsLaunch())
             {
                 Timer.Instance.LaunchTimer();
             }
@@ -80,26 +93,20 @@ public class LevelManager : MonoBehaviour
     public void RestartLevel()
     {
 
-            if (HudControllerInGame.Instance.InMenu == false)
-                LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        if (HudControllerInGame.Instance.InMenu == false)
+            LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
 
-            else
-            {
-                HudControllerInGame.Instance.Back();
-            }
-        
+        else
+        {
+            HudControllerInGame.Instance.Back();
+        }
+
     }
 
-    IEnumerator CoroutineTroisDeuxUn ()
+    IEnumerator CoroutineTroisDeuxUn()
     {
         yield return new WaitForSeconds(timeOfThreeTwoOneGo);
         ResetMovePlayer();
-        startTimer = true;
-
-
+        LauchTimer();
     }
-
-
-
-
 }
