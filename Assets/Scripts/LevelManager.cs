@@ -50,7 +50,10 @@ public class LevelManager : MonoBehaviour
 
     public void InitLevelManager()
     {
-        
+        if (CinematicController.Instance == null)
+        {
+            enableCam();
+        }
         CanvasInGame.SetActive(true);
         if (timeOfThreeTwoOneGo == 0)
         {
