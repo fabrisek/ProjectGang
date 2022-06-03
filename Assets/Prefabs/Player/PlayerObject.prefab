@@ -21239,8 +21239,8 @@ MonoBehaviour:
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2
-  jumpForce: 30
-  jumpForceDown: 5
+  jumpForce: 25
+  jumpForceDown: 8
   jumpCooldown: 0.5
   airMultiplier: 0.8
   jumpShake: {fileID: 11400000, guid: 7d35e670e3e0092438d60111e2f1c686, type: 2}
@@ -21283,7 +21283,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   wallRunForce: 300
-  wallJumpUpForce: 30
+  wallJumpUpForce: 25
   wallJumpSideForce: 5
   wallClimbSpeed: 250
   maxWallRunTime: 10
@@ -21291,7 +21291,7 @@ MonoBehaviour:
   fovWall: 90
   fovNormal: 80
   wallRunShake: {fileID: 11400000, guid: 4f6a3e0cdcdcc994eb9c69b7eb4bf9e7, type: 2}
-  wallCheckDistance: 2
+  wallCheckDistance: 1.5
   minJumpHeight: 3
   exitWallTime: 0
   useGravity: 1
