@@ -27,7 +27,7 @@ public class LevelLoader : MonoBehaviour
     {
         AudioManager.instance.StopMusic();
         LoadSave.sceneToLoad = sceneIndex;
-        if (LoadSave.sceneToLoad != LoadSave.oldSceneLoad)
+        if (sceneIndex !=0 &&  LoadSave.sceneToLoad != LoadSave.oldSceneLoad)
         {
             LoadSave.oldSceneLoad = LoadSave.sceneToLoad;
             LoadSave.first = true;
