@@ -6,6 +6,7 @@ using Cinemachine;
 public class CinematicController : MonoBehaviour
 {
     public static CinematicController Instance;
+    [SerializeField] GameObject brainCamera;
     [SerializeField] CinemachineVirtualCamera virtualCameraOnRail;
     [SerializeField] List<Transform> pointOfIntrest;
 
@@ -25,6 +26,7 @@ public class CinematicController : MonoBehaviour
 
     public void SetStartCinematci ()
     {
+        brainCamera.SetActive(true);
         startCine = true;
         atEnd = false;
         InitCine();
@@ -73,12 +75,12 @@ public class CinematicController : MonoBehaviour
 
     void InitCine ()
     {
-        camera.SetActive(true);
+        brainCamera.SetActive(true);
         cart.m_Position = 0;
         if (pointOfIntrest[0] != null)
         {
-            Quaternion rotationRef = Quaternion.LookRotation(new Vector3(pointOfIntrest[0].position.x - camera.transform.position.x, pointOfIntrest[0].position.y - camera.transform.position.y, pointOfIntrest[0].position.z - camera.transform.position.z).normalized);
-            camera.transform.rotation = Quaternion.RotateTowards(camera.transform.rotation, rotationRef, 100000);
+            Quaternion rotationRef = Quaternion.LookRotation(new Vector3(pointOfIntrest[0].position.x - brainCamera.transform.position.x, pointOfIntrest[0].position.y - brainCamera.transform.position.y, pointOfIntrest[0].position.z - brainCamera.transform.position.z).normalized);
+            brainCamera.transform.rotation = Quaternion.RotateTowards(brainCamera.transform.rotation, rotationRef, 100000);
         }
         else
         {
@@ -112,12 +114,19 @@ public class CinematicController : MonoBehaviour
             startCine = false;
             if(LevelManager.Instance != null)
             {
-                camera.SetActive(false);
-                LevelManager.Instance.InitLevelManager();
-               
+
+                finishCinematic();
 
             }
         }
+    }
+
+    void finishCinematic ()
+    {
+        LevelManager.Instance.enableCam();
+        brainCamera.SetActive(false);
+        camera.SetActive(false);
+        LevelManager.Instance.InitLevelManager();
     }
 
     int CheckTheIntrestToLook ()
