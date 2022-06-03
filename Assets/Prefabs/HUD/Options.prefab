@@ -18164,7 +18164,7 @@ MonoBehaviour:
       - m_Target: {fileID: 616397666870670933}
         m_TargetAssemblyTypeName: HUD_Settings, Assembly-CSharp
         m_MethodName: SetQuality
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -44838,9 +44838,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: SetSensibilityMouse
+      - m_Target: {fileID: 616397666870670933}
+        m_TargetAssemblyTypeName: HUD_Settings, Assembly-CSharp
+        m_MethodName: ChangeValueSensibilityMouse
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -48546,30 +48546,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 0}
-  _panelAudio: {fileID: 7590583816590215632}
-  _panelControl: {fileID: 180175740767383994}
-  _panelGamePad: {fileID: 4488326184653127795}
   _panelGraphics: {fileID: 1198918449113848313}
-  _panelButton: {fileID: 4570533430584793950}
   _resolutionDropDown: {fileID: 8937966681806474355}
-  _displayTypeDropDown: {fileID: 2576108181193551669}
+  _dropDownScreenMode: {fileID: 2576108181193551669}
   _antiAliasingDropDown: {fileID: 9047129432876690563}
-  _vSyncToggle: {fileID: 1451988908947858280}
+  _dropDownFpsTarget: {fileID: 4159963472044103998}
+  _dropDownQuality: {fileID: 5013244714903723384}
+  _toggleVSync: {fileID: 1451988908947858280}
   _toggleShowFps: {fileID: 9044928414984854235}
   _toggleCameraShake: {fileID: 7432016682793533203}
-  _toggleRumbler: {fileID: 8339813212472561032}
   _toggleCameraClamp: {fileID: 5105707754327649858}
-  sliderSensibilityMouseX: {fileID: 4915207022095745352}
-  sliderSensibilityMouseY: {fileID: 3506311448649512586}
-  _dropDownFpsTarget: {fileID: 4159963472044103998}
-  sliderVolumeSoundEffect: {fileID: 5152082826826811077}
-  sliderVolumeMusic: {fileID: 236973050024993491}
-  sliderVolumeGeneral: {fileID: 21948259777608147}
-  _firstButtonOptionMenu: {fileID: 2715703123510926269}
-  _firstBoutonPanelAudio: {fileID: 6855680281309802456}
-  _firstBoutonPanelControl: {fileID: 4187097571584002989}
   _firstBoutonPanelGraphics: {fileID: 1994169971321502987}
-  _firstBoutonPanelGamePad: {fileID: 7080665014434848288}
+  _panelButton: {fileID: 4570533430584793950}
+  _firstButtonOptionMenu: {fileID: 2715703123510926269}
+  _panelAudio: {fileID: 7590583816590215632}
+  _sliderVolumeSoundEffect: {fileID: 5152082826826811077}
+  _sliderVolumeMusic: {fileID: 236973050024993491}
+  _sliderVolumeGeneral: {fileID: 21948259777608147}
+  _firstBoutonPanelAudio: {fileID: 6855680281309802456}
+  _panelControl: {fileID: 180175740767383994}
+  _sliderSensibilityMouse: {fileID: 4915207022095745352}
+  _firstBoutonPanelKeyboard: {fileID: 4187097571584002989}
+  _panelGamePad: {fileID: 4488326184653127795}
+  _toggleRumbler: {fileID: 8339813212472561032}
+  _sliderSensibilityGamePad: {fileID: 3506311448649512586}
+  _firstButtonGamePad: {fileID: 7080665014434848288}
 --- !u!1 &4933951740494749548
 GameObject:
   m_ObjectHideFlags: 0
@@ -68459,7 +68460,7 @@ GameObject:
   - component: {fileID: 6638192394639217827}
   - component: {fileID: 6873198453536686091}
   m_Layer: 5
-  m_Name: CONTROLS (1)
+  m_Name: GAMEPAD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70843,9 +70844,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: SetSensibilityGamePad
+      - m_Target: {fileID: 616397666870670933}
+        m_TargetAssemblyTypeName: HUD_Settings, Assembly-CSharp
+        m_MethodName: ChangeValueSensibilityGamePad
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -75872,7 +75873,7 @@ GameObject:
   - component: {fileID: 7710099409434161392}
   - component: {fileID: 3933457351651536108}
   m_Layer: 5
-  m_Name: AUDIO (2)
+  m_Name: GRAPHICS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81539,7 +81540,7 @@ MonoBehaviour:
       - m_Target: {fileID: 616397666870670933}
         m_TargetAssemblyTypeName: HUD_Settings, Assembly-CSharp
         m_MethodName: SetFpsTarget
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

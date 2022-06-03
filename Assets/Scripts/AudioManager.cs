@@ -24,7 +24,11 @@ public class AudioManager : MonoBehaviour
     }
     void Start()
     {
-        switch(SceneManager.GetActiveScene().buildIndex)
+        SetGeneralVolume(Settings.VolumeGeneral);
+        ChangeVolumeSoundEFFect(Settings.VolumeSFX);
+        ChangeVolumeMusic(Settings.VolumeMusic);
+
+        switch (SceneManager.GetActiveScene().buildIndex)
         {
             case 0:
                 PlayMusic(0);
@@ -76,10 +80,12 @@ public class AudioManager : MonoBehaviour
     {
         audioSourceSoundEffect.volume  = volume * generalVolume;
         audioSourceSfx3D.volume = volume * generalVolume;
+        UpdateVolume();
     }
     public void ChangeVolumeMusic(float volume)
     {
         audioSourceMusic.volume = volume * generalVolume;
+        UpdateVolume();
     }
     public void PlayMusic(int index)
     {

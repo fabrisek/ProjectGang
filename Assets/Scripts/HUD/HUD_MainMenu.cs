@@ -92,7 +92,7 @@ public class HUD_MainMenu : MonoBehaviour
         _mainMenuPanel.SetActive(false);
         _settingsPanel.SetActive(true);
         eventSystem.SetSelectedGameObject(firstButtonSettings);
-        HUD_Settings.Instance.OpenButtonPanel();
+        HUD_Settings.Instance.OpenOptionsPanel();
     }
 
     public void Back()

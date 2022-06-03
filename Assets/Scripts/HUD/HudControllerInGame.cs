@@ -128,7 +128,7 @@ public class HudControllerInGame : MonoBehaviour
         StateMenu = ActualMenu.SettingsMenu;
         _optionsPanel.SetActive(true);
         _pausePanel.SetActive(false);
-        HUD_Settings.Instance.OpenButtonPanel();
+        HUD_Settings.Instance.OpenOptionsPanel();
     }
 
     public void ChangeTimerHud(float timer)
@@ -378,9 +378,6 @@ public class HudControllerInGame : MonoBehaviour
         threeTwoOneSlider.enabled = false;
         threeTwoOneSlider.text = null;
     }
-
-
-
 }
 public enum ActualMenu
 {

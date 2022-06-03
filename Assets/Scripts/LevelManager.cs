@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
+    [SerializeField] Camera playerCam;
     [SerializeField] GroupesBugsManager groupesBugsManager;
     [SerializeField] PlayerMovementAdvanced playerMovementScript;
     [SerializeField] WallRunningAdvanced wallRunScript;
@@ -19,10 +20,12 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        playerCam.enabled = false;
         SetTimeTOBugsManager();
         Instance = this;
         CutMovePlayer();
         CanvasInGame.SetActive(false);
+
     }
 
     private void Start()
@@ -30,8 +33,9 @@ public class LevelManager : MonoBehaviour
 
         if (LoadSave.first)
         {
+           // playerCam.enabled = false;
             //lancement De la cinematique
-            
+
         }
         else
         {
@@ -39,6 +43,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void enableCam ()
+    {
+        playerCam.enabled = true;
+    }
 
     public void InitLevelManager()
     {
@@ -60,7 +68,7 @@ public class LevelManager : MonoBehaviour
         playerMovementScript.enabled = false;
         wallRunScript.enabled = false;
         slowDown.enabled = false;
-        playercam.enabled = false;
+        //playercam.enabled = false;
     }
 
     void ResetMovePlayer()
@@ -69,7 +77,7 @@ public class LevelManager : MonoBehaviour
         playerMovementScript.enabled = true;
         wallRunScript.enabled = true;
         slowDown.enabled = true;
-        playercam.enabled = true;
+      //  playercam.enabled = true;
     }
 
     void SetTimeTOBugsManager()
