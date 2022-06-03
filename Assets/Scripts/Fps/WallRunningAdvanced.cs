@@ -151,12 +151,12 @@ public class WallRunningAdvanced : MonoBehaviour
         }
 
         // State 3 - None
-        else
+       else
         {
             if (pm.wallrunning)
                 StopWallRun();
         }
-
+       
     }
 
     private void StartWallRun()
