@@ -47,13 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainCamera: {fileID: 2256890281749461793}
-  virtualCameraOnRail: {fileID: 5713697478350478972}
   pointOfIntrest:
   - {fileID: 0}
   - {fileID: 0}
   path: {fileID: 5713697478532252039}
   cart: {fileID: 5713697479380399146}
-  speedCart: 75
+  _speedCart: 0
   camera: {fileID: 5713697478350478974}
   speedRotate: 50
 --- !u!1 &2256890281749461793
@@ -66,7 +65,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8078482276603162077}
   - component: {fileID: 4236623564347464420}
-  - component: {fileID: 8337470124446742985}
   - component: {fileID: 8121243804026781768}
   m_Layer: 0
   m_Name: Camera
@@ -133,14 +131,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8337470124446742985
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2256890281749461793}
-  m_Enabled: 1
 --- !u!114 &8121243804026781768
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -100,7 +100,6 @@ public class Settings : MonoBehaviour
     {
         SensibilityGamePad = PlayerPrefs.GetFloat("SensibilityGamePad", _defaultSensibilityGamePad);
         UseRumbler = (PlayerPrefs.GetInt("UseRumbler", _defaultUseRumbler) == 1);
-        print(UseRumbler);
     }
     public static void ChangeValueSensibilityGamePad(float value)
     {
