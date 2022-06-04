@@ -109,7 +109,7 @@ public class LevelManager : MonoBehaviour
         {
             if (HudControllerInGame.Instance.InMenu == false)
             {
-                if (SceneManager.GetActiveScene().buildIndex != 1)
+                if (SceneManager.GetActiveScene().buildIndex != 1 && Timer.Instance.GetTimer() != 0)
                     LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
             }
 
