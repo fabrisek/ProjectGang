@@ -97,7 +97,7 @@ public class HudControllerInGame : MonoBehaviour
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(false);
 
-        if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+        if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -172,7 +172,7 @@ public class HudControllerInGame : MonoBehaviour
         _winPanel.SetActive(true);
         _textTimerWin.text = "TIME : " + Timer.FormatTime(timer);
 
-        if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+        if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

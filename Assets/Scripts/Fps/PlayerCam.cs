@@ -36,6 +36,15 @@ public class PlayerCam : MonoBehaviour
 
         CameraShakerHandler.Shake(constantShake);
         transform.LookAt(camLookAt);
+
+        if (Data_Manager.LastDevice == ControlDeviceType.Gamepad)
+        {
+            IsGamePad = true;
+        }
+        else
+        {
+            IsGamePad = false;
+        }
     }
 
     private void Update()

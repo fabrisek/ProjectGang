@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using System;
-
+public enum ControlDeviceType
+{
+    KeyboardAndMouse,
+    Gamepad,
+}
 public class InputManager : MonoBehaviour
 {
     public static Input _input;
@@ -12,11 +16,7 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] PlayerInput playerInput;
     public static ControlDeviceType currentControlDevice;
-    public enum ControlDeviceType
-    {
-        KeyboardAndMouse,
-        Gamepad,
-    }
+
     public static float SensibilityMouseY;
     public static float SensibilityMouseX;   
     public static float SensibilityGamePadY;
@@ -114,7 +114,7 @@ public class InputManager : MonoBehaviour
         {
             if (currentControlDevice != ControlDeviceType.Gamepad)
             {
-                currentControlDevice = ControlDeviceType.Gamepad;
+                Data_Manager.LastDevice = ControlDeviceType.Gamepad;
                 // Send Event
                 // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
                 PlayerCam.Instance.IsGamePad = true;
@@ -125,7 +125,7 @@ public class InputManager : MonoBehaviour
         {
             if (currentControlDevice != ControlDeviceType.KeyboardAndMouse)
             {
-                currentControlDevice = ControlDeviceType.KeyboardAndMouse;
+                Data_Manager.LastDevice = ControlDeviceType.KeyboardAndMouse;
                 PlayerCam.Instance.IsGamePad = false;
 
                 if (Time.timeScale == 0)

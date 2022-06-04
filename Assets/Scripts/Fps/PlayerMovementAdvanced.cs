@@ -159,7 +159,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
             Rumbler.instance.StopRumble();
             Time.timeScale = 0;
             HudControllerInGame.Instance.OpenPauseMenu();
-            if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+            if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
@@ -186,7 +186,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
             Rumbler.instance.StopRumble();
             Time.timeScale = 0;
             HudControllerInGame.Instance.OpenPauseMenu();
-            if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+            if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
