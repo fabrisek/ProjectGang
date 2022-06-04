@@ -166,7 +166,7 @@ public class WallRunningAdvanced : MonoBehaviour
         pm.wallrunning = true;
         wallRunTimer = maxWallRunTime;
 
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.velocity = new Vector3(rb.velocity.x,0f, rb.velocity.z);
 
         // apply camera effects
         if (wallLeft) cam.DoTilt(-tilt);
