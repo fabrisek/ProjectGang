@@ -114,10 +114,10 @@ public class GrapplingGun : MonoBehaviour
 
                 //SoundEffect
                 AudioManager.instance.playSoundEffect(0, 1f);
-                CameraShakerHandler.Shake(grapplinShake);
+                InputManager.Instance.CameraShake(grapplinShake);
 
-                //particule
-                particuleHit.transform.position = grapplePoint;
+            //particule
+            particuleHit.transform.position = grapplePoint;
                 
                 particuleHit.SetActive(true);
                 

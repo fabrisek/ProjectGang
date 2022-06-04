@@ -35,7 +35,7 @@ public class PlayerDeath : MonoBehaviour
             isDead = true;
 
             //FeedBack
-            CameraShakerHandler.Shake(deathShake);
+            InputManager.Instance.CameraShake(deathShake);
 
         }        
     }
