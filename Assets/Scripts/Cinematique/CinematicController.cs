@@ -133,6 +133,8 @@ public class CinematicController : MonoBehaviour
             TransitionScript.Instance.Fade();
             Debug.Log("Salut");
         }
+        atEnd = true;
+        startCine = false;
         LevelManager.Instance.enableCam();
         brainCamera.SetActive(false);
         cam.SetActive(false);
