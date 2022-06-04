@@ -25,7 +25,7 @@ namespace ByPass
             {
                 //InputManager.Instance.CameraShake(ventiloShake);
                 AudioManager.instance.playSoundEffect(6, 0.8f);
-                Rumbler.instance.RumbleConstant(0.5f, 1.5f, 2f);
+                Rumbler.instance.RumbleConstant(0.5f, 1.5f, 0.3f);
             }
 
             if (other.GetComponent<Rigidbody>() != null && other.gameObject.layer == 7)
