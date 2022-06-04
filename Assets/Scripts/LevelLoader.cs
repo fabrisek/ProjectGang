@@ -40,7 +40,7 @@ public class LevelLoader : MonoBehaviour
             LoadSave.first = true;
             
           
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
         else
         {
