@@ -3409,6 +3409,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8863034769121986372}
     m_Modifications:
+    - target: {fileID: 6993401446658286108, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8507918674284456039, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: colorIntensity
       value: 0.39
@@ -3462,16 +3466,28 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: tilt
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: exitWallTime
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: wallRunForce
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: minJumpHeight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: maxWallRunTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: wallClimbSpeed
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: wallCheckDistance
@@ -3479,6 +3495,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: wallJumpSideForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912241, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: wallrunSpeed
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9121184314867954451, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
