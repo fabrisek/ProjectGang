@@ -40,6 +40,7 @@ public class LevelSelectorMenu : MonoBehaviour
             _canvas.SetActive(true);
             ChangeInformation();
             Data_Manager.Instance.GetData().LastWorld = _indexWorld;
+            Data_Manager.Instance.SaveData();
             if (Data_Manager.Instance.GetData()._worldData[_indexWorld].HaveUnlockWorld)
             {
                 textGoPress.SetActive(true);
