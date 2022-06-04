@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using TMPro;
+using Doozy.Runtime.UIManager.Components;
 public enum StateMainMenu
 {
     Menu,
@@ -48,12 +49,15 @@ public class HUD_MainMenu : MonoBehaviour
 
     public void OpenPanelSelectionLevel(int worldIndex)
     {
+        _levelSelectionPanel.SetActive(false);
+        antController.enabled = false;
         State = StateMainMenu.InPanelGame;
         panelSelector.SetActive(true);
         worldName.text = Data_Manager.Instance.GetData()._worldData[worldIndex].WorldName;
 
         int totalStar = 0;
         int starUnlock = 0;
+
 
         foreach (var item in panelSelector.GetComponentsInChildren<CardWorld>())
         {
@@ -74,9 +78,15 @@ public class HUD_MainMenu : MonoBehaviour
                     starUnlock++;
                 }
             }
+            
+            if (i == 0)
+            {
+                eventSystem.SetSelectedGameObject(cardObj.GetComponent<UIButton>().gameObject);
+            }
 
             cardObj.GetComponent<CardWorld>().ChangeInformation(mapData.spriteLevel, mapData.GetHighScore(), mapData.GetMapName(), (i + 1).ToString(), starLevel, mapData.GetIndexScene(), mapData.GetHaveUnlockLevel());
         }
+
         starText.text = "STAR : " + starUnlock.ToString() + " / " + totalStar.ToString();
     }
 
