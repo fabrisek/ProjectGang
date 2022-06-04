@@ -8,7 +8,7 @@ public class DATA
 {
     public List<WorldInfo> _worldData;
     public StatsPlayer statPlayer;
-
+    public int LastWorld;
 }
 public class Data_Manager : MonoBehaviour
 {
