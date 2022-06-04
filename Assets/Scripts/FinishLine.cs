@@ -18,7 +18,7 @@ public class FinishLine : MonoBehaviour
     {
         if (PlayerDeath.Instance.GetIsDead() == false)
         {
-            
+            Time.timeScale = 0;
             Timer.Instance.StopTimer();
             if (!isWin)
             {
