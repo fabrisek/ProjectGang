@@ -57,6 +57,11 @@ public class WallRunningAdvanced : MonoBehaviour
     private PlayerMovementAdvanced pm;
     private Rigidbody rb;
 
+
+    //bug doublejumpwall
+    float timerDouble = 0.3f;
+    bool stopWallRun;
+
     private void Awake()
     {
         Instance = this;
@@ -77,6 +82,15 @@ public class WallRunningAdvanced : MonoBehaviour
     {
         CheckForWall();
         StateMachine();
+
+        timerDouble -= Time.deltaTime;
+        if(timerDouble<0&&stopWallRun)
+        {
+            stopWallRun = false;
+            pm.SetCanDoubleJump(true);
+        }
+        
+
     }
 
     private void FixedUpdate()
@@ -206,12 +220,15 @@ public class WallRunningAdvanced : MonoBehaviour
     private void StopWallRun()
     {
         pm.wallrunning = false;
-        pm.SetCanDoubleJump(true);
+        
         // reset camera effects
         cam.DoTilt(0f);
         timerFoostep = 0.01f;
 
         Debug.Log("wallRunStop");
+        
+        timerDouble = 0.3f;
+        stopWallRun = true;
     }
 
     public void WallJump()
