@@ -13,7 +13,7 @@ public class CinematicController : MonoBehaviour
     [SerializeField] CinemachineDollyCart cart;
     [SerializeField] float _speedCart;
 
-    [SerializeField] GameObject camera;
+    [SerializeField] GameObject cam;
     [SerializeField] float speedRotate;
     Transform target;
 
@@ -82,8 +82,8 @@ public class CinematicController : MonoBehaviour
         cart.m_Position = 0;
         if (pointOfIntrest[0] != null)
         {
-            Quaternion rotationRef = Quaternion.LookRotation(new Vector3(pointOfIntrest[0].position.x - camera.transform.position.x, pointOfIntrest[0].position.y - camera.transform.position.y, pointOfIntrest[0].position.z - camera.transform.position.z).normalized);
-            camera.transform.rotation = Quaternion.RotateTowards(camera.transform.rotation, rotationRef, 100000);
+            Quaternion rotationRef = Quaternion.LookRotation(new Vector3(pointOfIntrest[0].position.x - cam.transform.position.x, pointOfIntrest[0].position.y - cam.transform.position.y, pointOfIntrest[0].position.z - cam.transform.position.z).normalized);
+            cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, rotationRef, 100000);
         }
         else
         {
@@ -135,19 +135,19 @@ public class CinematicController : MonoBehaviour
         }
         LevelManager.Instance.enableCam();
         brainCamera.SetActive(false);
-        camera.SetActive(false);
+        cam.SetActive(false);
         LevelManager.Instance.InitLevelManager();
     }
 
     int CheckTheIntrestToLook ()
     {
-        float dist = Vector3.Distance(camera.transform.position, pointOfIntrest[0].position);
+        float dist = Vector3.Distance(cam.transform.position, pointOfIntrest[0].position);
         int t = 0;
         for(int i =0; i< pointOfIntrest.Count;i++)
         {
-            if(Vector3.Distance(camera.transform.position, pointOfIntrest[i].position) < dist)
+            if(Vector3.Distance(cam.transform.position, pointOfIntrest[i].position) < dist)
             {
-                dist = Vector3.Distance(camera.transform.position, pointOfIntrest[i].position);
+                dist = Vector3.Distance(cam.transform.position, pointOfIntrest[i].position);
                 t = i;
             }
         }
@@ -164,7 +164,7 @@ public class CinematicController : MonoBehaviour
 
     void RotateToTarget()
     {
-        Quaternion rotationRef = Quaternion.LookRotation(new Vector3(target.position.x - camera.transform.position.x, target.position.y - camera.transform.position.y, target.position.z - camera.transform.position.z).normalized);
-        camera.transform.rotation = Quaternion.RotateTowards(camera.transform.rotation, rotationRef, speedRotate * Time.deltaTime);
+        Quaternion rotationRef = Quaternion.LookRotation(new Vector3(target.position.x - cam.transform.position.x, target.position.y - cam.transform.position.y, target.position.z - cam.transform.position.z).normalized);
+        cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, rotationRef, speedRotate * Time.deltaTime);
     }
 }
