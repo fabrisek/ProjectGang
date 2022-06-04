@@ -312,6 +312,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             timeToPress -= Time.deltaTime;
         }
+
+        //limit velocity
         if(new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude > speedMax)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z).normalized * speedMax + Vector3.up * rb.velocity.y;
@@ -523,6 +525,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             grappinAnimator.SetTrigger("Flip");
         }
+        
     }
     private void ResetJump()
     {

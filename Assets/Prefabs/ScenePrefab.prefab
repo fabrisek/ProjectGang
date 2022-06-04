@@ -3405,6 +3405,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8863034769121986372}
     m_Modifications:
+    - target: {fileID: 8507918674284456039, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: colorIntensity
+      value: 0.39
+      objectReference: {fileID: 0}
     - target: {fileID: 9105158956558691661, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: crossHair
       value: 
@@ -3452,6 +3456,26 @@ PrefabInstance:
     - target: {fileID: 9121184313338394170, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: exitWallTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: minJumpHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: wallClimbSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: wallCheckDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912240, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: wallJumpSideForce
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9121184314867954451, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: m_Name

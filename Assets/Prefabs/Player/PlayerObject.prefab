@@ -20765,7 +20765,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9121184313338394175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.291}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21257,8 +21257,8 @@ MonoBehaviour:
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2
-  jumpForce: 22
-  jumpForceDown: 8
+  jumpForce: 23
+  jumpForceDown: 10
   jumpCooldown: 0.5
   airMultiplier: 0.8
   jumpShake: {fileID: 11400000, guid: 7d35e670e3e0092438d60111e2f1c686, type: 2}
@@ -21299,19 +21299,19 @@ MonoBehaviour:
     m_Bits: 512
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   wallRunForce: 250
   wallJumpUpForce: 22
   wallJumpSideForce: 5
   wallClimbSpeed: 250
   maxWallRunTime: 5
-  tilt: 0
+  tilt: 15
   fovWall: 90
   fovNormal: 80
   wallRunShake: {fileID: 11400000, guid: 4f6a3e0cdcdcc994eb9c69b7eb4bf9e7, type: 2}
   wallCheckDistance: 1.5
   minJumpHeight: 3
-  exitWallTime: 0.2
+  exitWallTime: 0
   useGravity: 1
   gravityCounterForce: 20
   orientation: {fileID: 9121184314764977126}
