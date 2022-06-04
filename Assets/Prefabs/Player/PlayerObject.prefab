@@ -21247,13 +21247,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e2789cf278bff4a92d4fb3dbe80283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMax: 21
+  speedMax: 18
   walkSpeed: 10
-  acceleration: 1.005
+  acceleration: 7
   accelerationTimer: 0.2
   sprintSpeed: 0
   slideSpeed: 0
-  wallrunSpeed: 15
+  wallrunSpeed: 13
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 1.5
@@ -21300,7 +21300,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
-  wallRunForce: 250
+  wallRunForce: 50
   wallJumpUpForce: 22
   wallJumpSideForce: 5
   wallClimbSpeed: 250
@@ -21359,6 +21359,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4112
+  isDead: 0
   deathShake: {fileID: 11400000, guid: 95616048506dc9d4dbd1130ee3aa6e98, type: 2}
 --- !u!114 &7829386270631180504
 MonoBehaviour:
