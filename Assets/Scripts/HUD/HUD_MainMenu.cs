@@ -80,11 +80,6 @@ public class HUD_MainMenu : MonoBehaviour
         starText.text = "STAR : " + starUnlock.ToString() + " / " + totalStar.ToString();
     }
 
-    public void OpenScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
     public void OpenSettings()
     {
         panelSelector.SetActive(false);
@@ -132,7 +127,10 @@ public class HUD_MainMenu : MonoBehaviour
 
     private void Start()
     {
-        CloseSettings();
+        if (Data_Manager.AlreadyInGame == false)
+            CloseSettings();
+        else
+            OpenLevelSelector();
 
     }
 }

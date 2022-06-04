@@ -14,7 +14,7 @@ public class Data_Manager : MonoBehaviour
 {
     public static Data_Manager Instance;
     [SerializeField] DATA Data;
-
+    public static bool AlreadyInGame { get; set; }
     public DATA GetData() { return Data; }
 
     private void Awake()
