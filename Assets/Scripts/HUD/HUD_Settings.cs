@@ -232,9 +232,9 @@ public class HUD_Settings : MonoBehaviour
         _sliderSensibilityMouse.value = Settings.SensibilityMouse;  
     }
 
-    public void ChangeValueSensibilityMouse(float value)
+    public void ChangeValueSensibilityMouse()
     {
-        Settings.ChangeValueSensibilityMouse(value);
+        Settings.ChangeValueSensibilityMouse(_sliderSensibilityMouse.value);
     }
 
     #endregion
@@ -259,9 +259,9 @@ public class HUD_Settings : MonoBehaviour
         Settings.ChangeUseRumbler(_toggleRumbler.isOn);
     }
 
-    public void ChangeValueSensibilityGamePad(float value)
+    public void ChangeValueSensibilityGamePad()
     {
-        Settings.ChangeValueSensibilityGamePad(value);
+        Settings.ChangeValueSensibilityGamePad(_sliderSensibilityGamePad.value);
     }
 
     void InitializeGamePadPanel()
