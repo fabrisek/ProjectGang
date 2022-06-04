@@ -131,6 +131,5 @@ public class HUD_MainMenu : MonoBehaviour
             CloseSettings();
         else
             OpenLevelSelector();
-
     }
 }
