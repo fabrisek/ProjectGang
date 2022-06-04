@@ -76,11 +76,12 @@ public class HudControllerInGame : MonoBehaviour
     {
         InitLetterAnim();
         _optionsPanel.SetActive(false);
+        SetShowFps(Settings.ShowFps);
     }
 
     private void Update()
     {
-        if (showFps)
+        if (Settings.ShowFps)
         {
             //playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
             deltaTime += (Time.deltaTime - deltaTime) * 0.1f;

@@ -80,12 +80,12 @@ public class AudioManager : MonoBehaviour
     {
         audioSourceSoundEffect.volume  = volume * generalVolume;
         audioSourceSfx3D.volume = volume * generalVolume;
-        UpdateVolume();
+
     }
     public void ChangeVolumeMusic(float volume)
     {
         audioSourceMusic.volume = volume * generalVolume;
-        UpdateVolume();
+
     }
     public void PlayMusic(int index)
     {

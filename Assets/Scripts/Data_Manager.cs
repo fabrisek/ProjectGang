@@ -70,8 +70,16 @@ public class Data_Manager : MonoBehaviour
 
             if (data._worldData.Count == Data._worldData.Count)
             {
-                Data = data;
+                for (int i = 0; i < data._worldData.Count; i++)
+                {
+                    if (data._worldData[i]._mapData.Count != Data._worldData.Count)
+                    {
+                        return;
+                    }
+                }
+                return;
             }
+            Data = data;
         }
 
     }
