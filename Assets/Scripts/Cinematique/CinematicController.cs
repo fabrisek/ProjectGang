@@ -11,7 +11,7 @@ public class CinematicController : MonoBehaviour
 
     [SerializeField] CinemachineSmoothPath path;
     [SerializeField] CinemachineDollyCart cart;
-    [SerializeField] float speedCart;
+    [SerializeField] float _speedCart;
 
     [SerializeField] GameObject camera;
     [SerializeField] float speedRotate;
@@ -110,7 +110,7 @@ public class CinematicController : MonoBehaviour
     {
         if (path.PathLength > cart.m_Position)
         {
-            cart.m_Position += Time.deltaTime * speedCart;
+            cart.m_Position += Time.deltaTime * _speedCart;
         }
         else if(!atEnd )
         {
@@ -119,13 +119,13 @@ public class CinematicController : MonoBehaviour
             if(LevelManager.Instance != null)
             {
 
-                finishCinematic();
+                FinishCinematic();
 
             }
         }
     }
 
-    void finishCinematic ()
+    void FinishCinematic ()
     {
         if (TransitionScript.Instance != null)
         {

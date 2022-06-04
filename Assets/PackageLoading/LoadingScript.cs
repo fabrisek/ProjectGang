@@ -57,7 +57,7 @@ public class LoadingScript : MonoBehaviour
                     }
                 }
                
-                SceneManager.UnloadScene(sceneindex);
+                SceneManager.UnloadSceneAsync(sceneindex);
 
             }
         }
