@@ -9,7 +9,7 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] PlayerCam playerCam;
     bool grounded;
     [SerializeField]LayerMask whatIsGround;
-    bool isDead;
+    public bool isDead;
     [SerializeField] ShakeData deathShake;
     private void Awake()
     {

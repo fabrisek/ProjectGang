@@ -92,20 +92,24 @@ public class HUD_MainMenu : MonoBehaviour
 
     public void Back()
     {
-        switch(State)
-        {
-            case StateMainMenu.InPanelGame:
-                OpenLevelSelector();
-                break;
-            case StateMainMenu.InGame:
-                CloseSettings();
-                break;
-            case StateMainMenu.Settings:
-                CloseSettings();
-                break;
-            case StateMainMenu.InPanelSettings:
-                OpenSettings();
-                break;
+
+
+
+            switch (State)
+            {
+                case StateMainMenu.InPanelGame:
+                    OpenLevelSelector();
+                    break;
+                case StateMainMenu.InGame:
+                    CloseSettings();
+                    break;
+                case StateMainMenu.Settings:
+                    CloseSettings();
+                    break;
+                case StateMainMenu.InPanelSettings:
+                    OpenSettings();
+                    break;
+            
         }
     }
 

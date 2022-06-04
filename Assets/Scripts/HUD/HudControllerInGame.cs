@@ -16,6 +16,11 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] GameObject _pausePanel;
     [SerializeField] GameObject _optionsPanel;
 
+    public void OpenInGamePanel()
+    {
+        _inGamePanel.SetActive(true);
+    }
+
 
     [SerializeField] TextMeshProUGUI _textTimerInGame;
     [SerializeField]

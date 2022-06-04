@@ -216,25 +216,30 @@ public class WallRunningAdvanced : MonoBehaviour
 
     public void WallJump()
     {
-        if(pm.wallrunning)
+        if (pm != null)
         {
-            Debug.Log("wallRunJump");
-            pm.PlayerJumpDown(false);
-            pm.SetCanDoubleJump(false);
-            // enter exiting wall state
-            exitingWall = true;
-            exitWallTimer = exitWallTime;
 
-            Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
 
-            Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
+            if (pm.wallrunning)
+            {
+                Debug.Log("wallRunJump");
+                pm.PlayerJumpDown(false);
+                pm.SetCanDoubleJump(false);
+                // enter exiting wall state
+                exitingWall = true;
+                exitWallTimer = exitWallTime;
 
-            // reset y velocity and add force
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(forceToApply, ForceMode.Impulse);
+                Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
 
-            //SoundEffect
-            AudioManager.instance.playSoundEffect(1, 1f);
+                Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
+
+                // reset y velocity and add force
+                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+                rb.AddForce(forceToApply, ForceMode.Impulse);
+
+                //SoundEffect
+                AudioManager.instance.playSoundEffect(1, 1f);
+            }
         }
     }
 }

@@ -125,7 +125,7 @@ public class CinematicController : MonoBehaviour
         }
     }
 
-    void FinishCinematic ()
+    public void FinishCinematic ()
     {
         if (TransitionScript.Instance != null)
         {
