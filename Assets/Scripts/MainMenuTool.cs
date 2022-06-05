@@ -34,6 +34,8 @@ public class MainMenuTool : MonoBehaviour
 
     private void LaunchCinematiqueLevel(int world)
     {
+        DATA data = Data_Manager.Instance.GetData();
+        data._worldData[world].HaveUnlockWorld = true;
         Debug.Log("not unlock next world");
     }
 
