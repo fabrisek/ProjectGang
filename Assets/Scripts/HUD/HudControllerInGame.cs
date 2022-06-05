@@ -240,8 +240,8 @@ public class HudControllerInGame : MonoBehaviour
 
     IEnumerator WaitPosPlayer()
     {
-        yield return new WaitForSeconds(1);
-        PlayFabHighScore.Instance.GetPosPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetSceneData().MapName);
+        yield return new WaitForSecondsRealtime(.5f);
+        PlayFabHighScore.Instance.GetPosPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexLevel].GetSceneData().MapName);
     }
 
     public void ChangePosPlayer(int pos)
@@ -258,14 +258,14 @@ public class HudControllerInGame : MonoBehaviour
     {
         panelHighScore.SetActive(true);
         PlayFabHighScore.Instance.InitializeHighScore(HighScorePrefab, parentHighScore.transform);
-        PlayFabHighScore.Instance.GetLeaderBord(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetSceneData().MapName);
+        PlayFabHighScore.Instance.GetLeaderBord(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexLevel].GetSceneData().MapName);
     }
 
     public void ClickButtonAroundPlayer()
     {
         panelHighScore.SetActive(true);
         PlayFabHighScore.Instance.InitializeHighScore(HighScorePrefab, parentHighScore.transform);
-        PlayFabHighScore.Instance.GetLeaderBoardAroundPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexWorld].GetSceneData().MapName);
+        PlayFabHighScore.Instance.GetLeaderBoardAroundPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexLevel].GetSceneData().MapName);
     }
 
     public void OpenNextLevel()
