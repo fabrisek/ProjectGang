@@ -59,7 +59,8 @@ public class GrapplingGun : MonoBehaviour
     void Update()
     {
         
-        if(competenceRalentie.IsRalentie())
+
+        if (competenceRalentie.IsRalentie())
         {
             maxDistance = 30f;
         }
