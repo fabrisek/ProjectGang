@@ -35,6 +35,8 @@ namespace ByPass
 
                 //JumpForce
                 rb.AddForce(force * transform.up, ForceMode.Impulse);
+
+                other.GetComponent<PlayerMovementAdvanced>().SetCanDoubleJump(true);
             }
         }
 
