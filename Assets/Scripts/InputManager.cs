@@ -26,6 +26,9 @@ public class InputManager : MonoBehaviour
     public static event Action rebindCanceled;
     public static event Action<InputAction, int> rebindStarted;
 
+    [SerializeField] List<InputActionReference> allBinding;
+
+
     private void Awake()
     {
         _input = new Input();
@@ -67,6 +70,14 @@ public class InputManager : MonoBehaviour
     public void OnEnable()
     {
         _input.Enable();
+        for (int i = 0; i < allBinding.Count; i++)
+        {
+            string _actionName = allBinding[i].action.name;
+            if (allBinding[i] != null)
+            {
+                LoadBindingOverride(_actionName);
+            }
+        }
         playerInput.onControlsChanged += OnControlsChanged;
         
     }

@@ -501,7 +501,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
         //feedBack
         AudioManager.instance.playSoundEffect(1, 1f);
-        CameraShakerHandler.Shake(jumpShake);
+        //CameraShakerHandler.Shake(jumpShake);
 
 
         if (HudControllerInGame.Instance.InMenu == false)
