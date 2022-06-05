@@ -82,6 +82,9 @@ public class Data_Manager : MonoBehaviour
                         {
                             Data._worldData[i]._mapData[j].SetHighScore(data._worldData[i]._mapData[j].GetHighScore());
                             Data._worldData[i]._mapData[j].SetHaveUnlockLevel(data._worldData[i]._mapData[j].GetHaveUnlockLevel());
+
+                            //Data._worldData[i]._mapData[j] DATA IN GAME
+                            // data._worldData[i]._mapData[j] DATA VIA JSON "SAVE";
                         }
                     }
                 }
@@ -104,6 +107,8 @@ public class MapData
     [SerializeField] bool _haveUnlockLevel;
     public bool GetHaveUnlockLevel() { return _haveUnlockLevel; }
     public void SetHaveUnlockLevel(bool unlock) { _haveUnlockLevel = unlock; }
+
+
 }
 
 [System.Serializable]
