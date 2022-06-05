@@ -97,7 +97,6 @@ public class TransitionScript : MonoBehaviour
 
     public IEnumerator CoroutineFadeV2 ()
     {
-        Debug.Log("On mactive");
         done = false;
         startFade = true;
         t = 0;
@@ -105,7 +104,6 @@ public class TransitionScript : MonoBehaviour
         yield return new WaitForSeconds((1 / speed)*2);
         startFade = false;
         canvas.SetActive(false);
-        Debug.Log("Terminer");
     }
 
     public IEnumerator CoroutineFade(bool outOrIn)

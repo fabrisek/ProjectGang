@@ -37,13 +37,11 @@ public class InputManager : MonoBehaviour
 
         if (PlayerMovementAdvanced.Instance != null)
         {
-            Debug.Log("Cebon");
             _input.InGame.SlowTime.performed += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(true);
             _input.InGame.SlowTime.canceled += context => PlayerMovementAdvanced.Instance.ActiveSlowTime(false);
             _input.InGame.Pause.performed += context => PlayerMovementAdvanced.Instance.Pause();
             _input.InGame.Jump.started += context => PlayerMovementAdvanced.Instance.GetPlayerJump();
             _input.InGame.Jump.canceled += context => PlayerMovementAdvanced.Instance.PlayerJumpDown(true);
-
         }
 
         if (WallRunningAdvanced.Instance != null)
