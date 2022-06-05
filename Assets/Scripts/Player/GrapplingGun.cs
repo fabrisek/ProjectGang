@@ -37,7 +37,7 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] CompetenceRalentie competenceRalentie;
 
     [SerializeField] Animator grappinAnimator;
-
+    private  Rigidbody rbHit;
 
     void Awake()
     {
@@ -118,14 +118,14 @@ public class GrapplingGun : MonoBehaviour
                 joint.damper = damper;
                 joint.massScale = massScale;
 
-            if(hit.collider.GetComponent<Rigidbody>()!=null)
+            if (justHit.collider.TryGetComponent<Rigidbody>(out rbHit))
             {
-                hit.collider.GetComponent<Rigidbody>().isKinematic = true;
-                justHitVelocity = hit.collider.GetComponent<Rigidbody>().velocity;
+                rbHit.isKinematic = true;
+                justHitVelocity = rbHit.velocity;
             }
 
-                //SoundEffect
-                AudioManager.instance.playSoundEffect(0, 1f);
+            //SoundEffect
+            AudioManager.instance.playSoundEffect(0, 1f);
                 //InputManager.Instance.CameraShake(grapplinShake);
 
             //particule
@@ -157,10 +157,10 @@ public class GrapplingGun : MonoBehaviour
 
             //anim
             grappinAnimator.SetBool("Grappling", false);
-            if (justHit.collider.GetComponent<Rigidbody>() != null)
+            if (justHit.collider.TryGetComponent<Rigidbody>(out rbHit))
             {
-                justHit.collider.GetComponent<Rigidbody>().isKinematic = false;
-                justHit.collider.GetComponent<Rigidbody>().velocity = justHitVelocity;
+                rbHit.isKinematic = false;
+                rbHit.velocity = justHitVelocity;
             }
 
     }

@@ -18,7 +18,7 @@ public class GrapplingRope : MonoBehaviour
         spring = new Spring();
         spring.SetTarget(0);
     }
-    void Update()
+    void LateUpdate()
     {
         DrawRope();
     }
