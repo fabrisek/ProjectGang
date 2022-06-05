@@ -43,6 +43,7 @@ public class GrapplingGun : MonoBehaviour
     {
         particuleHit.SetActive(false);
         particuleHit.transform.parent = null;
+        particuleHit.transform.localScale = Vector3.one*0.3f;
         //Inputs
         Instance = this;
         timerHit = 0.5f;
@@ -118,18 +119,18 @@ public class GrapplingGun : MonoBehaviour
                 joint.damper = damper;
                 joint.massScale = massScale;
 
-            if (justHit.collider.TryGetComponent<Rigidbody>(out rbHit))
-            {
+               /* if (justHit.collider.TryGetComponent<Rigidbody>(out rbHit))
+                {
                 rbHit.isKinematic = true;
                 justHitVelocity = rbHit.velocity;
-            }
+                }*/
 
-            //SoundEffect
-            AudioManager.instance.playSoundEffect(0, 1f);
+                //SoundEffect
+                AudioManager.instance.playSoundEffect(0, 1f);
                 //InputManager.Instance.CameraShake(grapplinShake);
 
-            //particule
-            particuleHit.transform.position = grapplePoint;
+                //particule
+                particuleHit.transform.position = grapplePoint;
                 
                 particuleHit.SetActive(true);
                 
@@ -157,11 +158,11 @@ public class GrapplingGun : MonoBehaviour
 
             //anim
             grappinAnimator.SetBool("Grappling", false);
-            if (justHit.collider.TryGetComponent<Rigidbody>(out rbHit))
+            /*if (justHit.collider.TryGetComponent<Rigidbody>(out rbHit))
             {
                 rbHit.isKinematic = false;
                 rbHit.velocity = justHitVelocity;
-            }
+            }*/
 
     }
     
