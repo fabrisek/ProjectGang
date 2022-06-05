@@ -7,4 +7,5 @@ public class SceneObject : ScriptableObject
     public int IndexScene;
     public float[] TimeStar;
     public Sprite spriteLevel;
+    public Sprite BackGroundLoad;
 }

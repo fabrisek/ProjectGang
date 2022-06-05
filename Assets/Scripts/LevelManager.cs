@@ -73,7 +73,7 @@ public class LevelManager : MonoBehaviour
         playerMovementScript.enabled = false;
         wallRunScript.enabled = false;
         slowDown.enabled = false;
-        //playercam.enabled = false;
+        playercam.enabled = false;
     }
 
     void ResetMovePlayer()
@@ -82,7 +82,7 @@ public class LevelManager : MonoBehaviour
         playerMovementScript.enabled = true;
         wallRunScript.enabled = true;
         slowDown.enabled = true;
-      //  playercam.enabled = true;
+        playercam.enabled = true;
     }
 
     void SetTimeTOBugsManager()
