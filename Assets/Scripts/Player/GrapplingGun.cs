@@ -20,7 +20,9 @@ public class GrapplingGun : MonoBehaviour
     private SpringJoint joint;
     public bool startGrapple;
     RaycastHit justHit;
+    Vector3 justHitVelocity;
     float timerHit;
+    Transform hitPoint;
 
 
     public Image crossHair;
@@ -55,6 +57,7 @@ public class GrapplingGun : MonoBehaviour
     }
     void Update()
     {
+        
         if(competenceRalentie.IsRalentie())
         {
             maxDistance = 30f;
@@ -84,6 +87,8 @@ public class GrapplingGun : MonoBehaviour
             //particuleGunTipLock.SetActive(false);
         }
         timerHit -= Time.unscaledDeltaTime;
+        //grapplePoint = justHit.collider.transform.position;
+
     }
 
     //Called after Update
@@ -97,6 +102,7 @@ public class GrapplingGun : MonoBehaviour
             if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, whatIsGrappleable))
             {
                 grapplePoint = hit.point;
+                
                 joint = player.gameObject.AddComponent<SpringJoint>();
                 joint.autoConfigureConnectedAnchor = false;
                 joint.connectedAnchor = grapplePoint;
@@ -111,6 +117,12 @@ public class GrapplingGun : MonoBehaviour
                 joint.spring = spring;
                 joint.damper = damper;
                 joint.massScale = massScale;
+
+            if(hit.collider.GetComponent<Rigidbody>()!=null)
+            {
+                hit.collider.GetComponent<Rigidbody>().isKinematic = true;
+                justHitVelocity = hit.collider.GetComponent<Rigidbody>().velocity;
+            }
 
                 //SoundEffect
                 AudioManager.instance.playSoundEffect(0, 1f);
@@ -145,7 +157,12 @@ public class GrapplingGun : MonoBehaviour
 
             //anim
             grappinAnimator.SetBool("Grappling", false);
-        
+            if (justHit.collider.GetComponent<Rigidbody>() != null)
+            {
+                justHit.collider.GetComponent<Rigidbody>().isKinematic = false;
+                justHit.collider.GetComponent<Rigidbody>().velocity = justHitVelocity;
+            }
+
     }
     
 

@@ -31,8 +31,10 @@ namespace ByPass
             if (other.GetComponent<Rigidbody>() != null && other.gameObject.layer == 7)
             {
                 Rigidbody rb = other.GetComponent<Rigidbody>();
-                rb.AddForce(force * transform.up, ForceMode.Impulse);
+                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
+                //JumpForce
+                rb.AddForce(force * transform.up, ForceMode.Impulse);
             }
         }
 
