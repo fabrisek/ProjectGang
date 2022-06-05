@@ -16,6 +16,11 @@ public class HudControllerInGame : MonoBehaviour
     [SerializeField] GameObject _pausePanel;
     [SerializeField] GameObject _optionsPanel;
 
+    public void OpenInGamePanel()
+    {
+        _inGamePanel.SetActive(true);
+    }
+
 
     [SerializeField] TextMeshProUGUI _textTimerInGame;
     [SerializeField]
@@ -76,11 +81,12 @@ public class HudControllerInGame : MonoBehaviour
     {
         InitLetterAnim();
         _optionsPanel.SetActive(false);
+        SetShowFps(Settings.ShowFps);
     }
 
     private void Update()
     {
-        if (showFps)
+        if (Settings.ShowFps)
         {
             //playerSpeed.text = ((int)(new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z).magnitude*3)).ToString() + " KM/H";
             deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
@@ -96,7 +102,7 @@ public class HudControllerInGame : MonoBehaviour
         _inGamePanel.SetActive(false);
         _winPanel.SetActive(false);
 
-        if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+        if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -171,7 +177,7 @@ public class HudControllerInGame : MonoBehaviour
         _winPanel.SetActive(true);
         _textTimerWin.text = "TIME : " + Timer.FormatTime(timer);
 
-        if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+        if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

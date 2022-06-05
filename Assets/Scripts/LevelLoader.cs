@@ -27,6 +27,8 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(int sceneIndex)
     {
+        if (Data_Manager.Instance != null)
+            Data_Manager.AlreadyInGame = true;
         AudioManager.instance.StopMusic();
         LoadSave.sceneToLoad = sceneIndex;
         if (TransitionScript.Instance != null)

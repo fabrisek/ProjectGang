@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using System;
-
+public enum ControlDeviceType
+{
+    KeyboardAndMouse,
+    Gamepad,
+}
 public class InputManager : MonoBehaviour
 {
     public static Input _input;
@@ -12,11 +16,7 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] PlayerInput playerInput;
     public static ControlDeviceType currentControlDevice;
-    public enum ControlDeviceType
-    {
-        KeyboardAndMouse,
-        Gamepad,
-    }
+
     public static float SensibilityMouseY;
     public static float SensibilityMouseX;   
     public static float SensibilityGamePadY;
@@ -50,13 +50,11 @@ public class InputManager : MonoBehaviour
             _input.InGame.Jump.started += context => WallRunningAdvanced.Instance.WallJump();
         if (GrapplingGun.Instance != null)
         {
-
             _input.InGame.Grappling.performed += context => GrapplingGun.Instance.StartGrapple();
             _input.InGame.Grappling.canceled += context => GrapplingGun.Instance.StopGrapple();
         }
         if (LevelManager.Instance != null)
         {
-
             _input.InGame.RestartAndBack.performed += context => LevelManager.Instance.RestartLevel();
             _input.InGame.RestartAndBack.canceled -= context => LevelManager.Instance.RestartLevel();
         }
@@ -114,7 +112,7 @@ public class InputManager : MonoBehaviour
         {
             if (currentControlDevice != ControlDeviceType.Gamepad)
             {
-                currentControlDevice = ControlDeviceType.Gamepad;
+                Data_Manager.LastDevice = ControlDeviceType.Gamepad;
                 // Send Event
                 // EventHandler.ExecuteEvent("DeviceChanged", currentControlDevice);
                 PlayerCam.Instance.IsGamePad = true;
@@ -125,7 +123,7 @@ public class InputManager : MonoBehaviour
         {
             if (currentControlDevice != ControlDeviceType.KeyboardAndMouse)
             {
-                currentControlDevice = ControlDeviceType.KeyboardAndMouse;
+                Data_Manager.LastDevice = ControlDeviceType.KeyboardAndMouse;
                 PlayerCam.Instance.IsGamePad = false;
 
                 if (Time.timeScale == 0)

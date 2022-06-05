@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class LevelSelectorMenu : MonoBehaviour
 {
@@ -12,17 +10,6 @@ public class LevelSelectorMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _nameLevel;
     [SerializeField] TextMeshProUGUI _star;
     public int GetIndex() { return _indexWorld; }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     private void ChangeInformation()
     {
@@ -52,6 +39,8 @@ public class LevelSelectorMenu : MonoBehaviour
         {
             _canvas.SetActive(true);
             ChangeInformation();
+            Data_Manager.Instance.GetData().LastWorld = _indexWorld;
+            Data_Manager.Instance.SaveData();
             if (Data_Manager.Instance.GetData()._worldData[_indexWorld].HaveUnlockWorld)
             {
                 textGoPress.SetActive(true);

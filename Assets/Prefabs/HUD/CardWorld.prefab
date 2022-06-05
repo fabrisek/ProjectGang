@@ -455,13 +455,13 @@ GameObject:
   - component: {fileID: 1057853381288749617}
   - component: {fileID: 6045556922698549305}
   - component: {fileID: 2189559325893312204}
+  - component: {fileID: 8729627828953941843}
   - component: {fileID: 2621399282430992191}
   - component: {fileID: 6252553802063150604}
   - component: {fileID: 8574770675382149232}
   - component: {fileID: 2198890758229606516}
   - component: {fileID: 8616737559273595266}
   - component: {fileID: 5560860911725257456}
-  - component: {fileID: 8729627828953941843}
   m_Layer: 5
   m_Name: CardWorld
   m_TagString: Untagged
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -643,7 +643,7 @@ MonoBehaviour:
     SignalSource: {fileID: 4528781807198034119}
     Selectable: {fileID: 6045556922698549305}
   Id:
-    Category: None
+    Category: Buttun
     Name: None
     Custom: 1
 --- !u!222 &2189559325893312204
@@ -654,6 +654,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4528781807198034119}
   m_CullTransparentMesh: 1
+--- !u!114 &8729627828953941843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4528781807198034119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8d0aa91161c7f4cac17bca3eeb9767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 5142778361107859425}
+  timer: {fileID: 8725780486555604724}
+  levelName: {fileID: 8019768080275257598}
+  levelNumber: {fileID: 3954108400179241519}
+  posPlayer: {fileID: 6763225770399074452}
+  starPlayer: {fileID: 426356826727557067}
 --- !u!114 &2621399282430992191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2512,24 +2530,6 @@ MonoBehaviour:
       ToCustomValue: 0
       FromOffset: 0
       ToOffset: 0.4
---- !u!114 &8729627828953941843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4528781807198034119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b8d0aa91161c7f4cac17bca3eeb9767, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 5142778361107859425}
-  timer: {fileID: 8725780486555604724}
-  levelName: {fileID: 8019768080275257598}
-  levelNumber: {fileID: 3954108400179241519}
-  posPlayer: {fileID: 6763225770399074452}
-  starPlayer: {fileID: 426356826727557067}
 --- !u!1 &4561800485723545756
 GameObject:
   m_ObjectHideFlags: 0

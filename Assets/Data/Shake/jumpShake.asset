@@ -15,26 +15,26 @@ MonoBehaviour:
   _scaledTime: 1
   _shakeCameras: 1
   _shakeCanvases: 0
-  _shakeObjects: 1
+  _shakeObjects: 0
   _iterationPercent: 1
   _unlimitedDuration: 0
-  _totalDuration: 0.5
-  _fadeInDuration: 0.2
-  _fadeOutDuration: 0.2
-  _magnitude: 0
-  _magnitudeNoise: 0.181
+  _totalDuration: 0.3
+  _fadeInDuration: 0.1
+  _fadeOutDuration: 0.1
+  _magnitude: 0.5
+  _magnitudeNoise: 1
   _magnitudeCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.35493717
+      outSlope: 0.35493717
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.043328997
     - serializedVersion: 3
       time: 1
       value: 1
@@ -47,20 +47,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _roughness: 0
-  _roughnessNoise: 0.3
+  _roughness: 0.1
+  _roughnessNoise: 0.5
   _roughnessCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.3194676
+      outSlope: 0.3194676
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.043701444
     - serializedVersion: 3
       time: 1
       value: 1
@@ -73,8 +73,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _positionalInfluence: {x: 0, y: 1, z: 0}
+  _positionalInfluence: {x: 1, y: 1, z: 0}
   _positionalInverts: 0
-  _rotationalInfluence: {x: 0, y: 0, z: 1}
+  _rotationalInfluence: {x: 0, y: 0, z: 0}
   _rotationalInverts: 0
   _randomSeed: 1

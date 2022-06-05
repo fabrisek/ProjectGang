@@ -20765,7 +20765,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9121184313338394175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.291}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21247,21 +21247,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e2789cf278bff4a92d4fb3dbe80283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMax: 21
+  speedMax: 18
   walkSpeed: 10
-  acceleration: 1.01
+  acceleration: 7
   accelerationTimer: 0.2
   sprintSpeed: 0
   slideSpeed: 0
-  wallrunSpeed: 15
+  wallrunSpeed: 13
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
-  groundDrag: 2
-  jumpForce: 22
-  jumpForceDown: 8
+  groundDrag: 1.5
+  jumpForce: 23
+  jumpForceDown: 10
   jumpCooldown: 0.5
   airMultiplier: 0.8
-  jumpShake: {fileID: 11400000, guid: 7d35e670e3e0092438d60111e2f1c686, type: 2}
+  jumpShake: {fileID: 11400000, guid: f09d05858832473458c36b9632539469, type: 2}
   runShake: {fileID: 11400000, guid: 06576d2dc1847ed49ba311ba7cafbe87, type: 2}
   crouchSpeed: 3.5
   crouchYScale: 0.5
@@ -21299,19 +21299,19 @@ MonoBehaviour:
     m_Bits: 512
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 256
-  wallRunForce: 250
+    m_Bits: 1024
+  wallRunForce: 50
   wallJumpUpForce: 22
   wallJumpSideForce: 5
   wallClimbSpeed: 250
   maxWallRunTime: 5
-  tilt: 0
+  tilt: 15
   fovWall: 90
   fovNormal: 80
   wallRunShake: {fileID: 11400000, guid: 4f6a3e0cdcdcc994eb9c69b7eb4bf9e7, type: 2}
   wallCheckDistance: 1.5
   minJumpHeight: 3
-  exitWallTime: 0.2
+  exitWallTime: 0
   useGravity: 1
   gravityCounterForce: 20
   orientation: {fileID: 9121184314764977126}
@@ -21359,6 +21359,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4112
+  isDead: 0
   deathShake: {fileID: 11400000, guid: 95616048506dc9d4dbd1130ee3aa6e98, type: 2}
 --- !u!114 &7829386270631180504
 MonoBehaviour:

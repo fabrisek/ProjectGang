@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace FirstGearGames.SmoothCameraShaker
 {
 
@@ -138,6 +137,7 @@ namespace FirstGearGames.SmoothCameraShaker
 
         private void Awake()
         {
+            
             //Make sure there is only once instance.
             if (_instance != null && _instance != this)
             {

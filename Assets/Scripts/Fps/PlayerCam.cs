@@ -51,13 +51,13 @@ public class PlayerCam : MonoBehaviour
 
         if(IsGamePad == false)
         {
-            lookX = looking.x * InputManager.SensibilityMouseX * Time.unscaledDeltaTime;
-            lookY = looking.y * InputManager.SensibilityMouseY * Time.unscaledDeltaTime;
+            lookX = looking.x * Settings.SensibilityMouse * Time.unscaledDeltaTime;
+            lookY = looking.y * Settings.SensibilityMouse * Time.unscaledDeltaTime;
         }
         else
         {
-            lookX = looking.x * InputManager.SensibilityGamePadX * Time.unscaledDeltaTime;
-            lookY = looking.y * InputManager.SensibilityGamePadY * Time.unscaledDeltaTime;
+            lookX = looking.x * Settings.SensibilityGamePad * Time.unscaledDeltaTime;
+            lookY = looking.y * Settings.SensibilityGamePad * Time.unscaledDeltaTime;
         }
 
 
@@ -81,6 +81,7 @@ public class PlayerCam : MonoBehaviour
 
     public void DoTilt(float zTilt)
     {
-        transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
+        transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.5f);
+        Debug.Log(zTilt);
     }
 }

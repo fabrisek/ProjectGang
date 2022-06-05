@@ -57,6 +57,11 @@ public class WallRunningAdvanced : MonoBehaviour
     private PlayerMovementAdvanced pm;
     private Rigidbody rb;
 
+
+    //bug doublejumpwall
+    float timerDouble = 0.3f;
+    bool stopWallRun;
+
     private void Awake()
     {
         Instance = this;
@@ -77,6 +82,15 @@ public class WallRunningAdvanced : MonoBehaviour
     {
         CheckForWall();
         StateMachine();
+
+        timerDouble -= Time.deltaTime;
+        if(timerDouble<0&&stopWallRun)
+        {
+            stopWallRun = false;
+            pm.SetCanDoubleJump(true);
+        }
+        
+
     }
 
     private void FixedUpdate()
@@ -166,7 +180,7 @@ public class WallRunningAdvanced : MonoBehaviour
         pm.wallrunning = true;
         wallRunTimer = maxWallRunTime;
 
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.velocity = new Vector3(rb.velocity.x,0f, rb.velocity.z);
 
         // apply camera effects
         if (wallLeft) cam.DoTilt(-tilt);
@@ -206,35 +220,43 @@ public class WallRunningAdvanced : MonoBehaviour
     private void StopWallRun()
     {
         pm.wallrunning = false;
-        pm.SetCanDoubleJump(true);
+        
         // reset camera effects
         cam.DoTilt(0f);
         timerFoostep = 0.01f;
 
         Debug.Log("wallRunStop");
+        
+        timerDouble = 0.3f;
+        stopWallRun = true;
     }
 
     public void WallJump()
     {
-        if(pm.wallrunning)
+        if (pm != null)
         {
-            Debug.Log("wallRunJump");
-            pm.PlayerJumpDown(false);
-            pm.SetCanDoubleJump(false);
-            // enter exiting wall state
-            exitingWall = true;
-            exitWallTimer = exitWallTime;
 
-            Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
 
-            Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
+            if (pm.wallrunning)
+            {
+                Debug.Log("wallRunJump");
+                pm.PlayerJumpDown(false);
+                pm.SetCanDoubleJump(false);
+                // enter exiting wall state
+                exitingWall = true;
+                exitWallTimer = exitWallTime;
 
-            // reset y velocity and add force
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(forceToApply, ForceMode.Impulse);
+                Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
 
-            //SoundEffect
-            AudioManager.instance.playSoundEffect(1, 1f);
+                Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
+
+                // reset y velocity and add force
+                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+                rb.AddForce(forceToApply, ForceMode.Impulse);
+
+                //SoundEffect
+                AudioManager.instance.playSoundEffect(1, 1f);
+            }
         }
     }
 }

@@ -24,8 +24,6 @@ public class LevelManager : MonoBehaviour
         SetTimeTOBugsManager();
         Instance = this;
         CutMovePlayer();
-        CanvasInGame.SetActive(false);
-
     }
 
     private void Start()
@@ -66,7 +64,7 @@ public class LevelManager : MonoBehaviour
 
         StartCoroutine(CoroutineTroisDeuxUn());
         HudControllerInGame.Instance.StartThreeTwoOne(timeOfThreeTwoOneGo);
-        
+        HudControllerInGame.Instance.OpenInGamePanel();
     }
 
     void CutMovePlayer()
@@ -107,17 +105,28 @@ public class LevelManager : MonoBehaviour
     }
     public void RestartLevel()
     {
+        if (CinematicController.Instance.StartCine == false)
+        {
+            if (HudControllerInGame.Instance.InMenu == false)
+            {
+                if (SceneManager.GetActiveScene().buildIndex != 1 && Timer.Instance.GetTimer() != 0)
+                    LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+            }
 
-        if (HudControllerInGame.Instance.InMenu == false)
-            LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+            else
+            {
+                HudControllerInGame.Instance.Back();
+            }
+
+        }
+
 
         else
         {
-            HudControllerInGame.Instance.Back();
+            Debug.Log("stp");
+            CinematicController.Instance.FinishCinematic();
         }
-
     }
-
     IEnumerator CoroutineTroisDeuxUn()
     {
         yield return new WaitForSeconds(timeOfThreeTwoOneGo);

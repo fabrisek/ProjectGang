@@ -152,54 +152,62 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     public void Pause()
     {
-        if (Time.timeScale > 0)
+        if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
         {
-            Timer.Instance.StopTimer();
-            playerCam.enabled = false;
-            Rumbler.instance.StopRumble();
-            Time.timeScale = 0;
-            HudControllerInGame.Instance.OpenPauseMenu();
-            if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+
+
+            if (Time.timeScale > 0)
             {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                Timer.Instance.StopTimer();
+                playerCam.enabled = false;
+                Rumbler.instance.StopRumble();
+                Time.timeScale = 0;
+                HudControllerInGame.Instance.OpenPauseMenu();
+                if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
             }
-        }
-        else
-        {
-            
-            Timer.Instance.LaunchTimer();
-            playerCam.enabled = true;
-            Time.timeScale = 1;
-            HudControllerInGame.Instance.ClosePauseMenu();
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Confined;
+            else
+            {
+
+                Timer.Instance.LaunchTimer();
+                playerCam.enabled = true;
+                Time.timeScale = 1;
+                HudControllerInGame.Instance.ClosePauseMenu();
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Confined;
+            }
         }
     }
 
     public void Pause(InputAction.CallbackContext callback)
     {
-        if (Time.timeScale > 0)
+        if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
         {
-            Timer.Instance.StopTimer();
-            playerCam.enabled = false;
-            Rumbler.instance.StopRumble();
-            Time.timeScale = 0;
-            HudControllerInGame.Instance.OpenPauseMenu();
-            if (InputManager.currentControlDevice == InputManager.ControlDeviceType.KeyboardAndMouse)
+            if (Time.timeScale > 0)
             {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                Timer.Instance.StopTimer();
+                playerCam.enabled = false;
+                Rumbler.instance.StopRumble();
+                Time.timeScale = 0;
+                HudControllerInGame.Instance.OpenPauseMenu();
+                if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
             }
-        }
-        else
-        {
-            Timer.Instance.LaunchTimer();
-            playerCam.enabled = true;
-            Time.timeScale = 1;
-            HudControllerInGame.Instance.ClosePauseMenu();
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Confined;
+            else
+            {
+                Timer.Instance.LaunchTimer();
+                playerCam.enabled = true;
+                Time.timeScale = 1;
+                HudControllerInGame.Instance.ClosePauseMenu();
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Confined;
+            }
         }
     }
 
@@ -312,6 +320,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             timeToPress -= Time.deltaTime;
         }
+
+        //limit velocity
         if(new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude > speedMax)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z).normalized * speedMax + Vector3.up * rb.velocity.y;
@@ -321,20 +331,21 @@ public class PlayerMovementAdvanced : MonoBehaviour
     //Acceleration+Momentum
     private void Accelerate()
     {
+        Debug.Log(walkSpeed);
         if(new Vector2 (verticalInput, horizontalInput).magnitude >= 0.2f && verticalInput > -0.2f)
         {
             accelerationTimer -= Time.deltaTime;
             if(accelerationTimer<0 && walkSpeed< speedMax)
             {
-                walkSpeed *= acceleration;
+                walkSpeed += acceleration*Time.deltaTime;
 
                 accelerationTimer = accelerationTimeReset;
             }
             
         }
-        if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.3f && walkSpeed > resetWalkSpeed)
+        if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.1f && walkSpeed > resetWalkSpeed)
         {
-            walkSpeed -= resetWalkSpeed/20*Time.deltaTime;
+            walkSpeed -= resetWalkSpeed/30*Time.deltaTime;
             accelerationTimer = accelerationTimeReset;
         }
     }
@@ -477,7 +488,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
          }
         
     }
-    private void Jump()
+    public void Jump()
     {
         //DownForceAfterInput
         timeToPress = 1f;
@@ -523,6 +534,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         {
             grappinAnimator.SetTrigger("Flip");
         }
+        
     }
     private void ResetJump()
     {

@@ -8,19 +8,21 @@ public class DATA
 {
     public List<WorldInfo> _worldData;
     public StatsPlayer statPlayer;
-
+    public int LastWorld;
 }
 public class Data_Manager : MonoBehaviour
 {
     public static Data_Manager Instance;
     [SerializeField] DATA Data;
-
+    public static bool AlreadyInGame { get; set; }
+    public static ControlDeviceType LastDevice;
     public DATA GetData() { return Data; }
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+
         DontDestroyOnLoad(this.gameObject);
         Instance = this;
         LoadSavedGames();
@@ -70,8 +72,16 @@ public class Data_Manager : MonoBehaviour
 
             if (data._worldData.Count == Data._worldData.Count)
             {
-                Data = data;
+                for (int i = 0; i < data._worldData.Count; i++)
+                {
+                    if (data._worldData[i]._mapData.Count != Data._worldData.Count)
+                    {
+                        return;
+                    }
+                }
+                return;
             }
+            Data = data;
         }
 
     }
