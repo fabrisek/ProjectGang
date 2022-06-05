@@ -35,7 +35,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
 
         CameraShakerHandler.Shake(constantShake);
-        transform.LookAt(camLookAt);
+        //transform.LookAt(camLookAt);
     }
 
     private void Update()
