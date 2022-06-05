@@ -82,6 +82,7 @@ public class GrapplingGun : MonoBehaviour
         }
         else
         {
+            
             crossHair.sprite = crossHairNormal.sprite;
             crossHair.color = Color.white;
             //if (!IsGrappling())
