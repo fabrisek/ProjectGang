@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 1783253254578966221}
   - component: {fileID: 3391413887347851624}
   - component: {fileID: 645228331123537314}
-  m_Layer: 0
+  - component: {fileID: 2680004411927643864}
+  m_Layer: 4
   m_Name: Beige_Building(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1783253254578966221
 Transform:
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2680004411927643864
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437971885178311799}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3720359718763674766, guid: b5337a594f35ef642bb2e4f995d9f314, type: 3}
 --- !u!1 &3140395195836098908
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,12 +110,12 @@ GameObject:
   - component: {fileID: 4758051249261640986}
   - component: {fileID: 8031403499489055029}
   - component: {fileID: 7635793875228689134}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Neon6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4758051249261640986
 Transform:
