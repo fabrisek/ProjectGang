@@ -20,10 +20,10 @@ public class LevelSelectorMenu : MonoBehaviour
         for (int i = 0; i < data._worldData[_indexWorld]._mapData.Count; i++)
         {
             MapData mapData = data._worldData[_indexWorld]._mapData[i];
-            for (int j = 0; j < mapData.TimeStar.Length; j++)
+            for (int j = 0; j < mapData.GetSceneData().TimeStar.Length; j++)
             {
                 totalStar++;
-                if (mapData.GetHighScore() <= mapData.TimeStar[j] && mapData.GetHighScore() != 0)
+                if (mapData.GetHighScore() <= mapData.GetSceneData().TimeStar[j] && mapData.GetHighScore() != 0)
                 {
                     starUnlock++;
                 }

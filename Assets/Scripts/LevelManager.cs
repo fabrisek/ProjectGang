@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-
+        Time.timeScale = 1;
         if (LoadSave.first)
         {
            // playerCam.enabled = false;

@@ -25,13 +25,10 @@ public class FinishLine : MonoBehaviour
                 isWin = true;
                 float timer = Timer.Instance.GetTimer();
 
-                
-
                 if (Data_Manager.Instance)
                 {                    
                     Data_Manager.Instance.SetRecord(timer, _levelIndex, _worldIndex);
-                    HudControllerInGame.Instance.OpenWinPanel(timer, Data_Manager.Instance.GetMapData(_levelIndex, _worldIndex).GetHighScore(), _levelIndex, _worldIndex);
-                    
+                    HudControllerInGame.Instance.OpenWinPanel(timer, Data_Manager.Instance.GetMapData(_levelIndex, _worldIndex).GetHighScore(), _levelIndex, _worldIndex);                   
                 }
 
                 else if (Data_Manager.Instance == null)
@@ -41,8 +38,6 @@ public class FinishLine : MonoBehaviour
             }
         }    
     }
-
-
 
 
     private void OnTriggerEnter(Collider other)
