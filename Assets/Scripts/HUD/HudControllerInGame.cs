@@ -297,6 +297,7 @@ public class HudControllerInGame : MonoBehaviour
     {
         timeToAnimLetter = 0;
         startTimeToAimLetter = false;
+        threeTwoOneSlider.enabled = false;
     }
 
     void UpdateTimerForLetterAnim()
@@ -344,6 +345,7 @@ public class HudControllerInGame : MonoBehaviour
 
     IEnumerator CoroutineAffichageImagesStart(float time, int index)
     {
+        threeTwoOneSlider.enabled = true;
         yield return new WaitForSeconds(time / 3);
 
         //Reset les lettre au debu de la curve
