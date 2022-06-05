@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-
+        Time.timeScale = 1;
         if (LoadSave.first)
         {
            // playerCam.enabled = false;
@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
         CanvasInGame.SetActive(true);
         if (timeOfThreeTwoOneGo == 0)
         {
-            timeOfThreeTwoOneGo = 2;
+            timeOfThreeTwoOneGo = 1.3f;
         }
 
         StartCoroutine(CoroutineTroisDeuxUn());

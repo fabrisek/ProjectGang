@@ -10,6 +10,7 @@ public class DATA
     public StatsPlayer statPlayer;
     public int LastWorld;
 }
+
 public class Data_Manager : MonoBehaviour
 {
     public static Data_Manager Instance;
@@ -35,14 +36,14 @@ public class Data_Manager : MonoBehaviour
             Data._worldData[worldIndex]._mapData[levelIndex].SetHighScore(timer);
             print(timer);
             if (PlayFabHighScore.Instance)
-                PlayFabHighScore.Instance.SendLeaderBord(timer, Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData[levelIndex].GetMapName());
+                PlayFabHighScore.Instance.SendLeaderBord(timer, Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData[levelIndex].GetSceneData().MapName);
         }
 
         if (timer < Data._worldData[worldIndex]._mapData[levelIndex].GetHighScore())
         {
             Data._worldData[worldIndex]._mapData[levelIndex].SetHighScore(timer);
             if (PlayFabHighScore.Instance)
-                PlayFabHighScore.Instance.SendLeaderBord(timer, Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData[levelIndex].GetMapName());
+                PlayFabHighScore.Instance.SendLeaderBord(timer, Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData[levelIndex].GetSceneData().MapName);
         }
 
         if (levelIndex + 1 != Data._worldData[worldIndex]._mapData.Count)
@@ -56,8 +57,6 @@ public class Data_Manager : MonoBehaviour
         string data = JsonUtility.ToJson(Data);
         string filepath = Application.persistentDataPath + "/Save.json";
         File.WriteAllText(filepath, data);
-
-        print(data);
     }
 
     //Charge tous les record dans toutes les maps et les charges dans les Datas;
@@ -69,21 +68,25 @@ public class Data_Manager : MonoBehaviour
         {
             string fileContents = File.ReadAllText(worldsFolder);
             DATA data = JsonUtility.FromJson<DATA>(fileContents);
+            Data.LastWorld = data.LastWorld;
 
-            if (data._worldData.Count == Data._worldData.Count)
+            for (int i = 0; i < Data._worldData.Count; i++)
             {
-                for (int i = 0; i < data._worldData.Count; i++)
+                if (data._worldData[i] != null)
                 {
-                    if (data._worldData[i]._mapData.Count != Data._worldData.Count)
+                    Data._worldData[i].HaveUnlockWorld = data._worldData[i].HaveUnlockWorld;
+
+                    for (int j = 0; j < Data._worldData[i]._mapData.Count; j++)
                     {
-                        return;
+                        if (data._worldData[i]._mapData[j] != null)
+                        {
+                            Data._worldData[i]._mapData[j].SetHighScore(data._worldData[i]._mapData[j].GetHighScore());
+                            Data._worldData[i]._mapData[j].SetHaveUnlockLevel(data._worldData[i]._mapData[j].GetHaveUnlockLevel());
+                        }
                     }
                 }
-                return;
             }
-            Data = data;
         }
-
     }
 
     public MapData GetMapData(int index, int worldIndex) { return Data._worldData[worldIndex]._mapData[index]; }
@@ -93,20 +96,14 @@ public class Data_Manager : MonoBehaviour
 
 public class MapData
 {
-    [SerializeField] string _mapName;
-    [SerializeField] int _indexScene;
-    public int GetIndexScene() { return _indexScene; }
-    public string GetMapName() { return _mapName; }
+    [SerializeField] SceneObject _sceneData;
+    public SceneObject GetSceneData() { return _sceneData; }
     [SerializeField] float _highScore;
     public float GetHighScore() { return _highScore; }
     public void SetHighScore(float highscore) { _highScore = highscore; }
     [SerializeField] bool _haveUnlockLevel;
     public bool GetHaveUnlockLevel() { return _haveUnlockLevel; }
     public void SetHaveUnlockLevel(bool unlock) { _haveUnlockLevel = unlock; }
-
-    public float[] TimeStar;
-
-    public Sprite spriteLevel;
 }
 
 [System.Serializable]

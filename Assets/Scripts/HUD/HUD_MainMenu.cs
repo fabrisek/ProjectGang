@@ -69,10 +69,10 @@ public class HUD_MainMenu : MonoBehaviour
             GameObject cardObj = Instantiate(CardWorldPrefab, parentSelector);
             int starLevel = 0;
             MapData mapData = Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData[i];
-            for (int j = 0; j < mapData.TimeStar.Length; j++)
+            for (int j = 0; j < mapData.GetSceneData().TimeStar.Length; j++)
             {
                 totalStar++;
-                if (mapData.GetHighScore() <= mapData.TimeStar[j] && mapData.GetHighScore() != 0)
+                if (mapData.GetHighScore() <= mapData.GetSceneData().TimeStar[j] && mapData.GetHighScore() != 0)
                 {
                     starLevel++;
                     starUnlock++;
@@ -84,7 +84,7 @@ public class HUD_MainMenu : MonoBehaviour
                 eventSystem.SetSelectedGameObject(cardObj.GetComponent<UIButton>().gameObject);
             }
 
-            cardObj.GetComponent<CardWorld>().ChangeInformation(mapData.spriteLevel, mapData.GetHighScore(), mapData.GetMapName(), (i + 1).ToString(), starLevel, mapData.GetIndexScene(), mapData.GetHaveUnlockLevel());
+            cardObj.GetComponent<CardWorld>().ChangeInformation(mapData.GetSceneData().spriteLevel, mapData.GetHighScore(), mapData.GetSceneData().MapName, (i + 1).ToString(), starLevel, mapData.GetSceneData().IndexScene, mapData.GetHaveUnlockLevel());
         }
 
         starText.text = "STAR : " + starUnlock.ToString() + " / " + totalStar.ToString();
