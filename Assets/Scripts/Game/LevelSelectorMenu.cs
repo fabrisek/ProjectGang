@@ -6,6 +6,7 @@ public class LevelSelectorMenu : MonoBehaviour
     [SerializeField] GameObject _canvas;
     [SerializeField] GameObject textGoPress;
     [SerializeField]int _indexWorld;
+    [SerializeField] int _indexSavePos; 
 
     [SerializeField] TextMeshProUGUI _nameLevel;
     [SerializeField] TextMeshProUGUI _star;
@@ -39,7 +40,7 @@ public class LevelSelectorMenu : MonoBehaviour
         {
             _canvas.SetActive(true);
             ChangeInformation();
-            Data_Manager.Instance.GetData().LastWorld = _indexWorld;
+            Data_Manager.Instance.GetData().LastWorld = _indexSavePos;
             Data_Manager.Instance.SaveData();
             if (Data_Manager.Instance.GetData()._worldData[_indexWorld].HaveUnlockWorld)
             {
