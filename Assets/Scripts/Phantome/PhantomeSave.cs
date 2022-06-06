@@ -6,25 +6,8 @@ using UnityEngine;
     [System.Serializable]
     public class PhantomeSave
     {
-        List<Vector3> transfomPlayer;
-        List<float> timeTransforme;
-
-        public List<Vector3> TransformPlayer
-        {
-            get
-            {
-                return transfomPlayer;
-            }
-        }
-
-        public List<float> TimeTransforme
-        {
-            get
-            {
-                return timeTransforme;
-            }
-        }
-        
+        public List<Vector3> transfomPlayer;
+        public List<float> timeTransforme;
 
         public void initPhantome()
         {

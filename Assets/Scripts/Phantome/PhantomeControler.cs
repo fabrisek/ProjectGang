@@ -73,7 +73,7 @@ public class PhantomeControler : MonoBehaviour
         {
             if (finishLine != null)
             {
-                reproduce = Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].SavePhantom;
+                reproduce = Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetPhantomSave();
             }
         }
         PhantomeSave = new PhantomeSave();
@@ -103,10 +103,10 @@ public class PhantomeControler : MonoBehaviour
     void StartPath()
     {
 
-        if (indexOfPath + 1 < reproduce.TransformPlayer.Count)
+        if (indexOfPath + 1 < reproduce.transfomPlayer.Count)
         {
             t += Time.unscaledDeltaTime * (1 / timeToSave);
-            objectView.transform.position = Vector3.Lerp(reproduce.TransformPlayer[indexOfPath], reproduce.TransformPlayer[indexOfPath + 1], t);
+            objectView.transform.position = Vector3.Lerp(reproduce.transfomPlayer[indexOfPath], reproduce.transfomPlayer[indexOfPath + 1], t);
             if (t >= 1)
             {
                 t = 0;

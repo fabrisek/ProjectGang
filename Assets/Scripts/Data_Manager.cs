@@ -40,7 +40,7 @@ public class Data_Manager : MonoBehaviour
 
             if (PhantomeControler.Instance != null)
             {
-                Data._worldData[worldIndex]._mapData[levelIndex].SavePhantom = PhantomeControler.Instance.phantomeSave;
+                Data._worldData[worldIndex]._mapData[levelIndex].SetPhantomeSave(PhantomeControler.Instance.phantomeSave);
             }
         }
 
@@ -52,7 +52,7 @@ public class Data_Manager : MonoBehaviour
 
             if (PhantomeControler.Instance != null)
             {
-                Data._worldData[worldIndex]._mapData[levelIndex].SavePhantom = PhantomeControler.Instance.phantomeSave;
+                Data._worldData[worldIndex]._mapData[levelIndex].SetPhantomeSave(PhantomeControler.Instance.phantomeSave);
             }
         }
 
@@ -92,7 +92,7 @@ public class Data_Manager : MonoBehaviour
                         {
                             Data._worldData[i]._mapData[j].SetHighScore(data._worldData[i]._mapData[j].GetHighScore());
                             Data._worldData[i]._mapData[j].SetHaveUnlockLevel(data._worldData[i]._mapData[j].GetHaveUnlockLevel());
-                            Data._worldData[i]._mapData[j].SavePhantom = data._worldData[i]._mapData[j].SavePhantom;
+                            Data._worldData[i]._mapData[j].SetPhantomeSave(data._worldData[i]._mapData[j].GetPhantomSave());
                             //Data._worldData[i]._mapData[j] DATA IN GAME
                             // data._worldData[i]._mapData[j] DATA VIA JSON "SAVE";
                         }
@@ -118,10 +118,9 @@ public class MapData
     [SerializeField] bool _haveUnlockLevel;
     public bool GetHaveUnlockLevel() { return _haveUnlockLevel; }
     public void SetHaveUnlockLevel(bool unlock) { _haveUnlockLevel = unlock; }
-
-    public PhantomeSave SavePhantom { get; set;  }
-
-
+    [SerializeField] PhantomeSave _savePhantom;
+    public void SetPhantomeSave(PhantomeSave save) { _savePhantom = save; }
+    public PhantomeSave GetPhantomSave() { return _savePhantom; }
 }
 
 [System.Serializable]
