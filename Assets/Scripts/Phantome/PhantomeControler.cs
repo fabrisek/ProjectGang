@@ -10,6 +10,7 @@ public class PhantomeControler : MonoBehaviour
     [SerializeField] Transform playerRef;
     [SerializeField] GameObject objectView;
     [SerializeField] FinishLine finishLine;
+    [SerializeField] Material fantomeMat;
 
     PhantomeSave PhantomeSave;
     PhantomeSave reproduce;
