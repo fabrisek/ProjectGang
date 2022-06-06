@@ -48,14 +48,11 @@ public class LevelLoader : MonoBehaviour
         {
             if (TransitionScript.Instance != null)
             {
-                // StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
                 TransitionScript.Instance.Fade(1f);
             }
             LoadSave.oldSceneLoad = LoadSave.sceneToLoad;
             LoadSave.first = true;
-
-
-            //SceneManager.LoadScene(1);
+            
             AsyncOperation operation = SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
             
                 StartCoroutine(LoadAsyncTst());
@@ -65,7 +62,7 @@ public class LevelLoader : MonoBehaviour
         {
             if (TransitionScript.Instance != null)
             {
-                // StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
+               
                 TransitionScript.Instance.Fade(2f);
             }
             LoadSave.first = false;
@@ -79,35 +76,22 @@ public class LevelLoader : MonoBehaviour
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
         _loadingScreenPanel.SetActive(true);
-        //operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
-        // AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-       // SceneManager.UnloadSceneAsync(gameObject.scene.buildIndex);
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / .9f);
             _loadingSlider.value = progress;
             _textSlider.text = progress * 100f + "%";
             yield return new WaitForSeconds(0.01f);
-            //_loadingScreenPanel.SetActive(false);
-
-
         }
-       // SceneManager.UnloadSceneAsync(gameObject.scene.buildIndex);
-        /* Debug.Log("je me unload + 1");
-        SceneManager.UnloadSceneAsync(gameObject.scene.buildIndex);
-        Debug.Log("ahah cheh");
-        StartCoroutine(LoadAsyncTst());*/
     }
     IEnumerator LoadAsyncTst()
     {
-       
+   
+        Time.timeScale = 1;
         yield return new WaitForSeconds(0.1f);
-        //Time.timeScale = 1;
-        Debug.Log("je me unload");
         SceneManager.UnloadSceneAsync(gameObject.scene.buildIndex);
-        Debug.Log("ahah cheh");
-
+      
     }
 
 

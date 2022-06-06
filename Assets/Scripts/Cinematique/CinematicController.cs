@@ -30,10 +30,6 @@ public class CinematicController : MonoBehaviour
         atEnd = false;
         brainCamera.SetActive(true);
         InitCine();
-      
-        
-      
-
     }
 
     public bool AtEnd
@@ -77,17 +73,12 @@ public class CinematicController : MonoBehaviour
     }
 
     void InitCine ()
-    {
-        
+    { 
         cart.m_Position = 0;
         if (pointOfIntrest[0] != null)
         {
             Quaternion rotationRef = Quaternion.LookRotation(new Vector3(pointOfIntrest[0].position.x - cam.transform.position.x, pointOfIntrest[0].position.y - cam.transform.position.y, pointOfIntrest[0].position.z - cam.transform.position.z).normalized);
             cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, rotationRef, 100000);
-        }
-        else
-        {
-            Debug.Log("Il n y a pas de point d intret mex");
         }
     }
 
@@ -129,9 +120,7 @@ public class CinematicController : MonoBehaviour
     {
         if (TransitionScript.Instance != null)
         {
-            // StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
             TransitionScript.Instance.Fade(2);
-            
         }
         atEnd = true;
         startCine = false;

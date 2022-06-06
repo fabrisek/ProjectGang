@@ -21,16 +21,16 @@ public class LoadingScript : MonoBehaviour
     bool canLoad;
     bool start;
     AsyncOperation operation;
+
+    bool canStart;
     // Start is called before the first frame update
     void Start()
     {
         slider.value = 0;
         sceneToLoad = LoadSave.sceneToLoad;
         StartCoroutine(MinTimeTODo());
-        operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
-        slider.maxValue = timeMinLoadScrean;
-        int rand = Random.Range(0, tips.Length);
-        textTips.text = "TIPS : " + tips[rand];
+        StartCoroutine(CoroutineDeSecuriter());
+
 
         if (Data_Manager.Instance != null)
         {
@@ -50,41 +50,54 @@ public class LoadingScript : MonoBehaviour
         }
     }
 
+    IEnumerator CoroutineDeSecuriter ()
+    {
+        yield return new WaitForSeconds(0.1f);
+        
+        canStart = true;
+        operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
+        slider.maxValue = timeMinLoadScrean;
+        int rand = Random.Range(0, tips.Length);
+        textTips.text = "TIPS : " + tips[rand];
+    }
+
     // Update is called once per frame
     void Update()
     {
-        sliderPercentText.text = ((int)(slider.normalizedValue * 100)).ToString() + " %";
-        if (operation.isDone)
+        if (canStart)
         {
-            if(!start)
-            {               
-                StartCoroutine(CanLoadTODo());
-            }
-            slider.value += Time.unscaledDeltaTime;
-            if (minTimeDone && canLoad)
+            sliderPercentText.text = ((int)(slider.normalizedValue * 100)).ToString() + " %";
+            if (operation.isDone)
             {
-                if (TransitionScript.Instance != null)
+                if (!start)
                 {
-                    //  StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
-                    TransitionScript.Instance.Fade(2);
+                    StartCoroutine(CanLoadTODo());
                 }
-                if (LevelManager.Instance != null)
+                slider.value += Time.unscaledDeltaTime;
+                if (minTimeDone && canLoad)
                 {
-                    //  LevelManager.Instance.InitLevelManager();
-                    if (CinematicController.Instance != null)
+                    if (TransitionScript.Instance != null)
                     {
-                       
-                        CinematicController.Instance.SetStartCinematci();
+                        TransitionScript.Instance.Fade(2);
                     }
-                    else
+                    if (LevelManager.Instance != null)
                     {
-                       
-                        LevelManager.Instance.InitLevelManager();
-                    }
-                }
-               
-                SceneManager.UnloadSceneAsync(sceneindex);
+                        
+                        if (CinematicController.Instance != null)
+                        {
 
+                            CinematicController.Instance.SetStartCinematci();
+                        }
+                        else
+                        {
+
+                            LevelManager.Instance.InitLevelManager();
+                        }
+                    }
+
+                    SceneManager.UnloadSceneAsync(sceneindex);
+
+                }
             }
         }
     }
