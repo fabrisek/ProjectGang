@@ -37,6 +37,7 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] CompetenceRalentie competenceRalentie;
 
     [SerializeField] Animator grappinAnimator;
+    [SerializeField] Animator grappinAnimatorLock;
     private  Rigidbody rbHit;
 
     void Awake()
@@ -80,11 +81,13 @@ public class GrapplingGun : MonoBehaviour
             //particuleGunTipLock.SetActive(true);
             crossHair.sprite = crossHairLocked.sprite;
             crossHair.color = Color.red;
+            grappinAnimatorLock.SetBool("Lock", true);
         }
         else
         {
             
             crossHair.sprite = crossHairNormal.sprite;
+            grappinAnimatorLock.SetBool("Lock", false);
             crossHair.color = Color.white;
             //if (!IsGrappling())
             //particuleGunTipLock.SetActive(false);
