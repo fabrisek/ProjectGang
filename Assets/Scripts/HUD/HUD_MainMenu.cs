@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using TMPro;
+using Doozy.Runtime.UIManager.Containers;
 using Doozy.Runtime.UIManager.Components;
 public enum StateMainMenu
 {
@@ -16,7 +17,8 @@ public enum StateMainMenu
 public class HUD_MainMenu : MonoBehaviour
 {
     public static HUD_MainMenu Instance;
-    [SerializeField] GameObject _mainMenuPanel;
+    [SerializeField] UIContainer _mainMenu;
+    [SerializeField] UIContainer _settings;
     [SerializeField] GameObject _settingsPanel;
     [SerializeField] GameObject _levelSelectionPanel;
     [SerializeField] EventSystem eventSystem;
@@ -40,11 +42,7 @@ public class HUD_MainMenu : MonoBehaviour
     }
     public void OpenLevelSelector()
     {
-        panelSelector.SetActive(false);
-        _mainMenuPanel.SetActive(false);
-        _levelSelectionPanel.SetActive(true);
-        antController.enabled = true;
-        State = StateMainMenu.InGame;
+        _mainMenu.Show();
     }
 
     public void OpenPanelSelectionLevel(int worldIndex)
@@ -92,19 +90,12 @@ public class HUD_MainMenu : MonoBehaviour
 
     public void OpenSettings()
     {
-        panelSelector.SetActive(false);
+        _settings.Show();
         State = StateMainMenu.Settings;
-        _mainMenuPanel.SetActive(false);
-        _settingsPanel.SetActive(true);
-        eventSystem.SetSelectedGameObject(firstButtonSettings);
-        HUD_Settings.Instance.OpenOptionsPanel();
     }
 
     public void Back()
     {
-
-
-
             switch (State)
             {
                 case StateMainMenu.InPanelGame:
@@ -125,13 +116,7 @@ public class HUD_MainMenu : MonoBehaviour
 
     public void CloseSettings()
     {
-        panelSelector.SetActive(false);
-        State = StateMainMenu.Menu;
-        eventSystem.SetSelectedGameObject(firstButtonMenu);
-        _settingsPanel.SetActive(false);
-        _mainMenuPanel.SetActive(true);
-        _levelSelectionPanel.SetActive(false);
-        antController.enabled = false;
+        _settings.Hide();
     }
 
     public void QuitGame()
@@ -141,9 +126,9 @@ public class HUD_MainMenu : MonoBehaviour
 
     private void Start()
     {
-        if (Data_Manager.AlreadyInGame == false)
-            CloseSettings();
+       /* if (Data_Manager.AlreadyInGame == false)
+            //CloseSettings();
         else
-            OpenLevelSelector();
+            OpenLevelSelector();*/
     }
 }
