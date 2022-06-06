@@ -3357,8 +3357,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 8863034769121986372}
     m_Modifications:
     - target: {fileID: 429048735196258826, guid: 3a16ba76e15845d42bc741498bc4193f, type: 3}
-      propertyPath: pointOfIntrest.Array.size
-      value: 1
+      propertyPath: _speedCart
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 429048735196258826, guid: 3a16ba76e15845d42bc741498bc4193f, type: 3}
+      propertyPath: speedRotate
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 429048735196258826, guid: 3a16ba76e15845d42bc741498bc4193f, type: 3}
       propertyPath: pointOfIntrest.Array.data[0]
