@@ -18,51 +18,78 @@ public class TransitionScript : MonoBehaviour
 
     bool startFade;
     bool done;
+    bool startPause;
+    bool coroutineStart;
     private void Awake()
     {
+
         if (Instance != null && Instance != this)
+        {
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
-        DontDestroyOnLoad(this.gameObject);
-        Instance = this;
-
-
-       
-
+            
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+            Instance = this;
+        }
+ 
     }
 
-    public void Fade()
+   
+
+    public void Fade(float speed)
     {
-        StartCoroutine(CoroutineFadeV2());
+      
+        if(speed == 0)
+        {
+            this.speed = 2;
+        }
+        else
+        {
+            this.speed = speed;
+        }
+
+        done = false;
+        startFade = true;
+        t = 0;
+        canvas.SetActive(true);
+        startPause = false;
+        coroutineStart = false;
+        
     }
 
     private void Start()
     {
-        //StartCoroutine(CoroutineFade(false));
+       
     }
 
     private void Update()
     {
-      /*  if(startFadeIn)
+        
+       
+        if (startFade)
         {
-            StartFadeIn();
-        }
-        if(startfadeOut)
-        {
-            StartFadeOut();
-        }*/
-
-        if(startFade)
-        {
-           
-            if(done)
+            if (startPause)
             {
-                startFade = StartFadeOut();
-                
+                if(!coroutineStart)
+                {
+                   StopCoroutine(CoroutineFadeV2());
+                    StartCoroutine(CoroutineFadeV2());
+                }
+
+                if (done)
+                {
+                    startFade = StartFadeOut();
+
+                }
             }
             else
             {
-                done = StartFadeIn();
+                startPause = StartFadeIn();
             }
+           
+           
         }
     }
      bool StartFadeOut ()
@@ -70,9 +97,15 @@ public class TransitionScript : MonoBehaviour
         
         t += Time.deltaTime * speed;
         imageToFade.color = Color.Lerp(color, new Color(color.r, color.g, color.b, 0), t);
-        if(t >= 1)
+        
+        if (t >= 1)
         {
             t = 1;
+            
+            canvas.SetActive(false); 
+            startFade = false;
+            startPause = false;
+            coroutineStart = false;
             return false;
         }
 
@@ -88,6 +121,8 @@ public class TransitionScript : MonoBehaviour
         if (t <= 0)
         {
             t = 0;
+           
+            
             return true;
         }
 
@@ -97,13 +132,11 @@ public class TransitionScript : MonoBehaviour
 
     public IEnumerator CoroutineFadeV2 ()
     {
-        done = false;
-        startFade = true;
-        t = 0;
-        canvas.SetActive(true);
-        yield return new WaitForSeconds((1 / speed)*2);
-        startFade = false;
-        canvas.SetActive(false);
+        coroutineStart = true;
+        yield return new WaitForSeconds(0.1f);
+       // if()
+        done = true;
+        
     }
 
     public IEnumerator CoroutineFade(bool outOrIn)
