@@ -46,6 +46,7 @@ public class LevelLoader : MonoBehaviour
        
         if (sceneIndex !=0 &&  LoadSave.sceneToLoad != LoadSave.oldSceneLoad)
         {
+            Time.timeScale = 1;
             if (TransitionScript.Instance != null)
             {
                 TransitionScript.Instance.Fade(1f);
@@ -88,7 +89,7 @@ public class LevelLoader : MonoBehaviour
     IEnumerator LoadAsyncTst()
     {
    
-        Time.timeScale = 1;
+        
         yield return new WaitForSeconds(0.1f);
         SceneManager.UnloadSceneAsync(gameObject.scene.buildIndex);
       
