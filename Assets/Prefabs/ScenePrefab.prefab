@@ -3583,6 +3583,14 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9121184314352912241, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: timeToJump
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912241, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
+      propertyPath: playerHeight
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121184314352912241, guid: 683cf33c9accd824bbadc339e57ce856, type: 3}
       propertyPath: wallrunSpeed
       value: 20
       objectReference: {fileID: 0}
@@ -3734,15 +3742,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3887666043320801, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3887666043320801, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3887666043320801, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887666043320801, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3887666043320802, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
       propertyPath: m_Enabled
@@ -3755,7 +3767,7 @@ PrefabInstance:
     - target: {fileID: 3887666043320812, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 3887666416838320, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
       propertyPath: m_Name
       value: PhantomeControler

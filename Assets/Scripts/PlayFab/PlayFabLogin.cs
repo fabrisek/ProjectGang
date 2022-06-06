@@ -1,6 +1,7 @@
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
+using Steamworks;
 
 public class PlayFabLogin : MonoBehaviour
 {
@@ -26,13 +27,16 @@ public class PlayFabLogin : MonoBehaviour
     private void Start()
     {
         Login();
+        print(SteamUser.GetSteamID().ToString());
     }
 
     public void Login()
     {
+        if (!SteamManager.Initialized) { return; }
+
         var request = new LoginWithCustomIDRequest
         {
-            CustomId = SystemInfo.deviceUniqueIdentifier,
+            CustomId = SteamUser.GetSteamID().ToString(),
             CreateAccount = true
         };
         PlayFabClientAPI.LoginWithCustomID(request, OnLogin, OnError);
@@ -43,6 +47,18 @@ public class PlayFabLogin : MonoBehaviour
         entityId = result.EntityToken.Entity.Id;
         entityType = result.EntityToken.Entity.Type;
         playfabId =  result.PlayFabId;
+        OnUpdatePlayerName();
+    }
+
+    public void OnUpdatePlayerName()
+    {
+        PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
+        {
+            DisplayName = SteamFriends.GetPersonaName()
+        }, result =>
+        {
+            Debug.Log("The player's display name is now: " + result.DisplayName);
+        }, error => Debug.LogError(error.GenerateErrorReport()));
     }
 
     void OnError(PlayFabError error)
