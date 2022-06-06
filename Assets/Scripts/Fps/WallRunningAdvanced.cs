@@ -235,8 +235,6 @@ public class WallRunningAdvanced : MonoBehaviour
     {
         if (pm != null)
         {
-
-
             if (pm.wallrunning)
             {
                 Debug.Log("wallRunJump");
