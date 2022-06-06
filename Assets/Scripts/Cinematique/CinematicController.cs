@@ -131,7 +131,7 @@ public class CinematicController : MonoBehaviour
         {
             // StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
             TransitionScript.Instance.Fade(2);
-            Debug.Log("Salut");
+            
         }
         atEnd = true;
         startCine = false;
