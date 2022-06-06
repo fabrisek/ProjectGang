@@ -3728,6 +3728,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8863034769121986372}
     m_Modifications:
+    - target: {fileID: 3887666043320801, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887666043320801, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887666043320801, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3887666043320802, guid: 2f8d8cdd4ca5caa44a4d63f227ceb64a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3859,7 +3871,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.51231575
+        value: 0.32512093
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -3880,7 +3892,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0.82439375, b: 1, a: 0.92941177}
+      key0: {r: 1, g: 1, b: 1, a: 0.92941177}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -3913,6 +3925,6 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
   m_Emitting: 1
