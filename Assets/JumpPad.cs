@@ -37,7 +37,7 @@ namespace ByPass
 
                 if (other.GetComponent<CompetenceRalentie>().IsRalentie())
                 {
-                    rb.AddForce(force * transform.up * 2, ForceMode.Impulse);
+                    rb.AddForce(force * transform.up * 1.5f, ForceMode.Impulse);
                 }
 
                 else
