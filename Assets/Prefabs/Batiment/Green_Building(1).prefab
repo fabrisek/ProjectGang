@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 803850043429358912}
   - component: {fileID: 7605547790661158184}
   - component: {fileID: 4224823700780061519}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Neon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &803850043429358912
 Transform:
@@ -94,12 +94,13 @@ GameObject:
   - component: {fileID: 7430427100772222705}
   - component: {fileID: 5814698529267501396}
   - component: {fileID: 8598782125089045918}
-  m_Layer: 0
+  - component: {fileID: 1208934581880324561}
+  m_Layer: 4
   m_Name: Green_Building(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7430427100772222705
 Transform:
@@ -167,3 +168,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1208934581880324561
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806425599173893195}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3175538451201624014, guid: fb77120ae075031438c6e63576c8cb6f, type: 3}

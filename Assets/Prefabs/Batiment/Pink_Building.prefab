@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6120710236732869786}
   - component: {fileID: 4125184601990663195}
   - component: {fileID: 1837065871763518405}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Neon4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,8 @@ GameObject:
   - component: {fileID: 2524288143869035003}
   - component: {fileID: 1488379358459743838}
   - component: {fileID: 3693864761039305364}
-  m_Layer: 0
+  - component: {fileID: 8558177879121681632}
+  m_Layer: 4
   m_Name: Pink_Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,3 +168,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8558177879121681632
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901376018335603521}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4575824378315434467, guid: f44629bbaef99354ba453160d5b6a664, type: 3}

@@ -33,8 +33,15 @@ namespace ByPass
                 Rigidbody rb = other.GetComponent<Rigidbody>();
                 rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-                //JumpForce
-                rb.AddForce(force * transform.up, ForceMode.Impulse);
+                other.GetComponent<PlayerMovementAdvanced>().SetCanDoubleJump(true);
+
+                if (other.GetComponent<CompetenceRalentie>().IsRalentie())
+                {
+                    rb.AddForce(force * transform.up * 2, ForceMode.Impulse);
+                }
+
+                else
+                    rb.AddForce(force * transform.up, ForceMode.Impulse);
             }
         }
 
