@@ -163,12 +163,6 @@ public class HUD_Settings : MonoBehaviour
     [Header("MENU SETTINGS")]
     [SerializeField] GameObject _panelButton;
     [SerializeField] GameObject _firstButtonOptionMenu;
-    public void OpenOptionsPanel()
-    {
-        CloseAllPanel();
-        _panelButton.SetActive(true);
-        eventSystem.SetSelectedGameObject(_firstButtonOptionMenu);
-    }
     #endregion
 
     #region AUDIO PANEL
