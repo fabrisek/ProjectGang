@@ -23,7 +23,7 @@ public class PhantomeControler : MonoBehaviour
 
     bool phantomFinish;
 
-    bool stopAll;
+    bool stopSave;
     public PhantomeSave phantomeSave
     {
         get
@@ -41,6 +41,7 @@ public class PhantomeControler : MonoBehaviour
     void Start()
     {
         initPhantome();
+       
     }
 
     // Update is called once per frame
@@ -50,10 +51,10 @@ public class PhantomeControler : MonoBehaviour
             if (Timer.Instance != null && Timer.Instance.GetTimer() != 0)
             {
 
-                if (!setTime)
-                {
-                    StartCoroutine(CoroutineSaveTransformeTime());
-                }
+               if(!setTime)
+            {
+                StartCoroutine(CoroutineSaveTransformeTime());
+            }
 
                 if (reproduce != null && !phantomFinish)
                 {
@@ -84,9 +85,13 @@ public class PhantomeControler : MonoBehaviour
     IEnumerator CoroutineSaveTransformeTime()
     {
         setTime = true;
-        yield return new WaitForSeconds(timeToSave);
-        SeTTimeTransform();
-        setTime = false;
+        do
+        {
+            yield return new WaitForSeconds(timeToSave);
+            SeTTimeTransform();
+
+        }
+        while (!stopSave);
     }
 
     void SeTTimeTransform()
@@ -115,7 +120,7 @@ public class PhantomeControler : MonoBehaviour
        
     }
 
-
+  
 
 
 
