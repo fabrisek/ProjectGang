@@ -97,7 +97,7 @@ public class PlayFabHighScore : MonoBehaviour
             GameObject newGo = Instantiate(prefabScoreTitle, scoreboardParent);
             TextMeshProUGUI[] text = newGo.GetComponentsInChildren<TextMeshProUGUI>();
             text[0].text = "#" + (item.Position+1).ToString();
-            text[1].text = "User : " + item.Profile.PlayerId;
+            text[1].text = "User : " + item.Profile.DisplayName;
             text[2].text = "Score : " + Timer.FormatTime(MathF.Abs((float)item.StatValue / 1000));
 
             
