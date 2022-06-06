@@ -37,6 +37,11 @@ public class Data_Manager : MonoBehaviour
             print(timer);
             if (PlayFabHighScore.Instance)
                 PlayFabHighScore.Instance.SendLeaderBord(timer, Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData[levelIndex].GetSceneData().MapName);
+
+            if (PhantomeControler.Instance != null)
+            {
+                Data._worldData[worldIndex]._mapData[levelIndex].SavePhantom = PhantomeControler.Instance.phantomeSave;
+            }
         }
 
         if (timer < Data._worldData[worldIndex]._mapData[levelIndex].GetHighScore())
@@ -44,6 +49,11 @@ public class Data_Manager : MonoBehaviour
             Data._worldData[worldIndex]._mapData[levelIndex].SetHighScore(timer);
             if (PlayFabHighScore.Instance)
                 PlayFabHighScore.Instance.SendLeaderBord(timer, Data_Manager.Instance.GetData()._worldData[worldIndex]._mapData[levelIndex].GetSceneData().MapName);
+
+            if (PhantomeControler.Instance != null)
+            {
+                Data._worldData[worldIndex]._mapData[levelIndex].SavePhantom = PhantomeControler.Instance.phantomeSave;
+            }
         }
 
         if (levelIndex + 1 != Data._worldData[worldIndex]._mapData.Count)
@@ -82,7 +92,7 @@ public class Data_Manager : MonoBehaviour
                         {
                             Data._worldData[i]._mapData[j].SetHighScore(data._worldData[i]._mapData[j].GetHighScore());
                             Data._worldData[i]._mapData[j].SetHaveUnlockLevel(data._worldData[i]._mapData[j].GetHaveUnlockLevel());
-
+                            Data._worldData[i]._mapData[j].SavePhantom = data._worldData[i]._mapData[j].SavePhantom;
                             //Data._worldData[i]._mapData[j] DATA IN GAME
                             // data._worldData[i]._mapData[j] DATA VIA JSON "SAVE";
                         }
@@ -93,6 +103,7 @@ public class Data_Manager : MonoBehaviour
     }
 
     public MapData GetMapData(int index, int worldIndex) { return Data._worldData[worldIndex]._mapData[index]; }
+
 }
 
 [System.Serializable]
@@ -107,6 +118,8 @@ public class MapData
     [SerializeField] bool _haveUnlockLevel;
     public bool GetHaveUnlockLevel() { return _haveUnlockLevel; }
     public void SetHaveUnlockLevel(bool unlock) { _haveUnlockLevel = unlock; }
+
+    public PhantomeSave SavePhantom { get; set;  }
 
 
 }

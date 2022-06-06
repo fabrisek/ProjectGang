@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ByPass
-{
+
     [System.Serializable]
     public class PhantomeSave
     {
@@ -25,17 +24,7 @@ namespace ByPass
                 return timeTransforme;
             }
         }
-        // Start is called before the first frame update
-        void Start()
-        {
         
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
 
         public void initPhantome()
         {
@@ -49,4 +38,4 @@ namespace ByPass
             timeTransforme.Add(time);
         }
     }
-}
+

@@ -14,6 +14,21 @@ public class FinishLine : MonoBehaviour
     }
     [SerializeField] int _levelIndex;
     [SerializeField] int _worldIndex;
+
+    public int LevelIndex
+    {
+        get
+        {
+            return _levelIndex;
+        }
+    }
+    public int WorldIndex
+    {
+        get
+        {
+            return _worldIndex;
+        }
+    }
     public void FinishLevel()
     {
         if (PlayerDeath.Instance.GetIsDead() == false)
