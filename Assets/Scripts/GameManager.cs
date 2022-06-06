@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DiscordPresence;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
@@ -22,5 +22,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
 
         gameManager = this;
+
+        if (PresenceManager.instance != null)
+            PresenceManager.instance.ChangeInformation();
     }
 }

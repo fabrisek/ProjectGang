@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using DiscordPresence;
 public class MainMenuTool : MonoBehaviour
 {
     [SerializeField] GameObject playerGo;
@@ -13,6 +14,8 @@ public class MainMenuTool : MonoBehaviour
     {
         Time.timeScale = 1;
         InitializeTeleport();
+        if (PresenceManager.instance != null)
+            PresenceManager.instance.ChangeInformation();
 
         DATA data = Data_Manager.Instance.GetData();
 
