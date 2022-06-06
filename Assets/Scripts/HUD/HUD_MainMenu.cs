@@ -17,6 +17,8 @@ public enum StateMainMenu
 public class HUD_MainMenu : MonoBehaviour
 {
     public static HUD_MainMenu Instance;
+    [SerializeField] Camera firstCam;
+    [SerializeField] Camera menuCam;
     [SerializeField] UIContainer _mainMenu;
     [SerializeField] UIContainer _settings;
     [SerializeField] GameObject _settingsPanel;
@@ -40,9 +42,20 @@ public class HUD_MainMenu : MonoBehaviour
     {
         Instance = this;
     }
-    public void OpenLevelSelector()
+    public void OpenMainMenu()
     {
+        firstCam.enabled = false;
+        menuCam.enabled = true;
         _mainMenu.Show();
+        State = StateMainMenu.Menu;
+    }
+
+    public void CliclPlay()
+    {
+        firstCam.enabled = true;
+        menuCam.enabled = false;
+        antController.enabled = true;
+        State = StateMainMenu.InGame;
     }
 
     public void OpenPanelSelectionLevel(int worldIndex)
@@ -99,7 +112,7 @@ public class HUD_MainMenu : MonoBehaviour
             switch (State)
             {
                 case StateMainMenu.InPanelGame:
-                    OpenLevelSelector();
+                    OpenMainMenu();
                     break;
                 case StateMainMenu.InGame:
                     CloseSettings();
@@ -126,9 +139,9 @@ public class HUD_MainMenu : MonoBehaviour
 
     private void Start()
     {
-       /* if (Data_Manager.AlreadyInGame == false)
-            //CloseSettings();
+        if (Data_Manager.AlreadyInGame == false)
+            OpenMainMenu();
         else
-            OpenLevelSelector();*/
+            CliclPlay();
     }
 }

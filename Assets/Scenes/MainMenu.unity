@@ -3873,6 +3873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdedad85a279de4cbf00d2bc0a9dd50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstCam: {fileID: 1405005613}
+  menuCam: {fileID: 180661128}
   _mainMenu: {fileID: 6092709146768937435}
   _settings: {fileID: 447631260}
   _settingsPanel: {fileID: 4837022623013483880}
@@ -5943,46 +5945,15 @@ MonoBehaviour:
   Behaviours:
     Behaviours:
     - Enabled: 1
-      EventName: PointerEnter
-      Runners: []
-      Event:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 798242739}
-            m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-            m_MethodName: SetSelectedGameObject
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 382566456}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      BehaviourName: 0
-      Receiver:
-        ConnectionMode: 1
-        SignalProviderId:
-          Type: 0
-          Category: Pointer
-          Name: Enter
-        ProviderReference: {fileID: 0}
-        StreamId:
-          Category: None
-          Name: None
-          Custom: 0
-      Cooldown: 0
-      Selectable: {fileID: 382566466}
-    - Enabled: 1
       EventName: PointerClick
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 382558431}
-            m_TargetAssemblyTypeName: HUD_MainMenu, Assembly-CSharp
-            m_MethodName: OpenLevelSelector
+          - m_Target: {fileID: 6092709146768937435}
+            m_TargetAssemblyTypeName: Doozy.Runtime.UIManager.Containers.UIContainer,
+              DoozyRuntime
+            m_MethodName: Hide
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -11440,38 +11411,6 @@ MonoBehaviour:
   Behaviours:
     Behaviours:
     - Enabled: 1
-      EventName: PointerEnter
-      Runners: []
-      Event:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 798242739}
-            m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-            m_MethodName: SetSelectedGameObject
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 893469671}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      BehaviourName: 0
-      Receiver:
-        ConnectionMode: 1
-        SignalProviderId:
-          Type: 0
-          Category: Pointer
-          Name: Enter
-        ProviderReference: {fileID: 0}
-        StreamId:
-          Category: None
-          Name: None
-          Custom: 0
-      Cooldown: 0
-      Selectable: {fileID: 893469681}
-    - Enabled: 1
       EventName: PointerClick
       Runners: []
       Event:
@@ -16286,38 +16225,6 @@ MonoBehaviour:
   Behaviours:
     Behaviours:
     - Enabled: 1
-      EventName: PointerEnter
-      Runners: []
-      Event:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 798242739}
-            m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-            m_MethodName: SetSelectedGameObject
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 1210120104}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      BehaviourName: 0
-      Receiver:
-        ConnectionMode: 1
-        SignalProviderId:
-          Type: 0
-          Category: Pointer
-          Name: Enter
-        ProviderReference: {fileID: 0}
-        StreamId:
-          Category: None
-          Name: None
-          Custom: 0
-      Cooldown: 0
-      Selectable: {fileID: 1210120114}
-    - Enabled: 1
       EventName: PointerClick
       Runners: []
       Event:
@@ -17387,7 +17294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!20 &1405005613
 Camera:
   m_ObjectHideFlags: 0
@@ -17446,7 +17353,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405005612}
-  m_LocalRotation: {x: 0.38923278, y: -0.59033656, z: 0.38923153, w: 0.5903384}
+  m_LocalRotation: {x: 0.38923275, y: -0.5903366, z: 0.38923162, w: 0.5903383}
   m_LocalPosition: {x: 59.48, y: 36.08, z: -33.880028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19163,7 +19070,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820154976}
-  m_LocalRotation: {x: 0.38923278, y: -0.59033656, z: 0.38923153, w: 0.5903384}
+  m_LocalRotation: {x: 0.38923275, y: -0.5903366, z: 0.38923162, w: 0.5903383}
   m_LocalPosition: {x: 59.48, y: 36.08, z: -33.880028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -81518,12 +81425,24 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   OnHideCallback:
-    Enabled: 0
+    Enabled: 1
     EventName: OnHideCallback
     Runners: []
     Event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 382558431}
+          m_TargetAssemblyTypeName: HUD_MainMenu, Assembly-CSharp
+          m_MethodName: CliclPlay
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   OnHiddenCallback:
     Enabled: 0
     EventName: OnHiddenCallback
