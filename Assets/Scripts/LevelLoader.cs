@@ -34,7 +34,11 @@ public class LevelLoader : MonoBehaviour
         if (TransitionScript.Instance != null)
         {
             // StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
-            TransitionScript.Instance.Fade();
+            TransitionScript.Instance.Fade(1f);
+        }
+        else
+        {
+            Debug.Log("l'instanceTransition existe pas mec");
         }
         if (sceneIndex !=0 &&  LoadSave.sceneToLoad != LoadSave.oldSceneLoad)
         {

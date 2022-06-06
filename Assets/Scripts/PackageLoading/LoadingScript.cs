@@ -66,7 +66,7 @@ public class LoadingScript : MonoBehaviour
                 if (TransitionScript.Instance != null)
                 {
                     //  StopCoroutine(TransitionScript.Instance.CoroutineFadeV2());
-                    TransitionScript.Instance.Fade();
+                    TransitionScript.Instance.Fade(2);
                 }
                 if (LevelManager.Instance != null)
                 {
