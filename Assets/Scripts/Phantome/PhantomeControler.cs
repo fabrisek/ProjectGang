@@ -62,6 +62,8 @@ namespace ByPass
             PhantomeSave = new PhantomeSave();
             PhantomeSave.initPhantome();
             indexOfPath = 0;
+
+            // Chopper la sauvegarde si il y a;
         }
 
         IEnumerator CoroutineSaveTransformeTime ()
