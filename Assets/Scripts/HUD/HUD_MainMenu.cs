@@ -115,15 +115,14 @@ public class HUD_MainMenu : MonoBehaviour
                     OpenMainMenu();
                     break;
                 case StateMainMenu.InGame:
-                    CloseSettings();
+                    OpenMainMenu();
                     break;
                 case StateMainMenu.Settings:
                     CloseSettings();
                     break;
                 case StateMainMenu.InPanelSettings:
                     OpenSettings();
-                    break;
-            
+                    break;            
         }
     }
 
@@ -142,6 +141,15 @@ public class HUD_MainMenu : MonoBehaviour
         if (Data_Manager.AlreadyInGame == false)
             OpenMainMenu();
         else
+        {
+            StartCoroutine(Hide());
             CliclPlay();
+        }
+    }
+
+    IEnumerator Hide()
+    {
+            yield return new WaitForSeconds(.8f);
+            _mainMenu.Hide();
     }
 }
