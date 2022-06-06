@@ -97,7 +97,7 @@ namespace ByPass
                 speed = 1;
                 if (speed != 0)
                 {
-                    t += Time.deltaTime * 10;
+                    t += Time.deltaTime * 100;
                 }
                 else
                 {
