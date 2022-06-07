@@ -449,7 +449,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
             rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
             if(rb.velocity.magnitude>10f)
             {
-                CameraShakerHandler.Shake(runShake);
+                //CameraShakerHandler.Shake(runShake);
             }
         }
         // in air
@@ -526,7 +526,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
         //feedBack
         AudioManager.instance.playSoundEffect(1, 1f);
-        CameraShakerHandler.Shake(jumpShake);
+        //CameraShakerHandler.Shake(jumpShake);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
         if(!grappling)
