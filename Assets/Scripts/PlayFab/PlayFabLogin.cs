@@ -27,6 +27,7 @@ public class PlayFabLogin : MonoBehaviour
     private void Start()
     {
         Login();
+        if (!SteamManager.Initialized) { return; }
         print(SteamUser.GetSteamID().ToString());
     }
 

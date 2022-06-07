@@ -18,10 +18,10 @@ public class GameManager : MonoBehaviour
     }
     void Awake()
     {
-        if (gameManager != null && gameManager != this)
-            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
-
         gameManager = this;
+    }
+    private void Start()
+    {
 
         if (PresenceManager.instance != null)
             PresenceManager.instance.ChangeInformation();
