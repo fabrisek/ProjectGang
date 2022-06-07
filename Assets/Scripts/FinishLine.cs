@@ -8,6 +8,8 @@ public class FinishLine : MonoBehaviour
     public static FinishLine Instance;
 
     public bool isWin;
+
+    public bool isfinish;
     private void Awake()
     {
         Instance = this;
@@ -33,6 +35,10 @@ public class FinishLine : MonoBehaviour
     {
         if (PlayerDeath.Instance.GetIsDead() == false)
         {
+            if(PhantomeControler.Instance != null)
+            {
+                PhantomeControler.Instance.StopSave = true;
+            }
             Time.timeScale = 0;
             Timer.Instance.StopTimer();
             if (!isWin)

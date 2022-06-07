@@ -25,11 +25,20 @@ public class PhantomeControler : MonoBehaviour
     bool phantomFinish;
 
     bool stopSave;
+    bool stopALL;
     public PhantomeSave phantomeSave
     {
         get
         {
             return PhantomeSave;
+        }
+    }
+
+    public bool StopSave
+    {
+        set
+        {
+            stopALL = value;
         }
     }
 
@@ -48,14 +57,16 @@ public class PhantomeControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (!stopALL)
+        {
+
             if (Timer.Instance != null && Timer.Instance.GetTimer() != 0)
             {
 
-               if(!setTime)
-            {
-                StartCoroutine(CoroutineSaveTransformeTime());
-            }
+                if (!setTime)
+                {
+                    StartCoroutine(CoroutineSaveTransformeTime());
+                }
 
                 if (reproduce != null && !phantomFinish)
                 {
@@ -63,6 +74,7 @@ public class PhantomeControler : MonoBehaviour
                 }
 
             }
+        }
         
 
     }
@@ -73,7 +85,10 @@ public class PhantomeControler : MonoBehaviour
         {
             if (finishLine != null)
             {
-                reproduce = Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetPhantomSave();
+                if (Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetPhantomSave() != null)
+                {
+                    reproduce = Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetPhantomSave();
+                }
             }
         }
         PhantomeSave = new PhantomeSave();
@@ -88,8 +103,9 @@ public class PhantomeControler : MonoBehaviour
         setTime = true;
         do
         {
-            yield return new WaitForSeconds(timeToSave);
             SeTTimeTransform();
+            yield return new WaitForSeconds(timeToSave);
+           
 
         }
         while (!stopSave);
@@ -116,6 +132,8 @@ public class PhantomeControler : MonoBehaviour
         }
         else
         {
+            Debug.Log("Je suis arriver a :" + Timer.Instance.GetTimer());
+            Debug.Log("le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore() );
             phantomFinish = true;
         }
        
