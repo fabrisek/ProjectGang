@@ -18,10 +18,14 @@ namespace ByPass
 
             }
         }
+        private void Awake()
+        {
+            initViewAndDistMax(distMax);
+        }
         // Start is called before the first frame update
         void Start()
         {
-            initViewAndDistMax(0);
+            
         }
 
         // Update is called once per frame
@@ -43,7 +47,7 @@ namespace ByPass
         {
             float distLaser = 1;
 
-            RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.forward, distMax, layer);
+            RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, distMax, layer);
             if(hits.Length >0)
             {
                 distLaser = (Vector3.Distance(transform.position, hits[0].point))/distMax;
@@ -56,7 +60,7 @@ namespace ByPass
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(transform.position + Vector3.forward * distMax, 2);
+            Gizmos.DrawSphere(transform.position + transform.forward * distMax, 2);
         }
     }
 }
