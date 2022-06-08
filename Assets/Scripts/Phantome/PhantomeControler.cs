@@ -138,7 +138,7 @@ public class PhantomeControler : MonoBehaviour
 
     void SeTTimeTransform()
     {
-        Debug.Log("je sauvegarde");
+        //Debug.Log("je sauvegarde");
         PhantomeSave.AddTransfomTime(playerRef.position, Timer.Instance.GetTimer());
     }
 
@@ -165,8 +165,8 @@ public class PhantomeControler : MonoBehaviour
                     {
                         if (indexOfPath + 1 >= reproduce.transfomPlayer.Count)
                         {
-                            Debug.Log("Je suis arriver a :" + Timer.Instance.GetTimer());
-                            Debug.Log("le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore());
+                          /*  Debug.Log("Je suis arriver a :" + Timer.Instance.GetTimer());
+                            Debug.Log("le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore());*/
                             phantomFinish = true;
                         }
                     }
