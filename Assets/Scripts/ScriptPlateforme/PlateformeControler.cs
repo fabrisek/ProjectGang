@@ -80,7 +80,7 @@ namespace ByPass
                 if (Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)) > latence)
                 {
                     MoveToTarget();
-                   // RotateToTarget();
+                    RotateToTarget();
                 }
                 else
                 {
@@ -116,7 +116,7 @@ namespace ByPass
         Vector3 DirectionToTarget()
         {
             float X;
-            X = Random.Range(-2f, 2f);
+            X = Random.Range(-0.7f, 0.7f);
             return new Vector3(X, 0, 1).normalized;
         }
 

@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ByPass
-{
+[System.Serializable]
+
+    
+
     public class LaserController : MonoBehaviour
     {
         [SerializeField] LayerMask layer;
         [SerializeField] float distMax;
         [SerializeField] Transform view;
+        [SerializeField] Transform parent;
 
         public float DistMax
         {
@@ -39,8 +42,8 @@ namespace ByPass
            
                 distMax = dist;
             
-            view.localScale = new Vector3(view.localScale.x, distMax / 2, view.localScale.z);
-            view.parent.localPosition = new Vector3(0, 0, distMax / 2);
+            view.localScale = new Vector3(view.localScale.x, (distMax / 2) / parent.transform.lossyScale.z, view.localScale.z);
+            view.parent.localPosition = new Vector3(0, 0, (distMax / 2)/ parent.transform.lossyScale.z);
         }
 
         float CheckDistLaser ()
@@ -63,4 +66,4 @@ namespace ByPass
             Gizmos.DrawSphere(transform.position + transform.forward * distMax, 2);
         }
     }
-}
+
