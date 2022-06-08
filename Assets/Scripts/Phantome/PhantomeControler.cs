@@ -69,7 +69,13 @@ public class PhantomeControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!stopALL)
+         if (indexOfPath + 1 >= reproduce.transfomPlayer.Count && !phantomFinish)
+        {
+            Debug.Log("1- Je suis arriver a :" + Timer.Instance.GetTimer());
+            Debug.Log("2- le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore());
+            phantomFinish = true;
+        }
+            if (!stopALL)
         {
 
             if (Timer.Instance != null)
@@ -137,74 +143,59 @@ public class PhantomeControler : MonoBehaviour
         if (indexOfPath < reproduce.transfomPlayer.Count)
         {
 
-            if (indexOfPath + 1 < reproduce.transfomPlayer.Count  && reproduce.timeTransforme[indexOfPath + 1] <= Timer.Instance.GetTimer())
-            {
-                // 
-                nextPos = reproduce.transfomPlayer[indexOfPath + 1];
-                 indexOfPath++;
-               // Debug.Log("IndexChange est a :" +indexOfPath);
-                if (indexOfPath + 1 < reproduce.transfomPlayer.Count)
-                {
-                    duration = reproduce.timeTransforme[indexOfPath + 1] - reproduce.timeTransforme[indexOfPath];
-                    //Debug.Log("voila le duration :" + duration);
-                }
-                
-            }
-            else
-            {
-              //  Debug.Log("je passe pas");
-            }
-
-
             if (indexOfPath + 1 < reproduce.transfomPlayer.Count)
             {
-               // Debug.Log("VoileTime :" + Timer.Instance.GetTimer());
-               // Debug.Log("voila quoi :"+reproduce.timeTransforme[indexOfPath]);
-                float timePass = Timer.Instance.GetTimer() - reproduce.timeTransforme[indexOfPath];
-                if(timePass <0)
+                // 
+                if (reproduce.timeTransforme[indexOfPath + 1] <= Timer.Instance.GetTimer())
                 {
-                    timePass = 0;
+                    nextPos = reproduce.transfomPlayer[indexOfPath + 1];
+                    indexOfPath++;
+                    // Debug.Log("IndexChange est a :" +indexOfPath);
+                    if (indexOfPath + 1 < reproduce.transfomPlayer.Count)
+                    {
+                        duration = reproduce.timeTransforme[indexOfPath + 1] - reproduce.timeTransforme[indexOfPath];
+                        //Debug.Log("voila le duration :" + duration);
+                    }
+                    else
+                    {
+                        if (indexOfPath + 1 >= reproduce.transfomPlayer.Count)
+                        {
+                            Debug.Log("Je suis arriver a :" + Timer.Instance.GetTimer());
+                            Debug.Log("le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore());
+                            phantomFinish = true;
+                        }
+                    }
                 }
-           // Debug.Log("voila le temps passer :" + timePass);
-            float lerpPercent = timePass / duration;
-           // Debug.Log("voila le pourcent :" + timePass);
-            
-                objectView.transform.position = Vector3.Lerp(reproduce.transfomPlayer[indexOfPath], reproduce.transfomPlayer[indexOfPath + 1], lerpPercent);
-            }
-            else
-            {
-                Debug.Log("Je suis arriver a :" + Timer.Instance.GetTimer());
-                Debug.Log("le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore());
-                phantomFinish = true;
-            }
 
-        }
-        else
-        {
-           // Debug.Log("yo");
+                if (indexOfPath + 1 < reproduce.transfomPlayer.Count)
+                {
+                    // Debug.Log("VoileTime :" + Timer.Instance.GetTimer());
+                    // Debug.Log("voila quoi :"+reproduce.timeTransforme[indexOfPath]);
+                    float timePass = Timer.Instance.GetTimer() - reproduce.timeTransforme[indexOfPath];
+                    if (timePass < 0)
+                    {
+                        timePass = 0;
+                    }
+                    // Debug.Log("voila le temps passer :" + timePass);
+                    float lerpPercent = timePass / duration;
+                    // Debug.Log("voila le pourcent :" + timePass);
+
+                    objectView.transform.position = Vector3.Lerp(reproduce.transfomPlayer[indexOfPath], reproduce.transfomPlayer[indexOfPath + 1], lerpPercent);
+                }
+                
+
+            }
+            
+
+
+          
+
         }
        
 
 
 
 
-        /*if (indexOfPath + 1 < reproduce.transfomPlayer.Count)
-        {
-            t += Time.unscaledDeltaTime * (1 / timeToSave);
-            objectView.transform.position = Vector3.Lerp(reproduce.transfomPlayer[indexOfPath], reproduce.transfomPlayer[indexOfPath + 1], t);
-            if (t >= 1)
-            {
-                t = 0;
-                indexOfPath++;
-
-            }
-        }
-        else
-        {
-            Debug.Log("Je suis arriver a :" + Timer.Instance.GetTimer());
-            Debug.Log("le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore() );
-            phantomFinish = true;
-        }*/
        
     }
 
