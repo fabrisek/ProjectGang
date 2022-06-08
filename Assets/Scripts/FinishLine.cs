@@ -37,7 +37,7 @@ public class FinishLine : MonoBehaviour
         {
             if(PhantomeControler.Instance != null)
             {
-                PhantomeControler.Instance.StopSave = true;
+                PhantomeControler.Instance.StopSave( true);
             }
             Time.timeScale = 0;
             Timer.Instance.StopTimer();

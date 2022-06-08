@@ -37,15 +37,24 @@ public class PhantomeControler : MonoBehaviour
         }
     }
 
-    public bool StopSave
+    public void StopSave (bool value)
     {
-        set
-        {
+       
             stopALL = value;
-        }
+            stopSave = true;
+        SeTTimeTransform();
+
+
     }
 
-    private void Awake()
+    public void StartSave()
+    {
+        stopALL = false;
+        setTime = false;
+        SeTTimeTransform();
+    }
+
+        private void Awake()
     {
         duration = timeToSave;
         Instance = this;
@@ -63,7 +72,7 @@ public class PhantomeControler : MonoBehaviour
         if (!stopALL)
         {
 
-            if (Timer.Instance != null && Timer.Instance.GetTimer() != 0)
+            if (Timer.Instance != null)
             {
 
                 if (!setTime)
@@ -97,7 +106,8 @@ public class PhantomeControler : MonoBehaviour
         PhantomeSave = new PhantomeSave();
         PhantomeSave.initPhantome();
         indexOfPath = 0;
-
+        stopALL = true;
+        setTime = true;
         // Chopper la sauvegarde si il y a;
     }
 
@@ -107,6 +117,7 @@ public class PhantomeControler : MonoBehaviour
         do
         {
             SeTTimeTransform();
+            
             yield return new WaitForSeconds(timeToSave);
            
 
@@ -116,6 +127,7 @@ public class PhantomeControler : MonoBehaviour
 
     void SeTTimeTransform()
     {
+        Debug.Log("je sauvegarde");
         PhantomeSave.AddTransfomTime(playerRef.position, Timer.Instance.GetTimer());
     }
 
@@ -130,32 +142,32 @@ public class PhantomeControler : MonoBehaviour
                 // 
                 nextPos = reproduce.transfomPlayer[indexOfPath + 1];
                  indexOfPath++;
-                Debug.Log("IndexChange est a :" +indexOfPath);
+               // Debug.Log("IndexChange est a :" +indexOfPath);
                 if (indexOfPath + 1 < reproduce.transfomPlayer.Count)
                 {
                     duration = reproduce.timeTransforme[indexOfPath + 1] - reproduce.timeTransforme[indexOfPath];
-                    Debug.Log("voila le duration :" + duration);
+                    //Debug.Log("voila le duration :" + duration);
                 }
                 
             }
             else
             {
-                Debug.Log("je passe pas");
+              //  Debug.Log("je passe pas");
             }
 
 
             if (indexOfPath + 1 < reproduce.transfomPlayer.Count)
             {
-                Debug.Log("VoileTime :" + Timer.Instance.GetTimer());
-                Debug.Log("voila quoi :"+reproduce.timeTransforme[indexOfPath]);
+               // Debug.Log("VoileTime :" + Timer.Instance.GetTimer());
+               // Debug.Log("voila quoi :"+reproduce.timeTransforme[indexOfPath]);
                 float timePass = Timer.Instance.GetTimer() - reproduce.timeTransforme[indexOfPath];
                 if(timePass <0)
                 {
                     timePass = 0;
                 }
-            Debug.Log("voila le temps passer :" + timePass);
+           // Debug.Log("voila le temps passer :" + timePass);
             float lerpPercent = timePass / duration;
-            Debug.Log("voila le pourcent :" + timePass);
+           // Debug.Log("voila le pourcent :" + timePass);
             
                 objectView.transform.position = Vector3.Lerp(reproduce.transfomPlayer[indexOfPath], reproduce.transfomPlayer[indexOfPath + 1], lerpPercent);
             }
@@ -169,7 +181,7 @@ public class PhantomeControler : MonoBehaviour
         }
         else
         {
-            Debug.Log("yo");
+           // Debug.Log("yo");
         }
        
 
