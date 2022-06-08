@@ -451,6 +451,12 @@ public class PlayerMovementAdvanced : MonoBehaviour
             {
                 //CameraShakerHandler.Shake(runShake);
             }
+
+            //slow down player if no inputs
+            if (moveDirection.magnitude == 0f)
+            {
+                rb.velocity = new Vector3(rb.velocity.x / 1.05f, rb.velocity.y, rb.velocity.z / 1.05f);
+            }
         }
         // in air
         else
