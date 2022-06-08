@@ -592,7 +592,7 @@ Transform:
   m_GameObject: {fileID: 6884297329809265948}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -40.46448, y: 0, z: 1.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963999819332947447}
@@ -689,7 +689,7 @@ MonoBehaviour:
   - {fileID: 1435243750587974812}
   - {fileID: 1435243751527928379}
   - {fileID: 1435243751376665314}
-  maxDist: 5
+  maxDist: 10
 --- !u!1 &6921696766213760373
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +930,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserRayCast (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3352221168137710359, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 6107513721884757926}
+    - target: {fileID: 3352221168137710359, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
+      propertyPath: distMax
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
 --- !u!114 &1435243750587974812 stripped
@@ -1014,6 +1022,14 @@ PrefabInstance:
     - target: {fileID: 3352221168137710358, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
       propertyPath: m_Name
       value: LaserRayCast (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352221168137710359, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 6107513721884757926}
+    - target: {fileID: 3352221168137710359, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
+      propertyPath: distMax
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
@@ -1100,6 +1116,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserRayCast (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3352221168137710359, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 6107513721884757926}
+    - target: {fileID: 3352221168137710359, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
+      propertyPath: distMax
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
 --- !u!4 &1435243751376665313 stripped
@@ -1184,6 +1208,14 @@ PrefabInstance:
     - target: {fileID: 3352221168137710358, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
       propertyPath: m_Name
       value: LaserRayCast (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352221168137710359, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 6107513721884757926}
+    - target: {fileID: 3352221168137710359, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
+      propertyPath: distMax
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd017061196a0b43bf0061a3a9b527f, type: 3}
