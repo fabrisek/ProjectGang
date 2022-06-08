@@ -46,8 +46,12 @@ public class HUD_MainMenu : MonoBehaviour
     {
         firstCam.enabled = false;
         menuCam.enabled = true;
-        _mainMenu.Show();
         State = StateMainMenu.Menu;
+    }
+    IEnumerator OpenFirstTimeMenu()
+    {
+        yield return new WaitForSeconds(.8f);
+        eventSystem.SetSelectedGameObject(firstButtonMenu);
     }
 
     public void CliclPlay()
@@ -139,7 +143,11 @@ public class HUD_MainMenu : MonoBehaviour
     private void Start()
     {
         if (Data_Manager.AlreadyInGame == false)
+        {
+            StartCoroutine(OpenFirstTimeMenu());
             OpenMainMenu();
+        }
+
         else
         {
             StartCoroutine(Hide());
