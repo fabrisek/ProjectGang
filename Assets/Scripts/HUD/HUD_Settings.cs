@@ -225,11 +225,8 @@ public class HUD_Settings : MonoBehaviour
     [SerializeField] GameObject _firstButtonGamePad;
     public void OpenGamePadPanel()
     {
-
-        _panelGamePad.SetActive(true);
         ChangeStateMenu();
         InitializeGamePadPanel();
-        eventSystem.SetSelectedGameObject(_firstButtonGamePad);
     }
 
     public void SetRumbler()
