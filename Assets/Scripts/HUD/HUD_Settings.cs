@@ -5,11 +5,25 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using Doozy.Runtime.UIManager.Containers;
 using Doozy.Runtime.UIManager.Components;
 using UnityEngine.EventSystems;
 
 public class HUD_Settings : MonoBehaviour
 {
+    [SerializeField] UIContainer audiopanel;
+    [SerializeField] UIContainer keyboardpanel;
+    [SerializeField] UIContainer gamepadPanel;
+    [SerializeField] UIContainer graphicsPanel;
+    [SerializeField] UIContainer buttonPanel;
+    public void CloseSettings()
+    {
+        audiopanel.Hide();
+        keyboardpanel.Hide();
+        gamepadPanel.Hide();
+        graphicsPanel.Hide();
+        buttonPanel.Show();
+    }
     public static HUD_Settings Instance;
     [SerializeField] EventSystem eventSystem;
 
@@ -30,7 +44,6 @@ public class HUD_Settings : MonoBehaviour
 
     #region GRAPHICS PANEL
     [Header("GRAPHICS SETTINGS")]
-    [SerializeField] GameObject _panelGraphics;
     [SerializeField] TMP_Dropdown _resolutionDropDown;
     [SerializeField] TMP_Dropdown _dropDownScreenMode;
     [SerializeField] TMP_Dropdown _antiAliasingDropDown;
@@ -48,9 +61,7 @@ public class HUD_Settings : MonoBehaviour
     public void OpenGraphicsPanel()
     {
         ChangeStateMenu();
-        _panelGraphics.SetActive(true);
         InitializeGraphicsOptions();
-        eventSystem.SetSelectedGameObject(_firstBoutonPanelGraphics);
     }
 
     void InitializeGraphicsOptions()
@@ -219,10 +230,8 @@ public class HUD_Settings : MonoBehaviour
 
     #region GamePad Settings
     [Header("GAMEPAD SETTINGS")]
-    [SerializeField] GameObject _panelGamePad;
     [SerializeField] UIToggle _toggleRumbler;
     [SerializeField] Slider _sliderSensibilityGamePad;
-    [SerializeField] GameObject _firstButtonGamePad;
     public void OpenGamePadPanel()
     {
         ChangeStateMenu();
