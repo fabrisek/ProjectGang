@@ -227,6 +227,7 @@ public class HUD_Settings : MonoBehaviour
     public void ChangeValueSensibilityMouse()
     {
         Settings.ChangeValueSensibilityMouse(_sliderSensibilityMouse.value);
+        Debug.Log(_sliderSensibilityMouse.value);
     }
 
     #endregion
