@@ -5847,7 +5847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 2
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1210120114}
     m_SelectOnDown: {fileID: 893469681}
@@ -11325,7 +11325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 2
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 382566466}
     m_SelectOnDown: {fileID: 1210120114}
@@ -16139,7 +16139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 2
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 893469681}
     m_SelectOnDown: {fileID: 382566466}
@@ -16422,6 +16422,7 @@ GameObject:
   - component: {fileID: 1241805621}
   - component: {fileID: 1241805622}
   - component: {fileID: 1241805623}
+  - component: {fileID: 1241805624}
   m_Layer: 5
   m_Name: DATA & UTILITIES
   m_TagString: Untagged
@@ -16620,6 +16621,18 @@ MonoBehaviour:
   onJoinRequest:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1241805624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241805614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9a2c27db1a33c4b90cd5612875daa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1250387146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17442,7 +17455,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405005612}
-  m_LocalRotation: {x: 0.38923275, y: -0.5903366, z: 0.38923162, w: 0.5903383}
+  m_LocalRotation: {x: 0.38923278, y: -0.59033656, z: 0.38923153, w: 0.5903384}
   m_LocalPosition: {x: 59.48, y: 36.08, z: -33.880028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17850,8 +17863,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
-  m_sharedMaterial: {fileID: -9053873285834690778, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18031,8 +18044,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
-  m_sharedMaterial: {fileID: -9053873285834690778, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18204,8 +18217,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
-  m_sharedMaterial: {fileID: -9053873285834690778, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19210,7 +19223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1820154977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19256,7 +19269,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820154976}
-  m_LocalRotation: {x: 0.38923275, y: -0.5903366, z: 0.38923162, w: 0.5903383}
+  m_LocalRotation: {x: 0.38923278, y: -0.59033656, z: 0.38923153, w: 0.5903384}
   m_LocalPosition: {x: 59.48, y: 36.08, z: -33.880028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -22128,8 +22141,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MUSIC
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7da75288952cdea44b46016001b9b584, type: 2}
-  m_sharedMaterial: {fileID: -5247382322019713194, guid: 7da75288952cdea44b46016001b9b584, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -22272,7 +22285,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 0.14122534, g: 0, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -24594,7 +24607,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.14122534, g: 0, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -26138,8 +26151,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 89.02}
-  m_SizeDelta: {x: -100, y: 300}
+  m_AnchoredPosition: {x: 0, y: 150}
+  m_SizeDelta: {x: -200, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &555233263287972137
 MonoBehaviour:
@@ -26620,7 +26633,6 @@ MonoBehaviour:
   _firstBoutonPanelAudio: {fileID: 6855680281851571974}
   _panelControl: {fileID: 180175740235575652}
   _sliderSensibilityMouse: {fileID: 4915207021566001558}
-  _firstBoutonPanelKeyboard: {fileID: 4187097571050457971}
   _panelGamePad: {fileID: 4488326185186672813}
   _toggleRumbler: {fileID: 8339813211943341398}
   _sliderSensibilityGamePad: {fileID: 3506311448115869268}
@@ -49116,8 +49128,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GRAPHICS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
-  m_sharedMaterial: {fileID: -9053873285834690778, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -49141,8 +49153,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.04
-  m_fontSizeBase: 44.04
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -55482,8 +55494,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: KEYBOARD
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
-  m_sharedMaterial: {fileID: -9053873285834690778, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -55507,8 +55519,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.04
-  m_fontSizeBase: 44.04
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -63432,12 +63444,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 4478371151664338622}
+    m_SelectOnRight: {fileID: 7026507079290194105}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -63520,38 +63532,6 @@ MonoBehaviour:
           m_Calls: []
   Behaviours:
     Behaviours:
-    - Enabled: 1
-      EventName: PointerEnter
-      Runners: []
-      Event:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 798242739}
-            m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-            m_MethodName: SetSelectedGameObject
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 7577317115917502003}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      BehaviourName: 0
-      Receiver:
-        ConnectionMode: 1
-        SignalProviderId:
-          Type: 0
-          Category: Pointer
-          Name: Enter
-        ProviderReference: {fileID: 0}
-        StreamId:
-          Category: None
-          Name: None
-          Custom: 0
-      Cooldown: 0
-      Selectable: {fileID: 4092900181864505576}
     - Enabled: 1
       EventName: PointerClick
       Runners: []
@@ -67808,12 +67788,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 6977332875943299895}
+    m_SelectOnRight: {fileID: 4092900181864505576}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -67896,38 +67876,6 @@ MonoBehaviour:
           m_Calls: []
   Behaviours:
     Behaviours:
-    - Enabled: 1
-      EventName: PointerEnter
-      Runners: []
-      Event:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 798242739}
-            m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-            m_MethodName: SetSelectedGameObject
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 6906975384505582080}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      BehaviourName: 0
-      Receiver:
-        ConnectionMode: 1
-        SignalProviderId:
-          Type: 0
-          Category: Pointer
-          Name: Enter
-        ProviderReference: {fileID: 0}
-        StreamId:
-          Category: None
-          Name: None
-          Custom: 0
-      Cooldown: 0
-      Selectable: {fileID: 4478371151664338622}
     - Enabled: 1
       EventName: PointerClick
       Runners: []
@@ -70743,8 +70691,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SFX
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7da75288952cdea44b46016001b9b584, type: 2}
-  m_sharedMaterial: {fileID: -5247382322019713194, guid: 7da75288952cdea44b46016001b9b584, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -70874,8 +70822,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAMEPAD
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
-  m_sharedMaterial: {fileID: -9053873285834690778, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -70899,8 +70847,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.04
-  m_fontSizeBase: 44.04
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -72683,7 +72631,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.14122534, g: 0, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -75453,8 +75401,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: AUDIO
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
-  m_sharedMaterial: {fileID: -9053873285834690778, guid: aa836d276635f8f44a7a53e200909f0c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -75478,8 +75426,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.04
-  m_fontSizeBase: 44.04
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -80747,8 +80695,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GENERAL
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7da75288952cdea44b46016001b9b584, type: 2}
-  m_sharedMaterial: {fileID: -5247382322019713194, guid: 7da75288952cdea44b46016001b9b584, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
+  m_sharedMaterial: {fileID: -8760904958330418973, guid: d0d828a0986826542a5d6a5dae5a29a9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -82298,8 +82246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 89.02}
-  m_SizeDelta: {x: -100, y: 300}
+  m_AnchoredPosition: {x: 0, y: 150}
+  m_SizeDelta: {x: -200, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &6173290731679787250
 GameObject:
@@ -84079,11 +84027,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 1, g: 1, b: 1, a: 0.8}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       CurrentValue: {r: 0.9686275, g: 0.20784315, b: 0.39607847, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -84159,11 +84107,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 1, g: 1, b: 1, a: 0.8}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.42156863, g: 0.42156863, b: 0.42156863, a: 0.5882353}
       CurrentValue: {r: 0.9762466, g: 0.40022412, b: 0.53462934, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -84239,11 +84187,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 0.9, g: 0.9, b: 0.9, a: 0.8}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.22156864, g: 0.22156864, b: 0.22156864, a: 0.5882353}
       CurrentValue: {r: 0.93927187, g: 0.037198782, b: 0.24768251, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -84319,11 +84267,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 1, g: 1, b: 1, a: 0.8}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.8315686, g: 0.8315686, b: 0.8315686, a: 0.5882353}
       CurrentValue: {r: 1, g: 0.17647064, b: 0.3686275, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -84399,11 +84347,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 1, g: 1, b: 1, a: 0.3}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.08823532}
       CurrentValue: {r: 0, g: 0, b: 0, a: 0}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -88131,12 +88079,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 7026507079290194105}
+    m_SelectOnRight: {fileID: 4478371151664338622}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -88219,38 +88167,6 @@ MonoBehaviour:
           m_Calls: []
   Behaviours:
     Behaviours:
-    - Enabled: 1
-      EventName: PointerEnter
-      Runners: []
-      Event:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 798242739}
-            m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-            m_MethodName: SetSelectedGameObject
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 2715703122973350755}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      BehaviourName: 0
-      Receiver:
-        ConnectionMode: 1
-        SignalProviderId:
-          Type: 0
-          Category: Pointer
-          Name: Enter
-        ProviderReference: {fileID: 0}
-        StreamId:
-          Category: None
-          Name: None
-          Custom: 0
-      Cooldown: 0
-      Selectable: {fileID: 6977332875943299895}
     - Enabled: 1
       EventName: PointerClick
       Runners: []
@@ -89785,12 +89701,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 4092900181864505576}
+    m_SelectOnRight: {fileID: 6977332875943299895}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -89874,38 +89790,6 @@ MonoBehaviour:
   Behaviours:
     Behaviours:
     - Enabled: 1
-      EventName: PointerEnter
-      Runners: []
-      Event:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 798242739}
-            m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-            m_MethodName: SetSelectedGameObject
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 4112366545445795687}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      BehaviourName: 0
-      Receiver:
-        ConnectionMode: 1
-        SignalProviderId:
-          Type: 0
-          Category: Pointer
-          Name: Enter
-        ProviderReference: {fileID: 0}
-        StreamId:
-          Category: None
-          Name: None
-          Custom: 0
-      Cooldown: 0
-      Selectable: {fileID: 7026507079290194105}
-    - Enabled: 1
       EventName: PointerClick
       Runners: []
       Event:
@@ -89928,6 +89812,18 @@ MonoBehaviour:
             m_TargetAssemblyTypeName: Doozy.Runtime.UIManager.Containers.UIContainer,
               DoozyRuntime
             m_MethodName: InstantHide
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 616397667408541323}
+            m_TargetAssemblyTypeName: HUD_Settings, Assembly-CSharp
+            m_MethodName: OpenPanelAudio
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -96350,11 +96246,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 1, g: 1, b: 1, a: 0.8}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       CurrentValue: {r: 0.9686275, g: 0.20784315, b: 0.39607847, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -96430,11 +96326,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 1, g: 1, b: 1, a: 0.8}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.42156863, g: 0.42156863, b: 0.42156863, a: 0.5882353}
       CurrentValue: {r: 0.9762466, g: 0.40022412, b: 0.53462934, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -96510,11 +96406,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 0.9, g: 0.9, b: 0.9, a: 0.8}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.22156864, g: 0.22156864, b: 0.22156864, a: 0.5882353}
       CurrentValue: {r: 0.93927187, g: 0.037198782, b: 0.24768251, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -96590,11 +96486,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 1, g: 1, b: 1, a: 0.8}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.8315686, g: 0.8315686, b: 0.8315686, a: 0.5882353}
       CurrentValue: {r: 1, g: 0.17647064, b: 0.3686275, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -96670,11 +96566,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 0.8}
-      ToValue: {r: 1, g: 1, b: 1, a: 0.3}
+      FromValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
+      ToValue: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.08823532}
       CurrentValue: {r: 0, g: 0, b: 0, a: 0}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 0.8}
+      StartColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0.5882353}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -103504,8 +103400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 89.02}
-  m_SizeDelta: {x: -100, y: 300}
+  m_AnchoredPosition: {x: 0, y: 150}
+  m_SizeDelta: {x: -200, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!224 &8108186865467616135
 RectTransform:
@@ -111562,8 +111458,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 89.02}
-  m_SizeDelta: {x: -100, y: 300}
+  m_AnchoredPosition: {x: 0, y: 150}
+  m_SizeDelta: {x: -200, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!224 &8857312214515796344
 RectTransform:

@@ -27,14 +27,6 @@ public class HUD_Settings : MonoBehaviour
             HUD_MainMenu.Instance.State = StateMainMenu.InPanelSettings;
     }
 
-    void CloseAllPanel()
-    {
-        _panelControl.SetActive(false);
-        _panelAudio.SetActive(false);
-        _panelButton.SetActive(false);
-        _panelGamePad.SetActive(false);
-        _panelGraphics.SetActive(false);
-    }
 
     #region GRAPHICS PANEL
     [Header("GRAPHICS SETTINGS")]
@@ -56,7 +48,6 @@ public class HUD_Settings : MonoBehaviour
     public void OpenGraphicsPanel()
     {
         ChangeStateMenu();
-        CloseAllPanel();
         _panelGraphics.SetActive(true);
         InitializeGraphicsOptions();
         eventSystem.SetSelectedGameObject(_firstBoutonPanelGraphics);
@@ -175,11 +166,8 @@ public class HUD_Settings : MonoBehaviour
     [SerializeField] GameObject _firstBoutonPanelAudio;
     public void OpenPanelAudio()
     {
-        CloseAllPanel();
-        _panelAudio.SetActive(true);
         ChangeStateMenu();
         InitializeAudioPanel();
-        eventSystem.SetSelectedGameObject(_firstBoutonPanelAudio);
     }
 
     //Change Slider Value From Settings
@@ -210,15 +198,11 @@ public class HUD_Settings : MonoBehaviour
     [Header("KEYBOARD SETTINGS")]
     [SerializeField] GameObject _panelControl;
     [SerializeField] Slider _sliderSensibilityMouse;
-    [SerializeField] GameObject _firstBoutonPanelKeyboard;
 
     private void OpenControlPanel()
     {
-        CloseAllPanel();
-        _panelControl.SetActive(true);
         ChangeStateMenu();
         InitializeKeybordPanel();
-        eventSystem.SetSelectedGameObject(_firstBoutonPanelKeyboard);
     }
 
     private void InitializeKeybordPanel()
@@ -241,7 +225,7 @@ public class HUD_Settings : MonoBehaviour
     [SerializeField] GameObject _firstButtonGamePad;
     public void OpenGamePadPanel()
     {
-        CloseAllPanel();
+
         _panelGamePad.SetActive(true);
         ChangeStateMenu();
         InitializeGamePadPanel();
