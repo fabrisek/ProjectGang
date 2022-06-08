@@ -35,6 +35,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [SerializeField] float airMultiplier;
     bool readyToJump;
     bool canDoubleJump = true;
+    float timeBeforeLand = 0.2f;
+
     [SerializeField] ShakeData jumpShake;
     [SerializeField] ShakeData runShake;
     public bool CanDoubleJump
@@ -534,28 +536,34 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
     private void DoubleJump()
     {
-        //DownForceAfterInput
-        timeToPress = 1f;
-
-
-        hasDoubleJumped = true;
-        // reset y velocity
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        //JumpForce
-        rb.AddForce(transform.up * jumpForce * 0.8f, ForceMode.Impulse);
-        canJump = false;
-        jumpDown = false;
-
-        //feedBack
-        AudioManager.instance.playSoundEffect(1, 1f);
-        //CameraShakerHandler.Shake(jumpShake);
-        Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
-        Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
-        if(!grappling)
+        if(Physics.Raycast(transform.position, Vector3.down, playerHeight*1.3f, whatIsGround))
         {
-            grappinAnimator.SetTrigger("Flip");
+            Jump();
         }
-        
+        else
+        {
+            //DownForceAfterInput
+            timeToPress = 1f;
+
+
+            hasDoubleJumped = true;
+            // reset y velocity
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            //JumpForce
+            rb.AddForce(transform.up * jumpForce * 0.8f, ForceMode.Impulse);
+            canJump = false;
+            jumpDown = false;
+
+            //feedBack
+            AudioManager.instance.playSoundEffect(1, 1f);
+            //CameraShakerHandler.Shake(jumpShake);
+            Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
+            Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
+            if (!grappling)
+            {
+                grappinAnimator.SetTrigger("Flip");
+            }
+        }
     }
     private void ResetJump()
     {
