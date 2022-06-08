@@ -245,12 +245,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
             timeToJump = resetTimeToJump;
             canJump = true;
             rb.useGravity = false;
-            rb.drag *= 10;
         }
         else
         {
             rb.useGravity = true ;
-            rb.drag *= 1/10;
             timeToJump -= Time.deltaTime;
             if(timeToJump <= 0)
             {
@@ -272,7 +270,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
         Accelerate();
         // handle drag
         if (grounded)
+        {
             rb.drag = groundDrag;
+        }
         else
             rb.drag = 0;
 
@@ -344,7 +344,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
         if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.1f && walkSpeed > resetWalkSpeed)
         {
-            walkSpeed -= resetWalkSpeed/30*Time.deltaTime;
+            walkSpeed -= resetWalkSpeed/15*Time.deltaTime;
             accelerationTimer = accelerationTimeReset;
         }
     }
