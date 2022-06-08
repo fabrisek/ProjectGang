@@ -67,15 +67,17 @@ public class PhantomeControler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+
+    private void FixedUpdate()
     {
-         if (indexOfPath + 1 >= reproduce.transfomPlayer.Count && !phantomFinish)
+
+        if (indexOfPath + 1 >= reproduce.transfomPlayer.Count && !phantomFinish)
         {
             Debug.Log("1- Je suis arriver a :" + Timer.Instance.GetTimer());
             Debug.Log("2- le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore());
             phantomFinish = true;
         }
-            if (!stopALL)
+        if (!stopALL)
         {
 
             if (Timer.Instance != null)
@@ -93,7 +95,10 @@ public class PhantomeControler : MonoBehaviour
 
             }
         }
-        
+
+    }
+    void Update()
+    {
 
     }
 
