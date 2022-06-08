@@ -232,7 +232,8 @@ public class HudControllerInGame : MonoBehaviour
 
         if (PlayFabHighScore.Instance != null)
         {
-            StartCoroutine(WaitPosPlayer());
+            if (PlayFabLogin.Instance != null && PlayFabLogin.Instance.GetEntityId() != "")
+                StartCoroutine(WaitPosPlayer());
         }
 
     }
@@ -263,8 +264,16 @@ public class HudControllerInGame : MonoBehaviour
     public void ClickButtonAroundPlayer()
     {
         panelHighScore.SetActive(true);
+        if (PlayFabHighScore.Instance != null)
+        {
+
         PlayFabHighScore.Instance.InitializeHighScore(HighScorePrefab, parentHighScore.transform);
         PlayFabHighScore.Instance.GetLeaderBoardAroundPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexLevel].GetSceneData().MapName);
+        }
+        else
+        {
+            Debug.LogWarning("Playfab Highscore not Initialized");
+        }
     }
 
     public void OpenNextLevel()
