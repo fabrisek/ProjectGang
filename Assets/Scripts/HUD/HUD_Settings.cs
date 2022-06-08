@@ -23,6 +23,9 @@ public class HUD_Settings : MonoBehaviour
         gamepadPanel.Hide();
         graphicsPanel.Hide();
         buttonPanel.Show();
+
+        if (HudControllerInGame.Instance != null)
+            HudControllerInGame.Instance.StateMenu = ActualMenu.SettingsMenu;
     }
     public static HUD_Settings Instance;
     [SerializeField] EventSystem eventSystem;

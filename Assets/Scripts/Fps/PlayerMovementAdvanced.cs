@@ -152,61 +152,77 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     public void Pause()
     {
-        if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
+        if (HudControllerInGame.Instance.StateMenu == ActualMenu.Pause)
         {
 
 
-            if (Time.timeScale > 0)
-            {
-                Timer.Instance.StopTimer();
-                playerCam.enabled = false;
-                Rumbler.instance.StopRumble();
-                Time.timeScale = 0;
-                HudControllerInGame.Instance.OpenPauseMenu();
-                if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
-                {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                }
-            }
-            else
+            if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
             {
 
-                Timer.Instance.LaunchTimer();
-                playerCam.enabled = true;
-                Time.timeScale = 1;
-                HudControllerInGame.Instance.ClosePauseMenu();
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Confined;
+
+                if (Time.timeScale > 0)
+                {
+                    Timer.Instance.StopTimer();
+                    playerCam.enabled = false;
+                    Rumbler.instance.StopRumble();
+                    Time.timeScale = 0;
+                    HudControllerInGame.Instance.OpenPauseMenu();
+                    if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
+                    {
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                    }
+                }
+                else
+                {
+
+                    Timer.Instance.LaunchTimer();
+                    playerCam.enabled = true;
+                    Time.timeScale = 1;
+                    HudControllerInGame.Instance.ClosePauseMenu();
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Confined;
+                }
             }
+        }
+        else
+        {
+            HudControllerInGame.Instance.Back();
         }
     }
 
     public void Pause(InputAction.CallbackContext callback)
     {
-        if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
+        if (HudControllerInGame.Instance.StateMenu == ActualMenu.Pause)
         {
-            if (Time.timeScale > 0)
+            if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
             {
-                Timer.Instance.StopTimer();
-                playerCam.enabled = false;
-                Rumbler.instance.StopRumble();
-                Time.timeScale = 0;
-                HudControllerInGame.Instance.OpenPauseMenu();
-                if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
+                if (Time.timeScale > 0)
                 {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
+                    Timer.Instance.StopTimer();
+                    playerCam.enabled = false;
+                    Rumbler.instance.StopRumble();
+                    Time.timeScale = 0;
+                    HudControllerInGame.Instance.OpenPauseMenu();
+                    if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
+                    {
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                    }
+                }
+                else
+                {
+                    Timer.Instance.LaunchTimer();
+                    playerCam.enabled = true;
+                    Time.timeScale = 1;
+                    HudControllerInGame.Instance.ClosePauseMenu();
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Confined;
                 }
             }
             else
             {
-                Timer.Instance.LaunchTimer();
-                playerCam.enabled = true;
-                Time.timeScale = 1;
-                HudControllerInGame.Instance.ClosePauseMenu();
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Confined;
+                HudControllerInGame.Instance.Back();
             }
         }
     }

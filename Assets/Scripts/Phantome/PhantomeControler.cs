@@ -70,6 +70,8 @@ public class PhantomeControler : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (reproduce != null)
+        {
 
         if (indexOfPath + 1 >= reproduce.transfomPlayer.Count && !phantomFinish)
         {
@@ -94,6 +96,7 @@ public class PhantomeControler : MonoBehaviour
                 }
 
             }
+        }
         }
 
     }
