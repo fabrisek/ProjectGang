@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace ByPass
 {
     public class PlateformeControler : MonoBehaviour
     {
+        [SerializeField] NavMeshAgent navAgent;
+
         [SerializeField] Transform target;
         [SerializeField] float latence;
 
@@ -54,13 +57,20 @@ namespace ByPass
         // Start is called before the first frame update
         void Start()
         {
-            changeDirection1 = true;
+            
+              changeDirection1 = true;
         }
 
         // Update is called once per frame
         void Update()
         {
-            Movebug();
+            if(target != null)
+            {
+                navAgent.SetDestination(target.position);
+            }
+            
+            
+             Movebug();
         }
 
         private void Movebug()
@@ -70,7 +80,7 @@ namespace ByPass
                 if (Vector3.Distance(new Vector3(target.position.x, 0, target.position.z), new Vector3(transform.position.x, 0, transform.position.z)) > latence)
                 {
                     MoveToTarget();
-                    RotateToTarget();
+                   // RotateToTarget();
                 }
                 else
                 {
@@ -106,7 +116,7 @@ namespace ByPass
         Vector3 DirectionToTarget()
         {
             float X;
-            X = Random.Range(-0.7f, 0.7f);
+            X = Random.Range(-2f, 2f);
             return new Vector3(X, 0, 1).normalized;
         }
 
