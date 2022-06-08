@@ -66,7 +66,10 @@ namespace ByPass
         {
             if(target != null)
             {
-                navAgent.SetDestination(target.position);
+                if (navAgent.isOnNavMesh)
+                {
+                    navAgent.SetDestination(target.position);
+                }
             }
             
             
