@@ -17,15 +17,12 @@ public enum StateMainMenu
 public class HUD_MainMenu : MonoBehaviour
 {
     public static HUD_MainMenu Instance;
-    [SerializeField] Camera firstCam;
-    [SerializeField] Camera menuCam;
     [SerializeField] UIContainer _mainMenu;
     [SerializeField] UIContainer _settings;
     [SerializeField] GameObject _settingsPanel;
     [SerializeField] GameObject _levelSelectionPanel;
     [SerializeField] EventSystem eventSystem;
 
-    [SerializeField] MenuAntCrontroller antController;
     [SerializeField] GameObject firstButtonMenu;
     [SerializeField] GameObject firstButtonSettings;
     [SerializeField] GameObject firstButtonInGame;
@@ -45,8 +42,6 @@ public class HUD_MainMenu : MonoBehaviour
     }
     public void OpenMainMenu()
     {
-        firstCam.enabled = false;
-        menuCam.enabled = true;
         State = StateMainMenu.Menu;
         _mainMenu.Show();
     }
@@ -58,18 +53,13 @@ public class HUD_MainMenu : MonoBehaviour
 
     public void CliclPlay()
     {
-        firstCam.enabled = true;
-        menuCam.enabled = false;
-        antController.enabled = true;
         State = StateMainMenu.InGame;
     }
 
     public void OpenPanelSelectionLevel(int worldIndex)
     {
         _levelSelectionPanel.SetActive(false);
-        antController.enabled = false;
         State = StateMainMenu.InPanelGame;
-        panelSelector.SetActive(true);
         worldName.text = Data_Manager.Instance.GetData()._worldData[worldIndex].WorldName;
 
         int totalStar = 0;
