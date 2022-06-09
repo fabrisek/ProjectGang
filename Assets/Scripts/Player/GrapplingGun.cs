@@ -63,11 +63,11 @@ public class GrapplingGun : MonoBehaviour
 
         if (competenceRalentie.IsRalentie())
         {
-            maxDistance = 40f;
+            maxDistance = 35f;
         }
         else
         {
-            maxDistance = 25f;
+            maxDistance = 20f;
         }
         RaycastHit hit;
         if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, whatIsGrappleable))
@@ -81,13 +81,13 @@ public class GrapplingGun : MonoBehaviour
             //particuleGunTipLock.SetActive(true);
             crossHair.sprite = crossHairLocked.sprite;
             crossHair.color = Color.red;
-            grappinAnimatorLock.SetBool("Lock", true);
+            
         }
         else
         {
             
             crossHair.sprite = crossHairNormal.sprite;
-            grappinAnimatorLock.SetBool("Lock", false);
+
             crossHair.color = Color.white;
             //if (!IsGrappling())
             //particuleGunTipLock.SetActive(false);
@@ -144,7 +144,8 @@ public class GrapplingGun : MonoBehaviour
 
                 //anim
                 grappinAnimator.SetBool("Grappling", true);
-            }
+                grappinAnimatorLock.SetBool("Lock", true);
+        }
     }
     // Call whenever we want to stop a grapple
     public void StopGrapple()
@@ -163,11 +164,12 @@ public class GrapplingGun : MonoBehaviour
 
             //anim
             grappinAnimator.SetBool("Grappling", false);
-            /*if (justHit.collider.TryGetComponent<Rigidbody>(out rbHit))
-            {
-                rbHit.isKinematic = false;
-                rbHit.velocity = justHitVelocity;
-            }*/
+            grappinAnimatorLock.SetBool("Lock", false);
+        /*if (justHit.collider.TryGetComponent<Rigidbody>(out rbHit))
+        {
+            rbHit.isKinematic = false;
+            rbHit.velocity = justHitVelocity;
+        }*/
 
     }
     
