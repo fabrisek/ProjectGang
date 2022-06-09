@@ -41,7 +41,7 @@ public class LoadingScript : MonoBehaviour
                 {
                     if (data._worldData[i]._mapData[j].GetSceneData().IndexScene == sceneToLoad)
                     {
-                        background.sprite = data._worldData[i]._mapData[j].GetSceneData().BackGroundLoad;
+                        //background.sprite = data._worldData[i]._mapData[j].GetSceneData().BackGroundLoad;
                         NameLevel.text = data._worldData[i]._mapData[j].GetSceneData().MapName;
                         return;
                     }

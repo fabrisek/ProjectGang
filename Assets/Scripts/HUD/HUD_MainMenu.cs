@@ -36,6 +36,7 @@ public class HUD_MainMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI worldName;
     [SerializeField] TextMeshProUGUI starText;
 
+
     public StateMainMenu State { get; set; }
 
     private void Awake()
@@ -47,6 +48,7 @@ public class HUD_MainMenu : MonoBehaviour
         firstCam.enabled = false;
         menuCam.enabled = true;
         State = StateMainMenu.Menu;
+        _mainMenu.Show();
     }
     IEnumerator OpenFirstTimeMenu()
     {
@@ -105,9 +107,9 @@ public class HUD_MainMenu : MonoBehaviour
         starText.text = "STAR : " + starUnlock.ToString() + " / " + totalStar.ToString();
     }
 
-    public void OpenSettings()
+    public void ClosePanelSettings()
     {
-        _settings.Show();
+        HUD_Settings.Instance.CloseSettings();
         State = StateMainMenu.Settings;
     }
 
@@ -125,13 +127,13 @@ public class HUD_MainMenu : MonoBehaviour
                     CloseSettings();
                     break;
                 case StateMainMenu.InPanelSettings:
-                    OpenSettings();
+                    ClosePanelSettings();
                     break;            
         }
     }
 
     public void CloseSettings()
-    {
+    { 
         _settings.Hide();
     }
 

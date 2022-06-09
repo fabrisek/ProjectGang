@@ -96,6 +96,7 @@ public class PhantomeControler : MonoBehaviour
 
             }
         }
+        }
 
     }
     void Update()
