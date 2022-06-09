@@ -663,7 +663,7 @@ MonoBehaviour:
       FromCustomValue: {x: 1, y: 1, z: 1}
       ToCustomValue: {x: 1, y: 1, z: 1}
       FromOffset: {x: 0, y: 0, z: 0}
-      ToOffset: {x: 0.2, y: 0.2, z: 0}
+      ToOffset: {x: 0.1, y: 0.1, z: 0}
     Fade:
       Settings:
         PlayMode: 0
@@ -3105,7 +3105,8 @@ MonoBehaviour:
   _mainMenu: {fileID: 6092709146768937435}
   _settings: {fileID: 447631260}
   _settingsPanel: {fileID: 4837022623013483880}
-  _levelSelectionPanel: {fileID: 2287996149264664512}
+  _levelSelectionPanel: {fileID: 6136089980473698270}
+  _worldSelectionPanel: {fileID: 750871606}
   eventSystem: {fileID: 798242739}
   firstButtonMenu: {fileID: 382566456}
   firstButtonSettings: {fileID: 4112366545445795687}
@@ -5940,7 +5941,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   OnHiddenCallback:
-    Enabled: 0
+    Enabled: 1
     EventName: OnHiddenCallback
     Runners: []
     Event:
@@ -15612,7 +15613,20 @@ MonoBehaviour:
     Runners: []
     Event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 750871606}
+          m_TargetAssemblyTypeName: Doozy.Runtime.UIManager.Containers.UIContainer,
+            DoozyRuntime
+          m_MethodName: Show
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   OnVisibilityChangedCallback:
     m_PersistentCalls:
       m_Calls: []

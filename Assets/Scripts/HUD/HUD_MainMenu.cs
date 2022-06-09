@@ -20,9 +20,10 @@ public class HUD_MainMenu : MonoBehaviour
     [SerializeField] UIContainer _mainMenu;
     [SerializeField] UIContainer _settings;
     [SerializeField] GameObject _settingsPanel;
-    [SerializeField] GameObject _levelSelectionPanel;
+    [SerializeField] UIContainer _levelSelectionPanel;
+    [SerializeField] UIContainer _worldSelectionPanel;
     [SerializeField] EventSystem eventSystem;
-
+    
     [SerializeField] GameObject firstButtonMenu;
     [SerializeField] GameObject firstButtonSettings;
     [SerializeField] GameObject firstButtonInGame;
@@ -58,7 +59,6 @@ public class HUD_MainMenu : MonoBehaviour
 
     public void OpenPanelSelectionLevel(int worldIndex)
     {
-        _levelSelectionPanel.SetActive(false);
         State = StateMainMenu.InPanelGame;
         worldName.text = Data_Manager.Instance.GetData()._worldData[worldIndex].WorldName;
 
@@ -108,9 +108,12 @@ public class HUD_MainMenu : MonoBehaviour
             switch (State)
             {
                 case StateMainMenu.InPanelGame:
-                    OpenMainMenu();
+                    _levelSelectionPanel.Hide();
+                    _worldSelectionPanel.Show();
+                    State = StateMainMenu.InGame;
                     break;
                 case StateMainMenu.InGame:
+                    _worldSelectionPanel.Hide();
                     OpenMainMenu();
                     break;
                 case StateMainMenu.Settings:
