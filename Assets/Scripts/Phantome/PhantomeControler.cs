@@ -37,11 +37,11 @@ public class PhantomeControler : MonoBehaviour
         }
     }
 
-    public void StopSave (bool value)
+    public void StopSave(bool value)
     {
-       
-            stopALL = value;
-            stopSave = true;
+
+        stopALL = value;
+        stopSave = true;
         SeTTimeTransform();
 
 
@@ -54,7 +54,7 @@ public class PhantomeControler : MonoBehaviour
         SeTTimeTransform();
     }
 
-        private void Awake()
+    private void Awake()
     {
         duration = timeToSave;
         Instance = this;
@@ -63,14 +63,14 @@ public class PhantomeControler : MonoBehaviour
     void Start()
     {
         initPhantome();
-       
+
     }
 
     // Update is called once per frame
 
     private void FixedUpdate()
     {
-        
+
 
         if (reproduce != null && indexOfPath + 1 >= reproduce.transfomPlayer.Count && !phantomFinish)
         {
@@ -96,7 +96,7 @@ public class PhantomeControler : MonoBehaviour
 
             }
         }
-        }
+
 
     }
     void Update()
@@ -130,9 +130,9 @@ public class PhantomeControler : MonoBehaviour
         do
         {
             SeTTimeTransform();
-            
+
             yield return new WaitForSeconds(timeToSave);
-           
+
 
         }
         while (!stopSave);
@@ -167,8 +167,8 @@ public class PhantomeControler : MonoBehaviour
                     {
                         if (indexOfPath + 1 >= reproduce.transfomPlayer.Count)
                         {
-                          /*  Debug.Log("Je suis arriver a :" + Timer.Instance.GetTimer());
-                            Debug.Log("le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore());*/
+                            /*  Debug.Log("Je suis arriver a :" + Timer.Instance.GetTimer());
+                              Debug.Log("le meilleur score est de :" + Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetHighScore());*/
                             phantomFinish = true;
                         }
                     }
@@ -189,27 +189,28 @@ public class PhantomeControler : MonoBehaviour
 
                     objectView.transform.position = Vector3.Lerp(reproduce.transfomPlayer[indexOfPath], reproduce.transfomPlayer[indexOfPath + 1], lerpPercent);
                 }
-                
+
 
             }
-            
 
 
-          
+
+
 
         }
-       
 
 
 
 
-       
+
+
     }
+}
 
   
 
 
 
 
-}
+
 
