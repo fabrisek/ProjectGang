@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1;
         if (LoadSave.first)
         {
-           // playerCam.enabled = false;
+           playerCam.enabled = false;
             //lancement De la cinematique
 
         }
