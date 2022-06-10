@@ -70,8 +70,6 @@ public class PhantomeControler : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
         if (reproduce != null && indexOfPath + 1 >= reproduce.transfomPlayer.Count && !phantomFinish)
         {
             Debug.Log("1- Je suis arriver a :" + Timer.Instance.GetTimer());
@@ -80,7 +78,6 @@ public class PhantomeControler : MonoBehaviour
         }
         if (!stopALL)
         {
-
             if (Timer.Instance != null)
             {
 
@@ -93,11 +90,8 @@ public class PhantomeControler : MonoBehaviour
                 {
                     StartPath();
                 }
-
             }
         }
-
-
     }
     void Update()
     {
