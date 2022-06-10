@@ -17,15 +17,13 @@ public enum StateMainMenu
 public class HUD_MainMenu : MonoBehaviour
 {
     public static HUD_MainMenu Instance;
-    [SerializeField] Camera firstCam;
-    [SerializeField] Camera menuCam;
     [SerializeField] UIContainer _mainMenu;
     [SerializeField] UIContainer _settings;
     [SerializeField] GameObject _settingsPanel;
-    [SerializeField] GameObject _levelSelectionPanel;
+    [SerializeField] UIContainer _levelSelectionPanel;
+    [SerializeField] UIContainer _worldSelectionPanel;
     [SerializeField] EventSystem eventSystem;
-
-    [SerializeField] MenuAntCrontroller antController;
+    
     [SerializeField] GameObject firstButtonMenu;
     [SerializeField] GameObject firstButtonSettings;
     [SerializeField] GameObject firstButtonInGame;
@@ -36,6 +34,7 @@ public class HUD_MainMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI worldName;
     [SerializeField] TextMeshProUGUI starText;
 
+
     public StateMainMenu State { get; set; }
 
     private void Awake()
@@ -44,26 +43,23 @@ public class HUD_MainMenu : MonoBehaviour
     }
     public void OpenMainMenu()
     {
-        firstCam.enabled = false;
-        menuCam.enabled = true;
-        _mainMenu.Show();
         State = StateMainMenu.Menu;
+        _mainMenu.Show();
+    }
+    IEnumerator OpenFirstTimeMenu()
+    {
+        yield return new WaitForSeconds(.8f);
+        eventSystem.SetSelectedGameObject(firstButtonMenu);
     }
 
     public void CliclPlay()
     {
-        firstCam.enabled = true;
-        menuCam.enabled = false;
-        antController.enabled = true;
         State = StateMainMenu.InGame;
     }
 
     public void OpenPanelSelectionLevel(int worldIndex)
     {
-        _levelSelectionPanel.SetActive(false);
-        antController.enabled = false;
         State = StateMainMenu.InPanelGame;
-        panelSelector.SetActive(true);
         worldName.text = Data_Manager.Instance.GetData()._worldData[worldIndex].WorldName;
 
         int totalStar = 0;
@@ -101,9 +97,9 @@ public class HUD_MainMenu : MonoBehaviour
         starText.text = "STAR : " + starUnlock.ToString() + " / " + totalStar.ToString();
     }
 
-    public void OpenSettings()
+    public void ClosePanelSettings()
     {
-        _settings.Show();
+        HUD_Settings.Instance.CloseSettings();
         State = StateMainMenu.Settings;
     }
 
@@ -112,22 +108,25 @@ public class HUD_MainMenu : MonoBehaviour
             switch (State)
             {
                 case StateMainMenu.InPanelGame:
-                    OpenMainMenu();
+                    _levelSelectionPanel.Hide();
+                    _worldSelectionPanel.Show();
+                    State = StateMainMenu.InGame;
                     break;
                 case StateMainMenu.InGame:
+                    _worldSelectionPanel.Hide();
                     OpenMainMenu();
                     break;
                 case StateMainMenu.Settings:
                     CloseSettings();
                     break;
                 case StateMainMenu.InPanelSettings:
-                    OpenSettings();
+                    ClosePanelSettings();
                     break;            
         }
     }
 
     public void CloseSettings()
-    {
+    { 
         _settings.Hide();
     }
 
@@ -139,7 +138,11 @@ public class HUD_MainMenu : MonoBehaviour
     private void Start()
     {
         if (Data_Manager.AlreadyInGame == false)
+        {
+            StartCoroutine(OpenFirstTimeMenu());
             OpenMainMenu();
+        }
+
         else
         {
             StartCoroutine(Hide());

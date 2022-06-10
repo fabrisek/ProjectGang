@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace ByPass
 {
     public class PlateformeControler : MonoBehaviour
     {
+        [SerializeField] NavMeshAgent navAgent;
+
         [SerializeField] Transform target;
         [SerializeField] float latence;
 
@@ -54,13 +57,23 @@ namespace ByPass
         // Start is called before the first frame update
         void Start()
         {
-            changeDirection1 = true;
+            
+              changeDirection1 = true;
         }
 
         // Update is called once per frame
         void Update()
         {
-            Movebug();
+            if(target != null)
+            {
+                if (navAgent.isOnNavMesh)
+                {
+                    navAgent.SetDestination(target.position);
+                }
+            }
+            
+            
+             Movebug();
         }
 
         private void Movebug()

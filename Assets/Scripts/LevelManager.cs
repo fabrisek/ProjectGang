@@ -101,6 +101,11 @@ public class LevelManager : MonoBehaviour
             {
                 Timer.Instance.LaunchTimer();
             }
+            if(PhantomeControler.Instance!=null)
+            {
+                Debug.Log("j'active");
+                PhantomeControler.Instance.StartSave();
+            }
         }
     }
     public void RestartLevel()

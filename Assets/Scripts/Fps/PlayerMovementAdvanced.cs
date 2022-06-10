@@ -35,6 +35,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [SerializeField] float airMultiplier;
     bool readyToJump;
     bool canDoubleJump = true;
+    float timeBeforeLand = 0.2f;
+
     [SerializeField] ShakeData jumpShake;
     [SerializeField] ShakeData runShake;
     public bool CanDoubleJump
@@ -152,61 +154,77 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     public void Pause()
     {
-        if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
+        if (HudControllerInGame.Instance.StateMenu == ActualMenu.Pause)
         {
 
 
-            if (Time.timeScale > 0)
-            {
-                Timer.Instance.StopTimer();
-                playerCam.enabled = false;
-                Rumbler.instance.StopRumble();
-                Time.timeScale = 0;
-                HudControllerInGame.Instance.OpenPauseMenu();
-                if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
-                {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                }
-            }
-            else
+            if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
             {
 
-                Timer.Instance.LaunchTimer();
-                playerCam.enabled = true;
-                Time.timeScale = 1;
-                HudControllerInGame.Instance.ClosePauseMenu();
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Confined;
+
+                if (Time.timeScale > 0)
+                {
+                    Timer.Instance.StopTimer();
+                    playerCam.enabled = false;
+                    Rumbler.instance.StopRumble();
+                    Time.timeScale = 0;
+                    HudControllerInGame.Instance.OpenPauseMenu();
+                    if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
+                    {
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                    }
+                }
+                else
+                {
+
+                    Timer.Instance.LaunchTimer();
+                    playerCam.enabled = true;
+                    Time.timeScale = 1;
+                    HudControllerInGame.Instance.ClosePauseMenu();
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Confined;
+                }
             }
+        }
+        else
+        {
+            HudControllerInGame.Instance.Back();
         }
     }
 
     public void Pause(InputAction.CallbackContext callback)
     {
-        if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
+        if (HudControllerInGame.Instance.StateMenu == ActualMenu.Pause)
         {
-            if (Time.timeScale > 0)
+            if (Timer.Instance.GetTimer() != 0 && PlayerDeath.Instance.isDead == false && FinishLine.Instance.isWin == false)
             {
-                Timer.Instance.StopTimer();
-                playerCam.enabled = false;
-                Rumbler.instance.StopRumble();
-                Time.timeScale = 0;
-                HudControllerInGame.Instance.OpenPauseMenu();
-                if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
+                if (Time.timeScale > 0)
                 {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
+                    Timer.Instance.StopTimer();
+                    playerCam.enabled = false;
+                    Rumbler.instance.StopRumble();
+                    Time.timeScale = 0;
+                    HudControllerInGame.Instance.OpenPauseMenu();
+                    if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
+                    {
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                    }
+                }
+                else
+                {
+                    Timer.Instance.LaunchTimer();
+                    playerCam.enabled = true;
+                    Time.timeScale = 1;
+                    HudControllerInGame.Instance.ClosePauseMenu();
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Confined;
                 }
             }
             else
             {
-                Timer.Instance.LaunchTimer();
-                playerCam.enabled = true;
-                Time.timeScale = 1;
-                HudControllerInGame.Instance.ClosePauseMenu();
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Confined;
+                HudControllerInGame.Instance.Back();
             }
         }
     }
@@ -245,12 +263,10 @@ public class PlayerMovementAdvanced : MonoBehaviour
             timeToJump = resetTimeToJump;
             canJump = true;
             rb.useGravity = false;
-            rb.drag *= 10;
         }
         else
         {
             rb.useGravity = true ;
-            rb.drag *= 1/10;
             timeToJump -= Time.deltaTime;
             if(timeToJump <= 0)
             {
@@ -272,7 +288,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
         Accelerate();
         // handle drag
         if (grounded)
+        {
             rb.drag = groundDrag;
+        }
         else
             rb.drag = 0;
 
@@ -344,7 +362,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
         if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.1f && walkSpeed > resetWalkSpeed)
         {
-            walkSpeed -= resetWalkSpeed/30*Time.deltaTime;
+            walkSpeed -= resetWalkSpeed/15*Time.deltaTime;
             accelerationTimer = accelerationTimeReset;
         }
     }
@@ -449,7 +467,13 @@ public class PlayerMovementAdvanced : MonoBehaviour
             rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
             if(rb.velocity.magnitude>10f)
             {
-                CameraShakerHandler.Shake(runShake);
+                //CameraShakerHandler.Shake(runShake);
+            }
+
+            //slow down player if no inputs
+            if (moveDirection.magnitude == 0f)
+            {
+                rb.velocity = new Vector3(rb.velocity.x / 1.05f, rb.velocity.y, rb.velocity.z / 1.05f);
             }
         }
         // in air
@@ -512,28 +536,34 @@ public class PlayerMovementAdvanced : MonoBehaviour
     }
     private void DoubleJump()
     {
-        //DownForceAfterInput
-        timeToPress = 1f;
-
-
-        hasDoubleJumped = true;
-        // reset y velocity
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        //JumpForce
-        rb.AddForce(transform.up * jumpForce * 0.8f, ForceMode.Impulse);
-        canJump = false;
-        jumpDown = false;
-
-        //feedBack
-        AudioManager.instance.playSoundEffect(1, 1f);
-        CameraShakerHandler.Shake(jumpShake);
-        Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
-        Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
-        if(!grappling)
+        if(Physics.Raycast(transform.position, Vector3.down, playerHeight*1.3f, whatIsGround))
         {
-            grappinAnimator.SetTrigger("Flip");
+            Jump();
         }
-        
+        else
+        {
+            //DownForceAfterInput
+            timeToPress = 1f;
+
+
+            hasDoubleJumped = true;
+            // reset y velocity
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            //JumpForce
+            rb.AddForce(transform.up * jumpForce * 0.8f, ForceMode.Impulse);
+            canJump = false;
+            jumpDown = false;
+
+            //feedBack
+            AudioManager.instance.playSoundEffect(1, 1f);
+            //CameraShakerHandler.Shake(jumpShake);
+            Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
+            Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
+            if (!grappling)
+            {
+                grappinAnimator.SetTrigger("Flip");
+            }
+        }
     }
     private void ResetJump()
     {

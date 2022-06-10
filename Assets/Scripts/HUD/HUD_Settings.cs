@@ -5,11 +5,28 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using Doozy.Runtime.UIManager.Containers;
 using Doozy.Runtime.UIManager.Components;
 using UnityEngine.EventSystems;
 
 public class HUD_Settings : MonoBehaviour
 {
+    [SerializeField] UIContainer audiopanel;
+    [SerializeField] UIContainer keyboardpanel;
+    [SerializeField] UIContainer gamepadPanel;
+    [SerializeField] UIContainer graphicsPanel;
+    [SerializeField] UIContainer buttonPanel;
+    public void CloseSettings()
+    {
+        audiopanel.Hide();
+        keyboardpanel.Hide();
+        gamepadPanel.Hide();
+        graphicsPanel.Hide();
+        buttonPanel.Show();
+
+        if (HudControllerInGame.Instance != null)
+            HudControllerInGame.Instance.StateMenu = ActualMenu.SettingsMenu;
+    }
     public static HUD_Settings Instance;
     [SerializeField] EventSystem eventSystem;
 
@@ -27,18 +44,9 @@ public class HUD_Settings : MonoBehaviour
             HUD_MainMenu.Instance.State = StateMainMenu.InPanelSettings;
     }
 
-    void CloseAllPanel()
-    {
-        _panelControl.SetActive(false);
-        _panelAudio.SetActive(false);
-        _panelButton.SetActive(false);
-        _panelGamePad.SetActive(false);
-        _panelGraphics.SetActive(false);
-    }
 
     #region GRAPHICS PANEL
     [Header("GRAPHICS SETTINGS")]
-    [SerializeField] GameObject _panelGraphics;
     [SerializeField] TMP_Dropdown _resolutionDropDown;
     [SerializeField] TMP_Dropdown _dropDownScreenMode;
     [SerializeField] TMP_Dropdown _antiAliasingDropDown;
@@ -56,10 +64,7 @@ public class HUD_Settings : MonoBehaviour
     public void OpenGraphicsPanel()
     {
         ChangeStateMenu();
-        CloseAllPanel();
-        _panelGraphics.SetActive(true);
         InitializeGraphicsOptions();
-        eventSystem.SetSelectedGameObject(_firstBoutonPanelGraphics);
     }
 
     void InitializeGraphicsOptions()
@@ -175,11 +180,8 @@ public class HUD_Settings : MonoBehaviour
     [SerializeField] GameObject _firstBoutonPanelAudio;
     public void OpenPanelAudio()
     {
-        CloseAllPanel();
-        _panelAudio.SetActive(true);
         ChangeStateMenu();
         InitializeAudioPanel();
-        eventSystem.SetSelectedGameObject(_firstBoutonPanelAudio);
     }
 
     //Change Slider Value From Settings
@@ -210,15 +212,11 @@ public class HUD_Settings : MonoBehaviour
     [Header("KEYBOARD SETTINGS")]
     [SerializeField] GameObject _panelControl;
     [SerializeField] Slider _sliderSensibilityMouse;
-    [SerializeField] GameObject _firstBoutonPanelKeyboard;
 
     private void OpenControlPanel()
     {
-        CloseAllPanel();
-        _panelControl.SetActive(true);
         ChangeStateMenu();
         InitializeKeybordPanel();
-        eventSystem.SetSelectedGameObject(_firstBoutonPanelKeyboard);
     }
 
     private void InitializeKeybordPanel()
@@ -229,23 +227,19 @@ public class HUD_Settings : MonoBehaviour
     public void ChangeValueSensibilityMouse()
     {
         Settings.ChangeValueSensibilityMouse(_sliderSensibilityMouse.value);
+        Debug.Log(_sliderSensibilityMouse.value);
     }
 
     #endregion
 
     #region GamePad Settings
     [Header("GAMEPAD SETTINGS")]
-    [SerializeField] GameObject _panelGamePad;
     [SerializeField] UIToggle _toggleRumbler;
     [SerializeField] Slider _sliderSensibilityGamePad;
-    [SerializeField] GameObject _firstButtonGamePad;
     public void OpenGamePadPanel()
     {
-        CloseAllPanel();
-        _panelGamePad.SetActive(true);
         ChangeStateMenu();
         InitializeGamePadPanel();
-        eventSystem.SetSelectedGameObject(_firstButtonGamePad);
     }
 
     public void SetRumbler()

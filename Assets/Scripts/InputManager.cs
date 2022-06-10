@@ -78,7 +78,8 @@ public class InputManager : MonoBehaviour
                 LoadBindingOverride(_actionName);
             }
         }
-        playerInput.onControlsChanged += OnControlsChanged;
+        if (playerInput != null)
+            playerInput.onControlsChanged += OnControlsChanged;
         
     }
     private void OnDisable()

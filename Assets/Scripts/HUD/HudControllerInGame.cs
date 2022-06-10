@@ -5,20 +5,22 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using Doozy.Runtime.UIManager.Containers;
+using Doozy.Runtime.UIManager.Components;
 
 public class HudControllerInGame : MonoBehaviour
 {
     public static HudControllerInGame Instance;
-    [SerializeField] GameObject _deadPanel;
-    [SerializeField] GameObject _winPanel;
-    [SerializeField] GameObject _inGamePanel;
-    [SerializeField] GameObject _pausePanel;
-    [SerializeField] GameObject _optionsPanel;
+    [SerializeField] UIContainer _deadPanel;
+    [SerializeField] UIContainer _winPanel;
+    [SerializeField] UIContainer _inGamePanel;
+    [SerializeField] UIContainer _mainMenu;
+    [SerializeField] UIContainer _settings;
+    [SerializeField] UIContainer _pausePanel;
 
     public void OpenInGamePanel()
     {
-        _inGamePanel.SetActive(true);
+        _inGamePanel.InstantShow();
     }
 
 
@@ -73,14 +75,12 @@ public class HudControllerInGame : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-        
+        Instance = this;    
     }
 
     private void Start()
     {
         InitLetterAnim();
-        _optionsPanel.SetActive(false);
         SetShowFps(Settings.ShowFps);
     }
 
@@ -98,9 +98,7 @@ public class HudControllerInGame : MonoBehaviour
     }
     public void OpenDeathPanel()
     {
-        _deadPanel.SetActive(true);
-        _inGamePanel.SetActive(false);
-        _winPanel.SetActive(false);
+        _deadPanel.Show();
 
         if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
         {
@@ -118,6 +116,7 @@ public class HudControllerInGame : MonoBehaviour
         if (StateMenu == ActualMenu.Pause)
         {
             PlayerMovementAdvanced.Instance.Pause();
+            InMenu = false;
         }
         if (StateMenu == ActualMenu.SettingsMenu)
         {
@@ -125,15 +124,13 @@ public class HudControllerInGame : MonoBehaviour
         }
         if (StateMenu == ActualMenu.InSettings)
         {
-            OpenOptionsPanel();
+            HUD_Settings.Instance.CloseSettings();
         }
     }
 
     public void OpenOptionsPanel()
     {
         StateMenu = ActualMenu.SettingsMenu;
-        _optionsPanel.SetActive(true);
-        _pausePanel.SetActive(false);
     }
 
     public void ChangeTimerHud(float timer)
@@ -145,22 +142,14 @@ public class HudControllerInGame : MonoBehaviour
     {
         StateMenu = ActualMenu.Pause;
         InMenu = true;
-        _deadPanel.SetActive(false);
-        _inGamePanel.SetActive(false);
-        _winPanel.SetActive(false);
-        _pausePanel.SetActive(true);
-        _optionsPanel.SetActive(false);
-        eventSystem.SetSelectedGameObject(firstButtunPause);
+        _settings.InstantHide();
+        _pausePanel.Show();
     }
 
     public void ClosePauseMenu()
     {
         InMenu = false;
-        _optionsPanel.SetActive(false);
-        _deadPanel.SetActive(false);
-        _inGamePanel.SetActive(true);
-        _winPanel.SetActive(false);
-        _pausePanel.SetActive(false);
+        _pausePanel.Hide();
     }
 
     public void RestartLevel()
@@ -171,9 +160,7 @@ public class HudControllerInGame : MonoBehaviour
 
     public void OpenWinPanel(float timer, float bestTime, int levelIndex,int worldIndex)
     {
-        _deadPanel.SetActive(false);
-        _inGamePanel.SetActive(false);
-        _winPanel.SetActive(true);
+        _winPanel.Show();
         _textTimerWin.text = "TIME : " + Timer.FormatTime(timer);
 
         if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
@@ -232,7 +219,8 @@ public class HudControllerInGame : MonoBehaviour
 
         if (PlayFabHighScore.Instance != null)
         {
-            StartCoroutine(WaitPosPlayer());
+            if (PlayFabLogin.Instance != null && PlayFabLogin.Instance.GetEntityId() != "")
+                StartCoroutine(WaitPosPlayer());
         }
 
     }
@@ -263,8 +251,16 @@ public class HudControllerInGame : MonoBehaviour
     public void ClickButtonAroundPlayer()
     {
         panelHighScore.SetActive(true);
+        if (PlayFabHighScore.Instance != null)
+        {
+
         PlayFabHighScore.Instance.InitializeHighScore(HighScorePrefab, parentHighScore.transform);
         PlayFabHighScore.Instance.GetLeaderBoardAroundPlayer(Data_Manager.Instance.GetData()._worldData[indexWorld]._mapData[indexLevel].GetSceneData().MapName);
+        }
+        else
+        {
+            Debug.LogWarning("Playfab Highscore not Initialized");
+        }
     }
 
     public void OpenNextLevel()

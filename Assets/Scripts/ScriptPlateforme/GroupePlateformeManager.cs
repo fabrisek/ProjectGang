@@ -71,14 +71,29 @@ namespace ByPass
 
         void SetTargetToGroupeBug()
         {
-            if (playerpPos != null)
+            if (playerpPos != null && Timer.Instance.GetTimer() > 0)
             {
                 int index = checkTheDistancePlayerRef();
-                if (index != -1)
+                if(Timer.Instance != null)
                 {
-                    groupePlateforms[index].SetTarget(0);
-                    ChangeToOtherList(index);
+                    if (Timer.Instance.TimerIsLaunch())
+                    {
+                        if (index != -1)
+                        {
+                            groupePlateforms[index].SetTarget(0);
+                            ChangeToOtherList(index);
+                        }
+                    }
                 }
+                else
+                {
+                    if (index != -1)
+                    {
+                        groupePlateforms[index].SetTarget(0);
+                        ChangeToOtherList(index);
+                    }
+                }
+                
             }
         }
 
