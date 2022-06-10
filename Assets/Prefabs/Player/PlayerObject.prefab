@@ -19941,7 +19941,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.05
-  far clip plane: 5000
+  far clip plane: 1000
   field of view: 100
   orthographic: 0
   orthographic size: 10
@@ -20282,7 +20282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9121184314226926950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.165, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20390,13 +20390,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e2789cf278bff4a92d4fb3dbe80283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMax: 18
+  speedMax: 23
   walkSpeed: 10
   acceleration: 7
   accelerationTimer: 0.2
   sprintSpeed: 0
   slideSpeed: 0
-  wallrunSpeed: 13
+  wallrunSpeed: 20
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 2.5
