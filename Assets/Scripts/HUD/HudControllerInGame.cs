@@ -188,6 +188,14 @@ public class HudControllerInGame : MonoBehaviour
 
                 if (data._worldData[worldIndex]._mapData.Count - 1 == levelIndex)
                 {
+                    if (data._worldData[worldIndex + 1] != null && data._worldData[worldIndex + 1]._mapData[0] != null)
+                {
+                    indexWorld = worldIndex;
+                    buttonNextLevel.SetActive(true);
+                    indexNextScene = data._worldData[worldIndex + 1]._mapData[0].GetSceneData().IndexScene;
+                    indexLevel = levelIndex;
+                }
+                    else
                     buttonNextLevel.SetActive(false);
                 }
 
