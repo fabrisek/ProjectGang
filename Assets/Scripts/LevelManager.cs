@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
 
     public void InitLevelManager()
     {
-        if (CinematicController.Instance == null)
+        if (CinematicController.Instance == null || !CinematicController.Instance.CanLushCinematique())
         {
             enableCam();
         }

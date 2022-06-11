@@ -23,6 +23,14 @@ public class CinematicController : MonoBehaviour
 
     bool startCine;
 
+    public bool CanLushCinematique ()
+    {
+        if(pointOfIntrest.Count == 0)
+        {
+            return false;
+        }
+        return true;
+    }
     public void SetStartCinematci ()
     {
         brainCamera.SetActive(true);

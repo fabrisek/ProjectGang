@@ -84,7 +84,7 @@ public class LoadingScript : MonoBehaviour
                     if (LevelManager.Instance != null)
                     {
                         
-                        if (CinematicController.Instance != null)
+                        if (CinematicController.Instance != null && CinematicController.Instance.CanLushCinematique())
                         {
 
                             CinematicController.Instance.SetStartCinematci();
