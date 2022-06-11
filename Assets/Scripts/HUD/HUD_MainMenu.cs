@@ -145,8 +145,9 @@ public class HUD_MainMenu : MonoBehaviour
 
         else
         {
-            StartCoroutine(Hide());
-            CliclPlay();
+            // StartCoroutine(Hide());
+            // CliclPlay();
+            OpenMainMenu();
         }
     }
 
