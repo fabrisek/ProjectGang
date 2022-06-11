@@ -83,7 +83,7 @@ public class CinematicController : MonoBehaviour
     void InitCine ()
     { 
         cart.m_Position = 0;
-        if (pointOfIntrest[0] != null)
+        if (pointOfIntrest.Count != 0 && pointOfIntrest[0] != null)
         {
             Quaternion rotationRef = Quaternion.LookRotation(new Vector3(pointOfIntrest[0].position.x - cam.transform.position.x, pointOfIntrest[0].position.y - cam.transform.position.y, pointOfIntrest[0].position.z - cam.transform.position.z).normalized);
             cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, rotationRef, 100000);
