@@ -37,6 +37,7 @@ public class HudControllerInGame : MonoBehaviour
     private int indexNextScene;
     private int indexLevel;
     private int indexWorld;
+    private int indexNextWorld;
     [SerializeField] EventSystem eventSystem;
 
     [SerializeField] GameObject firstButtonDead;
@@ -191,8 +192,9 @@ public class HudControllerInGame : MonoBehaviour
                     if (data._worldData[worldIndex + 1] != null && data._worldData[worldIndex + 1]._mapData[0] != null)
                 {
                     indexWorld = worldIndex;
+                    indexNextWorld = worldIndex + 1;
                     buttonNextLevel.SetActive(true);
-                    indexNextScene = data._worldData[worldIndex + 1]._mapData[0].GetSceneData().IndexScene;
+                    indexNextScene = 0;
                     indexLevel = levelIndex;
                 }
                     else
@@ -201,6 +203,7 @@ public class HudControllerInGame : MonoBehaviour
 
             else
             {
+                indexNextWorld = worldIndex;
                 indexWorld = worldIndex;
                 buttonNextLevel.SetActive(true);
                 indexNextScene = levelIndex + 1;
@@ -273,7 +276,7 @@ public class HudControllerInGame : MonoBehaviour
 
     public void OpenNextLevel()
     {
-        LevelLoader.Instance.LoadLevel(Data_Manager.Instance.GetMapData(indexNextScene, indexWorld).GetSceneData().IndexScene);
+        LevelLoader.Instance.LoadLevel(Data_Manager.Instance.GetMapData(indexNextScene, indexNextWorld).GetSceneData().IndexScene);
     }
 
     public void OpenMainMenu()

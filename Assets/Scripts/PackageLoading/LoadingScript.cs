@@ -52,7 +52,7 @@ public class LoadingScript : MonoBehaviour
 
     IEnumerator CoroutineDeSecuriter ()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(.5f);
         
         canStart = true;
         operation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
