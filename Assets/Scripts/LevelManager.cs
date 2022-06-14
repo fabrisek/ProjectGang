@@ -29,9 +29,10 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-        if (LoadSave.first)
+        if (LoadSave.first && (CinematicController.Instance != null && CinematicController.Instance.CanLushCinematique()))
         {
            playerCam.enabled = false;
+            CinematicController.Instance.SetStartCinematci();
             //lancement De la cinematique
 
         }

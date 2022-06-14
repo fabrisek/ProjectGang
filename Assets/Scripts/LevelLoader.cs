@@ -14,14 +14,17 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] GameObject _loadingScreenPanel;
     [SerializeField] Slider _loadingSlider;
     [SerializeField] TextMeshProUGUI _textSlider;
+    [SerializeField] float tempsLoading = 10;
 
+    bool canLoad;
     //bool corouteStart;
     private void Awake()
     {
+       
         StartCoroutine(CoroutineStart());
     }
 
-    IEnumerator CoroutineStart ()
+    IEnumerator CoroutineStart()
     {
         yield return new WaitForSeconds(1);
         if (Instance != null && Instance != this)
@@ -33,7 +36,7 @@ public class LevelLoader : MonoBehaviour
             Instance = this;
         }
     }
-   
+
 
 
     public void LoadLevel(int sceneIndex)
@@ -42,28 +45,25 @@ public class LevelLoader : MonoBehaviour
             Data_Manager.AlreadyInGame = true;
         AudioManager.instance.StopMusic();
         LoadSave.sceneToLoad = sceneIndex;
-        
-       
-        if (sceneIndex !=0 &&  LoadSave.sceneToLoad != LoadSave.oldSceneLoad)
+
+
+        if (sceneIndex != 0 && LoadSave.sceneToLoad != LoadSave.oldSceneLoad)
         {
             Time.timeScale = 1;
-            if (TransitionScript.Instance != null)
-            {
-                TransitionScript.Instance.Fade(1f);
-            }
+           
             LoadSave.oldSceneLoad = LoadSave.sceneToLoad;
             LoadSave.first = true;
-            
-            AsyncOperation operation = SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
-            
-                StartCoroutine(LoadAsyncTst());
-            
+
+
+
+            StartCoroutine(LoadAsyncTst(sceneIndex));
+
         }
         else
         {
             if (TransitionScript.Instance != null)
             {
-               
+
                 TransitionScript.Instance.Fade(2f);
             }
             LoadSave.first = false;
@@ -72,28 +72,53 @@ public class LevelLoader : MonoBehaviour
 
     }
 
-    
+
 
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
-        _loadingScreenPanel.SetActive(true);
+       
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        yield return new WaitForSeconds(0.01f);
+        
+    }
+    IEnumerator LoadAsyncTst(int sceneIndex)
+    {
+        //AfficherCanvas
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        operation.allowSceneActivation = false;
+        
+        
+        StartCoroutine(WaitCoroutine(tempsLoading));
         while (!operation.isDone)
         {
-            float progress = Mathf.Clamp01(operation.progress / .9f);
-            _loadingSlider.value = progress;
-            _textSlider.text = progress * 100f + "%";
-            yield return new WaitForSeconds(0.01f);
+            //Mettre tips et progresse
+            if (operation.progress >= 0.9f)
+            {
+                if(canLoad)
+                {
+                    if (TransitionScript.Instance != null)
+                    {
+                        
+                        TransitionScript.Instance.Fade(1f);
+                    }
+                    operation.allowSceneActivation = true;
+                    
+                }
+
+
+            }
+            yield return null;
         }
+
+
+
     }
-    IEnumerator LoadAsyncTst()
+
+    IEnumerator WaitCoroutine (float time)
     {
-   
+        canLoad = false;
+        yield return new WaitForSeconds(time);
         
-        yield return new WaitForSeconds(0.1f);
-        SceneManager.UnloadSceneAsync(gameObject.scene.buildIndex);
-      
+        canLoad = true;
     }
-
-
-    }
+}
