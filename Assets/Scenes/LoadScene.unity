@@ -576,7 +576,7 @@ VideoPlayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205852771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_VideoClip: {fileID: 32900000, guid: 4f7619015ca1adb48bfb8f3d228222c8, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
@@ -1181,8 +1181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b25c1bc6f0792c4983fae4378f0863e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeMinLoadScrean: 0.1
-  timeWaitMore: 0.1
+  timeMinLoadScrean: 5
+  timeWaitMore: 3
   sceneindex: 1
   slider: {fileID: 1384452240}
   tips:
@@ -1346,7 +1346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2057204302
 RectTransform:
   m_ObjectHideFlags: 0

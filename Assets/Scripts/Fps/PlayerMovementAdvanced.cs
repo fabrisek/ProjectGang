@@ -561,7 +561,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
             Rumbler.instance.RumbleConstant(2f, 2f, 0.15f);
             if (!grappling)
             {
-                //grappinAnimator.SetTrigger("Flip");
+                grappinAnimator.SetTrigger("Flip");
             }
         }
     }
