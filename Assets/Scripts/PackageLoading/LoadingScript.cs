@@ -66,7 +66,7 @@ public class LoadingScript : MonoBehaviour
     {
         if (canStart)
         {
-            Debug.Log("salut");
+            Debug.Log("salut" +gameObject.name) ;
             sliderPercentText.text = ((int)(slider.normalizedValue * 100)).ToString() + " %";
             if (operation.isDone)
             {
