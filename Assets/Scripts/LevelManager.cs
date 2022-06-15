@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour
             enableCam();
         }
 
-      //  CanvasInGame.GetComponent<HudControllerInGame>().OpenInGamePanel();
+      // CanvasInGame.GetComponent<HudControllerInGame>().OpenInGamePanel();
        
 
         CanvasInGame.SetActive(true);
@@ -67,7 +67,7 @@ public class LevelManager : MonoBehaviour
 
         StartCoroutine(CoroutineTroisDeuxUn());
         HudControllerInGame.Instance.StartThreeTwoOne(timeOfThreeTwoOneGo);
-    //    HudControllerInGame.Instance.OpenInGamePanel();
+        HudControllerInGame.Instance.OpenInGamePanel();
     }
 
     void CutMovePlayer()
