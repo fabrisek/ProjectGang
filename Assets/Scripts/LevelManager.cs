@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1;
         if (LoadSave.first && (CinematicController.Instance != null && CinematicController.Instance.CanLushCinematique()))
         {
-           playerCam.enabled = false;
+            playerCam.enabled = false;
             CinematicController.Instance.SetStartCinematci();
             //lancement De la cinematique
 
@@ -55,7 +55,9 @@ public class LevelManager : MonoBehaviour
         {
             enableCam();
         }
-        
+
+      //  CanvasInGame.GetComponent<HudControllerInGame>().OpenInGamePanel();
+       
 
         CanvasInGame.SetActive(true);
         if (timeOfThreeTwoOneGo == 0)
@@ -65,7 +67,7 @@ public class LevelManager : MonoBehaviour
 
         StartCoroutine(CoroutineTroisDeuxUn());
         HudControllerInGame.Instance.StartThreeTwoOne(timeOfThreeTwoOneGo);
-        HudControllerInGame.Instance.OpenInGamePanel();
+    //    HudControllerInGame.Instance.OpenInGamePanel();
     }
 
     void CutMovePlayer()
