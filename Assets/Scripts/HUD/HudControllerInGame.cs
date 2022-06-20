@@ -47,8 +47,6 @@ public class HudControllerInGame : MonoBehaviour
 
     [SerializeField] Slider slideTime;
     [SerializeField] GameObject sliderGo;
-
-    [SerializeField] GameObject doubleJumpIcon;
     [SerializeField] TextMeshProUGUI fpsText;
     [SerializeField] Rigidbody playerRB;
 
@@ -292,11 +290,6 @@ public class HudControllerInGame : MonoBehaviour
         slideTime.value = value;
         slideTime.maxValue = maxValue;
 
-    }
-
-    public void DoubleJumpShow(bool a)
-    {
-        doubleJumpIcon.SetActive(a);
     }
 
 
