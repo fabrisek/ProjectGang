@@ -152,7 +152,7 @@ public class GrapplingGun : MonoBehaviour
     {
 
             Destroy(joint);
-            //particuleHit.SetActive(false);
+            particuleHit.SetActive(false);
             if (startGrapple)
             { playerMovementAdvanced.SetCanDoubleJump(true); }
 

@@ -317,18 +317,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
                 timeWallDoubleJump = resetWallTimeDoubleJump;
             }
         }
-        if (canDoubleJump && state == MovementState.air)
-        {
-            HudControllerInGame.Instance.DoubleJumpShow(true);
-        }
-        else
-        {
-            HudControllerInGame.Instance.DoubleJumpShow(false);
-        }
 
 
         //DownForce if button stop press
-
         if (grounded || wallrunning || grappling)
         {
             jumpDown = false;
