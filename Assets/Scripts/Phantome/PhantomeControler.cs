@@ -135,7 +135,11 @@ public class PhantomeControler : MonoBehaviour
     void SeTTimeTransform()
     {
         //Debug.Log("je sauvegarde");
-        PhantomeSave.AddTransfomTime(playerRef.position, Timer.Instance.GetTimer());
+        if (playerRef.position !=null)
+        {
+            PhantomeSave.AddTransfomTime(playerRef.position, Timer.Instance.GetTimer());
+        }
+      
     }
 
     void StartPath()
