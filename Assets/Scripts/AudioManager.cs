@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
@@ -9,7 +10,9 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioClip[] soundEffects, music;
     [SerializeField] AudioSource audioSourceSoundEffect, audioSourceMusic, audioSourceSfx3D;
+    [SerializeField] AudioMixer audioMixer;
     [SerializeField] float generalVolume;
+    string actualSnapShot;
     public void SetGeneralVolume(float volume)
     {
         generalVolume = volume;
@@ -20,7 +23,17 @@ public class AudioManager : MonoBehaviour
     
     private void Awake()
     {
-        instance = this;
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+            instance = this;
+        }
+       
     }
     void Start()
     {
@@ -114,4 +127,10 @@ public class AudioManager : MonoBehaviour
         audioSourceSfx3D.gameObject.transform.position = position;
         audioSourceSfx3D.PlayOneShot(soundEffects[index], volumeScale);
     }
+
+    public void ChangeMixerSnapShot (string name, float timeToReach)
+    {
+        audioMixer.FindSnapshot(name).TransitionTo(timeToReach);
+    }
+
 }
