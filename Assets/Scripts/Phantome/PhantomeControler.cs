@@ -43,8 +43,6 @@ public class PhantomeControler : MonoBehaviour
         stopALL = value;
         stopSave = true;
         SeTTimeTransform();
-
-
     }
 
     public void StartSave()
@@ -63,7 +61,6 @@ public class PhantomeControler : MonoBehaviour
     void Start()
     {
         initPhantome();
-
     }
 
     // Update is called once per frame
@@ -144,7 +141,6 @@ public class PhantomeControler : MonoBehaviour
 
     void StartPath()
     {
-
         if (indexOfPath < reproduce.transfomPlayer.Count)
         {
 
@@ -171,7 +167,6 @@ public class PhantomeControler : MonoBehaviour
                         }
                     }
                 }
-
                 if (indexOfPath + 1 < reproduce.transfomPlayer.Count)
                 {
                     // Debug.Log("VoileTime :" + Timer.Instance.GetTimer());
@@ -187,21 +182,8 @@ public class PhantomeControler : MonoBehaviour
 
                     objectView.transform.position = Vector3.Lerp(reproduce.transfomPlayer[indexOfPath], reproduce.transfomPlayer[indexOfPath + 1], lerpPercent);
                 }
-
-
             }
-
-
-
-
-
         }
-
-
-
-
-
-
     }
 }
 
