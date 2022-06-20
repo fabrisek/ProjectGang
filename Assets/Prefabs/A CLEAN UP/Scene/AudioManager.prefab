@@ -73,6 +73,8 @@ MonoBehaviour:
   audioSourceSoundEffect: {fileID: 3046029516658941613}
   audioSourceMusic: {fileID: 3046029516651625368}
   audioSourceSfx3D: {fileID: 6488194298082102705}
+  audioMixer: {fileID: 24100000, guid: 525db69063278f64cb803b1def281c32, type: 2}
+  generalVolume: 0
 --- !u!82 &3046029516454081833
 AudioSource:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ AudioSource:
   m_GameObject: {fileID: 3046029516651625370}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1052364454293467232, guid: 525db69063278f64cb803b1def281c32, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -338,7 +340,7 @@ AudioSource:
   m_GameObject: {fileID: 3046029516658941615}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 983908231232110578, guid: 525db69063278f64cb803b1def281c32, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -466,7 +468,7 @@ AudioSource:
   m_GameObject: {fileID: 7151025205779610123}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3788804605492240918, guid: 525db69063278f64cb803b1def281c32, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
