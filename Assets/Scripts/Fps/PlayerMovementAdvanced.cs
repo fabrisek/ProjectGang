@@ -168,7 +168,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
                     playerCam.enabled = false;
                     Rumbler.instance.StopRumble();
                     Time.timeScale = 0;
+                    AudioManager.instance.ChangeMixerSnapShot("Paused", 0.2f);
                     HudControllerInGame.Instance.OpenPauseMenu();
+                    
                     if (InputManager.currentControlDevice == ControlDeviceType.KeyboardAndMouse)
                     {
                         Cursor.lockState = CursorLockMode.None;
@@ -181,6 +183,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
                     Timer.Instance.LaunchTimer();
                     playerCam.enabled = true;
                     Time.timeScale = 1;
+                    AudioManager.instance.ChangeMixerSnapShot("Normal", 0.2f);
                     HudControllerInGame.Instance.ClosePauseMenu();
                     Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.Confined;
