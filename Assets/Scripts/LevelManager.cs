@@ -109,6 +109,10 @@ public class LevelManager : MonoBehaviour
               //  Debug.Log("j'active");
                 PhantomeControler.Instance.StartSave();
             }
+            if(AudioManager.instance != null)
+            {
+                AudioManager.instance.PlayMusic(FinishLine.Instance.WorldIndex+1);
+            }
         }
     }
     public void RestartLevel()

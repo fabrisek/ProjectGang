@@ -140,12 +140,12 @@ public class LevelLoader : MonoBehaviour
         while (!operation.isDone)
         {
             //Mettre tips et progresse
-            slider.value +=Time.unscaledDeltaTime/tempsLoading;
+            slider.value +=Time.unscaledDeltaTime;
             sliderPercentText.text = ((int)(slider.normalizedValue * 100)).ToString() + " %";
             if (operation.progress >= 0.9f)
             {
                // Debug.Log("Operation a plus de 0.9");
-                if (canLoad)
+                if (slider.normalizedValue * 100 >= 100)
                 {
                    // Debug.Log("je peut me load");
                     if (TransitionScript.Instance != null)

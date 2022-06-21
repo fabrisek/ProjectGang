@@ -106,6 +106,14 @@ public class PhantomeControler : MonoBehaviour
                     reproduce = Data_Manager.Instance.GetData()._worldData[finishLine.WorldIndex]._mapData[finishLine.LevelIndex].GetPhantomSave();
                 }
             }
+            else
+            {
+                Debug.Log("Le phantome ne trouve pas la finishLine");
+            }
+        }
+        else
+        {
+            Debug.Log("Le phantome ne trouve pas l instance de la Data");
         }
         PhantomeSave = new PhantomeSave();
         PhantomeSave.initPhantome();

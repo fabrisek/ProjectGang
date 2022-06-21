@@ -13,6 +13,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] float generalVolume;
     string actualSnapShot;
+
+    bool startStopMusic;
+    bool startStartMusic;
+    bool musicSet;
+    int indexMusic;
     public void SetGeneralVolume(float volume)
     {
         generalVolume = volume;
@@ -75,7 +80,41 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(startStopMusic)
+        {
+            audioSourceMusic.volume -= Time.deltaTime;
+            if(audioSourceMusic.volume <= 0)
+            {
+                audioSourceMusic.Stop();
+                audioSourceMusic.volume = 1;
+                startStopMusic = false;
+            }
+        }
+        if(startStartMusic && !startStopMusic)
+        {
+            if(!musicSet)
+            {
+                audioSourceMusic.volume = 0;
+                if (indexMusic < music.Length)
+                {
+                    audioSourceMusic.clip = music[indexMusic];
+                }
+                else
+                {
+                    audioSourceMusic.clip = music[2];
+                }
+                audioSourceMusic.Play();
+                musicSet = true;
+            }
 
+            audioSourceMusic.volume += Time.deltaTime;
+            if (audioSourceMusic.volume >= 1)
+            {
+                audioSourceMusic.volume = 1;
+                startStartMusic = false;
+                musicSet = false;
+            }
+        }
     }
 
     public void ChangePitch(float pitch)
@@ -102,21 +141,41 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayMusic(int index)
     {
-        StopMusic();
-        if(index < music.Length)
+        if (audioSourceMusic.isPlaying)
         {
-            audioSourceMusic.clip = music[index];
+            StopMusic();
+            startStartMusic = true;
+
+            indexMusic = index;
+
         }
         else
         {
-            audioSourceMusic.clip = music[2];
+            startStartMusic = true;
+            audioSourceMusic.volume = 0;
+            
+            if (index < music.Length)
+            {
+                audioSourceMusic.clip = music[index];
+            }
+            else
+            {
+                audioSourceMusic.clip = music[2];
+            }
+            musicSet = true;
+            audioSourceMusic.Play();
         }
+
         
-        audioSourceMusic.Play();
     }
     public void StopMusic()
     {
-        audioSourceMusic.Stop();
+        startStartMusic = false;
+        if (!startStopMusic)
+        {
+            startStopMusic = true;
+        }
+        //audioSourceMusic.Stop();
     }
     public void playSoundEffect(int index, float volumeScale)
     {
