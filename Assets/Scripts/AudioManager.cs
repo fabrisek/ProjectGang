@@ -120,6 +120,7 @@ public class AudioManager : MonoBehaviour
     }
     public void playSoundEffect(int index, float volumeScale)
     {
+     //   Debug.Log("je lance le son de l'index:" + index);
         audioSourceSoundEffect.PlayOneShot(soundEffects[index], volumeScale);
     }
     public void playSoundEffect3D(int index, Vector3 position, float volumeScale)

@@ -134,7 +134,7 @@ public class LevelLoader : MonoBehaviour
         
         operation.allowSceneActivation = false;
 
-        Debug.Log("Senece a Load" + sceneIndex);
+       // Debug.Log("Senece a Load" + sceneIndex);
 
        // StartCoroutine(WaitCoroutine(tempsLoading));
         while (!operation.isDone)
@@ -144,10 +144,10 @@ public class LevelLoader : MonoBehaviour
             sliderPercentText.text = ((int)(slider.normalizedValue * 100)).ToString() + " %";
             if (operation.progress >= 0.9f)
             {
-                Debug.Log("Operation a plus de 0.9");
+               // Debug.Log("Operation a plus de 0.9");
                 if (canLoad)
                 {
-                    Debug.Log("je peut me load");
+                   // Debug.Log("je peut me load");
                     if (TransitionScript.Instance != null)
                     {
                         
@@ -169,10 +169,10 @@ public class LevelLoader : MonoBehaviour
     IEnumerator WaitCoroutine (float time)
     {
         canLoad = false;
-        Debug.Log("je start le temps"+ time);
+     //   Debug.Log("je start le temps"+ time);
        // Debug.Log("je start le temps");
         yield return new WaitForSeconds(time);
-        Debug.Log("je finie tempss");
+     //   Debug.Log("je finie tempss");
         canLoad = true;
     }
 
@@ -192,7 +192,7 @@ public class LevelLoader : MonoBehaviour
                 {
                     if (data._worldData[i]._mapData[j].GetSceneData().IndexScene == sceneIndex)
                     {
-                        Debug.Log("Je passe voir les data");
+                      //  Debug.Log("Je passe voir les data");
                         //background.sprite = data._worldData[i]._mapData[j].GetSceneData().BackGroundLoad;
                         NameLevel.text = data._worldData[i]._mapData[j].GetSceneData().MapName;
                         return;

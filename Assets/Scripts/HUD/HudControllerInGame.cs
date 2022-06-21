@@ -20,7 +20,7 @@ public class HudControllerInGame : MonoBehaviour
 
     public void OpenInGamePanel()
     {
-        Debug.Log("Heh oh lalal");
+      //  Debug.Log("Heh oh lalal");
         _inGamePanel.InstantShow();
     }
 

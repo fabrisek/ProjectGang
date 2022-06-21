@@ -106,7 +106,7 @@ public class LevelManager : MonoBehaviour
             }
             if(PhantomeControler.Instance!=null)
             {
-                Debug.Log("j'active");
+              //  Debug.Log("j'active");
                 PhantomeControler.Instance.StartSave();
             }
         }
