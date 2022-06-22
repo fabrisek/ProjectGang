@@ -20,6 +20,8 @@ public class TransitionScript : MonoBehaviour
     bool done;
     bool startPause;
     bool coroutineStart;
+
+    bool justFadeOut;
     private void Awake()
     {
 
@@ -32,6 +34,10 @@ public class TransitionScript : MonoBehaviour
         {
             DontDestroyOnLoad(this.gameObject);
             Instance = this;
+            t = 0;
+            speed = 0.5f;
+            canvas.SetActive(true);
+            justFadeOut = true;
         }
  
     }
@@ -62,11 +68,27 @@ public class TransitionScript : MonoBehaviour
     private void Start()
     {
        
+
     }
 
     private void Update()
     {
-        
+        if(justFadeOut)
+        {
+           
+                if (!coroutineStart)
+                {
+                    StopCoroutine(CoroutineFadeV2());
+                    StartCoroutine(CoroutineFadeV2());
+                }
+                if (done)
+                {
+                    justFadeOut = StartFadeOut();
+
+                }
+            
+           
+        }
        
         if (startFade)
         {
