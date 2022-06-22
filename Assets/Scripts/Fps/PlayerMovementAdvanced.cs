@@ -133,12 +133,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public float deltaTime;
     public float timeToPress;
 
+    bool stateGroundOld;
 
     private void Awake()
     {
         Instance = this;
         hasDoubleJumped = false;
         inputActivated = false;
+        stateGroundOld = true;
     }
 
     public void PlayerJumpDown(bool a)
@@ -259,16 +261,22 @@ public class PlayerMovementAdvanced : MonoBehaviour
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight, whatIsGround);
+        if(!stateGroundOld && grounded)
+        {
+            AudioManager.instance.playSoundEffect(19, 1);
+        }
 
         //time To Jump if not on ground;
         if (grounded)
         {
+            stateGroundOld = grounded;
             timeToJump = resetTimeToJump;
             canJump = true;
             rb.useGravity = false;
         }
         else
         {
+            stateGroundOld = grounded;
             rb.useGravity = true ;
             timeToJump -= Time.deltaTime;
             if(timeToJump <= 0)
