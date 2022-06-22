@@ -771,9 +771,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7894898865049976491}
     m_Modifications:
+    - target: {fileID: 3423785043980946203, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3423785044345493922, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
       propertyPath: m_Name
       value: LoadingScrean
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423785044345493922, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3423785044345493945, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
       propertyPath: m_Pivot.x
@@ -858,6 +866,10 @@ PrefabInstance:
     - target: {fileID: 3423785044345493945, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423785045806295727, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
