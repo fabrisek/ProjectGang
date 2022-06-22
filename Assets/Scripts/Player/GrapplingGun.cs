@@ -47,7 +47,7 @@ public class GrapplingGun : MonoBehaviour
         particuleHit.transform.localScale = Vector3.one*0.3f;
         //Inputs
         Instance = this;
-        timerHit = 0.5f;
+        timerHit = 0.1f;
     }
 
     private void FixedUpdate()
@@ -76,7 +76,7 @@ public class GrapplingGun : MonoBehaviour
             {
                 AudioManager.instance.playSoundEffect(14, 1f);
                 justHit = hit;
-                timerHit = 0.5f;
+                timerHit = 0.1f;
             }
             //particuleGunTipLock.SetActive(true);
             crossHair.sprite = crossHairLocked.sprite;
@@ -89,6 +89,8 @@ public class GrapplingGun : MonoBehaviour
             crossHair.sprite = crossHairNormal.sprite;
 
             crossHair.color = Color.white;
+            justHit = new RaycastHit();
+            timerHit = 0;
             //if (!IsGrappling())
             //particuleGunTipLock.SetActive(false);
         }
