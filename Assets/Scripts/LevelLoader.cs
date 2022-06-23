@@ -70,12 +70,14 @@ public class LevelLoader : MonoBehaviour
     {
         if (Data_Manager.Instance != null)
             Data_Manager.AlreadyInGame = true;
-        AudioManager.instance.StopMusic();
+        //AudioManager.instance.StopMusic();
+        //Debug.Log("yo");
         LoadSave.sceneToLoad = sceneIndex;
 
-
+     //   AudioManager.instance.PlayMusic(3);
         if (sceneIndex != 0 && LoadSave.sceneToLoad != LoadSave.oldSceneLoad)
         {
+            AudioManager.instance.PlayMusic(3);
             Time.timeScale = 1;
            
             LoadSave.oldSceneLoad = LoadSave.sceneToLoad;
@@ -154,7 +156,8 @@ public class LevelLoader : MonoBehaviour
                         TransitionScript.Instance.Fade(1f);
                     }
                     operation.allowSceneActivation = true;
-                    
+                    AudioManager.instance.StopMusic();
+
                 }
 
 
