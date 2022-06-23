@@ -42,6 +42,7 @@ public class AudioManager : MonoBehaviour
     }
     void Start()
     {
+        Debug.Log("Salut");
         SetGeneralVolume(Settings.VolumeGeneral);
         ChangeVolumeSoundEFFect(Settings.VolumeSFX);
         ChangeVolumeMusic(Settings.VolumeMusic);
@@ -80,6 +81,7 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(audioSourceMusic.isPlaying + "il est entrain de jouer");
         if(startStopMusic)
         {
             audioSourceMusic.volume -= Time.deltaTime;

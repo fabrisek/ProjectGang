@@ -8,7 +8,7 @@ public class Settings : MonoBehaviour
     public void Awake()
     {
         Instance = this;
-        LoadAudioSettings();
+        //LoadAudioSettings();
         LoadKeyboardSettings();
         LoadGamePadSettings();
         LoadGraphicsSettings();

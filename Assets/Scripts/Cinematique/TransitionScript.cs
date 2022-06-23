@@ -73,7 +73,7 @@ public class TransitionScript : MonoBehaviour
 
     private void Update()
     {
-        if(justFadeOut)
+        if(justFadeOut && !startFade)
         {
            
                 if (!coroutineStart)
