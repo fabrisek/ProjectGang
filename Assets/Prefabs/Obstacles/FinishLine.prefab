@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 943607972136204214}
   - component: {fileID: 4230997601122039827}
   - component: {fileID: 2113158746891373785}
-  m_Layer: 0
+  - component: {fileID: 2550518043831743405}
+  m_Layer: 4
   m_Name: Finish Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &943607972136204214
 Transform:
@@ -85,6 +86,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2550518043831743405
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455865076140207372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5116036077716013768, guid: 085369678e4f38146b13f96651691f4b, type: 3}
 --- !u!1 &987172191921030317
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,12 +111,12 @@ GameObject:
   - component: {fileID: 8611885433862276225}
   - component: {fileID: 20526451212643910}
   - component: {fileID: 3112922767324817067}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Light 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8611885433862276225
 Transform:
@@ -179,12 +194,12 @@ GameObject:
   - component: {fileID: 6566386557581408290}
   - component: {fileID: 3101336246356038459}
   - component: {fileID: 5131524769427678301}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Neon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6566386557581408290
 Transform:
@@ -493,8 +508,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 51.127533, y: 30.203526, z: 8.77002}
-  m_Center: {x: 0.1298294, y: -4.9148846, z: 0.058410645}
+  m_Size: {x: 43.131634, y: 30.203526, z: 10.014552}
+  m_Center: {x: -0.067611694, y: -4.9148846, z: -8.757937}
 --- !u!114 &2095529218740872076
 MonoBehaviour:
   m_ObjectHideFlags: 0
