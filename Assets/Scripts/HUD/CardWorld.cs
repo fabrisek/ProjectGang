@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.UI;
 public class CardWorld : MonoBehaviour
 {
+    [SerializeField] Color colorImageLock;
+    [SerializeField] Sprite imageLock;
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI timer;
     [SerializeField] TextMeshProUGUI levelName;
@@ -19,21 +21,39 @@ public class CardWorld : MonoBehaviour
     public void ChangeInformation(Sprite levelImage, float timerSave, string name, string numberLevel, int star,int indexScene, bool isUnlock)
     {
         index = indexScene;
-        image.sprite = levelImage;
-        timer.text = Timer.FormatTime(timerSave);
         levelName.text = name;
-        levelNumber.text = numberLevel;
-        starPlayer.text = star.ToString() + " / 5";
+        levelNumber.text = "";
+
         unlock = isUnlock;
         if (!isUnlock)
         {
-            image.color = Color.black;
+            image.sprite = levelImage;
+            image.color = colorImageLock;
+            timer.text = "";
+            starPlayer.text = "";
+        }
+        else
+        {
+            
+            image.sprite = levelImage;
+            timer.text = Timer.FormatTime(timerSave);
+            
+            
+            starPlayer.text = star.ToString() + " / 5";
         }
     }
 
     public void ClickButton()
     {
         if (unlock)
+        {
             LevelLoader.Instance.LoadLevel(index);
+        }
+        else
+        {
+            AudioManager.instance.playSoundEffect(5, 1);
+            //Debug.Log("je suis bloquer");
+            Debug.Log("Ajouter anim bloquer");
+        }
     }
 }
