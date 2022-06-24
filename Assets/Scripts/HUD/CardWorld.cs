@@ -51,7 +51,7 @@ public class CardWorld : MonoBehaviour
         }
         else
         {
-            AudioManager.instance.playSoundEffect(0, 1);
+            AudioManager.instance.playSoundEffect(5, 1);
             //Debug.Log("je suis bloquer");
             Debug.Log("Ajouter anim bloquer");
         }

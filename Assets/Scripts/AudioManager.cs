@@ -43,9 +43,11 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Salut");
-        SetGeneralVolume(Settings.VolumeGeneral);
-        ChangeVolumeSoundEFFect(Settings.VolumeSFX);
-        ChangeVolumeMusic(Settings.VolumeMusic);
+         SetGeneralVolume(Settings.VolumeGeneral);
+         ChangeVolumeSoundEFFect(Settings.VolumeSFX);
+         ChangeVolumeMusic(Settings.VolumeMusic);
+
+     
 
         switch (SceneManager.GetActiveScene().buildIndex)
         {
@@ -81,8 +83,9 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(audioSourceMusic.isPlaying + "il est entrain de jouer");
-        if(startStopMusic)
+        UpdateVolume();
+      //  Debug.Log(audioSourceMusic.isPlaying + "il est entrain de jouer");
+        if (startStopMusic)
         {
             audioSourceMusic.volume -= Time.deltaTime;
             if(audioSourceMusic.volume <= 0)
@@ -126,19 +129,62 @@ public class AudioManager : MonoBehaviour
 
     public void UpdateVolume()
     {
-        audioSourceSoundEffect.volume *= generalVolume;
+
+        Debug.Log("yoooo j ai un col de " + generalVolume);
+        float t = 0;
+        if (generalVolume != 0)
+        {
+             t = generalVolume / 0.8f;
+            audioMixer.SetFloat("VolumeMaster", Mathf.Lerp(-40, 0, t));
+        }
+        else
+        {
+            audioMixer.SetFloat("VolumeMaster", -80);
+        }
+        
+      //  audioMixer.SetFloat("VolumeSoundEffect", generalVolume);
+      //  audioMixer.SetFloat("VolumeMusic", generalVolume);
+       // audioMixer.SetFloat("VolumeSFX3D", generalVolume);
+
+
+        //  Debug.Log(audioMixer.);
+       /* audioSourceSoundEffect.volume *= generalVolume;
         audioSourceSfx3D.volume *= generalVolume;
-        audioSourceMusic.volume *= generalVolume;
+        audioSourceMusic.volume *= generalVolume;*/
     }
     public void ChangeVolumeSoundEFFect(float volume)
     {
-        audioSourceSoundEffect.volume  = volume * generalVolume;
-        audioSourceSfx3D.volume = volume * generalVolume;
+        float t = 0;
+        if (volume != 0)
+        {
+            t = volume / 0.8f;
+            audioMixer.SetFloat("VolumeSoundEffect", Mathf.Lerp(-40, 0, t));
+            audioMixer.SetFloat("VolumeSFX3D", Mathf.Lerp(-40, 0, t));
+        }
+        else
+        {
+            audioMixer.SetFloat("VolumeSoundEffect", -80);
+            audioMixer.SetFloat("VolumeSFX3D", -80);
+        }
+       
+      /*  audioSourceSoundEffect.volume  = volume * generalVolume;
+        audioSourceSfx3D.volume = volume * generalVolume;*/
 
     }
     public void ChangeVolumeMusic(float volume)
     {
-        audioSourceMusic.volume = volume * generalVolume;
+        float t = 0;
+        if (volume != 0)
+        {
+            t = volume / 0.8f;
+            audioMixer.SetFloat("VolumeMusic", Mathf.Lerp(-40, 0, t));
+        }
+        else
+        {
+            audioMixer.SetFloat("VolumeMusic", -80);
+        }
+        //audioSourceMusic.volume = volume * generalVolume;
+        
 
     }
     public void PlayMusic(int index)
@@ -181,7 +227,7 @@ public class AudioManager : MonoBehaviour
     }
     public void playSoundEffect(int index, float volumeScale)
     {
-     //   Debug.Log("je lance le son de l'index:" + index);
+        Debug.Log("je lance le son de l'index:" + index);
         audioSourceSoundEffect.PlayOneShot(soundEffects[index], volumeScale);
     }
     public void playSoundEffect3D(int index, Vector3 position, float volumeScale)
