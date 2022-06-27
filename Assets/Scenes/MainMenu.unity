@@ -2167,6 +2167,70 @@ MonoBehaviour:
   Behaviours:
     Behaviours:
     - Enabled: 1
+      EventName: PointerEnter
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 0
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Enter
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 65586652}
+    - Enabled: 1
+      EventName: PointerExit
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundRemoveIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 1
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Exit
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 65586652}
+    - Enabled: 1
       EventName: PointerClick
       Runners: []
       Event:
@@ -2201,6 +2265,18 @@ MonoBehaviour:
             m_TargetAssemblyTypeName: Doozy.Runtime.UIManager.Containers.UIContainer,
               DoozyRuntime
             m_MethodName: Show
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnClick
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -2338,7 +2414,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2101343815}
   m_HandleRect: {fileID: 2101343814}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3092,6 +3168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 382558432}
   - component: {fileID: 382558431}
+  - component: {fileID: 382558433}
   m_Layer: 5
   m_Name: HUD_MainMenu
   m_TagString: Untagged
@@ -3140,6 +3217,18 @@ Transform:
   m_Father: {fileID: 259719104}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &382558433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382558430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6049af1b5aab1ce4e89a8cc18f6b6193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &382566456
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,6 +5270,70 @@ MonoBehaviour:
   Behaviours:
     Behaviours:
     - Enabled: 1
+      EventName: PointerEnter
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 0
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Enter
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 382566466}
+    - Enabled: 1
+      EventName: PointerExit
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundRemoveIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 1
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Exit
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 382566466}
+    - Enabled: 1
       EventName: PointerClick
       Runners: []
       Event:
@@ -5227,6 +5380,18 @@ MonoBehaviour:
           - m_Target: {fileID: 382558431}
             m_TargetAssemblyTypeName: HUD_MainMenu, Assembly-CSharp
             m_MethodName: CliclPlay
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnClick
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -8137,6 +8302,70 @@ MonoBehaviour:
   Behaviours:
     Behaviours:
     - Enabled: 1
+      EventName: PointerEnter
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 0
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Enter
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 893469681}
+    - Enabled: 1
+      EventName: PointerExit
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundRemoveIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 1
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Exit
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 893469681}
+    - Enabled: 1
       EventName: PointerClick
       Runners: []
       Event:
@@ -8146,6 +8375,18 @@ MonoBehaviour:
             m_TargetAssemblyTypeName: Doozy.Runtime.UIManager.Containers.UIContainer,
               DoozyRuntime
             m_MethodName: Show
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnClick
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -10465,6 +10706,70 @@ MonoBehaviour:
   Behaviours:
     Behaviours:
     - Enabled: 1
+      EventName: PointerEnter
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 0
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Enter
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 1210120114}
+    - Enabled: 1
+      EventName: PointerExit
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundRemoveIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 1
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Exit
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 1210120114}
+    - Enabled: 1
       EventName: PointerClick
       Runners: []
       Event:
@@ -10473,6 +10778,18 @@ MonoBehaviour:
           - m_Target: {fileID: 382558431}
             m_TargetAssemblyTypeName: HUD_MainMenu, Assembly-CSharp
             m_MethodName: QuitGame
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnClick
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -14184,6 +14501,70 @@ MonoBehaviour:
   Behaviours:
     Behaviours:
     - Enabled: 1
+      EventName: PointerEnter
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 0
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Enter
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 1852833453}
+    - Enabled: 1
+      EventName: PointerExit
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundRemoveIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 1
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Exit
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 1852833453}
+    - Enabled: 1
       EventName: PointerClick
       Runners: []
       Event:
@@ -14218,6 +14599,18 @@ MonoBehaviour:
             m_TargetAssemblyTypeName: Doozy.Runtime.UIManager.Containers.UIContainer,
               DoozyRuntime
             m_MethodName: Show
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 382558433}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnClick
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -14631,7 +15024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: -380, y: -112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2089019983
@@ -15371,7 +15764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3062472456981040062, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 153.19
+      value: 131.89
       objectReference: {fileID: 0}
     - target: {fileID: 3062472456981040062, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_SizeDelta.y
@@ -15395,7 +15788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3109231427847155347, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 33.81
+      value: 32.27
       objectReference: {fileID: 0}
     - target: {fileID: 3109231427847155347, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_SizeDelta.y
@@ -15419,7 +15812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3127852587388010749, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 135.5
+      value: 145.56
       objectReference: {fileID: 0}
     - target: {fileID: 3127852587388010749, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_SizeDelta.y
@@ -16223,7 +16616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605404105998878300, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 30.8
+      value: 47.82
       objectReference: {fileID: 0}
     - target: {fileID: 7605404105998878300, guid: 3073393ee9192264eb9c3b9e2f22bdbe, type: 3}
       propertyPath: m_SizeDelta.y

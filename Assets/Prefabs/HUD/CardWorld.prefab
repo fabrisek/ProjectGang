@@ -462,6 +462,7 @@ GameObject:
   - component: {fileID: 2198890758229606516}
   - component: {fileID: 8616737559273595266}
   - component: {fileID: 5560860911725257456}
+  - component: {fileID: 7470113829941006832}
   m_Layer: 5
   m_Name: CardWorld
   m_TagString: Untagged
@@ -608,6 +609,70 @@ MonoBehaviour:
           m_Calls: []
   Behaviours:
     Behaviours:
+    - Enabled: 1
+      EventName: PointerEnter
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 7470113829941006832}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundOnIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 0
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Enter
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 6045556922698549305}
+    - Enabled: 1
+      EventName: PointerExit
+      Runners: []
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 7470113829941006832}
+            m_TargetAssemblyTypeName: ByPass.PlayBoutonUI, Assembly-CSharp
+            m_MethodName: PlaySoundRemoveIt
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      BehaviourName: 1
+      Receiver:
+        ConnectionMode: 1
+        SignalProviderId:
+          Type: 0
+          Category: Pointer
+          Name: Exit
+        ProviderReference: {fileID: 0}
+        StreamId:
+          Category: None
+          Name: None
+          Custom: 0
+      Cooldown: 0
+      Selectable: {fileID: 6045556922698549305}
     - Enabled: 1
       EventName: PointerClick
       Runners: []
@@ -2532,6 +2597,18 @@ MonoBehaviour:
       ToCustomValue: 0
       FromOffset: 0
       ToOffset: 0.4
+--- !u!114 &7470113829941006832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4528781807198034119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6049af1b5aab1ce4e89a8cc18f6b6193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4561800485723545756
 GameObject:
   m_ObjectHideFlags: 0
