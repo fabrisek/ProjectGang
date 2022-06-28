@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class TransitionScript : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class TransitionScript : MonoBehaviour
     [SerializeField] Color color;
     [SerializeField] float speed;
     [SerializeField] GameObject canvas;
+    [SerializeField] GameObject canvasVideo;
+    [SerializeField] VideoPlayer videoPlayer;
 
     float t;
 
@@ -22,6 +25,7 @@ public class TransitionScript : MonoBehaviour
     bool coroutineStart;
 
     bool justFadeOut;
+    bool firstTime;
     private void Awake()
     {
 
@@ -37,7 +41,10 @@ public class TransitionScript : MonoBehaviour
             t = 0;
             speed = 0.5f;
             canvas.SetActive(true);
-            justFadeOut = true;
+            canvasVideo.SetActive(true);
+           
+            firstTime = true;
+           
         }
  
     }
@@ -67,12 +74,22 @@ public class TransitionScript : MonoBehaviour
 
     private void Start()
     {
-       
+        videoPlayer.Play();
+        Debug.Log(videoPlayer.isPlaying);
 
     }
 
     private void Update()
     {
+        if(firstTime)
+        {
+            if(!videoPlayer.isPlaying)
+            {
+                firstTime = false;
+                canvasVideo.SetActive(false);
+                justFadeOut = true;
+            }
+        }
         if(justFadeOut && !startFade)
         {
            
