@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8611453725968462729}
   - component: {fileID: 3925465926306296428}
   - component: {fileID: 8707266862926542529}
-  m_Layer: 0
+  - component: {fileID: 1854423223574622522}
+  m_Layer: 4
   m_Name: CyberBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1854423223574622522
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490802775220317113}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3827615250064064139, guid: b06276f6336857d4eb64017e387119a0, type: 3}
 --- !u!1 &944237629114594090
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +109,8 @@ GameObject:
   - component: {fileID: 4722156691439974537}
   - component: {fileID: 2908468979535979725}
   - component: {fileID: 2594467148068577993}
-  m_Layer: 0
+  - component: {fileID: 8741727674252032463}
+  m_Layer: 4
   m_Name: neon012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +182,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8741727674252032463
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944237629114594090}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2261392451728264511, guid: b06276f6336857d4eb64017e387119a0, type: 3}
 --- !u!1 &1273923293546961761
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +207,8 @@ GameObject:
   - component: {fileID: 8019447035365707239}
   - component: {fileID: 2320176968351860089}
   - component: {fileID: 700482539137158955}
-  m_Layer: 0
+  - component: {fileID: 5152268745288818718}
+  m_Layer: 4
   m_Name: neon014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,6 +280,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5152268745288818718
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273923293546961761}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7918679641908130240, guid: b06276f6336857d4eb64017e387119a0, type: 3}
 --- !u!1 &2001225574257668359
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +305,8 @@ GameObject:
   - component: {fileID: 6256953922630556374}
   - component: {fileID: 8335187194056411275}
   - component: {fileID: 6936528022409892633}
-  m_Layer: 0
+  - component: {fileID: 5740065474040035754}
+  m_Layer: 4
   m_Name: Cyberchimneys
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,6 +378,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5740065474040035754
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001225574257668359}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8267022743602533001, guid: b06276f6336857d4eb64017e387119a0, type: 3}
 --- !u!1 &4505851100804917326
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +403,8 @@ GameObject:
   - component: {fileID: 388488074034521259}
   - component: {fileID: 4350066576758113504}
   - component: {fileID: 1227861337108472859}
-  m_Layer: 0
+  - component: {fileID: 3482115396523470538}
+  m_Layer: 4
   m_Name: CyberParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,6 +476,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3482115396523470538
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505851100804917326}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5041619956353925976, guid: b06276f6336857d4eb64017e387119a0, type: 3}
 --- !u!1 &5243670156742336952
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +501,8 @@ GameObject:
   - component: {fileID: 7964594323433587884}
   - component: {fileID: 1117038908390497025}
   - component: {fileID: 8876077551871396097}
-  m_Layer: 0
+  - component: {fileID: 8606677264474414536}
+  m_Layer: 4
   m_Name: CyberAngar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,6 +574,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8606677264474414536
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243670156742336952}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7028197891988596876, guid: b06276f6336857d4eb64017e387119a0, type: 3}
 --- !u!1 &5753945667547277655
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +637,8 @@ GameObject:
   - component: {fileID: 57536783820662904}
   - component: {fileID: 6497255840586345934}
   - component: {fileID: 8345305591985912952}
-  m_Layer: 0
+  - component: {fileID: 3253705512435828220}
+  m_Layer: 4
   m_Name: neon013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,6 +710,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3253705512435828220
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6322562505687718614}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 531628574747988086, guid: b06276f6336857d4eb64017e387119a0, type: 3}
 --- !u!1 &6988320589590488824
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +770,8 @@ GameObject:
   - component: {fileID: 4330364594091391020}
   - component: {fileID: 7367467214005992490}
   - component: {fileID: 7444567091507654331}
-  m_Layer: 0
+  - component: {fileID: 7909194778726481924}
+  m_Layer: 4
   m_Name: CyberHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,6 +843,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7909194778726481924
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364258629058033447}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4349623610761692666, guid: b06276f6336857d4eb64017e387119a0, type: 3}
 --- !u!1 &8148994219635389400
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +868,8 @@ GameObject:
   - component: {fileID: 4792857906120549470}
   - component: {fileID: 2334911818949497265}
   - component: {fileID: 7799814784340724043}
-  m_Layer: 0
+  - component: {fileID: 1695399352070772945}
+  m_Layer: 4
   m_Name: CyberDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,6 +941,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1695399352070772945
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8148994219635389400}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3739943931130367478, guid: b06276f6336857d4eb64017e387119a0, type: 3}
 --- !u!1 &8166843236450166669
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +966,8 @@ GameObject:
   - component: {fileID: 2086125678375413818}
   - component: {fileID: 2062451172140548786}
   - component: {fileID: 735775119002394034}
-  m_Layer: 0
+  - component: {fileID: 6357674695089245305}
+  m_Layer: 4
   m_Name: CyberBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,3 +1039,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6357674695089245305
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166843236450166669}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3599693365451739121, guid: b06276f6336857d4eb64017e387119a0, type: 3}

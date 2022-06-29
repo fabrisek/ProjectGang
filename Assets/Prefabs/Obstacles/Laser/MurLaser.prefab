@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchAnimTriggerName: LaunchAnim
-  distanceToLaunch: 80
+  distanceToLaunch: 50
   position: {fileID: 785313177007023337}
 --- !u!114 &1075278326940213987
 MonoBehaviour:
@@ -2050,6 +2050,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3044707885580043234}
     m_Modifications:
+    - target: {fileID: 368862612169754092, guid: 62f2c34847c7afc479863f8a8d37e522, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5580456019320801682, guid: 62f2c34847c7afc479863f8a8d37e522, type: 3}
       propertyPath: m_RootOrder
       value: 0

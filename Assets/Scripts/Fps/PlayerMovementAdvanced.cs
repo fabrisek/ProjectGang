@@ -362,9 +362,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
             }
             
         }
-        if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.1f && walkSpeed > resetWalkSpeed)
+        if(new Vector2(verticalInput, horizontalInput).magnitude <= 0.2f && walkSpeed > resetWalkSpeed)
         {
-            walkSpeed -= resetWalkSpeed/30*Time.deltaTime;
+            walkSpeed -= resetWalkSpeed/2*Time.deltaTime;
             accelerationTimer = accelerationTimeReset;
         }
     }

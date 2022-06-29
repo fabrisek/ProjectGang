@@ -9,12 +9,11 @@ public class ChangeColorWall : MonoBehaviour
     public float time;
     bool goingForward;
     public bool isCycling;
-    Material myMaterial;
+    public Material myMaterial;
 
     private void Awake()
     {
         goingForward = true;
-        myMaterial = GetComponent<Renderer>().material;
     }
 
     private void Update()

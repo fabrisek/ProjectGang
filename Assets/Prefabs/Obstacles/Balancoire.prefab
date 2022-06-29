@@ -434,7 +434,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4274006814590556453}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 114b251425720ec4f8b87fea92c46562, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -10866,6 +10866,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 48f13326c19e70f42a6e4988f5ea8eb9, type: 2}
+    - target: {fileID: -3310057701283978934, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0618804
+      objectReference: {fileID: 0}
+    - target: {fileID: -3310057701283978934, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8247663
+      objectReference: {fileID: 0}
+    - target: {fileID: -3310057701283978934, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7426759
+      objectReference: {fileID: 0}
+    - target: {fileID: -3310057701283978934, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.0793836
+      objectReference: {fileID: 0}
     - target: {fileID: 19847315646279287, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -10948,7 +10964,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813422587722229535}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c0284a67ca7d4284581670ed6f79ed7c, type: 3}
@@ -11049,7 +11065,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842625120429521122}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe4a4e0d48307d64b874bf20f3039d08, type: 3}
@@ -11154,20 +11170,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9290574, y: 1.3699933, z: 0.8633872}
-  m_Center: {x: -0.0114160925, y: -0.01565354, z: 2.3604136}
---- !u!114 &8563248889008604770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3722491799199263881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 433ec29db84d1ec4ca25ca74a1cd6a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 1.9138157, y: 1.3699933, z: 0.46045455}
+  m_Center: {x: -0.0138442265, y: -0.015653552, z: 2.1130273}
 --- !u!82 &5743370826802126354
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11175,7 +11179,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3722491799199263881}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe4a4e0d48307d64b874bf20f3039d08, type: 3}
@@ -11264,6 +11268,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8563248889008604770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722491799199263881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433ec29db84d1ec4ca25ca74a1cd6a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4099157731227989555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6b19863376d3e247aa7a0f3741483a5, type: 3}
@@ -11281,7 +11297,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5389636801221728515}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c0284a67ca7d4284581670ed6f79ed7c, type: 3}
