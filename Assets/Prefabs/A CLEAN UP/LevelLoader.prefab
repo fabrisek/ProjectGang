@@ -774,6 +774,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7894898865049976491}
     m_Modifications:
+    - target: {fileID: 2107298143611928634, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Color.a
+      value: 0.105882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107298143611928634, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107298143611928634, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107298143611928634, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.25490198
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107298143611928634, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107298143611928634, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: ef66180803380534ca0825510ead5022, type: 3}
+    - target: {fileID: 2295949673175081860, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3423785043980946203, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -870,8 +898,96 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3423785044642818017, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423785044642818017, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423785044642818017, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423785044642818017, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: c73ea31b4ae7ab848b11903e45e532a5, type: 2}
+    - target: {fileID: 3423785044642818030, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423785044642818030, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_SkipOnDrop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423785044642818030, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423785044642818030, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_PlaybackSpeed
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423785044642818030, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_WaitForFirstFrame
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3423785045806295727, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_Looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 21c16c5f26cecf048ac821fb55d24b2d, type: 3}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_AspectRatio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_PlaybackSpeed
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645152228740174937, guid: 8144cec1e2b9854419c469330b9ae8e6, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
