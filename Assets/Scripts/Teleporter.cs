@@ -34,6 +34,7 @@ public class Teleporter : MonoBehaviour
                 Rumbler.instance.RumbleConstant(0.5f, 1.5f, 2f);
 
             }
+            rb.velocity = new Vector3(rb.velocity.x,0,rb.velocity.z);
         }
     }
 }

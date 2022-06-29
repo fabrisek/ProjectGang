@@ -15,6 +15,7 @@ public class CanonController : MonoBehaviour
     void Start()
     {
         timerShootReset = timerShoot;
+        timerShoot = Random.Range(0, 50) / 50;
     }
 
     // Update is called once per frame
@@ -23,16 +24,17 @@ public class CanonController : MonoBehaviour
         timerShoot -= Time.deltaTime;
         if(timerShoot<0)
         {
-            timerShoot = timerShootReset;
+            timerShoot = Random.Range(20, 50) / 50;
         //    Shoot();
         }
+        transform.forward = PlayerMovementAdvanced.Instance.gameObject.transform.position - transform.position;
     }
 
     public void Shoot()
     {
         GameObject fourmis1 = Instantiate(fourmis,ShootDirection.position, Quaternion.identity);
         fourmis.transform.position = ShootDirection.transform.position;
-        fourmis1.GetComponent<Rigidbody>().AddForce(Random.Range(explosionForce/2f,explosionForce*2f) * ShootDirection.forward, ForceMode.Impulse);
+        fourmis1.GetComponent<Rigidbody>().AddForce(Random.Range(explosionForce,explosionForce*2f) * ShootDirection.forward, ForceMode.Impulse);
 
         fourmis1.GetComponent<Rigidbody>().freezeRotation = false;
        
