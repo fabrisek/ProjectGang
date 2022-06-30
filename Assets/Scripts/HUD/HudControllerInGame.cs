@@ -82,6 +82,7 @@ public class HudControllerInGame : MonoBehaviour
     {
         InitLetterAnim();
         SetShowFps(Settings.ShowFps);
+        eventSystem.SetSelectedGameObject(null);
     }
 
     private void Update()
@@ -150,6 +151,7 @@ public class HudControllerInGame : MonoBehaviour
     {
         InMenu = false;
         _pausePanel.Hide();
+        eventSystem.SetSelectedGameObject(null);
     }
 
     public void RestartLevel()
