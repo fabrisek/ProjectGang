@@ -130,7 +130,6 @@ public class AudioManager : MonoBehaviour
     public void UpdateVolume()
     {
 
-        Debug.Log("yoooo j ai un col de " + generalVolume);
         float t = 0;
         if (generalVolume != 0)
         {

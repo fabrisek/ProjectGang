@@ -99,12 +99,18 @@ public class KeyBindUi : MonoBehaviour
 
     public void DoRebind()
     {
-        InputManager.StartRebind(_actionName, _bindingIndex, _rebindText, _excludeMouse);
+        if(HudControllerInGame.Instance.InMenu)
+        {
+            InputManager.StartRebind(_actionName, _bindingIndex, _rebindText, _excludeMouse);
+        }
     }
 
     public void ResetBinding()
     {
-        InputManager.ResetBinding(_actionName, _bindingIndex);
-        UpdateUI();
+        if (HudControllerInGame.Instance.InMenu)
+        {
+            InputManager.ResetBinding(_actionName, _bindingIndex);
+            UpdateUI();
+        }
     }
 }
