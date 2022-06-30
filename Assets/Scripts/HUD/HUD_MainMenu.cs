@@ -17,6 +17,7 @@ public enum StateMainMenu
 public class HUD_MainMenu : MonoBehaviour
 {
     public static HUD_MainMenu Instance;
+    [SerializeField] GameObject canvasMenu;
     [SerializeField] UIContainer _mainMenu;
     [SerializeField] UIContainer _settings;
     [SerializeField] GameObject _settingsPanel;
@@ -33,7 +34,10 @@ public class HUD_MainMenu : MonoBehaviour
     [SerializeField] GameObject CardWorldPrefab;
     [SerializeField] TextMeshProUGUI worldName;
     [SerializeField] TextMeshProUGUI starText;
-
+    public void CloseCanavs()
+    {
+        canvasMenu.SetActive(false);
+    }
 
     public StateMainMenu State { get; set; }
 

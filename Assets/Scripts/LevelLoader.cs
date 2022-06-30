@@ -70,6 +70,9 @@ public class LevelLoader : MonoBehaviour
     {
         if (Data_Manager.Instance != null)
             Data_Manager.AlreadyInGame = true;
+
+        if (HUD_MainMenu.Instance != null)
+            HUD_MainMenu.Instance.CloseCanavs();
         //AudioManager.instance.StopMusic();
         //Debug.Log("yo");
         LoadSave.sceneToLoad = sceneIndex;
@@ -88,7 +91,7 @@ public class LevelLoader : MonoBehaviour
             if (TransitionScript.Instance != null)
             {
 
-                TransitionScript.Instance.Fade(0.5f);
+                TransitionScript.Instance.Fade(1f);
             }
             ShowLoadingCanvas(sceneIndex);
             if (canLoad)
@@ -181,6 +184,8 @@ public class LevelLoader : MonoBehaviour
 
     void ShowLoadingCanvas (int sceneIndex)
     {
+        if (HUD_MainMenu.Instance != null)
+            HUD_MainMenu.Instance.CloseCanavs();
         Canavas.SetActive(true);
         slider.value = 0;
         slider.maxValue = tempsLoading;
