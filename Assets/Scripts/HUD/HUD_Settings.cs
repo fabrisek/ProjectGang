@@ -85,47 +85,56 @@ public class HUD_Settings : MonoBehaviour
 
     public void SetCameraShake()
     {
-        Settings.ChangeUseCameraShake(_toggleCameraShake.isOn);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeUseCameraShake(_toggleCameraShake.isOn);
     }
 
     public void SetCameraClamp()
     {
-        Settings.ChangeUseCameraClamp(_toggleCameraClamp.isOn);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeUseCameraClamp(_toggleCameraClamp.isOn);
     }
 
     public void SetShowFps()
     {
-        Settings.ChangeShowFps(_toggleShowFps.isOn);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeShowFps(_toggleShowFps.isOn);
     }
 
     public void SetVSync()
     {
-        Settings.ChangeVSync(_toggleVSync.isOn);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeVSync(_toggleVSync.isOn);
     }
 
     public void SetFpsTarget()
     {
-        Settings.ChangeFpsTarget(_dropDownFpsTarget.value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeFpsTarget(_dropDownFpsTarget.value);
     }
 
     public void SetQuality()
     {
-        Settings.ChangeQuality(_dropDownQuality.value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeQuality(_dropDownQuality.value);
     }
 
     public void SetAntiAliasing()
     {
-        Settings.ChangeAntiAliasing(_antiAliasingDropDown.value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeAntiAliasing(_antiAliasingDropDown.value);
     }
 
     public void SetScreenMode()
     {
-        Settings.ChangeScreenMode(_dropDownScreenMode.value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeScreenMode(_dropDownScreenMode.value);
     }
 
     public void SetResolution()
     {
-        Settings.ChangeResolution(_resolutionDropDown.value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeResolution(_resolutionDropDown.value);
     }
 
     void AddResolution(Resolution[] res)
@@ -194,17 +203,20 @@ public class HUD_Settings : MonoBehaviour
     //Slider Audio General
     public void ChangeAudioGeneral(float value)
     {
-        Settings.ChangeVolumeGeneral(value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeVolumeGeneral(value);
     }
     //Slider Volume Music
     public void ChangeAudioMusic(float value)
     {
-        Settings.ChangeVolumeMusic(value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeVolumeMusic(value);
     }
 
     public void ChangeAudioSFX(float value)
     {
-        Settings.ChangeVolumeSFX(value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeVolumeSFX(value);
     }
     #endregion
 
@@ -226,8 +238,8 @@ public class HUD_Settings : MonoBehaviour
 
     public void ChangeValueSensibilityMouse()
     {
-        Settings.ChangeValueSensibilityMouse(_sliderSensibilityMouse.value);
-        Debug.Log(_sliderSensibilityMouse.value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeValueSensibilityMouse(_sliderSensibilityMouse.value);
     }
 
     #endregion
@@ -244,12 +256,14 @@ public class HUD_Settings : MonoBehaviour
 
     public void SetRumbler()
     {
-        Settings.ChangeUseRumbler(_toggleRumbler.isOn);
+        if(HudControllerInGame.Instance.InMenu)
+            Settings.ChangeUseRumbler(_toggleRumbler.isOn);
     }
 
     public void ChangeValueSensibilityGamePad()
     {
-        Settings.ChangeValueSensibilityGamePad(_sliderSensibilityGamePad.value);
+        if (HudControllerInGame.Instance.InMenu)
+            Settings.ChangeValueSensibilityGamePad(_sliderSensibilityGamePad.value);
     }
 
     void InitializeGamePadPanel()
