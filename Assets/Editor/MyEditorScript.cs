@@ -12,12 +12,12 @@ class MyEditorScript {
         static string[] SCENES = FindEnabledEditorScenes();
 
         static string APP_NAME = "YourProject";
-        static string TARGET_DIR = "target";
+        static string TARGET_DIR = "test";
 
         [MenuItem ("Custom/CI/Build Mac OS X")]
         static void PerformMacOSXBuild ()
         {
-                 string target_dir = APP_NAME + ".app";
+                 string target_dir = APP_NAME + ".exe";
                  GenericBuild(SCENES, TARGET_DIR + "/" + target_dir, BuildTarget.StandaloneWindows, BuildOptions.None);
         }
 
