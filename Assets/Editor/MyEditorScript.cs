@@ -32,7 +32,7 @@ class MyEditorScript {
 
         static void GenericBuild(string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
         {
-                EditorUserBuildSettings.SwitchActiveBuildTarget(build_target);
+                EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows);
                 BuildPipeline.BuildPlayer(scenes,target_dir,build_target,build_options);
         }
 }
