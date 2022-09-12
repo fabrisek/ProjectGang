@@ -1,3 +1,6 @@
+using UnityEditor;
+using System.Diagnostics;
+
 class MyEditorScript {
         static string[] SCENES = FindEnabledEditorScenes();
 
