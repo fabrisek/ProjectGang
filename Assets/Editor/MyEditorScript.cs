@@ -1,5 +1,13 @@
+using UnityEngine;
 using UnityEditor;
-using System.Diagnostics;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.IO.Compression;
+using Ionic.Zip;
 
 class MyEditorScript {
         static string[] SCENES = FindEnabledEditorScenes();
